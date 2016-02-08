@@ -1,0 +1,10 @@
+<?php
+Moe::routes(array(
+	"/"=>"person@index",
+	"edit"=>"person@edit",
+	"update"=>"person@update",
+	"insert"=>"person@insert",
+	"aggregate"=>"person@aggregate",
+	"delete"=>"person@delete"
+	));
+?>
