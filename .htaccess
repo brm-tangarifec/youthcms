@@ -1,0 +1,20 @@
+Options +FollowSymLinks
+RewriteEngine on
+
+##Ruta base
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+# Rescritura public
+RewriteRule ^js/(.*) public/js/$1 [L,NC,QSA]
+RewriteRule ^css/(.*) public/css/$1 [L,NC,QSA]
+RewriteRule ^images/(.*) public/images/$1 [L,NC,QSA]
+RewriteRule ^fonts/(.*) public/fonts/$1 [L,NC,QSA]
+
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^(.*) moe/redirect.php?url=$1 [L,QSA]
+RewriteCond %{REQUEST_URI} !public/ [NC]
+RewriteCond %{REQUEST_URI} !moe/reveal/public/ [NC]
+RewriteRule ^ moe/redirect.php?url=/ [L,NC,QSA]

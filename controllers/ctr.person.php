@@ -31,14 +31,14 @@ class Person
 		$person->document = $get['document'];
 		$person->email = $get['email'];
 		$person->updateInstancia($idPerson);
-		redirect("/mvc/");
+		redirect("/youth/");
 	}
 
 	function delete($get){
 		$person = model("Person");
 		$idPerson=$get['var1'];
 		$person->unSetInstancia($idPerson);
-		redirect("/mvc/");
+		redirect("/youth/");
 	}
 
 	function insert(){
@@ -51,6 +51,6 @@ class Person
 		$person->document = $get['document'];
 		$person->email = $get['email'];
 		$person->setInstancia();
-		redirect("/mvc/");
+		redirect("/youth/");
 	}
 }

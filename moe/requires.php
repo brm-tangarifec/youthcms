@@ -1,8 +1,6 @@
 <?php
-
-@ini_set("display_errors","1");
-@error_reporting(E_ALL);
-
+//ini_set('display_errors',0);
+//error_reporting(0);
 include "moe.php";
 
 include "../resources/config.php";
@@ -18,7 +16,6 @@ if (isset(Moe::$config['DEBUG_PHP']) && Moe::$config['DEBUG_PHP']==1) {
 }
 
 include "../resources/myQuerys.php";
-include "../resources/routes.php";
 // Si la clase MyQuerys no existe, se crea una nueva instancia
 if (!class_exists('MyQuerys')) {
     eval('
@@ -44,6 +41,7 @@ $include_path = ini_get("include_path");
 require_once("MDB2.php");
 require_once("DB/DataObject.php");
 
+
 /*---*/
 // Se incluye el motor de plantillas - Smarty
 require("Smarty/libs/Smarty.class.php");
@@ -56,6 +54,7 @@ foreach (glob("../controllers/*.php") as $filename){ loadClass($filename,"ctr.",
 // Se incluye los Models que el usuario crea.
 foreach (glob("../models/*.php") as $filename){ loadClass($filename,"md.",10);}
 
+include "../resources/routes.php";
 
 require_once 'DB/DataObject/Generator.php';
 

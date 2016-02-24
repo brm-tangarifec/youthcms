@@ -1,0 +1,85 @@
+{#include  file="taberna/header.html"#}
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+           
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">
+
+                <!-- Main content -->
+                <div class="col-xs-12">
+                            <div class="panel">
+                                <header class="panel-heading">
+                                    Secciones
+
+                                </header>
+                                <!--Lista Secciones-->
+                                <div class="panel-body table-responsive listaSecciones">
+                                    <div class="box-tools m-b-15">
+                                        <div class="input-group">
+                                            <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <form name="agregaSeccion" id="agregaSeccion" method="POST">
+                                    <table class="table table-hover">
+                                            <tr>
+                                               <th>NOMBRE</th>
+                                                <th>PADRE</th>
+                                                <th>PUBLICA</th>
+                                                <th>MASCARA URL</th>
+                                                <th>TITULO SEO</th>
+                                                <th>DESCRIPCIÓN SEO</th>
+                                                <th>FECHA INICIO</th>
+                                                <th>FECHA FIN</th>
+                                            </tr>
+                                                <td>
+                                                  <input class='limpiar' name="nombSec" id="nombSec" value=""/>
+                                                </td>
+                                                <td>
+                                                  <select name="idPadre" id="idPadre" class='limpiar'>
+                                                    <option name="idPadre" value="">RAIZ</option>
+                                                    {#foreach from=$padre item=papa#}
+                                                    <option name="idPadre" value="{#$papa.id#}">{#$papa.nombre#}</option>
+                                                    {#/foreach#}
+                                                  </select>
+                                                </td>
+                                                <td>
+                                                   
+                                                    <label>Si</label>
+                                                    <input type="radio" name="visible" id="visible" value="S" class='limpiar' >
+                                                    <label>No</label>
+                                                    <input type="radio" name="visible" id="visible" value="N" class='limpiar' >
+                                                  
+                                                </td>
+                                                <td>
+                                                  <input class='limpiar' name="mascUrl" id="mascUrl" value=""/>
+                                                </td>
+                                                <td>
+                                                  <input type="text" class="limpiar" name="titleSeo" id="titleSeo" value=""/>
+                                                </td>
+                                                <td>
+                                                  <input type="text" class="limpiar" name="descSeo" id="descSeo" value=""/>
+                                                </td>
+                                                <td>
+                                                  <input type="date" name="fechaIni" id="fechaIni" value="" class='limpiar'/>
+                                                </td>
+                                                <td>
+                                                  <input type="date" name="fechaFin" id="fechaFin" value="" class='limpiar'/>
+                                                </td>
+                                               
+                                                <td><span class="glyphicon glyphicon-ok agregaSec" data-seccion=""></span></td>
+                                            </tr>
+                                     </table>
+                                 </form>
+                                </div><!-- /.box-body -->
+                                <!--Fin de lista secciones-->
+                                <!--Edicion de secciones-->
+                                <div class="panel-body table-responsive edicion">
+                                </div>
+                                <!--Fin Edicion de secciones-->
+                            </div><!-- /.box -->
+                        </div>
+                    </div>
+                </section><!-- /.content -->
+        {#include  file="taberna/footer.html"#}
