@@ -1,5 +1,140 @@
 {#include  file="base/headerHome.html"#}
 <!--Carga titulo-->
 
+<!--Carga Contenido Slider Capsula-->
+<!--Slider PPAl-->
+	
+
+	{#foreach from=$multimedia item=descripcionCapsulaK key=pos#}
+		{#if $pos==1 #}
+		 <section class="container-fluid u-no-border slider-ppal">
+		  <div id="carrusel-ppal" data-ride="carousel" class="carousel slide">
+		    <!--wrapper -->
+		    <div role="listbox" class="carousel-inner">
+		      <!--item-->
+		      	{#foreach from=$descripcionCapsulaK item=descripcionCapsula#}
+		      	
+		      	 	{#if $descripcionCapsula['orden']=='1'#}
+		      			<div class="item active">
+		      		{#else#}
+		      			<div class="item">
+		      		{#/if#}
+		       		<div class="carousel-caption">
+		       	   	{#$descripcionCapsula['descipcion']#}
+		       		</div>
+		     		 </div>
+		     	 {#/foreach#}
+		      
+		    </div>
+		    <!--Controls--><a href="#carrusel-ppal" role="button" data-slide="prev" class="left carousel-control"><span aria-hidden="true" class="icon icon-circle-left"></span><span class="sr-only">Prev</span></a><a href="#carrusel-ppal" role="button" data-slide="next" class="right carousel-control"><span aria-hidden="true" class="icon icon-circle-right"></span><span class="sr-only">Next</span></a>
+		  </div>
+		</section>
+		{#/if#}
+		{#if $pos==2 #}
+			 <!--/-Slider PPAl-->
+			 	<section class="container-fluid">
+			    <!--slider destacados-->
+			    <article class="row">
+			      <div class="col-lg-12">
+			        <div class="slider-destacado">
+			 	{#foreach from=$descripcionCapsulaK item=GeleriaC#}
+			          <div class="slide">
+			            <figure><a href="#"><img src="{#$GeleriaC['url']#}" alt="Destacado" title="Destacado" class="img-responsive"></a></figure>
+			            {#$GeleriaC['descipcion']|utf8_encode#}
+			          </div>
+			          
+		     	{#/foreach#}
+			        </div>
+			      </div>
+			    </article>
+			
+	    	<!--/-slider destacados-->
+			 <!--datos youth-->
+   			<article class="row objetivos">
+   			  <h2 class="text-center">Nuestro compromiso en Colombia 2015 - 2018</h2>
+   			  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+   			    <h3 class="naranja-text">500</h3>
+   			    <p>oportunidades de empleo</p>
+   			  </div>
+   			  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+   			    <h3 class="magenta-text">2.100</h3>
+   			    <p>capacitaciones a jóvenes</p>
+   			  </div>
+   			  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+   			    <h3 class="verde-text">97.000</h3>
+   			    <p>orientaciones vocacionales</p>
+   			  </div>
+   			  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+   			    <h3 class="purpura-text">500</h3>
+   			    <p>nuevas plazas para estudiantes</p>
+   			  </div>
+   			</article>
+   			<!--/-datos youth-->
+   			</section>
+			  
+		{#/if#}
+		{#if $pos==3#}
+
+			 <!--video contenedor-->
+
+ 				 <section class="container-fluid video-iniciativa mask-arrow">
+ 					<h2 class="text-center">¿En qué consiste esta iniciativa?</h2>
+ 				 	<article class="row">
+ 				 		 {#foreach from=$descripcionCapsulaK item=videoH#}
+		 				   		<div class="col-lg-12">
+		 				     		<div class="embed-responsive embed-responsive-16by9">
+		 				       			<iframe src="https://www.youtube.com/embed/{#$videoH['url']#}" frameborder="0" class="embed-responsive-item"></iframe>
+		 				     		</div>
+		 				     		{#$videoH['descipcion']#}
+						 {#/foreach#}
+ 				   </div>
+ 				 </article>
+ 				</section>
+ 		<!--/-video contenedor-->
+			{#/if#}
+			{#if $pos==4#}
+			<section class="container-fluid home-learning mask-after">
+  				  <!--Seccion E-learning-->
+			   <div class="row">
+			     <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 col-md-offset-3 col-sm-offset-2 e-learning-home">
+			       <h2 class="text-center amarillo">
+			         <i class="icon icon-elearning"></i> Cursos e-learning
+			         
+			       </h2>
+			       {#foreach from=$descripcionCapsulaK item=elearningH#}
+		 				   		
+			       	<div class="box">
+		 				{#$elearningH['descipcion']#}
+			     		</div>
+					 {#/foreach#}
+			   </div>
+			   <!--/-Seccion E-learning-->
+
+			 </section>
+			 {#/if#}
+			 {#if $pos==5#}
+			   <!--Capsulas-->
+				<section class="container-fluid u-no-border home-capsulas">
+				  <div class="row">
+				    <h2 class="text-center">Cápsulas</h2>
+				    <div class="col-lg-6 col-md-6 col-sm-10 col-xs-12 col-lg-offset-3 col-md-offset-3 col-sm-offset-1">
+				    	{#foreach from=$descripcionCapsulaK item=CapsulaH#}
+						      <article class="capsula">
+						        <figure class="img-capsula"><a href="#"><iframe src="https://www.youtube.com/embed/{#$CapsulaH['url']#}" frameborder="0" class="embed-responsive-item"></iframe></a></figure>
+						       	{#$CapsulaH['descipcion']#}
+						        </div>
+						      </article>
+				    	{#/foreach#}
+				    </div>
+				  </div>
+				  <!--/-Capsulas-->
+				</section>
+			{#/if#}
+
+	{#/foreach#}
+	<!-- Paso 1 -->
+	
+	
+	
 <!--Fin contenido-->
 {#include  file="base/footer.html"#}

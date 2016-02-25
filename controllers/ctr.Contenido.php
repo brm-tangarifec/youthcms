@@ -191,6 +191,10 @@ class Contenido {
 		$nombreSeccion=Moe::$myRoute;
 		//printVar($idSeccion);
 		$seccion = model("LallamaradaSeccion");
+		$newContent = model('LallamaradaContenido');
+		$newUrl = model('LallamaradaUrl');
+		$newMutlXUrl = model('LallamaradaMultXUrl');
+		$newSexXContent = model('LallamaradaSeccionXContenido');
 		$seccions = $seccion->getData();
 		foreach ($seccions as $seccionGet) {
 			// Cuando el nombre de la ruta es distinta a "/" agrega un / al final
@@ -214,64 +218,80 @@ class Contenido {
 		}
 		
 
-		$newSexXContent = model('LallamaradaSeccionXContenido');
+		
 
 		/*Se pasan los parametros de busqueda*/
 		$conf=array(
 			"conditions" => 'idSeccion = '.$mySeccionId,
-			"fields" => array('idContenido','idMultXUrl','posicion')
+			"fields" => array('idContenido','idMultXUrl','posicion'),
+			'order' => 'posicion ASC'
 			);
 		/*Se Obtiene los datos del contenido en la seccion*/
 		$traeContenido=$newSexXContent->getData($conf);
-		printVar($mySeccionId);
-		printVar($traeContenido);
+		//printVar($mySeccionId);
+		//printVar($traeContenido,"este do");
 		
-		/*Trae datos de la tabla contenido*/
-		
+		/*Recorre contenidos por posicion*/
+		foreach ($traeContenido as $contenidoOrd) {
+			# code...
+			//printVar($contenidoOrd['idMultXUrl']);
+			if(isset($contenidoOrd['idContenido']) && $contenidoOrd['idContenido']!=''){
 
-			if(isset($traeContenido[0]['idContenido']) && $traeContenido[0]['idContenido']!=''){
-
-				//printVar($traeContenido[0]);
-				$newContent = model('LallamaradaContenido');
+				//printVar($contenidoOrd);
 				$cont=array(
-					'conditions'=> 'id ='.$traeContenido[0]['idContenido'].' AND visible="S"',
+					'conditions'=> 'id ='.$contenidoOrd['idContenido'].' AND visible="S"',
 					'fields' => array('titulo','contenido')
 					);
 				$buscaContenido=$newContent->getData($cont);
 				//printVar($buscaContenido[0]);
 				view()->assign("titulo",$buscaContenido[0]['titulo']);
 				view()->assign("contenido",$buscaContenido[0]['contenido']);
-				$internaD="interna.html";
-			}else if(isset($traeContenido[0]['idMultXUrl'])){
+				$internaD="interna.html"; 
+			}else if(isset($contenidoOrd['idMultXUrl'])){
 
-				printVar($traeContenido[0]);
-				$newMutlXUrl = model('LallamaradaMultXUrl');
+
+				
+				# code...
 				$getIdUrl=array(
-					'conditions'=> 'idMultimedia ='.$traeContenido[0]['idMultXUrl'],
+					'conditions'=> 'idMultimedia ='.$contenidoOrd['idMultXUrl'],
 					'fields' => array('idUrl')
 					);
 				$buscaUrl=$newMutlXUrl->getData($getIdUrl);
-				printVar($buscaUrl);
-				for ($i=0; $i <count($buscaUrl); $i++) {
-					printVar($buscaUrl[$i]);
-					# code...
-				}
-				$newUrl = model('LallamaradaUrl');
-				/*$cont=array(
-					'conditions'=> 'idMultimedia ='.$traeContenido[0]['idContenido'],
-					'fields' => array('idUrl');
-					);*/
+				//printVar(count($buscaUrl));
+				$pasaString=array();
+				$string = '';
+				for ($j=0; $j < count($buscaUrl) ; $j++) { 
+					//printVar($buscaUrl[$j]['idUrl']);
+					$string.=",".$buscaUrl[$j]['idUrl'];
+				}	
 
-				/*$buscaContenido=$newContent->getData($cont);
-				//printVar($buscaContenido[0]);
-				view()->assign("titulo",$buscaContenido[0]['titulo']);
-				view()->assign("contenido",$buscaContenido[0]['contenido']);*/
-				$internaD="indexNew.html";
-
+				$string = substr($string, 1); // remove leading ","
+				//printVar($string);
+				
+				//debug(1);
+				$getUrlC=array(
+					'conditions'=> 'id IN ('.$string.')',
+					'fields' => array('id','orden','url','descipcion'),
+					'order' => 'orden ASC'
+					);
+				$numC=$contenidoOrd['posicion'];
+				$traeDatosUrl=$newUrl->getData($getUrlC);
+				$buscaContenidoUrl[$numC]=(count($traeDatosUrl)>0) ? $traeDatosUrl : array() ;		
+				//view()->assign("contenido",$buscaContenido[0]['contenido']);*/
+				
+				//$internaD="indexNew.html";
 
 			}
-			view()->assign("idSeccion",$mySeccionId);
-		printVar($internaD);
-		view()->display("youth/".$internaD);
+
+		}
+
+
+		/*Trae datos de la tabla contenido*/
+		
+		view()->assign("multimedia",$buscaContenidoUrl);
+
+		view()->assign("idSeccion",$mySeccionId);
+		//printVar($internaD);
+		view()->display("youth/indexNew.html");
 	}
 }
