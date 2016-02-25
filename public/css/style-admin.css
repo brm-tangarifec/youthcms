@@ -3,6 +3,14 @@ footer
 	background-color: #132530;
 	color:#fff;
 }
+
+.editor .btn-submit
+{
+	position:absolute;
+	top:0;
+	right:0;
+}
+
 .header
 {
 	background-color: #132530;
@@ -24,4 +32,53 @@ footer
 .listaSecciones .glyphicon:hover
 {
 	color: #00a9cc;
+}
+
+
+.lista-tipo{
+	list-style-type:none;
+	margin: 1rem auto;
+}
+
+.lista-tipo li
+{
+	background-color: #f2f1f7;
+	cursor:pointer;
+	display:inline-block;
+	height: 10rem;
+	padding:2rem;
+	text-align: center;
+	transition: all ease-in-out 0.3s;
+	-webkit-transition: all ease-in-out 0.3s;
+	-moz-transition: all ease-in-out 0.3s;
+	-ms-transition: all ease-in-out 0.3s;
+	-o-transition: all ease-in-out 0.3s;
+	vertical-align: middle;
+	width:10rem;
+}
+
+.lista-tipo li:hover
+{
+	background-color: #00a9cc;
+}
+.lista-tipo li i
+{
+	display: block;
+	font-size: 3rem;
+	margin-bottom:0.3rem;
+}
+
+.primerPos, .ingreso
+{
+	padding:3rem 0;
+}
+.primerPos .form-group label
+{
+	position:inherit !important;
+}
+
+.ui-button-icon-primary,
+.ui-button-text
+{
+	cursor:pointer;
 }
