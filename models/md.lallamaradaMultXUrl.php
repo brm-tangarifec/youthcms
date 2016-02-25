@@ -14,11 +14,6 @@ class DataObjects_LallamaradaMultXUrl extends DB_DataObject
     public $id;                             // int(4) primary_key not_null
     public $idMultimedia;                   // int(4) primary_key not_null
     public $idUrl;                          // int(4) primary_key not_null
-    public $link;                           // varchar(100)
-    public $orden;                          // int(4)
-    public $seguimientoEvento;              // varchar(100)
-    public $fechaInicio;                    // datetime
-    public $fechaFin;                       // datetime
     public $fecha;                          // datetime
     public $fechaActualizacion;             // datetime
 
@@ -28,11 +23,6 @@ class DataObjects_LallamaradaMultXUrl extends DB_DataObject
              'id' =>  DB_DATAOBJECT_INT + DB_DATAOBJECT_NOTNULL,
              'idMultimedia' =>  DB_DATAOBJECT_INT + DB_DATAOBJECT_NOTNULL,
              'idUrl' =>  DB_DATAOBJECT_INT + DB_DATAOBJECT_NOTNULL,
-             'link' =>  DB_DATAOBJECT_STR,
-             'orden' =>  DB_DATAOBJECT_INT,
-             'seguimientoEvento' =>  DB_DATAOBJECT_STR,
-             'fechaInicio' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_DATE + DB_DATAOBJECT_TIME,
-             'fechaFin' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_DATE + DB_DATAOBJECT_TIME,
              'fecha' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_DATE + DB_DATAOBJECT_TIME,
              'fechaActualizacion' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_DATE + DB_DATAOBJECT_TIME,
          );

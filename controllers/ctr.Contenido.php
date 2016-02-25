@@ -67,11 +67,18 @@ class Contenido {
 		$posicionesGeneradas=array();
 		$guardaUlrid=array();
 		$guardaUlrids=array();
+		if(isset($varUrl['formulario']) && $varUrl['formulario']!=''){
 		$generados=$varUrl['formulario'];
 		$posicionesGeneradas=$varUrl['formularioposiciones'];
+		array_push($generados,$varUrl['inicial']);
+		array_push($posicionesGeneradas,$varUrl['posicioni']);
+		}else{
+			$generados=$varUrl['inicial'];
+			$posicionesGeneradas=$varUrl['posicioni'];
+		}
 		if(isset($generados)){
 			/*Se guardan datos generados*/
-		array_push($generados,$varUrl['inicial']);
+		
 			/*foreach ($generados as $urls) {
 			   $guardaUrl = $urls;
 			   if(isset($guardaUrl) && $guardaUrl!=''){
@@ -83,7 +90,7 @@ class Contenido {
 			   }
 			   
 			   	}*/
-			array_push($posicionesGeneradas,$varUrl['posicioni']);
+			
 			$tipoMulti=$varUrl['tipo'];
 			   	for ($i=0; $i <count($generados) ; $i++) {
 			   		switch ($tipoMulti) {
@@ -95,6 +102,12 @@ class Contenido {
 			   			break;
 			   			case 'C':
 			   			# Guarda las capsulas
+			   			$rutaI="capsula";
+			   			$imagenes=$generados[$i];
+			   			$copiaImg=subeImagen($imagenes,$rutaI);
+			   			printVar($copiaImg);
+			   			printVar('Hola, soy una capsula');
+			   			die();
 			   			$newUrl->url=$generados[$i];
 			   			break;
 			   			case 'V':
@@ -212,11 +225,9 @@ class Contenido {
 		$traeContenido=$newSexXContent->getData($conf);
 		printVar($mySeccionId);
 		printVar($traeContenido);
-		die();
+		
 		/*Trae datos de la tabla contenido*/
-		if($traeContenido!==NULL){
-
-		}else{
+		
 
 			if(isset($traeContenido[0]['idContenido']) && $traeContenido[0]['idContenido']!=''){
 
@@ -230,9 +241,37 @@ class Contenido {
 				//printVar($buscaContenido[0]);
 				view()->assign("titulo",$buscaContenido[0]['titulo']);
 				view()->assign("contenido",$buscaContenido[0]['contenido']);
+				$internaD="interna.html";
+			}else if(isset($traeContenido[0]['idMultXUrl'])){
+
+				printVar($traeContenido[0]);
+				$newMutlXUrl = model('LallamaradaMultXUrl');
+				$getIdUrl=array(
+					'conditions'=> 'idMultimedia ='.$traeContenido[0]['idMultXUrl'],
+					'fields' => array('idUrl')
+					);
+				$buscaUrl=$newMutlXUrl->getData($getIdUrl);
+				printVar($buscaUrl);
+				for ($i=0; $i <count($buscaUrl); $i++) {
+					printVar($buscaUrl[$i]);
+					# code...
+				}
+				$newUrl = model('LallamaradaUrl');
+				/*$cont=array(
+					'conditions'=> 'idMultimedia ='.$traeContenido[0]['idContenido'],
+					'fields' => array('idUrl');
+					);*/
+
+				/*$buscaContenido=$newContent->getData($cont);
+				//printVar($buscaContenido[0]);
+				view()->assign("titulo",$buscaContenido[0]['titulo']);
+				view()->assign("contenido",$buscaContenido[0]['contenido']);*/
+				$internaD="indexNew.html";
+
+
 			}
 			view()->assign("idSeccion",$mySeccionId);
-		}
-		view()->display("youth/interna.html");
+		printVar($internaD);
+		view()->display("youth/".$internaD);
 	}
 }

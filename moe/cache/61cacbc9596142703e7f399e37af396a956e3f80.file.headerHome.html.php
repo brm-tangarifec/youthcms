@@ -1,39 +1,38 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-02-24 22:38:00
-         compiled from "..\views\base\header.html" */ ?>
-<?php /*%%SmartyHeaderCode:2660656ccda3558c521-47341978%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-02-24 23:22:31
+         compiled from "..\views\base\headerHome.html" */ ?>
+<?php /*%%SmartyHeaderCode:701756ce8187dd33b0-25437743%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    'd66bb75b72bba93d3d99b93aea27af3af440e8e2' => 
+    '61cacbc9596142703e7f399e37af396a956e3f80' => 
     array (
-      0 => '..\\views\\base\\header.html',
-      1 => 1456370945,
+      0 => '..\\views\\base\\headerHome.html',
+      1 => 1456265130,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2660656ccda3558c521-47341978',
+  'nocache_hash' => '701756ce8187dd33b0-25437743',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_56ccda355b74b2_58170293',
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_56ce8187e34e40_45826919',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_56ccda355b74b2_58170293')) {function content_56ccda355b74b2_58170293($_smarty_tpl) {?><!DOCTYPE html><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="es-CO"> <![endif]-->
+<?php if ($_valid && !is_callable('content_56ce8187e34e40_45826919')) {function content_56ce8187e34e40_45826919($_smarty_tpl) {?><!DOCTYPE html><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="es-CO"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="es-CO"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang="es-CO"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="es-CO"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Cartelera de vacantes de aliados | NESTLÉ® - Iniciativa por los Jóvenes</title>
+  <title>NESTLÉ® | Iniciativa por los Jóvenes</title>
   <meta name="description" content="NESTLÉ® | Iniciativa por los Jóvenes">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--link rel="stylesheet" href="/youth/css/animate.css">
-  <link rel="stylesheet" href="/youth/css/bootstrap.min.css"-->
-
+  <link rel="stylesheet" href="/youth/css/animate.css">
+  <link rel="stylesheet" href="/youth/css/bootstrap.min.css">
   <link rel="stylesheet" href="/youth/css/jquery.bxslider.css">
-  <link rel="stylesheet" href="/youth/css/youth.min.css">
+  <link rel="stylesheet" href="/youth/css/style.css">
   <!--font-->
   <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet" type="text/css"><!--[if lt IE]>
   <?php echo '<script'; ?>
@@ -84,7 +83,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       <div class="row">
         <!--Logo-->
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-          <h1 class="logo"><a href="index.php"><img src="/youth/images/logo-youth.svg" alt="NESTLÉ® | Iniciativa por los Jóvenes" title="NESTLÉ® | Iniciativa por los Jóvenes" class="img-responsive"></a></h1>
+          <h1 class="logo"><a href="index.php"><img src="images/logo-youth.svg" alt="NESTLÉ® | Iniciativa por los Jóvenes" title="NESTLÉ® | Iniciativa por los Jóvenes" class="img-responsive"></a></h1>
         </div>
         <div class="col-lg-2 col-md-2 hidden-xs">				
           <p class="pais">Colombia</p>
@@ -121,5 +120,4 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </nav>
       </div>
     </section>
-  </header>
-  <!--/-header--><?php }} ?>
+  </header><?php }} ?>

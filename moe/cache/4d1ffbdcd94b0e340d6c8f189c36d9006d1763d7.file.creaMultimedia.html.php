@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-02-24 16:37:42
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-02-24 21:59:44
          compiled from "..\views\taberna\creaMultimedia.html" */ ?>
 <?php /*%%SmartyHeaderCode:278456cb278100dad8-93138503%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4d1ffbdcd94b0e340d6c8f189c36d9006d1763d7' => 
     array (
       0 => '..\\views\\taberna\\creaMultimedia.html',
-      1 => 1456349860,
+      1 => 1456369170,
       2 => 'file',
     ),
   ),
@@ -99,7 +99,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="capsulaG">
             <!--Se generan los inputs-->
             <form name="gdrCapsulacapsula" id="gdrCapsula" method="POST" enctype="multipart/form-data">
-            <p><label for="capsulai"><input type="text" class="" id="capsulai" name="capsulai" placeholder="ingresa la url" /></label></p>
+            <p>
+                <label for="capsulai"><input type="file" class="" id="capsulai" name="capsulai" placeholder="ingresa la url" /></label>
+                <label for="capsulaposicioni"><input type="number" id="capsulaposicioni" name="capsulaposicioni" size="2" maxlength="2" min="1" max="10" placeholder="posicion" /></label>
+                <textarea id="capsulaDesci" name="capsulaDesci"></textarea>
+            </p>
             
             <button class="azul-oscuro  btn btn-submit galeriaGuardar">Guardar</button>
             </form>
