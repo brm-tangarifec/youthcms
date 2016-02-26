@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-02-24 11:02:52
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-02-26 09:54:45
          compiled from "..\views\taberna\list.html" */ ?>
 <?php /*%%SmartyHeaderCode:2767056cb210b3b1d83-03548644%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd63a040f6407603bdc346e92cf52a557e3e0737e' => 
     array (
       0 => '..\\views\\taberna\\list.html',
-      1 => 1456329770,
+      1 => 1456374732,
       2 => 'file',
     ),
   ),
@@ -27,10 +27,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php if ($_valid && !is_callable('content_56cb210b40f995_17364969')) {function content_56cb210b40f995_17364969($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("taberna/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
 
-        <div class="wrapper row-offcanvas row-offcanvas-left">
+        <section class="container-fluid">
            
             <!-- Right side column. Contains the navbar and content of the page -->
-            <aside class="right-side">
+            <article class="row">
+
 
                 <!-- Main content -->
                 <div class="col-xs-12">
@@ -108,7 +109,9 @@ $_smarty_tpl->tpl_vars['seccion']->_loop = true;
                                 </div>
                             </div><!-- /.box -->
                         </div>
-                    </div>
+
+                        
+                </article>
                 </section><!-- /.content -->
                  <?php echo $_smarty_tpl->getSubTemplate ("taberna/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
