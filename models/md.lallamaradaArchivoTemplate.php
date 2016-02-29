@@ -15,9 +15,9 @@ class DataObjects_LallamaradaArchivoTemplate extends DB_DataObject
     public $idSeccion;                      // int(4)
     public $urlCss;                         // varchar(100)
     public $urlJs;                          // varchar(100)
+    public $template;                       // varchar(100)
     public $fecha;                          // datetime
     public $fechaActualizacion;             // datetime
-    public $moe_seccion_id;                 // int(4) primary_key not_null
 
     function table()
     {
@@ -26,9 +26,9 @@ class DataObjects_LallamaradaArchivoTemplate extends DB_DataObject
              'idSeccion' =>  DB_DATAOBJECT_INT,
              'urlCss' =>  DB_DATAOBJECT_STR,
              'urlJs' =>  DB_DATAOBJECT_STR,
+             'template' =>  DB_DATAOBJECT_STR,
              'fecha' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_DATE + DB_DATAOBJECT_TIME,
              'fechaActualizacion' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_DATE + DB_DATAOBJECT_TIME,
-             'moe_seccion_id' =>  DB_DATAOBJECT_INT + DB_DATAOBJECT_NOTNULL,
          );
     }
 

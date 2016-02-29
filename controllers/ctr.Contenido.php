@@ -195,6 +195,7 @@ class Contenido {
 		$newUrl = model('LallamaradaUrl');
 		$newMutlXUrl = model('LallamaradaMultXUrl');
 		$newSexXContent = model('LallamaradaSeccionXContenido');
+		$newTemplate = model('LallamaradaArchivoTemplate');
 		$seccions = $seccion->getData();
 		foreach ($seccions as $seccionGet) {
 			// Cuando el nombre de la ruta es distinta a "/" agrega un / al final
@@ -230,6 +231,14 @@ class Contenido {
 		$traeContenido=$newSexXContent->getData($conf);
 		//printVar($mySeccionId);
 		//printVar($traeContenido,"este do");
+
+		/*Trae el template asociado a la sección*/
+		$confT=array(
+			"conditions" => 'idSeccion = '.$mySeccionId,
+			"fields" => array('template'),
+			);
+		$traeTemplate=$newTemplate->getData($confT);
+		$templateInterna=$traeTemplate[0]['template'];
 		
 		/*Recorre contenidos por posicion*/
 		foreach ($traeContenido as $contenidoOrd) {
@@ -292,6 +301,6 @@ class Contenido {
 
 		view()->assign("idSeccion",$mySeccionId);
 		//printVar($internaD);
-		view()->display("youth/indexNew.html");
+		view()->display($templateInterna);
 	}
 }
