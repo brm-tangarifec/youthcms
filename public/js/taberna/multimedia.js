@@ -26,6 +26,7 @@ jQuery(document).ready(function(){
 					creaCampos(contar,tipoM,classT);
 
 				});
+				
 
 				break;
 			case 'estatico':
@@ -96,6 +97,8 @@ jQuery(document).ready(function(){
 
 		jQuery('.galeriaGuardar').on('click',function(e){
 			//console.log(tipo);
+
+
 			
 			var idSeccion = jQuery('#idSeccion').val();
 			var posicion= jQuery('#posicion').val();
@@ -103,15 +106,20 @@ jQuery(document).ready(function(){
 			//var datosForm=jQuery('#'+form).serialize();
 			var datoGuardari=jQuery('#'+tipoM+'i').val();
 			var posicioni=jQuery('#'+tipoM+'posicioni').val();
+			jQuery('#'+form).find('.nicEdit-main').attr('id',tipoM+'descripcioni');
+			var descripcioni=jQuery('#'+tipoM+'descripcioni').html();
+			console.log(descripcioni);
 			var cuentaCampos=parseInt(jQuery('#'+form+' p').length)
 			
+			
 
-			/*Se generan las campos para enviar*/
+			
 			var paso;
 			var linkG=tipoM+'i';
 			var numpos=tipoM+'posicion';
 			var datoGuardar = [];
 			var psocionG = [];
+			var descipcionG = [];
 			for (paso = 1; paso < cuentaCampos; paso++) {
 				datoGuardar[paso] = jQuery('#'+linkG+'_'+paso).val();
 				psocionG[paso] = jQuery('#'+numpos+paso).val();
@@ -119,43 +127,21 @@ jQuery(document).ready(function(){
 			};
 			 // console.log(datoGuardar);
 			/*Fin variables*/
-			
-			var urlM='/youth/grdMultmedia/';
-			if(tipoM=='video'){
 
-				jQuery.ajax({
-					url : urlM,
-					type : 'POST',
-					data :
-					{
-					'inicial':datoGuardari,
-					'posicioni': posicioni,
-					'formulario':datoGuardar,
-					'formularioposiciones':psocionG,
-					'posicion': posicion,
-					'idSeccion':idSeccion,
-					'tipo':tipo
-					},
-					datatype : "json",
-					success : function(data) {
-						console.log(data);
-						if(data>0){
-							console.log('entramos');
-							jQuery('.limpiar').val('');
-							/*jQuery('.titulo-contenido').text('Ingresa el título');
-							jQuery('.contenido-texto').text('Haz click sobre el texto para ingresar un contenido');
-							window.location='/youth/admSecciones/';*/
-						}
-					}
-				});
-			}else if(tipoM="capsula"){
-	 				 e.preventDefault();
-				 
-				 jQuery.ajax({
-				        url: urlM,
-				 		type: "POST",
-				 		//data:  new FormData(this),
-				 		data :
+			/*Hace requerido los campos*/
+				
+				var idFormValidation = form;
+				
+
+				/*Se generan las campos para enviar*/
+			if(datoGuardari!='' && posicioni!=''){
+				//var urlM='/youth/grdMultmedia/';
+				var urlM='';
+
+					jQuery.ajax({
+						url : urlM,
+						type : 'POST',
+						data :
 						{
 						'inicial':datoGuardari,
 						'posicioni': posicioni,
@@ -165,35 +151,35 @@ jQuery(document).ready(function(){
 						'idSeccion':idSeccion,
 						'tipo':tipo
 						},
-				 		contentType: false,
-				 		cache: false,
-				 		processData:false,
-				 		beforeSend : function(){
-				 		 //jQuery("#preview").fadeOut();
-				 		 jQuery("#err").fadeOut();
-				 		},
-				 		success: function(data){
-				 		 	if(data=='invalid file'){
-				 		 	 // invalid file format.
-				 		 	 jQuery("#err").html("Invalid File !").fadeIn();
-				 		 	}else{
-				 		 	 // view uploaded file.
-				 		 	 jQuery("#preview").html(data).fadeIn();
-				 		 	 jQuery("#form")[0].reset(); 
-				 		 	}
-				 		  },
-				 		  error: function(e){
-				 		 	jQuery("#err").html(e).fadeIn();
-				 		   }          
-				 		});
+						datatype : "json",
+						success : function(data) {
+							console.log(data);
+							if(data>0){
+								console.log('entramos');
+								jQuery('.limpiar').val('');
+								/*jQuery('.titulo-contenido').text('Ingresa el título');
+								jQuery('.contenido-texto').text('Haz click sobre el texto para ingresar un contenido');
+								window.location='/youth/admSecciones/';*/
+							}
+						}
+					});
 				
+				
+				
+
+
+				//console.log('no es');
+				
+			}else{
+
+				jQuery('#'+idFormValidation+' input').each(function(){
+					
+					jQuery(this).after( "<p>El campo no debe estar vacío</p>" );
+				});
 			}
-			
+			return false;	
 			
 
-
-			//console.log('no es');
-			return false;
 		});
 	});
 
@@ -220,29 +206,50 @@ function creaCampos(contar,tipoM,classT){
 	var nbIteration = parseInt(jQuery('.'+classT+' > form p').length);
 	if(tipoM=='video'){
 
-	       jQuery('<p><label for="'+tipoM+'i_'+nbIteration+'"><input type="text" id="'+tipoM+'i_'+nbIteration+'" name="'+tipoM+'i_'+nbIteration+'" class="iframegeneraVideoO form-control" data-tipo="'+tipoM+'" placeholder="texto"/></label><label for="'+tipoM+'posicion'+nbIteration+'"><input type="number" class="form-control" id="'+tipoM+'posicion'+nbIteration+'" name="'+tipoM+'posicion'+nbIteration+'" maxlength="2" size="2" min="1" max="10" placeholder="posicion" /></label></p>').appendTo(scntDiv);
+	       jQuery('<p><label for="'+tipoM+'i_'+nbIteration+'"><input type="text" id="'+tipoM+'i_'+nbIteration+'" name="'+tipoM+'i_'+nbIteration+'" class="iframegeneraVideoO form-control" data-tipo="'+tipoM+'" placeholder="texto" required/></label><label for="'+tipoM+'posicion'+nbIteration+'"><input type="number" class="form-control" id="'+tipoM+'posicion'+nbIteration+'" name="'+tipoM+'posicion'+nbIteration+'" maxlength="2" size="2" min="1" max="10" placeholder="posicion" required /></label><textarea id="'+tipoM+'Desc'+nbIteration+'" class="form-control" name="'+tipoM+'Desc'+nbIteration+'"></textarea></p>').appendTo(scntDiv);
 	}else if(tipoM=='galeria'){
-		jQuery('<p><label for="'+tipoM+'i_'+nbIteration+'"><input type="text" id="'+tipoM+'i_'+nbIteration+'" name="'+tipoM+'i_'+nbIteration+'" class="iframegeneraVideoO form-control" data-tipo="'+tipoM+'" placeholder="texto"/></label><label for="'+tipoM+'i_'+nbIteration+'"><input type="number" class="form-control" id=""'+tipoM+'i_'+nbIteration+'" name=""'+tipoM+'i_'+nbIteration+'" maxlength="2" size="2" min="1" max="10" placeholder="posicion" /></label></p>').appendTo(scntDiv);
+		jQuery('<p><label for="'+tipoM+'i_'+nbIteration+'"><input type="text" id="'+tipoM+'i_'+nbIteration+'" name="'+tipoM+'i_'+nbIteration+'" class="iframegeneraVideoO form-control" data-tipo="'+tipoM+'" placeholder="texto" required/></label><label for="'+tipoM+'i_'+nbIteration+'"><input type="number" class="form-control" id=""'+tipoM+'i_'+nbIteration+'" name=""'+tipoM+'i_'+nbIteration+'" maxlength="2" size="2" min="1" max="10" placeholder="posicion" required /></label><textarea id="'+tipoM+'Desc'+nbIteration+'" class="form-control" name="'+tipoM+'Desc'+nbIteration+'"></textarea></p>').appendTo(scntDiv);
 	}else if(tipoM=='estatico'){
-		jQuery('<p><label for="'+tipoM+'i_'+nbIteration+'"><input type="text" id="'+tipoM+'i_'+nbIteration+'" name="'+tipoM+'i_'+nbIteration+'" class="iframegeneraVideoO form-control" data-tipo="'+tipoM+'" placeholder="texto"/></label><label for="'+tipoM+'i_'+nbIteration+'"><input type="number" class="form-control" id=""'+tipoM+'i_'+nbIteration+'" name=""'+tipoM+'i_'+nbIteration+'" maxlength="2" size="2" min="1" max="10" placeholder="posicion" /></label></p>').appendTo(scntDiv);
+		jQuery('<p><label for="'+tipoM+'i_'+nbIteration+'"><input type="text" id="'+tipoM+'i_'+nbIteration+'" name="'+tipoM+'i_'+nbIteration+'" class="iframegeneraVideoO form-control" data-tipo="'+tipoM+'" placeholder="texto" required/></label><label for="'+tipoM+'i_'+nbIteration+'"><input type="number" class="form-control" id=""'+tipoM+'i_'+nbIteration+'" name=""'+tipoM+'i_'+nbIteration+'" maxlength="2" size="2" min="1" max="10" placeholder="posicion" required /></label><textarea id="'+tipoM+'Desc'+nbIteration+'" class="form-control" name="'+tipoM+'Desc'+nbIteration+'"></textarea></p>').appendTo(scntDiv);
 		
 	}else if(tipoM=='capsula'){
-		jQuery('<p><label for="'+tipoM+'i_'+nbIteration+'"><input type="text" id="'+tipoM+'i_'+nbIteration+'" name="'+tipoM+'i_'+nbIteration+'" class="iframegeneraVideoO form-control" data-tipo="'+tipoM+'" placeholder="texto"/></label><label for="'+tipoM+'i_'+nbIteration+'"><input type="number" class="form-control" id=""'+tipoM+'i_'+nbIteration+'" name=""'+tipoM+'i_'+nbIteration+'" maxlength="2" size="2" min="1" max="10" placeholder="posicion" /></label><textarea id="'+tipoM+'Desc'+nbIteration+'" class="form-control" name="'+tipoM+'Desc'+nbIteration+'"></textarea></p>').appendTo(scntDiv);
+		jQuery('<p><label for="'+tipoM+'i_'+nbIteration+'"><input type="text" id="'+tipoM+'i_'+nbIteration+'" name="'+tipoM+'i_'+nbIteration+'" class="iframegeneraVideoO form-control" data-tipo="'+tipoM+'" placeholder="texto" required/></label><label for="'+tipoM+'i_'+nbIteration+'"><input type="number" class="form-control" id=""'+tipoM+'i_'+nbIteration+'" name=""'+tipoM+'i_'+nbIteration+'" maxlength="2" size="2" min="1" max="10" placeholder="posicion" required /></label><textarea id="'+tipoM+'Desc'+nbIteration+'" class="form-control" name="'+tipoM+'Desc'+nbIteration+'"></textarea></p>').appendTo(scntDiv);
 		
 	}else if(tipoM=='pdf'){
-		jQuery('<p><label for="'+tipoM+'i_'+nbIteration+'"><input type="text" id="'+tipoM+'i_'+nbIteration+'" name="'+tipoM+'i_'+nbIteration+'" class="pdfUpload form-control" data-tipo="'+tipoM+'" placeholder="texto"/></label><label for="pdf'+tipoM+'i_'+nbIteration+'"><input type="number" id="pdf'+tipoM+'i_'+nbIteration+'" name="pdf'+tipoM+'i_'+nbIteration+'" maxlength="2" class="form-control" size="2" min="1" max="10" placeholder="posicion" /></label></p>').appendTo(scntDiv);
+		jQuery('<p><label for="'+tipoM+'i_'+nbIteration+'"><input type="text" id="'+tipoM+'i_'+nbIteration+'" name="'+tipoM+'i_'+nbIteration+'" class="pdfUpload form-control" data-tipo="'+tipoM+'" placeholder="texto" required/></label><label for="pdf'+tipoM+'i_'+nbIteration+'"><input type="number" id="pdf'+tipoM+'i_'+nbIteration+'" name="pdf'+tipoM+'i_'+nbIteration+'" maxlength="2" class="form-control" size="2" min="1" max="10" placeholder="posicion" required /></label><textarea id="'+tipoM+'Desc'+nbIteration+'" class="form-control" name="'+tipoM+'Desc'+nbIteration+'"></textarea></p>').appendTo(scntDiv);
 		
 	}
 
+		area = new nicEditor({fullPanel : true,onSave : function(content, id, instance) {
+    alert('save button clicked for element '+id+' = '+content);
+  } }).panelInstance(tipoM+'Desc'+nbIteration);
 	      nbIteration++;
 
 
 }
 	
-function crearDivsVideo(idInput,valor){
-	
-   jQuery('.iframegeneraVideo').append('<div id="iframegeneraVideoi_'+idInput+'"><iframe src="https://www.youtube.com/embed/'+valor+'" frameborder="0" class="embed-responsive-item"></iframe></div>');
+function crearDivsVideo(idInput,valor){	
+   if(valor!=""){
+   	jQuery('.iframegeneraVideo').append('<div id="iframegeneraVideoi_'+idInput+'"><iframe src="https://www.youtube.com/embed/'+valor+'" frameborder="0" class="embed-responsive-item"></iframe></div>');
+   }else{
+   	jQuery('#iframegeneraVideoi_'+idInput).remove();
+
+   }
 }
 
 
+bkLib.onDomLoaded(function() { 
+	nicEditors.allTextAreas({fullPanel : true, onSave : function(content, id, instance) {
+    console.log(jQuery(this).attr('class'));
+    alert('save button clicked for element '+id+' = '+content);
+  }}) 
+});
 
+jQuery(document).on('blur','.nicEdit-main',function(){
+	var contenidoG=jQuery(this).html();
+	var textAreg=jQuery(this).parent().next().attr('id');
+	console.log(contenidoG);
+	console.log(textAreg);
+	jQuery('#'+textAreg).text(contenidoG);
+
+});

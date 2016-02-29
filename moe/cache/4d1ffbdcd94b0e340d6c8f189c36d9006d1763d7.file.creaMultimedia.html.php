@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-02-25 16:54:44
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-02-29 14:55:19
          compiled from "..\views\taberna\creaMultimedia.html" */ ?>
 <?php /*%%SmartyHeaderCode:278456cb278100dad8-93138503%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4d1ffbdcd94b0e340d6c8f189c36d9006d1763d7' => 
     array (
       0 => '..\\views\\taberna\\creaMultimedia.html',
-      1 => 1456376497,
+      1 => 1456775653,
       2 => 'file',
     ),
   ),
@@ -65,7 +65,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="galeriaG">
             <!--Se generan los inputs-->
             <form name="gdrGaleria" id="gdrGaleria" method="POST" enctype="multipart/form-data">
-            <p><label for="galeriai"><input type="text" class="form-control" id="galeriai" name="galeriai" placeholder="ingresa la url" /></label></p>
+            <p>
+                <label for="galeriai"><input type="text" class="form-control" id="galeriai" name="galeriai" placeholder="ingresa la url" /></label>
+                <label for="galeriaposicioni"><input type="number" class="form-control" id="galeriaposicioni" name="galeriaposicioni" size="2" maxlength="2" min="1" max="10" placeholder="posicion" /></label>
+                <textarea class="form-control" id="galeriadescripcioni" name="galeriadescripcioni" style="width: 733px !important;"></textarea>
+            </p>
             
             <button class="azul-oscuro btn btn-submit galeriaGuardar">Guardar</button>
             </form>
@@ -76,7 +80,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="estaticoG">
             <!--Se generan los inputs-->
             <form name="gdrEstatico" id="gdrEstatico" method="POST" enctype="multipart/form-data">
-            <p><label for="estaticoi"><input type="text" class="form-control" id="estaticoi" name="estaticoi" placeholder="ingresa la url" /></label></p>
+            <p>
+                <label for="estaticoi"><input type="text" class="form-control" id="estaticoi" name="estaticoi" placeholder="ingresa la url" /></label>
+            </p>
             
             <button class="azul-oscuro  btn btn-submit galeriaGuardar">Guardar</button>
             </form>
@@ -92,6 +98,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <p>
                 <label for="videoi"><input type="text" class="iframegeneraVideoO form-control" id="videoi" name="videoi" placeholder="ingresa la url" /></label>
                 <label for="videoposicioni"><input type="number" class="form-control" id="videoposicioni" name="videoposicioni" size="2" maxlength="2" min="1" max="10" placeholder="posicion" /></label>
+                <textarea class="form-control" id="videodescripcioni" name="videodescripcioni" style="width: 733px !important;"></textarea>
 
             </p>
             
@@ -105,7 +112,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="capsulaG">
             <!--Se generan los inputs-->
             <form name="gdrCapsulacapsula" id="gdrCapsula" method="POST" enctype="multipart/form-data">
-            <p><label for="capsulai"><input type="text" class="form-control" id="capsulai" name="capsulai" placeholder="ingresa la url" /></label></p>
+            <p>
+                <label for="capsulai"><input type="text" class="form-control" id="capsulai" name="capsulai" placeholder="ingresa la url" /></label>
+                <label for="capsulaposicioni"><input type="number" class="form-control" id="capsulaposicioni" name="capsulaposicioni" size="2" maxlength="2" min="1" max="10" placeholder="posicion" /></label>
+                <textarea class="form-control" id="capsuladescripcioni" name="capsuladescripcioni" style="width: 733px !important;"></textarea>
+            </p>
             
             <button class="azul-oscuro  btn btn-submit galeriaGuardar">Guardar</button>
             </form>
@@ -119,6 +130,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <p>
                 <label for="pdfi"><input type="file" class="pdfUpload form-control" id="pdfi" name="pdfi" placeholder="ingresa la url" /></label>
                 <label for="pdfposicioni"><input type="number" class="form-control" id="posicioni" name="posicioni" size="2" maxlength="2" min="1" max="10" placeholder="posicion" /></label>
+               <textarea class="form-control" id="pdfdescripcioni" name="pdfdescripcioni" style="width: 733px !important;"></textarea>
             </p>
 
             
