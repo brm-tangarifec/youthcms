@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-02-24 23:22:31
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-01 15:43:55
          compiled from "..\views\base\headerHome.html" */ ?>
 <?php /*%%SmartyHeaderCode:701756ce8187dd33b0-25437743%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '61cacbc9596142703e7f399e37af396a956e3f80' => 
     array (
       0 => '..\\views\\base\\headerHome.html',
-      1 => 1456265130,
+      1 => 1456865031,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
   'unifunc' => 'content_56ce8187e34e40_45826919',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_56ce8187e34e40_45826919')) {function content_56ce8187e34e40_45826919($_smarty_tpl) {?><!DOCTYPE html><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="es-CO"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="es-CO"> <![endif]-->
@@ -83,7 +83,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       <div class="row">
         <!--Logo-->
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-          <h1 class="logo"><a href="index.php"><img src="images/logo-youth.svg" alt="NESTLÉ® | Iniciativa por los Jóvenes" title="NESTLÉ® | Iniciativa por los Jóvenes" class="img-responsive"></a></h1>
+          <h1 class="logo"><a href="/youth/"><img src="images/logo-youth.svg" alt="NESTLÉ® | Iniciativa por los Jóvenes" title="NESTLÉ® | Iniciativa por los Jóvenes" class="img-responsive"></a></h1>
         </div>
         <div class="col-lg-2 col-md-2 hidden-xs">				
           <p class="pais">Colombia</p>

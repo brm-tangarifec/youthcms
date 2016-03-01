@@ -8,6 +8,7 @@ $rutaArray['admEditSecciones/'] = "Seccion@editaSecciones";
 $rutaArray['agrSecciones/'] = "Seccion@agregarSeccion";
 $rutaArray['grdSecciones/'] = "Seccion@grdSeccion";
 $rutaArray['agrContenido/'] = "Contenido@creaContenido";
+$rutaArray['adtContenido/'] = "Contenido@editContenido";
 $rutaArray['grdContenido/'] = "Contenido@grdContenido";
 $rutaArray['agrMultimedia/'] = "Contenido@creaMultimedia";
 $rutaArray['grdMultmedia/'] = "Contenido@grdMultmedia";
@@ -35,6 +36,7 @@ foreach ($seccions as $seccionGet) {
 	}
 	
 	$ruta = (substr($ruta, 0, 1)=="/" && strlen($ruta)>1) ? substr($ruta,2) : $ruta ;
+	$ruta=CleanDoor::limpiarMiga(strtolower($ruta));
 	$rutaArray[$ruta]="Contenido@getContent";
 }
  Moe::routes($rutaArray);

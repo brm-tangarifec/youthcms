@@ -56,7 +56,7 @@
 /*Agregar contenido*/
 	jQuery(document).on('click','.glyphicon-blackboard',function(){
 		var seccionAc=jQuery(this).data('seccion');
-		console.log(seccionAc);
+		//console.log(seccionAc);
 		var urlC="/youth/agrContenido/";
 		var formCont=jQuery('#listaSeccion-'+seccionAc).attr('action',urlC);
 
@@ -65,8 +65,18 @@
 	/*Agregar Multimedia*/
 	jQuery(document).on('click','.glyphicon-film',function(){
 		var seccionAc=jQuery(this).data('seccion');
-		console.log(seccionAc);
+		//console.log(seccionAc);
 		var urlC="/youth/agrMultimedia/";
+		var formCont=jQuery('#listaSeccion-'+seccionAc).attr('action',urlC);
+
+		formCont.submit();
+});
+
+/*Editar Contenido*/
+jQuery(document).on('click','.glyphicon-list-alt',function(){
+	var seccionAc=jQuery(this).data('seccion');
+		//console.log(seccionAc);
+		var urlC="/youth/adtContenido/";
 		var formCont=jQuery('#listaSeccion-'+seccionAc).attr('action',urlC);
 
 		formCont.submit();

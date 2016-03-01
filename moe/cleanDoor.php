@@ -12,7 +12,7 @@ class CleanDoor extends Moe
 
 	//Método que permite reemplazar caracteres especiales
 	static function limpiarMiga($nombreVariable){
-		$limpieza = array(	" " => "_",
+		$limpieza = array(	" " => "-",
 							"á" => "a",
 							"é" => "e",
 							"í" => "i",

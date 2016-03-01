@@ -18,7 +18,7 @@ class Contenido {
 			$newContenido= model('LallamaradaContenido');
 			$newSeccion= model('LallamaradaSeccionXContenido');
 			$newContenido->titulo=trim(ltrim(rtrim($varPost['tituloCont'])));
-			$newContenido->contenido=trim(ltrim(rtrim((base64_decode($varPost['contenidoTexto'])))));
+			$newContenido->contenido=trim(ltrim(rtrim(utf8_decode(base64_decode($varPost['contenidoTexto'])))));
 			$newContenido->visible=$varPost['visible'];
 			
 			$newContenido->fechaInicio=$varPost['fechaInicio'];
@@ -37,7 +37,24 @@ class Contenido {
 			$secxcont=$newSeccion->setInstancia();
 
 	}
-
+	/*Editar Contenido*/
+	function editContenido(){
+		//debug(1);
+		$filtraSeccion = filter_input_array(INPUT_POST);
+		//printVar($filtraSeccion);
+		$mySeccionId = $filtraSeccion['idSeccion'];
+		$SecXContenido= model('LallamaradaSeccionXContenido');
+		$contenido= model('LallamaradaContenido');
+		$buscaC=array(
+			"conditions" => 'idSeccion = '.$mySeccionId,
+			"fields" => array('idContenido','posicion'),
+			'order' => 'posicion ASC'
+			);
+		$traeIdContenido=$SecXContenido->getData($buscaC);
+		printVar($traeIdContenido);
+		view()->assign("seccion",$filtraSeccion['idSeccion']);
+		view()->display("taberna/editContenido.html");
+	}
 	/*Agrega multimedia*/
 	function creaMultimedia(){
 		//printVar($idSeccion);
@@ -67,12 +84,12 @@ class Contenido {
 		$guardaUlrid=array();
 		$guardaUlrids=array();
 		if(isset($varUrl['formulario']) && $varUrl['formulario']!=''){
-		$generados=$varUrl['formulario'];
-		$posicionesGeneradas=$varUrl['formularioposiciones'];
-		$descripcionesGeneradas=$varUrl['formulariodescripciones'];
-		array_push($generados,$varUrl['inicial']);
-		array_push($posicionesGeneradas,$varUrl['posicioni']);
-		array_push($descripcionesGeneradas,$varUrl['descripcioni']);
+			$generados=$varUrl['formulario'];
+			$posicionesGeneradas=$varUrl['formularioposiciones'];
+			$descripcionesGeneradas=$varUrl['formulariodescripciones'];
+			array_push($generados,$varUrl['inicial']);
+			array_push($posicionesGeneradas,$varUrl['posicioni']);
+			array_push($descripcionesGeneradas,$varUrl['descripcioni']);
 		}else{
 			$generados=$varUrl['inicial'];
 			$posicionesGeneradas=$varUrl['posicioni'];
@@ -133,7 +150,7 @@ class Contenido {
 		array_push($guardaUlrid,$guardaUrl);
 		}
 		
-		die();
+		//die();
 		/*Guarda la url x multimedia*/
 		if(is_array($guardaUlrid)){
 
@@ -152,7 +169,7 @@ class Contenido {
 			for ($i=1; $i <count($posicionesGeneradas) ; $i++) {
 				$newTXU->idMultimedia=$guardaMultimedia;
 				$newTXU->idUrl=$guardaUlrid[$i];
-					printVar($i);
+					//printVar($i);
 					$newTXU->orden=$posicionesGeneradas[$i];
 				$newTXU->fecha=date('Y-m-d H:m:s');
 				$newTXU->fechaActualizacion=date('Y-m-d H:m:s');
@@ -206,6 +223,7 @@ class Contenido {
 						));
 					//$ruta= $padre[0]['nombre']."/".$ruta;
 					$ruta = (substr($ruta, 0, 1)=="/" && strlen($ruta)>1) ? substr($ruta,2) : $ruta ;		
+					$ruta = CleanDoor::limpiarMiga(strtolower($ruta));		
 					$idPadre=$padre[0]['idPadre'];
 
 				}while($idPadre > 0);
@@ -241,6 +259,8 @@ class Contenido {
 		foreach ($traeContenido as $contenidoOrd) {
 			# code...
 			//printVar($contenidoOrd['idMultXUrl']);
+			$numC=$contenidoOrd['posicion'];
+
 			if(isset($contenidoOrd['idContenido']) && $contenidoOrd['idContenido']!=''){
 
 				//printVar($contenidoOrd);
@@ -251,6 +271,7 @@ class Contenido {
 				$buscaContenido=$newContent->getData($cont);
 				//printVar($buscaContenido[0]);
 				view()->assign("titulo",$buscaContenido[0]['titulo']);
+				view()->assign('poscicionCon',$numC);
 				view()->assign("contenido",$buscaContenido[0]['contenido']);
 			}else if(isset($contenidoOrd['idMultXUrl'])){
 
@@ -279,9 +300,9 @@ class Contenido {
 					'fields' => array('id','orden','url','descipcion'),
 					'order' => 'orden ASC'
 					);
-				$numC=$contenidoOrd['posicion'];
+				
 				$traeDatosUrl=$newUrl->getData($getUrlC);
-				$buscaContenidoUrl[$numC]=(count($traeDatosUrl)>0) ? $traeDatosUrl : array() ;		
+				$buscaContenidoUrl[$numC]=(count($traeDatosUrl)>0) ? $traeDatosUrl : array() ;
 				//view()->assign("contenido",$buscaContenido[0]['contenido']);*/
 				
 				//$internaD="indexNew.html";

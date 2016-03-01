@@ -12,7 +12,7 @@ jQuery(document).on('click','.ui-icon-save',function(){
 		var visible= jQuery('#visible').val();
 		var posicion= jQuery('#posicion').val();
 		var idSeccion = jQuery('#idSeccion').val();
-		var url="/youth/grdContenido";
+		var url="/youth/grdContenido/";
 		jQuery.ajax({
 				url : url,
 				type : 'POST',
