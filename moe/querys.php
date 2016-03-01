@@ -13,7 +13,7 @@ class Querys extends MyQuerys
         unset($campos["fecha"]);
         //Asigna los valores
         foreach($campos as $key => $value){
-            $objDBO->$key = utf8_decode($this->$key);
+            $objDBO->$key =$this->$key;
         }
         $objDBO->fecha = date("Y-m-d H:i:s");
         $objDBO->find();

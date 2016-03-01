@@ -97,6 +97,7 @@ jQuery(document).ready(function(){
 
 		jQuery('.galeriaGuardar').on('click',function(e){
 			//console.log(tipo);
+			$.base64.utf8encode = true;
 
 
 			
@@ -106,28 +107,24 @@ jQuery(document).ready(function(){
 			//var datosForm=jQuery('#'+form).serialize();
 			var datoGuardari=jQuery('#'+tipoM+'i').val();
 			var posicioni=jQuery('#'+tipoM+'posicioni').val();
-			jQuery('#'+form).find('.nicEdit-main').attr('id',tipoM+'descripcioni');
-			var descripcioni=jQuery('#'+tipoM+'descripcioni').html();
-			console.log(descripcioni);
+			var descripcioniT=jQuery('#'+tipoM+'descripcioni').html();
+			var descripcioni=$.base64.btoa(descripcioniT);
 			var cuentaCampos=parseInt(jQuery('#'+form+' p').length)
-			
-			
 
-			
 			var paso;
 			var linkG=tipoM+'i';
 			var numpos=tipoM+'posicion';
+			var numDesc=tipoM+'Desc';
 			var datoGuardar = [];
 			var psocionG = [];
 			var descipcionG = [];
+			//Recirre los campos generados y los envía
 			for (paso = 1; paso < cuentaCampos; paso++) {
 				datoGuardar[paso] = jQuery('#'+linkG+'_'+paso).val();
 				psocionG[paso] = jQuery('#'+numpos+paso).val();
-			  // Se ejecuta 5 veces, con valores desde paso desde 0 hasta 4.
+				descipcionG[paso] = $.base64.btoa(jQuery('#'+numDesc+paso).html());
 			};
-			 // console.log(datoGuardar);
 			/*Fin variables*/
-
 			/*Hace requerido los campos*/
 				
 				var idFormValidation = form;
@@ -135,8 +132,8 @@ jQuery(document).ready(function(){
 
 				/*Se generan las campos para enviar*/
 			if(datoGuardari!='' && posicioni!=''){
-				//var urlM='/youth/grdMultmedia/';
-				var urlM='';
+				var urlM='/youth/grdMultmedia/';
+				//var urlM='';
 
 					jQuery.ajax({
 						url : urlM,
@@ -145,8 +142,10 @@ jQuery(document).ready(function(){
 						{
 						'inicial':datoGuardari,
 						'posicioni': posicioni,
+						'descripcioni': descripcioni,
 						'formulario':datoGuardar,
 						'formularioposiciones':psocionG,
+						'formulariodescripciones': descipcionG,
 						'posicion': posicion,
 						'idSeccion':idSeccion,
 						'tipo':tipo
@@ -208,15 +207,15 @@ function creaCampos(contar,tipoM,classT){
 
 	       jQuery('<p><label for="'+tipoM+'i_'+nbIteration+'"><input type="text" id="'+tipoM+'i_'+nbIteration+'" name="'+tipoM+'i_'+nbIteration+'" class="iframegeneraVideoO form-control" data-tipo="'+tipoM+'" placeholder="texto" required/></label><label for="'+tipoM+'posicion'+nbIteration+'"><input type="number" class="form-control" id="'+tipoM+'posicion'+nbIteration+'" name="'+tipoM+'posicion'+nbIteration+'" maxlength="2" size="2" min="1" max="10" placeholder="posicion" required /></label><textarea id="'+tipoM+'Desc'+nbIteration+'" class="form-control" name="'+tipoM+'Desc'+nbIteration+'"></textarea></p>').appendTo(scntDiv);
 	}else if(tipoM=='galeria'){
-		jQuery('<p><label for="'+tipoM+'i_'+nbIteration+'"><input type="text" id="'+tipoM+'i_'+nbIteration+'" name="'+tipoM+'i_'+nbIteration+'" class="iframegeneraVideoO form-control" data-tipo="'+tipoM+'" placeholder="texto" required/></label><label for="'+tipoM+'i_'+nbIteration+'"><input type="number" class="form-control" id=""'+tipoM+'i_'+nbIteration+'" name=""'+tipoM+'i_'+nbIteration+'" maxlength="2" size="2" min="1" max="10" placeholder="posicion" required /></label><textarea id="'+tipoM+'Desc'+nbIteration+'" class="form-control" name="'+tipoM+'Desc'+nbIteration+'"></textarea></p>').appendTo(scntDiv);
+		jQuery('<p><label for="'+tipoM+'i_'+nbIteration+'"><input type="text" id="'+tipoM+'i_'+nbIteration+'" name="'+tipoM+'i_'+nbIteration+'" class="iframegeneraVideoO form-control" data-tipo="'+tipoM+'" placeholder="texto" required/></label><label for="'+tipoM+'i_'+nbIteration+'"><input type="number" class="form-control" id="'+tipoM+'posicion'+nbIteration+'" name="'+tipoM+'posicion'+nbIteration+'" maxlength="2" size="2" min="1" max="10" placeholder="posicion" required /></label><textarea id="'+tipoM+'Desc'+nbIteration+'" class="form-control" name="'+tipoM+'Desc'+nbIteration+'"></textarea></p>').appendTo(scntDiv);
 	}else if(tipoM=='estatico'){
-		jQuery('<p><label for="'+tipoM+'i_'+nbIteration+'"><input type="text" id="'+tipoM+'i_'+nbIteration+'" name="'+tipoM+'i_'+nbIteration+'" class="iframegeneraVideoO form-control" data-tipo="'+tipoM+'" placeholder="texto" required/></label><label for="'+tipoM+'i_'+nbIteration+'"><input type="number" class="form-control" id=""'+tipoM+'i_'+nbIteration+'" name=""'+tipoM+'i_'+nbIteration+'" maxlength="2" size="2" min="1" max="10" placeholder="posicion" required /></label><textarea id="'+tipoM+'Desc'+nbIteration+'" class="form-control" name="'+tipoM+'Desc'+nbIteration+'"></textarea></p>').appendTo(scntDiv);
+		jQuery('<p><label for="'+tipoM+'i_'+nbIteration+'"><input type="text" id="'+tipoM+'i_'+nbIteration+'" name="'+tipoM+'i_'+nbIteration+'" class="iframegeneraVideoO form-control" data-tipo="'+tipoM+'" placeholder="texto" required/></label><label for="'+tipoM+'i_'+nbIteration+'"><input type="number" class="form-control" id="'+tipoM+'posicion'+nbIteration+'" name="'+tipoM+'posicion'+nbIteration+'" maxlength="2" size="2" min="1" max="10" placeholder="posicion" required /></label><textarea id="'+tipoM+'Desc'+nbIteration+'" class="form-control" name="'+tipoM+'Desc'+nbIteration+'"></textarea></p>').appendTo(scntDiv);
 		
 	}else if(tipoM=='capsula'){
-		jQuery('<p><label for="'+tipoM+'i_'+nbIteration+'"><input type="text" id="'+tipoM+'i_'+nbIteration+'" name="'+tipoM+'i_'+nbIteration+'" class="iframegeneraVideoO form-control" data-tipo="'+tipoM+'" placeholder="texto" required/></label><label for="'+tipoM+'i_'+nbIteration+'"><input type="number" class="form-control" id=""'+tipoM+'i_'+nbIteration+'" name=""'+tipoM+'i_'+nbIteration+'" maxlength="2" size="2" min="1" max="10" placeholder="posicion" required /></label><textarea id="'+tipoM+'Desc'+nbIteration+'" class="form-control" name="'+tipoM+'Desc'+nbIteration+'"></textarea></p>').appendTo(scntDiv);
+		jQuery('<p><label for="'+tipoM+'i_'+nbIteration+'"><input type="text" id="'+tipoM+'i_'+nbIteration+'" name="'+tipoM+'i_'+nbIteration+'" class="iframegeneraVideoO form-control" data-tipo="'+tipoM+'" placeholder="texto" required/></label><label for="'+tipoM+'i_'+nbIteration+'"><input type="number" class="form-control" id="'+tipoM+'posicion'+nbIteration+'" name="'+tipoM+'posicion'+nbIteration+'" maxlength="2" size="2" min="1" max="10" placeholder="posicion" required /></label><textarea id="'+tipoM+'Desc'+nbIteration+'" class="form-control" name="'+tipoM+'Desc'+nbIteration+'"></textarea></p>').appendTo(scntDiv);
 		
 	}else if(tipoM=='pdf'){
-		jQuery('<p><label for="'+tipoM+'i_'+nbIteration+'"><input type="text" id="'+tipoM+'i_'+nbIteration+'" name="'+tipoM+'i_'+nbIteration+'" class="pdfUpload form-control" data-tipo="'+tipoM+'" placeholder="texto" required/></label><label for="pdf'+tipoM+'i_'+nbIteration+'"><input type="number" id="pdf'+tipoM+'i_'+nbIteration+'" name="pdf'+tipoM+'i_'+nbIteration+'" maxlength="2" class="form-control" size="2" min="1" max="10" placeholder="posicion" required /></label><textarea id="'+tipoM+'Desc'+nbIteration+'" class="form-control" name="'+tipoM+'Desc'+nbIteration+'"></textarea></p>').appendTo(scntDiv);
+		jQuery('<p><label for="'+tipoM+'i_'+nbIteration+'"><input type="text" id="'+tipoM+'i_'+nbIteration+'" name="'+tipoM+'i_'+nbIteration+'" class="pdfUpload form-control" data-tipo="'+tipoM+'" placeholder="texto" required/></label><label for="pdf'+tipoM+'i_'+nbIteration+'"><input type="number" id="'+tipoM+'posicion'+nbIteration+'" name="'+tipoM+'posicion'+nbIteration+'" maxlength="2" class="form-control" size="2" min="1" max="10" placeholder="posicion" required /></label><textarea id="'+tipoM+'Desc'+nbIteration+'" class="form-control" name="'+tipoM+'Desc'+nbIteration+'"></textarea></p>').appendTo(scntDiv);
 		
 	}
 

@@ -55,7 +55,6 @@ class Contenido {
 		$newSeccion= model('LallamaradaSeccionXContenido');
 		/*Recibe datos de multimedia*/
 		$varUrl = filter_input_array(INPUT_POST);
-
 		/*Guardar tipo multimedia*/
 		$newTipoM->tipo=$varUrl['tipo'];
 		$newTipoM->fecha=date('Y-m-d H:m:s');
@@ -70,30 +69,33 @@ class Contenido {
 		if(isset($varUrl['formulario']) && $varUrl['formulario']!=''){
 		$generados=$varUrl['formulario'];
 		$posicionesGeneradas=$varUrl['formularioposiciones'];
+		$descripcionesGeneradas=$varUrl['formulariodescripciones'];
 		array_push($generados,$varUrl['inicial']);
 		array_push($posicionesGeneradas,$varUrl['posicioni']);
+		array_push($descripcionesGeneradas,$varUrl['descripcioni']);
 		}else{
 			$generados=$varUrl['inicial'];
 			$posicionesGeneradas=$varUrl['posicioni'];
+			$descripcionesGeneradas=$varUrl['descripcioni'];
 		}
 		if(isset($generados)){
 			/*Se guardan datos generados*/
 		
-			/*foreach ($generados as $urls) {
-			   $guardaUrl = $urls;
-			   if(isset($guardaUrl) && $guardaUrl!=''){
-			   	$newUrl->url=$guardaUrl;
-				$newUrl->fecha=date('Y-m-d H:m:s');
-				$newUrl->fechaActualizacion=date('Y-m-d H:m:s');
-				$guardaUrl=$newUrl->setInstancia();
-				array_push($guardaUlrid,$guardaUrl);
-			   }
-			   
-			   	}*/
 			
 			$tipoMulti=$varUrl['tipo'];
 			   	for ($i=0; $i <count($generados) ; $i++) {
-			   		switch ($tipoMulti) {
+			   			$newUrl->url=$generados[$i];
+			   			$newUrl->orden=$posicionesGeneradas[$i];
+			   			$newUrl->descripcion=htmlspecialchars_decode(base64_decode($descripcionesGeneradas[$i]));
+			   			//$newUrl->descripcion=trim(ltrim(rtrim(base64_decode(html_entity_decode(htmlspecialchars_decode($descripcionesGeneradas[$i]))))));
+						//$newUrl->fechaInicio=$varPost['fechaInicio'];
+						//$newUrl->fechaFin=$varPost['fechaFin'];
+						$newUrl->fecha=date('Y-m-d H:m:s');
+						$newUrl->fechaActualizacion=date('Y-m-d H:m:s');
+						$guardaUrl=$newUrl->setInstancia();
+						array_push($guardaUlrid,$guardaUrl);
+
+			   		/*switch ($tipoMulti) {
 			   			case 'G':
 			   			# guardar las Galerias
 			   			break;
@@ -112,31 +114,26 @@ class Contenido {
 			   			break;
 			   			case 'V':
 			   			# Cuando el tipo de multimedia es video
-			   			$newUrl->url=$generados[$i];
-			   			$newUrl->orden=$posicionesGeneradas[$i];
-			   			printVar($posicionesGeneradas[$i]);
-						//$newUrl->fechaInicio=$varPost['fechaInicio'];
-						//$newUrl->fechaFin=$varPost['fechaFin'];
-						$newUrl->fecha=date('Y-m-d H:m:s');
-						$newUrl->fechaActualizacion=date('Y-m-d H:m:s');
-						$guardaUrl=$newUrl->setInstancia();
-						array_push($guardaUlrid,$guardaUrl);
+			   			
 			   			
 			   			break;
 			   			case 'P':
 			   			# code...
 			   			break;
-			   		}			   		
+			   		}	*/		   		
 
 			   }
 		}else{
-		$newUrl->url=$varUrl['inicial'];
+		$newUrl->url=$generados;
+		$newUrl->orden=$posicionesGeneradas;
+		$newUrl->descripcion=htmlspecialchars_decode(base64_decode($descripcionesGeneradas));
 		$newUrl->fecha=date('Y-m-d H:m:s');
 		$newUrl->fechaActualizacion=date('Y-m-d H:m:s');
 		$guardaUrl=$newUrl->setInstancia();
 		array_push($guardaUlrid,$guardaUrl);
 		}
 		
+		die();
 		/*Guarda la url x multimedia*/
 		if(is_array($guardaUlrid)){
 
@@ -255,7 +252,6 @@ class Contenido {
 				//printVar($buscaContenido[0]);
 				view()->assign("titulo",$buscaContenido[0]['titulo']);
 				view()->assign("contenido",$buscaContenido[0]['contenido']);
-				$internaD="interna.html"; 
 			}else if(isset($contenidoOrd['idMultXUrl'])){
 
 

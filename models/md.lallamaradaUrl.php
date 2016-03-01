@@ -13,7 +13,7 @@ class DataObjects_LallamaradaUrl extends DB_DataObject
     public $__tempName = 'LallamaradaUrl';     // tempName
     public $id;                             // int(4) primary_key not_null
     public $url;                            // varchar(300) not_null
-    public $descipcion;                     // varchar(150)
+    public $descripcion;                    // text
     public $link;                           // varchar(100)
     public $orden;                          // int(4)
     public $seguimientoEvento;              // varchar(100)
@@ -29,6 +29,7 @@ class DataObjects_LallamaradaUrl extends DB_DataObject
              'id' =>  DB_DATAOBJECT_INT + DB_DATAOBJECT_NOTNULL,
              'url' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_NOTNULL,
              'link' =>  DB_DATAOBJECT_STR,
+             'descripcion' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_TXT,
              'orden' =>  DB_DATAOBJECT_INT,
              'seguimientoEvento' =>  DB_DATAOBJECT_STR,
              'fechaInicio' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_DATE + DB_DATAOBJECT_TIME,
