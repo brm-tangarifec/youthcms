@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-01 15:43:06
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-02 09:46:41
          compiled from "..\views\youth\interna.html" */ ?>
 <?php /*%%SmartyHeaderCode:855356ccda274e9070-57476185%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9fe366e0b932cdee334925c3127a857fefdff9b9' => 
     array (
       0 => '..\\views\\youth\\interna.html',
-      1 => 1456864983,
+      1 => 1456929999,
       2 => 'file',
     ),
   ),
@@ -69,10 +69,20 @@ $_smarty_tpl->tpl_vars['descripcionCapsula']->_loop = true;
 	<?php }?>
 <?php } ?>
 <!--Carga titulo-->
-<h1><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
+ <!--/-Slider PPAl-->
+  <section class="container-fluid">
+    <!--más información-->
+    <div class="go-down">
+      <p class="azul-oscuro-text">Más información</p><a href="#" class="icon icon-circle-left down purpura-text"></a>
+    </div>
+    <!--/-más información-->
+    <article class="row contenido">
+		<h1><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
 </h1>
-<?php echo $_smarty_tpl->tpl_vars['contenido']->value;?>
+		<?php echo $_smarty_tpl->tpl_vars['contenido']->value;?>
 
+    </article>
+  </section>
 <!--Fin contenido-->
 <?php echo $_smarty_tpl->getSubTemplate ("base/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 <?php }} ?>
