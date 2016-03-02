@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-02-23 17:50:41
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-02 10:19:09
          compiled from "..\views\taberna\insert.html" */ ?>
 <?php /*%%SmartyHeaderCode:2320756cce241da5fa9-11805813%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a0fbc4a12043b97456291da17a1f7babdb523e6f' => 
     array (
       0 => '..\\views\\taberna\\insert.html',
-      1 => 1456152922,
+      1 => 1456931948,
       2 => 'file',
     ),
   ),
@@ -15,17 +15,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_56cce241ea7ce0_85182750',
   'variables' => 
   array (
     'padre' => 0,
     'papa' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_56cce241ea7ce0_85182750',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_56cce241ea7ce0_85182750')) {function content_56cce241ea7ce0_85182750($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("taberna/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
+        
+ <section>
         <div class="wrapper row-offcanvas row-offcanvas-left">
            
             <!-- Right side column. Contains the navbar and content of the page -->
@@ -113,6 +115,7 @@ $_smarty_tpl->tpl_vars['papa']->_loop = true;
                                 <!--Fin Edicion de secciones-->
                             </div><!-- /.box -->
                         </div>
+                    </aside>
                     </div>
                 </section><!-- /.content -->
         <?php echo $_smarty_tpl->getSubTemplate ("taberna/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
