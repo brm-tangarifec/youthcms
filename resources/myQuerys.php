@@ -56,6 +56,24 @@ class MyQuerys
 		$objDBO -> free();
 		return $nombP;
 	}
+
+	function traeImagenes($directorio){
+		$base='youth/public/';
+		$displaImg="/youth/images/";
+		$directorio=$_SERVER['DOCUMENT_ROOT'].$base.$directorio;
+			$directorio = opendir($directorio); //ruta actual
+			$imagenes=array();
+			while ($archivo = readdir($directorio)) //obtenemos un archivo y luego otro sucesivamente
+			{
+			    if (!is_dir($archivo))//verificamos si es o no un directorio
+			    {   
+			    	$archivo=$displaImg.$archivo;
+			    	array_push($imagenes,$archivo);
+			    	
+			    }
+			}
+			    	return $imagenes;
+	}
 	
 }
 

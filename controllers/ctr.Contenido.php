@@ -6,7 +6,10 @@ class Contenido {
 	function creaContenido($idSeccion){
 		//printVar($idSeccion);
 		$filtraSeccion = filter_input_array(INPUT_POST);
-		$contenido= model('LallamaradaContenido');
+		$directorio='images/';
+		$traeImagenes=MyQuerys::traeImagenes($directorio);
+		//printVar($traeImagenes);
+		view()->assign("imagenes",$traeImagenes);
 		view()->assign("seccion",$filtraSeccion['idSeccion']);
 		view()->display("taberna/creaContenido.html");
 	}
@@ -17,7 +20,7 @@ class Contenido {
 			$varPost = filter_input_array(INPUT_POST);	
 			$newContenido= model('LallamaradaContenido');
 			$newSeccion= model('LallamaradaSeccionXContenido');
-			$newContenido->titulo=trim(ltrim(rtrim($varPost['tituloCont'])));
+			$newContenido->titulo=trim(ltrim(rtrim(utf8_decode(base64_decode($varPost['tituloCont'])))));
 			$newContenido->contenido=trim(ltrim(rtrim(utf8_decode(base64_decode($varPost['contenidoTexto'])))));
 			$newContenido->visible=$varPost['visible'];
 			
@@ -51,7 +54,21 @@ class Contenido {
 			'order' => 'posicion ASC'
 			);
 		$traeIdContenido=$SecXContenido->getData($buscaC);
-		printVar($traeIdContenido);
+		for ($i=0; $i < count($traeIdContenido) ; $i++) { 
+			# code...
+			if(isset($traeIdContenido[$i]['idContenido'])){
+
+				$idContenido=$traeIdContenido[$i]['idContenido'];
+			}
+		}
+		/*Trae contenido para edición*/
+		$buscaEd=array(
+			"conditions"=> 'id ='.$idContenido,
+			"fields" => array('titulo','contenido','visible','fechaInicio','fechaFin')
+			);
+		$editaContenido=$contenido->getData($buscaEd);
+		/*Fin traida contenido*/
+		view()->assign("contenido",$editaContenido);
 		view()->assign("seccion",$filtraSeccion['idSeccion']);
 		view()->display("taberna/editContenido.html");
 	}
@@ -307,6 +324,7 @@ class Contenido {
 				
 				//$internaD="indexNew.html";
 
+				view()->assign("multimedia",$buscaContenidoUrl);
 			}
 
 		}
@@ -314,7 +332,6 @@ class Contenido {
 
 		/*Trae datos de la tabla contenido*/
 		
-		view()->assign("multimedia",$buscaContenidoUrl);
 
 		view()->assign("idSeccion",$mySeccionId);
 		//printVar($internaD);

@@ -4,8 +4,9 @@ jQuery(document).ready(function(){
 jQuery(document).on('click','.ui-icon-save',function(){
 		$.base64.utf8encode = true;
 		//console.log('hola, soy un click');
-		var tituloCont= jQuery('.titulo-contenido').text();
+		var tituloContT= jQuery('.titulo-contenido').html();
 		var contenidohtml= jQuery('.contenido-texto').html();
+		var tituloCont=$.base64.btoa(tituloContT);
 		var contenidoTexto=$.base64.btoa(contenidohtml);
 		var fechaInicio= jQuery('#fechaIni').val();
 		var fechaFin= jQuery('#fechaFin').val();
@@ -44,26 +45,5 @@ jQuery(document).on('click','.ui-icon-save',function(){
 
 	});
 
-	
-	jQuery(function($) {
-		$('.contenidoEditable').raptor({
-		"plugins": {
-		    dock: {                  // Dock specific plugin options
-	            docked: true,        // Start the editor already docked
-	            dockToElement: true, // Dock the editor inplace of the element
-	            persist: false,      // Do not save the docked state
-	            unsavedEditWarning: false,
-	        },
-		    classMenu: {
-		        "classes": {
-		            "Blue background": "cms-blue-bg",
-		            "Round corners": "cms-round-corners",
-		            "Indent and center": "cms-indent-center"
-		        }
-		    },
-		}
-		});
-	});
-});
-	
+/*Cambia date*/
     

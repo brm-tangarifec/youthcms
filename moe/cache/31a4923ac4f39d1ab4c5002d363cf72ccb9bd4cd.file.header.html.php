@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-02-26 09:54:46
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-02 11:55:15
          compiled from "..\views\taberna\header.html" */ ?>
 <?php /*%%SmartyHeaderCode:1011656cb21637cda21-59711854%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '31a4923ac4f39d1ab4c5002d363cf72ccb9bd4cd' => 
     array (
       0 => '..\\views\\taberna\\header.html',
-      1 => 1456374732,
+      1 => 1456937713,
       2 => 'file',
     ),
   ),
@@ -53,6 +53,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <?php echo '<script'; ?>
  src="/youth/js/libs.youth.min.js" type="text/javascript"><?php echo '</script'; ?>
 >
+        
 
         <!-- Bootstrap ->
         <?php echo '<script'; ?>
@@ -61,7 +62,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         
         <!-- Taberna -->
         <?php echo '<script'; ?>
- src="/youth/js/taberna.js" type="text/javascript"><?php echo '</script'; ?>
+ src="/youth/js/taberna/taberna.js" type="text/javascript"><?php echo '</script'; ?>
 >
     </head>
     <body class="skin-black">

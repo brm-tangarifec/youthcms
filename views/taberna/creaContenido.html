@@ -1,8 +1,19 @@
 {#include  file="taberna/headerCont.html"#}
 <!--Editor js-->
-       
+<style type="text/css">
+     
+.muestraImagenes{
+    display: inline;
+}
+</style>     
         <!--FIn editor-->
+        <div class="muestraImagenes">
+            {#foreach from=$imagenes item=imagen#}
+            <p>RUTA: {#$imagen#}
+                <img src="{#$imagen#}" height="70px" width="70px"></p>
 
+            {#/foreach#}
+        </div>
         <div class="wrapper row-offcanvas row-offcanvas-left">
                                 <div class="panel-body table-responsive CreaContenido">
                                     <p>Para crear contenido se debe dar click sobre lo que se desea agregar</p>
@@ -20,12 +31,15 @@
                                         <h2>Creación de Contenido</h2>
                                         <label for="titulo">Titulo</label>
                                         <div class="col-md-12 contenidoEditable titulo-contenido">
-                                            <h1>Ingresa el título</h1>
+                                            <input type="text" name="titulo" id="titulo" value=""/>
+                                        </div>
+                                        <div class="col-md-12 contenidoEditable titulo-contenido">
+                                            <input type="text" name="titulo" id="titulo" value=""/>
                                         </div>
                                         <!--Contenido editable-->
                                         <div class="clear"></div>
                                         <div class="col-md-8 contenidoEditable contenido-texto">
-                                            <p>Haz click sobre el texto para ingresar un contenido</p>
+                                            <textarea class="form-control" id="contenidoNew" name="contenidoNew" style="width: 733px !important;"></textarea>
                                          </div>
                                          <div class="col-md-4">
                                             <span>Visible</span>
