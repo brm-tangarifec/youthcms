@@ -20,7 +20,7 @@
 		      			<div class="item">
 		      		{#/if#}
 		       		<div class="carousel-caption">
-		       	   	{#$descripcionCapsula['descripcion']|utf8_decode#}
+		       	   	{#$descripcionCapsula['descripcion']#}
 		       		</div>
 		     		 </div>
 		     	 {#/foreach#}
@@ -40,7 +40,7 @@
 			 	{#foreach from=$descripcionCapsulaK item=GeleriaC#}
 			          <div class="slide">
 			            <figure><a href="#"><img src="{#$GeleriaC['url']#}" alt="Destacado" title="Destacado" class="img-responsive"></a></figure>
-			            {#$GeleriaC['descipcion']|utf8_encode#}
+			            {#$GeleriaC['descripcion']|utf8_encode#}
 			          </div>
 			          
 		     	{#/foreach#}
@@ -85,7 +85,7 @@
 		 				     		<div class="embed-responsive embed-responsive-16by9">
 		 				       			<iframe src="https://www.youtube.com/embed/{#$videoH['url']#}" frameborder="0" class="embed-responsive-item"></iframe>
 		 				     		</div>
-		 				     		{#$videoH['descipcion']#}
+		 				     		{#$videoH['descripcion']#}
 						 {#/foreach#}
  				   </div>
  				 </article>
@@ -104,7 +104,7 @@
 			       {#foreach from=$descripcionCapsulaK item=elearningH#}
 		 				   		
 			       	<div class="box">
-		 				{#$elearningH['descipcion']#}
+		 				{#$elearningH['descripcion']#}
 			     		</div>
 					 {#/foreach#}
 			   </div>
@@ -115,20 +115,22 @@
 			 {#if $pos==5#}
 			   <!--Capsulas-->
 				<section class="container-fluid u-no-border home-capsulas">
-				  <div class="row">
-				    <h2 class="text-center">Cápsulas</h2>
-				    <div class="col-lg-6 col-md-6 col-sm-10 col-xs-12 col-lg-offset-3 col-md-offset-3 col-sm-offset-1">
-				    	{#foreach from=$descripcionCapsulaK item=CapsulaH#}
-						      <article class="capsula">
-						        <figure class="img-capsula"><a href="#"><iframe src="https://www.youtube.com/embed/{#$CapsulaH['url']#}" frameborder="0" class="embed-responsive-item"></iframe></a></figure>
-						       	{#$CapsulaH['descipcion']#}
-						        </div>
-						      </article>
-				    	{#/foreach#}
-				    </div>
-				  </div>
-				  <!--/-Capsulas-->
-				</section>
+					  <div class="row">
+					    <h2 class="text-center">Cápsulas</h2>
+					    <div class="col-lg-6 col-md-6 col-sm-10 col-xs-12 col-lg-offset-3 col-md-offset-3 col-sm-offset-1">
+					    	{#foreach from=$descripcionCapsulaK item=CapsulaH#}
+							      <article class="capsula">
+							        <figure class="img-capsula"><div class=" embed-responsive embed-responsive-16by9"><iframe height="200" width="200" src="https://www.youtube.com/embed/{#$CapsulaH['url']#}" class="embed-responsive-item" frameborder="0" allowfullscreen></iframe></div></figure>
+							         <div class="text-capsula">
+							       	{#$CapsulaH['descripcion']#}
+							       </div>
+							        </div>
+							      </article>
+					    	{#/foreach#}
+					    </div>
+					  </div>
+					  <!--/-Capsulas-->
+					</section>
 			{#/if#}
 
 	{#/foreach#}

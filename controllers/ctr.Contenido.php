@@ -257,7 +257,8 @@ class Contenido {
 				}
 				
 				$ruta = (substr($ruta, 0, 1)=="/" && strlen($ruta)>1) ? substr($ruta,2) : $ruta ;
-				$ruta=CleanDoor::limpiarMiga(strtolower($ruta));
+				$ruta=CleanDoor::allClean(strtolower($ruta));
+				//printVar($ruta);
 			if ($ruta==$nombreSeccion) {
 				$mySeccionId=$seccionGet['id'];
 			}
@@ -283,6 +284,7 @@ class Contenido {
 			"fields" => array('template'),
 			);
 		$traeTemplate=$newTemplate->getData($confT);
+		//printVar($traeTemplate);
 		$templateInterna=$traeTemplate[0]['template'];
 		
 		/*Recorre contenidos por posicion*/

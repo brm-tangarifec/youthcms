@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-02 20:34:29
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-02 20:50:33
          compiled from "..\views\taberna\insert.html" */ ?>
 <?php /*%%SmartyHeaderCode:2320756cce241da5fa9-11805813%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a0fbc4a12043b97456291da17a1f7babdb523e6f' => 
     array (
       0 => '..\\views\\taberna\\insert.html',
-      1 => 1456968812,
+      1 => 1456969821,
       2 => 'file',
     ),
   ),
@@ -26,12 +26,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_56cce241ea7ce0_85182750')) {function content_56cce241ea7ce0_85182750($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("taberna/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
-        
- <section>
-        <div class="wrapper row-offcanvas row-offcanvas-left">
+
+        <section class="container-fluid ">
            
             <!-- Right side column. Contains the navbar and content of the page -->
-            <section class="right-side">
+            <div class="row">
 
                 <!-- Main content -->
                 <div class="col-xs-12">
@@ -106,7 +105,7 @@ $_smarty_tpl->tpl_vars['papa']->_loop = true;
                                                     <td><span class="glyphicon glyphicon-ok agregaSec" data-seccion=""></span></td>
                                                 </tr>
                                          </table>
-                                 </form>
+                                    </form>
                                 </div><!-- /.box-body -->
                                 <!--Fin de lista secciones-->
                                 <!--Edicion de secciones-->
@@ -115,14 +114,8 @@ $_smarty_tpl->tpl_vars['papa']->_loop = true;
                                 <!--Fin Edicion de secciones-->
                             </div><!-- /.box -->
                         </div>
-<<<<<<< HEAD
-                 
-                </section>
-            </div><!-- /.content -->
-=======
-                    </aside>
                     </div>
                 </section><!-- /.content -->
->>>>>>> 63e944e834f82823c8cfdfd12c43f713134aa36b
+
         <?php echo $_smarty_tpl->getSubTemplate ("taberna/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 <?php }} ?>

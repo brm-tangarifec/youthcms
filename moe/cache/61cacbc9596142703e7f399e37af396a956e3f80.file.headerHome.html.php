@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-01 15:43:55
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-02 22:52:30
          compiled from "..\views\base\headerHome.html" */ ?>
 <?php /*%%SmartyHeaderCode:701756ce8187dd33b0-25437743%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '61cacbc9596142703e7f399e37af396a956e3f80' => 
     array (
       0 => '..\\views\\base\\headerHome.html',
-      1 => 1456865031,
+      1 => 1456977148,
       2 => 'file',
     ),
   ),
@@ -83,7 +83,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       <div class="row">
         <!--Logo-->
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-          <h1 class="logo"><a href="/youth/"><img src="images/logo-youth.svg" alt="NESTLÉ® | Iniciativa por los Jóvenes" title="NESTLÉ® | Iniciativa por los Jóvenes" class="img-responsive"></a></h1>
+          <h1 class="logo"><a href="/youth/"><img src="/youth/images/logo-youth.svg" alt="NESTLÉ® | Iniciativa por los Jóvenes" title="NESTLÉ® | Iniciativa por los Jóvenes" class="img-responsive"></a></h1>
         </div>
         <div class="col-lg-2 col-md-2 hidden-xs">				
           <p class="pais">Colombia</p>
@@ -111,7 +111,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
               <ul class="nav navbar-nav">
                 <li><a href="orientate.php">Oriéntate</a></li>
                 <li><a href="entrenate.php">Entrénate</a></li>
-                <li><a href="empleate.php">Empléate</a></li>
+                <li><a href="/youth/empleate/">Empléate</a></li>
                 <li><a href="oportunidades.php">+ Oportunidades</a></li>
               </ul>
             </div>

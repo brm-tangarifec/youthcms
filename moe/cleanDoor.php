@@ -13,6 +13,8 @@ class CleanDoor extends Moe
 	//Método que permite reemplazar caracteres especiales
 	static function limpiarMiga($nombreVariable){
 		$limpieza = array(	" " => "-",
+							"¿" => "",
+							"?" => "",
 							"á" => "a",
 							"é" => "e",
 							"í" => "i",
@@ -37,6 +39,7 @@ class CleanDoor extends Moe
 							"&Uacute;" => "U",
 							"&ntilde;" => "n",
 							"&Ntilde;" => "Ñ",
+							"&iquest;" => "",
 							"(" => "_",
 							")" => "_"
 		);
@@ -65,6 +68,7 @@ class CleanDoor extends Moe
 	}
 	// Método que llama todas las funciones de limpieza de la url
 	static function allClean($cadena){
+		//printVar($cadena);
 		$cadena=self::cambiaParaEnvio($cadena);
 		$cadena=self::limpiarMiga($cadena);
 		$cadena=self::buscaInjec($cadena);

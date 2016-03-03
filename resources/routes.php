@@ -1,5 +1,5 @@
 <?php
-//ini_set('display_errors',1);
+ini_set('display_errors',1);
 
 $rutaArray=array();
 
@@ -36,7 +36,8 @@ foreach ($seccions as $seccionGet) {
 	}
 	
 	$ruta = (substr($ruta, 0, 1)=="/" && strlen($ruta)>1) ? substr($ruta,2) : $ruta ;
-	$ruta=CleanDoor::limpiarMiga(strtolower($ruta));
+	$ruta=CleanDoor::allClean(strtolower($ruta));
+	//printVar($ruta);
 	$rutaArray[$ruta]="Contenido@getContent";
 }
  Moe::routes($rutaArray);

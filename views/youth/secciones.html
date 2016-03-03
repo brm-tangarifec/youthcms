@@ -1,0 +1,104 @@
+{#include  file="base/headerHome.html"#}
+<!--Carga titulo-->
+
+<!--Carga Contenido Slider Capsula-->
+<!--Slider PPAl-->
+
+
+	{#foreach from=$multimedia item=descripcionCapsulaK key=pos#}
+		{#if $pos==1 #}
+		 <section class="container-fluid u-no-border slider-ppal slider-entrenate">
+		  <div id="carrusel-ppal" data-ride="carousel" class="carousel slide">
+		    <!--wrapper -->
+		    <div role="listbox" class="carousel-inner">
+		      <!--item-->
+		      	{#foreach from=$descripcionCapsulaK item=descripcionCapsula#}
+		      	
+		      	 	{#if $descripcionCapsula['orden']=='1'#}
+		      			<div class="item active">
+		      		{#else#}
+		      			<div class="item">
+		      		{#/if#}
+		       		<div class="carousel-caption">
+		       	   	{#$descripcionCapsula['descripcion']#}
+		       		</div>
+		     		 </div>
+		     	 {#/foreach#}
+		      
+		    </div>
+		    <!--Controls--><a href="#carrusel-ppal" role="button" data-slide="prev" class="left carousel-control"><span aria-hidden="true" class="icon icon-circle-left"></span><span class="sr-only">Prev</span></a><a href="#carrusel-ppal" role="button" data-slide="next" class="right carousel-control"><span aria-hidden="true" class="icon icon-circle-right"></span><span class="sr-only">Next</span></a>
+		  </div>
+		</section>
+	
+  		  <!--/-más información-->
+		{#/if#}
+		{#if $pos>1 and $pos<=4 #}
+
+				{#if $pos==2#}
+					<section class="container-fluid mask-arrow">
+
+					<!--más información-->
+					<div class="go-down">
+					<p class="azul-oscuro-text">Más información</p><a href="#" class="icon icon-circle-left down naranja-text"></a>
+					</div>
+					{#foreach from=$descripcionCapsulaK item=descripcionCapsula#}
+
+						{#$descripcionCapsula['descripcion']#}
+
+					{#/foreach#}
+
+				{#/if#}
+				{#if $pos==3#}
+					{#foreach from=$descripcionCapsulaK item=descripcionCapsula#}
+
+						{#$descripcionCapsula['descripcion']#}
+
+					{#/foreach#}
+
+				{#/if#}
+				{#if $pos==4#}
+					{#foreach from=$descripcionCapsulaK item=descripcionCapsula#}
+
+						{#$descripcionCapsula['descripcion']#}
+
+					{#/foreach#}
+							</section>
+				{#/if#}
+	
+		{#/if#}
+		{#if $pos==5#}
+					{#foreach from=$descripcionCapsulaK item=descripcionCapsula#}
+
+						{#$descripcionCapsula['descripcion']#}
+
+					{#/foreach#}
+
+				{#/if#}
+				{#if $pos==6#}
+						 <!--Capsulas-->
+					<section class="container-fluid u-no-border home-capsulas">
+					  <div class="row">
+					    <h2 class="text-center">Cápsulas</h2>
+					    <div class="col-lg-6 col-md-6 col-sm-10 col-xs-12 col-lg-offset-3 col-md-offset-3 col-sm-offset-1">
+					    	{#foreach from=$descripcionCapsulaK item=CapsulaH#}
+							      <article class="capsula">
+							        <figure class="img-capsula"><div class=" embed-responsive embed-responsive-16by9"><iframe height="200" width="200" src="https://www.youtube.com/embed/{#$CapsulaH['url']#}" class="embed-responsive-item" frameborder="0" allowfullscreen></iframe></div></figure>
+							         <div class="text-capsula">
+							       	{#$CapsulaH['descripcion']#}
+							       </div>
+							        </div>
+							      </article>
+					    	{#/foreach#}
+					    </div>
+					  </div>
+					  <!--/-Capsulas-->
+					</section>
+
+				{#/if#}
+	{#/foreach#}
+	<!-- Paso 1 -->
+	
+	
+	
+<!--Fin contenido-->
+{#include  file="base/footer.html"#}

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-02 18:49:10
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-03 00:39:51
          compiled from "..\views\youth\indexNew.html" */ ?>
 <?php /*%%SmartyHeaderCode:2302456ce8187c06449-87898421%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9ea295d060c122f85dc895644794518b01df2293' => 
     array (
       0 => '..\\views\\youth\\indexNew.html',
-      1 => 1456962549,
+      1 => 1456983588,
       2 => 'file',
     ),
   ),
@@ -63,7 +63,7 @@ $_smarty_tpl->tpl_vars['descripcionCapsula']->_loop = true;
 		      			<div class="item">
 		      		<?php }?>
 		       		<div class="carousel-caption">
-		       	   	<?php echo utf8_decode($_smarty_tpl->tpl_vars['descripcionCapsula']->value['descripcion']);?>
+		       	   	<?php echo $_smarty_tpl->tpl_vars['descripcionCapsula']->value['descripcion'];?>
 
 		       		</div>
 		     		 </div>
@@ -89,7 +89,7 @@ $_smarty_tpl->tpl_vars['GeleriaC']->_loop = true;
 			          <div class="slide">
 			            <figure><a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['GeleriaC']->value['url'];?>
 " alt="Destacado" title="Destacado" class="img-responsive"></a></figure>
-			            <?php echo utf8_encode($_smarty_tpl->tpl_vars['GeleriaC']->value['descipcion']);?>
+			            <?php echo utf8_encode($_smarty_tpl->tpl_vars['GeleriaC']->value['descripcion']);?>
 
 			          </div>
 			          
@@ -140,7 +140,7 @@ $_smarty_tpl->tpl_vars['videoH']->_loop = true;
 		 				       			<iframe src="https://www.youtube.com/embed/<?php echo $_smarty_tpl->tpl_vars['videoH']->value['url'];?>
 " frameborder="0" class="embed-responsive-item"></iframe>
 		 				     		</div>
-		 				     		<?php echo $_smarty_tpl->tpl_vars['videoH']->value['descipcion'];?>
+		 				     		<?php echo $_smarty_tpl->tpl_vars['videoH']->value['descripcion'];?>
 
 						 <?php } ?>
  				   </div>
@@ -164,7 +164,7 @@ $_smarty_tpl->tpl_vars['elearningH']->_loop = true;
 ?>
 		 				   		
 			       	<div class="box">
-		 				<?php echo $_smarty_tpl->tpl_vars['elearningH']->value['descipcion'];?>
+		 				<?php echo $_smarty_tpl->tpl_vars['elearningH']->value['descripcion'];?>
 
 			     		</div>
 					 <?php } ?>
@@ -176,26 +176,28 @@ $_smarty_tpl->tpl_vars['elearningH']->_loop = true;
 			 <?php if ($_smarty_tpl->tpl_vars['pos']->value==5) {?>
 			   <!--Capsulas-->
 				<section class="container-fluid u-no-border home-capsulas">
-				  <div class="row">
-				    <h2 class="text-center">Cápsulas</h2>
-				    <div class="col-lg-6 col-md-6 col-sm-10 col-xs-12 col-lg-offset-3 col-md-offset-3 col-sm-offset-1">
-				    	<?php  $_smarty_tpl->tpl_vars['CapsulaH'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['CapsulaH']->_loop = false;
+					  <div class="row">
+					    <h2 class="text-center">Cápsulas</h2>
+					    <div class="col-lg-6 col-md-6 col-sm-10 col-xs-12 col-lg-offset-3 col-md-offset-3 col-sm-offset-1">
+					    	<?php  $_smarty_tpl->tpl_vars['CapsulaH'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['CapsulaH']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['descripcionCapsulaK']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['CapsulaH']->key => $_smarty_tpl->tpl_vars['CapsulaH']->value) {
 $_smarty_tpl->tpl_vars['CapsulaH']->_loop = true;
 ?>
-						      <article class="capsula">
-						        <figure class="img-capsula"><a href="#"><iframe src="https://www.youtube.com/embed/<?php echo $_smarty_tpl->tpl_vars['CapsulaH']->value['url'];?>
-" frameborder="0" class="embed-responsive-item"></iframe></a></figure>
-						       	<?php echo $_smarty_tpl->tpl_vars['CapsulaH']->value['descipcion'];?>
+							      <article class="capsula">
+							        <figure class="img-capsula"><div class=" embed-responsive embed-responsive-16by9"><iframe height="200" width="200" src="https://www.youtube.com/embed/<?php echo $_smarty_tpl->tpl_vars['CapsulaH']->value['url'];?>
+" class="embed-responsive-item" frameborder="0" allowfullscreen></iframe></div></figure>
+							         <div class="text-capsula">
+							       	<?php echo $_smarty_tpl->tpl_vars['CapsulaH']->value['descripcion'];?>
 
-						        </div>
-						      </article>
-				    	<?php } ?>
-				    </div>
-				  </div>
-				  <!--/-Capsulas-->
-				</section>
+							       </div>
+							        </div>
+							      </article>
+					    	<?php } ?>
+					    </div>
+					  </div>
+					  <!--/-Capsulas-->
+					</section>
 			<?php }?>
 
 	<?php } ?>
