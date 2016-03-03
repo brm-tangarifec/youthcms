@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-02 16:18:47
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-02 17:25:41
          compiled from "..\views\taberna\creaContenido.html" */ ?>
 <?php /*%%SmartyHeaderCode:1386656cb31ed138ea8-99500369%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8b58d0373be9b1b7441bcb67b3c89df238fad9c8' => 
     array (
       0 => '..\\views\\taberna\\creaContenido.html',
-      1 => 1456953526,
+      1 => 1456957540,
       2 => 'file',
     ),
   ),
@@ -65,10 +65,7 @@ $_smarty_tpl->tpl_vars['imagen']->_loop = true;
                                         <h2>Creación de Contenido</h2>
                                         <label for="titulo">Titulo</label>
                                         <div class="col-md-12 contenidoEditable titulo-contenido">
-                                            <input type="text" name="titulo" id="titulo" value=""/>
-                                        </div>
-                                        <div class="col-md-12 contenidoEditable titulo-contenido">
-                                            <input type="text" name="titulo" id="titulo" value=""/>
+                                            <input type="text" name="titulo" id="titulo" value="" class="form-control"/>
                                         </div>
                                         <!--Contenido editable-->
                                         <div class="clear"></div>

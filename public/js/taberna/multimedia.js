@@ -108,7 +108,7 @@ jQuery(document).ready(function(){
 			var datoGuardari=jQuery('#'+tipoM+'i').val();
 			var posicioni=jQuery('#'+tipoM+'posicioni').val();
 			var descripcioniT=jQuery('#'+tipoM+'descripcioni').html();
-			var descripcioni=$.base64.btoa(descripcioniT);
+			var descripcioni=descripcioniT;
 			var cuentaCampos=parseInt(jQuery('#'+form+' p').length)
 
 			var paso;
@@ -122,16 +122,20 @@ jQuery(document).ready(function(){
 			for (paso = 1; paso < cuentaCampos; paso++) {
 				datoGuardar[paso] = jQuery('#'+linkG+'_'+paso).val();
 				psocionG[paso] = jQuery('#'+numpos+paso).val();
-				descipcionG[paso] = $.base64.btoa(jQuery('#'+numDesc+paso).html());
+				descipcionG[paso] = jQuery('#'+numDesc+paso).html();
+				console.log(descipcionG[paso]);
 			};
 			/*Fin variables*/
 			/*Hace requerido los campos*/
 				
 				var idFormValidation = form;
-				
+				console.log(datoGuardari);
+				console.log(descripcioni);
+				console.log(datoGuardar);
+				console.log(descipcionG);
 
 				/*Se generan las campos para enviar*/
-			if(datoGuardari!='' && posicioni!=''){
+			if(posicioni!=''){
 				var urlM='/youth/grdMultmedia/';
 				//var urlM='';
 
@@ -154,6 +158,7 @@ jQuery(document).ready(function(){
 						success : function(data) {
 							console.log(data);
 							if(data>0){
+								console.log(data);
 								console.log('entramos');
 								jQuery('.limpiar').val('');
 								/*jQuery('.titulo-contenido').text('Ingresa el título');
@@ -169,13 +174,13 @@ jQuery(document).ready(function(){
 
 				//console.log('no es');
 				
-			}else{
+			}/*else{
 
 				jQuery('#'+idFormValidation+' input').each(function(){
 					
 					jQuery(this).after( "<p>El campo no debe estar vacío</p>" );
 				});
-			}
+			}*/
 			return false;	
 			
 
@@ -219,9 +224,7 @@ function creaCampos(contar,tipoM,classT){
 		
 	}
 
-		area = new nicEditor({fullPanel : true,onSave : function(content, id, instance) {
-    alert('save button clicked for element '+id+' = '+content);
-  } }).panelInstance(tipoM+'Desc'+nbIteration);
+		area = new nicEditor({fullPanel : true}).panelInstance(tipoM+'Desc'+nbIteration);
 	      nbIteration++;
 
 
@@ -238,10 +241,7 @@ function crearDivsVideo(idInput,valor){
 
 
 bkLib.onDomLoaded(function() { 
-	nicEditors.allTextAreas({fullPanel : true, onSave : function(content, id, instance) {
-    console.log(jQuery(this).attr('class'));
-    alert('save button clicked for element '+id+' = '+content);
-  }}) 
+	nicEditors.allTextAreas({fullPanel : true  }) 
 });
 
 jQuery(document).on('blur','.nicEdit-main',function(){

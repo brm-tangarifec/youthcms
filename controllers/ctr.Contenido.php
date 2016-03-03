@@ -83,6 +83,7 @@ class Contenido {
 
 	function grdMultmedia(){
 		/*Modelos*/
+		debug(1);
 		$newTipoM= model('LallamaradaMultimedia');
 		$newUrl= model('LallamaradaUrl');
 		$newTXU= model('LallamaradaMultXUrl');
@@ -116,17 +117,27 @@ class Contenido {
 			/*Se guardan datos generados*/
 		
 			
-			$tipoMulti=$varUrl['tipo'];
+			//$tipoMulti=$varUrl['tipo'];
+			printVar($descripcionesGeneradas);
 			   	for ($i=0; $i <count($generados) ; $i++) {
+			   		
+					printVar($generados);
+					printVar($descripcionesGeneradas);
+
 			   			$newUrl->url=$generados[$i];
 			   			$newUrl->orden=$posicionesGeneradas[$i];
-			   			$newUrl->descripcion=htmlspecialchars_decode(base64_decode($descripcionesGeneradas[$i]));
+			   			$newUrl->descripcion=trim(ltrim(rtrim(htmlspecialchars_decode($descripcionesGeneradas[$i]))));
+			   			//$newUrl->descripcion=htmlspecialchars_decode(base64_decode($descripcionesGeneradas[$i]));
 			   			//$newUrl->descripcion=trim(ltrim(rtrim(base64_decode(html_entity_decode(htmlspecialchars_decode($descripcionesGeneradas[$i]))))));
 						//$newUrl->fechaInicio=$varPost['fechaInicio'];
 						//$newUrl->fechaFin=$varPost['fechaFin'];
 						$newUrl->fecha=date('Y-m-d H:m:s');
 						$newUrl->fechaActualizacion=date('Y-m-d H:m:s');
+						if($generados[$i]!=NULL || $generados[$i]!=''){
 						$guardaUrl=$newUrl->setInstancia();
+						}else{
+			   			echo "No hay datos";
+			   			}
 						array_push($guardaUlrid,$guardaUrl);
 
 			   		/*switch ($tipoMulti) {
@@ -155,6 +166,7 @@ class Contenido {
 			   			# code...
 			   			break;
 			   		}	*/		   		
+			   		
 
 			   }
 		}else{
@@ -199,8 +211,8 @@ class Contenido {
 			$newTXU->idUrl=$guardaUlrid;
 			$newTXU->fecha=date('Y-m-d H:m:s');
 			$newTXU->fechaActualizacion=date('Y-m-d H:m:s');
-			//$idTXM=$newTXU->setInstancia();
-			//array_push($guardaUlrids,$idTXM);
+			$idTXM=$newTXU->setInstancia();
+			array_push($guardaUlrids,$idTXM);
 		}
 		/*Guarda IDs de multimedia por seccion*/
 		if(array($guardaUlrids)){
@@ -209,8 +221,8 @@ class Contenido {
 				$newSeccion->posicion=$varUrl['posicion'];
 				$newSeccion->idMultXUrl=$guardaMultimedia;
 				$newSeccion->fecha=date('Y-m-d H:m:s');
-				//$newSeccion->fechaActualizacion=date('Y-m-d H:m:s');
-				//$secXUrl=$newSeccion->setInstancia();
+				$newSeccion->fechaActualizacion=date('Y-m-d H:m:s');
+				$secXUrl=$newSeccion->setInstancia();
 				
 		}
 	}
@@ -229,26 +241,27 @@ class Contenido {
 		$newTemplate = model('LallamaradaArchivoTemplate');
 		$seccions = $seccion->getData();
 		foreach ($seccions as $seccionGet) {
-			// Cuando el nombre de la ruta es distinta a "/" agrega un / al final
-			$ruta=($seccionGet['nombre']=="/") ? $seccionGet['nombre'] : $seccionGet['nombre']."/";
-			if (isset($seccionGet['idPadre']) && $seccionGet['idPadre']!=0) {
-				$idPadre=$seccionGet['idPadre'];
-				do{
-					$padre = $seccion->getData(array(
-						"fields" => array("id","nombre","idPadre"),
-						'conditions'=>array("id"=>$idPadre),
-						));
-					//$ruta= $padre[0]['nombre']."/".$ruta;
-					$ruta = (substr($ruta, 0, 1)=="/" && strlen($ruta)>1) ? substr($ruta,2) : $ruta ;		
-					$ruta = CleanDoor::limpiarMiga(strtolower($ruta));		
-					$idPadre=$padre[0]['idPadre'];
-
-				}while($idPadre > 0);
-			}
+				// Cuando el nombre de la ruta es distinta a "/" agrega un / al final
+				$ruta=($seccionGet['nombre']=="/") ? $seccionGet['nombre'] : $seccionGet['nombre']."/";
+				if (isset($seccionGet['idPadre']) && $seccionGet['idPadre']!=0) {
+					$idPadre=$seccionGet['idPadre'];
+					do{
+						$padre = $seccion->getData(array(
+							"fields" => array("id","nombre","idPadre"),
+							'conditions'=>array("id"=>$idPadre),
+							));
+						$ruta= $padre[0]['nombre']."/".$ruta;
+						$idPadre=$padre[0]['idPadre'];
+			
+					}while($idPadre > 0);
+				}
+				
+				$ruta = (substr($ruta, 0, 1)=="/" && strlen($ruta)>1) ? substr($ruta,2) : $ruta ;
+				$ruta=CleanDoor::limpiarMiga(strtolower($ruta));
 			if ($ruta==$nombreSeccion) {
 				$mySeccionId=$seccionGet['id'];
 			}
-		}
+			}
 		
 
 		
@@ -291,9 +304,7 @@ class Contenido {
 				view()->assign('poscicionCon',$numC);
 				view()->assign("contenido",$buscaContenido[0]['contenido']);
 			}else if(isset($contenidoOrd['idMultXUrl'])){
-
-
-				
+			
 				# code...
 				$getIdUrl=array(
 					'conditions'=> 'idMultimedia ='.$contenidoOrd['idMultXUrl'],
@@ -309,12 +320,13 @@ class Contenido {
 				}	
 
 				$string = substr($string, 1); // remove leading ","
+
 				//printVar($string);
 				
 				//debug(1);
 				$getUrlC=array(
 					'conditions'=> 'id IN ('.$string.')',
-					'fields' => array('id','orden','url','descipcion'),
+					'fields' => array('id','orden','url','descripcion'),
 					'order' => 'orden ASC'
 					);
 				

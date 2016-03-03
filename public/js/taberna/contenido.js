@@ -44,6 +44,13 @@ jQuery(document).on('click','.ui-icon-save',function(){
 	
 
 	});
+});
 
-/*Cambia date*/
-    
+jQuery(document).on('blur','.nicEdit-main',function(){
+	var contenidoG=jQuery(this).html();
+	var textAreg=jQuery(this).parent().next().attr('id');
+	console.log(contenidoG);
+	console.log(textAreg);
+	jQuery('#'+textAreg).text(contenidoG);
+
+});

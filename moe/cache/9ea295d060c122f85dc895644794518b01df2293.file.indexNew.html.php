@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-02-25 18:00:20
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-02 18:49:10
          compiled from "..\views\youth\indexNew.html" */ ?>
 <?php /*%%SmartyHeaderCode:2302456ce8187c06449-87898421%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9ea295d060c122f85dc895644794518b01df2293' => 
     array (
       0 => '..\\views\\youth\\indexNew.html',
-      1 => 1456441218,
+      1 => 1456962549,
       2 => 'file',
     ),
   ),
@@ -36,7 +36,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 <!--Carga Contenido Slider Capsula-->
 <!--Slider PPAl-->
-	
+
 
 	<?php  $_smarty_tpl->tpl_vars['descripcionCapsulaK'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['descripcionCapsulaK']->_loop = false;
  $_smarty_tpl->tpl_vars['pos'] = new Smarty_Variable;
@@ -63,7 +63,7 @@ $_smarty_tpl->tpl_vars['descripcionCapsula']->_loop = true;
 		      			<div class="item">
 		      		<?php }?>
 		       		<div class="carousel-caption">
-		       	   	<?php echo $_smarty_tpl->tpl_vars['descripcionCapsula']->value['descipcion'];?>
+		       	   	<?php echo utf8_decode($_smarty_tpl->tpl_vars['descripcionCapsula']->value['descripcion']);?>
 
 		       		</div>
 		     		 </div>

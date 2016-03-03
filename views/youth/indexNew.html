@@ -3,7 +3,7 @@
 
 <!--Carga Contenido Slider Capsula-->
 <!--Slider PPAl-->
-	
+
 
 	{#foreach from=$multimedia item=descripcionCapsulaK key=pos#}
 		{#if $pos==1 #}
@@ -20,7 +20,7 @@
 		      			<div class="item">
 		      		{#/if#}
 		       		<div class="carousel-caption">
-		       	   	{#$descripcionCapsula['descipcion']#}
+		       	   	{#$descripcionCapsula['descripcion']|utf8_decode#}
 		       		</div>
 		     		 </div>
 		     	 {#/foreach#}

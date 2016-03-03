@@ -5,6 +5,7 @@ class Seccion {
 	function listaSecciones(){
 
 		$seccion = model("LallamaradaSeccion");
+		$SecXCont = model("LallamaradaSeccionXContenido");
 		$seccions = $seccion->getData();
 		$seccionArray=array();
 		foreach ($seccions as $key) {
@@ -22,6 +23,12 @@ class Seccion {
 		}
 		
 		//printVar($seccionArray);
+		/*for ($i=0; $i <count($seccionArray) ; $i++) { 
+			# code...
+			$contenido=$seccionArray[$i]['id'];
+			printVar($contenido);
+		}*/
+		//view()->assign('contenido',$contenido);
 		view()->assign("seccions",$seccionArray);
 		view()->display("taberna/list.html");
 	}

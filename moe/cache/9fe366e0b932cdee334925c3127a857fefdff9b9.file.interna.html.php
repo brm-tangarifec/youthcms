@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-02 09:46:41
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-02 19:02:33
          compiled from "..\views\youth\interna.html" */ ?>
 <?php /*%%SmartyHeaderCode:855356ccda274e9070-57476185%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9fe366e0b932cdee334925c3127a857fefdff9b9' => 
     array (
       0 => '..\\views\\youth\\interna.html',
-      1 => 1456929999,
+      1 => 1456963351,
       2 => 'file',
     ),
   ),
@@ -56,7 +56,7 @@ $_smarty_tpl->tpl_vars['descripcionCapsula']->_loop = true;
 	      			<div class="item">
 	      		<?php }?>
 	       		<div class="carousel-caption">
-	       	   	<?php echo $_smarty_tpl->tpl_vars['descripcionCapsula']->value['descipcion'];?>
+	       	   	<?php echo utf8_decode($_smarty_tpl->tpl_vars['descripcionCapsula']->value['descripcion']);?>
 
 	       		</div>
 	     		 </div>

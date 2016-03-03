@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-02 11:55:17
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-02 18:34:53
          compiled from "..\views\taberna\headerCont.html" */ ?>
 <?php /*%%SmartyHeaderCode:450556cb2781057e65-59477532%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '52a0235abbc4bb3ab5684332007c6e3f8f66c3e4' => 
     array (
       0 => '..\\views\\taberna\\headerCont.html',
-      1 => 1456937475,
+      1 => 1456961685,
       2 => 'file',
     ),
   ),
@@ -52,6 +52,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
  src="/youth/js/libs.youth.min.js" type="text/javascript"><?php echo '</script'; ?>
 >
         <?php echo '<script'; ?>
+ type="text/javascript" src="/youth/js/taberna/libs/jquery.base64.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
  type="text/javascript" src="/youth/js/jquery.validate.js"><?php echo '</script'; ?>
 >
         <?php echo '<script'; ?>
@@ -66,15 +69,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <?php echo '<script'; ?>
  src="/youth/js/taberna/libs/moment.min.js" type="text/javascript"><?php echo '</script'; ?>
 >
-        <?php echo '<script'; ?>
- type="text/javascript" src="/youth/js/raptor/jquery.base64.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- type="text/javascript" src="/youth/js/taberna/contenido.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- type="text/javascript" src="/youth/js/taberna/multimedia.js"><?php echo '</script'; ?>
->
+        <!--script type="text/javascript" src="/youth/js/taberna/contenido.js"><?php echo '</script'; ?>
+-->
+       
         <!--FIn editor-->
         <!-- Taberna -->
     </head>

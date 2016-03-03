@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-02-29 14:55:19
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-02 18:34:52
          compiled from "..\views\taberna\creaMultimedia.html" */ ?>
 <?php /*%%SmartyHeaderCode:278456cb278100dad8-93138503%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4d1ffbdcd94b0e340d6c8f189c36d9006d1763d7' => 
     array (
       0 => '..\\views\\taberna\\creaMultimedia.html',
-      1 => 1456775653,
+      1 => 1456961691,
       2 => 'file',
     ),
   ),
@@ -142,6 +142,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
        </div>
 
 </section>
+ <?php echo '<script'; ?>
+ type="text/javascript" src="/youth/js/taberna/multimedia.js"><?php echo '</script'; ?>
+>
 <?php echo $_smarty_tpl->getSubTemplate ("taberna/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
 <?php }} ?>
