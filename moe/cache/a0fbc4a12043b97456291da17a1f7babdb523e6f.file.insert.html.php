@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-02 10:19:09
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-02 20:34:29
          compiled from "..\views\taberna\insert.html" */ ?>
 <?php /*%%SmartyHeaderCode:2320756cce241da5fa9-11805813%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a0fbc4a12043b97456291da17a1f7babdb523e6f' => 
     array (
       0 => '..\\views\\taberna\\insert.html',
-      1 => 1456931948,
+      1 => 1456968812,
       2 => 'file',
     ),
   ),
@@ -31,7 +31,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="wrapper row-offcanvas row-offcanvas-left">
            
             <!-- Right side column. Contains the navbar and content of the page -->
-            <aside class="right-side">
+            <section class="right-side">
 
                 <!-- Main content -->
                 <div class="col-xs-12">
@@ -51,61 +51,61 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                                         </div>
                                     </div>
                                     <form name="agregaSeccion" id="agregaSeccion" method="POST">
-                                    <table class="table table-hover">
-                                            <tr>
-                                               <th>NOMBRE</th>
-                                                <th>PADRE</th>
-                                                <th>PUBLICA</th>
-                                                <th>MASCARA URL</th>
-                                                <th>TITULO SEO</th>
-                                                <th>DESCRIPCIÓN SEO</th>
-                                                <th>FECHA INICIO</th>
-                                                <th>FECHA FIN</th>
-                                            </tr>
-                                                <td>
-                                                  <input class='limpiar' name="nombSec" id="nombSec" value=""/>
-                                                </td>
-                                                <td>
-                                                  <select name="idPadre" id="idPadre" class='limpiar'>
-                                                    <option name="idPadre" value="">RAIZ</option>
-                                                    <?php  $_smarty_tpl->tpl_vars['papa'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['papa']->_loop = false;
+                                        <table class="table table-hover">
+                                                <tr>
+                                                   <th>NOMBRE</th>
+                                                    <th>PADRE</th>
+                                                    <th>PUBLICA</th>
+                                                    <th>MASCARA URL</th>
+                                                    <th>TITULO SEO</th>
+                                                    <th>DESCRIPCIÓN SEO</th>
+                                                    <th>FECHA INICIO</th>
+                                                    <th>FECHA FIN</th>
+                                                </tr>
+                                                    <td>
+                                                      <input class='limpiar' name="nombSec" id="nombSec" value=""/>
+                                                    </td>
+                                                    <td>
+                                                      <select name="idPadre" id="idPadre" class='limpiar'>
+                                                        <option name="idPadre" value="">RAIZ</option>
+                                                        <?php  $_smarty_tpl->tpl_vars['papa'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['papa']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['padre']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['papa']->key => $_smarty_tpl->tpl_vars['papa']->value) {
 $_smarty_tpl->tpl_vars['papa']->_loop = true;
 ?>
-                                                    <option name="idPadre" value="<?php echo $_smarty_tpl->tpl_vars['papa']->value['id'];?>
+                                                        <option name="idPadre" value="<?php echo $_smarty_tpl->tpl_vars['papa']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['papa']->value['nombre'];?>
 </option>
-                                                    <?php } ?>
-                                                  </select>
-                                                </td>
-                                                <td>
+                                                        <?php } ?>
+                                                      </select>
+                                                    </td>
+                                                    <td>
+                                                       
+                                                        <label>Si</label>
+                                                        <input type="radio" name="visible" id="visible" value="S" class='limpiar' >
+                                                        <label>No</label>
+                                                        <input type="radio" name="visible" id="visible" value="N" class='limpiar' >
+                                                      
+                                                    </td>
+                                                    <td>
+                                                      <input class='limpiar' name="mascUrl" id="mascUrl" value=""/>
+                                                    </td>
+                                                    <td>
+                                                      <input type="text" class="limpiar" name="titleSeo" id="titleSeo" value=""/>
+                                                    </td>
+                                                    <td>
+                                                      <input type="text" class="limpiar" name="descSeo" id="descSeo" value=""/>
+                                                    </td>
+                                                    <td>
+                                                      <input type="date" name="fechaIni" id="fechaIni" value="" class='limpiar'/>
+                                                    </td>
+                                                    <td>
+                                                      <input type="date" name="fechaFin" id="fechaFin" value="" class='limpiar'/>
+                                                    </td>
                                                    
-                                                    <label>Si</label>
-                                                    <input type="radio" name="visible" id="visible" value="S" class='limpiar' >
-                                                    <label>No</label>
-                                                    <input type="radio" name="visible" id="visible" value="N" class='limpiar' >
-                                                  
-                                                </td>
-                                                <td>
-                                                  <input class='limpiar' name="mascUrl" id="mascUrl" value=""/>
-                                                </td>
-                                                <td>
-                                                  <input type="text" class="limpiar" name="titleSeo" id="titleSeo" value=""/>
-                                                </td>
-                                                <td>
-                                                  <input type="text" class="limpiar" name="descSeo" id="descSeo" value=""/>
-                                                </td>
-                                                <td>
-                                                  <input type="date" name="fechaIni" id="fechaIni" value="" class='limpiar'/>
-                                                </td>
-                                                <td>
-                                                  <input type="date" name="fechaFin" id="fechaFin" value="" class='limpiar'/>
-                                                </td>
-                                               
-                                                <td><span class="glyphicon glyphicon-ok agregaSec" data-seccion=""></span></td>
-                                            </tr>
-                                     </table>
+                                                    <td><span class="glyphicon glyphicon-ok agregaSec" data-seccion=""></span></td>
+                                                </tr>
+                                         </table>
                                  </form>
                                 </div><!-- /.box-body -->
                                 <!--Fin de lista secciones-->
@@ -115,8 +115,14 @@ $_smarty_tpl->tpl_vars['papa']->_loop = true;
                                 <!--Fin Edicion de secciones-->
                             </div><!-- /.box -->
                         </div>
+<<<<<<< HEAD
+                 
+                </section>
+            </div><!-- /.content -->
+=======
                     </aside>
                     </div>
                 </section><!-- /.content -->
+>>>>>>> 63e944e834f82823c8cfdfd12c43f713134aa36b
         <?php echo $_smarty_tpl->getSubTemplate ("taberna/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 <?php }} ?>
