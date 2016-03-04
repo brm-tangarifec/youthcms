@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-02 22:52:30
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-03 15:47:47
          compiled from "..\views\base\headerHome.html" */ ?>
 <?php /*%%SmartyHeaderCode:701756ce8187dd33b0-25437743%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '61cacbc9596142703e7f399e37af396a956e3f80' => 
     array (
       0 => '..\\views\\base\\headerHome.html',
-      1 => 1456977148,
+      1 => 1457038034,
       2 => 'file',
     ),
   ),
@@ -51,31 +51,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       <div class="login-wrapper">
         <div class="row">
           <div class="col-lg-12">
-            <div class="close"><i class="glyphicon glyphicon-remove-circle"></i></div>
-            <h2>Inicio de sesión</h2>
-            <form id="login" method="">
-              <!--Usuario-->
-              <div class="form-group">
-                <label for="login-usuario">Usuario:</label>
-                <input type="text" id="login-usuario" name="login-usuario" class="form-control">
-              </div>
-              <!--Contraseña-->
-              <div class="form-group">
-                <label for="login-password">Contraseña: </label>
-                <input type="text" id="login-password" name="login-password" class="form-control">
-              </div>
-              <!--Recordarme-->
-              <div class="checkbox">
-                <input type="checkbox">
-                <label for="">Recordar mi cuenta
-                </label>
-              </div>
-              <button id="login-submit" type="button" class="btn btn-login amarillo">Ingresar</button>
-              <p>
-                <a href="#">¿Olvidaste tu contraseña?</a> / Eres nuevo, <a href="registro.php">regístrate</a>
-                
-              </p>
-            </form>
+            
           </div>
         </div>
       </div>
@@ -89,10 +65,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
           <p class="pais">Colombia</p>
         </div>
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-5 col-md-offset-5 col-sm-offset-5">
-          <p class="user-tools">
-            <a href="registro.php">Registrarse</a><br />
-            <a class="show-login" href="#login">Iniciar Sesión</a>
-          </p>
+          
         </div>
         <!--/-Logo-->
       </div>
@@ -109,10 +82,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <!--Menu-->
             <div id="menu" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
-                <li><a href="orientate.php">Oriéntate</a></li>
-                <li><a href="entrenate.php">Entrénate</a></li>
+                <li><a href="/youth/orientate/">Oriéntate</a></li>
+                <li><a href="/youth/entrenate/">Entrénate</a></li>
                 <li><a href="/youth/empleate/">Empléate</a></li>
-                <li><a href="oportunidades.php">+ Oportunidades</a></li>
+                <li><a href="/youth/oportunidades/">+ Oportunidades</a></li>
               </ul>
             </div>
             <!--/-Menu-->

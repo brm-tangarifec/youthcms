@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-02-23 17:16:21
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-03 15:47:47
          compiled from "..\views\base\footer.html" */ ?>
 <?php /*%%SmartyHeaderCode:2983956ccda355cad30-36980516%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3489d712dcb797377864627ac63b435fd463ba82' => 
     array (
       0 => '..\\views\\base\\footer.html',
-      1 => 1456265140,
+      1 => 1457038066,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
   'unifunc' => 'content_56ccda355cebb9_77970732',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_56ccda355cebb9_77970732')) {function content_56ccda355cebb9_77970732($_smarty_tpl) {?>  <!--Footer-->
   <footer class="container-fluid">
@@ -97,6 +97,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 >
   <?php echo '<script'; ?>
  src="/youth/js/libs/jquery.bxslider.min.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="/youth/js/youth/youthfunciones.js"><?php echo '</script'; ?>
 >
   <!--BX Slider-->
   <?php echo '<script'; ?>

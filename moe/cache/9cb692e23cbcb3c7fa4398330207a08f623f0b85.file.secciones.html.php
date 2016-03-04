@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-03 00:39:24
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-03 16:43:09
          compiled from "..\views\youth\secciones.html" */ ?>
 <?php /*%%SmartyHeaderCode:359556d7be3feddc84-60049086%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9cb692e23cbcb3c7fa4398330207a08f623f0b85' => 
     array (
       0 => '..\\views\\youth\\secciones.html',
-      1 => 1456983553,
+      1 => 1457041388,
       2 => 'file',
     ),
   ),
@@ -80,7 +80,7 @@ $_smarty_tpl->tpl_vars['descripcionCapsula']->_loop = true;
 
 					<!--más información-->
 					<div class="go-down">
-					<p class="azul-oscuro-text">Más información</p><a href="#" class="icon icon-circle-left down naranja-text"></a>
+					<p class="azul-oscuro-text">Más información</p><a href="#" class="icon icon-circle-left down magenta-text"></a>
 					</div>
 					<?php  $_smarty_tpl->tpl_vars['descripcionCapsula'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['descripcionCapsula']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['descripcionCapsulaK']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
