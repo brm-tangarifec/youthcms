@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-03 15:47:47
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-03 22:11:33
          compiled from "..\views\base\headerHome.html" */ ?>
 <?php /*%%SmartyHeaderCode:701756ce8187dd33b0-25437743%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '61cacbc9596142703e7f399e37af396a956e3f80' => 
     array (
       0 => '..\\views\\base\\headerHome.html',
-      1 => 1457038034,
+      1 => 1457060791,
       2 => 'file',
     ),
   ),
@@ -29,10 +29,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   <meta name="description" content="NESTLÉ® | Iniciativa por los Jóvenes">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/youth/css/animate.css">
-  <link rel="stylesheet" href="/youth/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/youth/css/jquery.bxslider.css">
-  <link rel="stylesheet" href="/youth/css/style.css">
+  <link rel="stylesheet" href="/fbappCasaBienestar/jovenesnestle_com_co/css/animate.css">
+  <link rel="stylesheet" href="/fbappCasaBienestar/jovenesnestle_com_co/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fbappCasaBienestar/jovenesnestle_com_co/css/jquery.bxslider.css">
+  <link rel="stylesheet" href="/fbappCasaBienestar/jovenesnestle_com_co/css/style.css">
   <!--font-->
   <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet" type="text/css"><!--[if lt IE]>
   <?php echo '<script'; ?>
@@ -40,7 +40,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 >
   <![endif]-->
   <?php echo '<script'; ?>
- src="/youth/js/libs/modernizr-2.6.2.min.js"><?php echo '</script'; ?>
+ src="/fbappCasaBienestar/jovenesnestle_com_co/js/libs/modernizr-2.6.2.min.js"><?php echo '</script'; ?>
 >
 </head>
 <body>
@@ -59,7 +59,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       <div class="row">
         <!--Logo-->
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-          <h1 class="logo"><a href="/youth/"><img src="/youth/images/logo-youth.svg" alt="NESTLÉ® | Iniciativa por los Jóvenes" title="NESTLÉ® | Iniciativa por los Jóvenes" class="img-responsive"></a></h1>
+          <h1 class="logo"><a href="/fbappCasaBienestar/jovenesnestle_com_co/"><img src="/fbappCasaBienestar/jovenesnestle_com_co/images/logo-youth.svg" alt="NESTLÉ® | Iniciativa por los Jóvenes" title="NESTLÉ® | Iniciativa por los Jóvenes" class="img-responsive"></a></h1>
         </div>
         <div class="col-lg-2 col-md-2 hidden-xs">				
           <p class="pais">Colombia</p>
@@ -82,10 +82,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <!--Menu-->
             <div id="menu" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
-                <li><a href="/youth/orientate/">Oriéntate</a></li>
-                <li><a href="/youth/entrenate/">Entrénate</a></li>
-                <li><a href="/youth/empleate/">Empléate</a></li>
-                <li><a href="/youth/oportunidades/">+ Oportunidades</a></li>
+                <li><a href="/fbappCasaBienestar/jovenesnestle_com_co/orientate/">Oriéntate</a></li>
+                <li><a href="/fbappCasaBienestar/jovenesnestle_com_co/entrenate/">Entrénate</a></li>
+                <li><a href="/fbappCasaBienestar/jovenesnestle_com_co/empleate/">Empléate</a></li>
+                <li><a href="/fbappCasaBienestar/jovenesnestle_com_co/oportunidades/">+ Oportunidades</a></li>
               </ul>
             </div>
             <!--/-Menu-->

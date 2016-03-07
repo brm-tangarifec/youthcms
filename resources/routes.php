@@ -1,21 +1,7 @@
 <?php
-ini_set('display_errors',1);
+ini_set('display_errors',0);
 
 $rutaArray=array();
-
-$rutaArray['admSecciones/'] = "Seccion@listaSecciones";
-$rutaArray['admEditSecciones/'] = "Seccion@editaSecciones";
-$rutaArray['agrSecciones/'] = "Seccion@agregarSeccion";
-$rutaArray['grdSecciones/'] = "Seccion@grdSeccion";
-$rutaArray['agrContenido/'] = "Contenido@creaContenido";
-$rutaArray['adtContenido/'] = "Contenido@editContenido";
-$rutaArray['grdContenido/'] = "Contenido@grdContenido";
-$rutaArray['agrMultimedia/'] = "Contenido@creaMultimedia";
-$rutaArray['grdMultmedia/'] = "Contenido@grdMultmedia";
-
-
-
-
 
 $seccion = model("LallamaradaSeccion");
 $seccions = $seccion->getData();
