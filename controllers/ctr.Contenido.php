@@ -2,7 +2,6 @@
 
 class Contenido {
 
-	
 
 	/*Funcion para hacer display al contenido*/
 	function getContent(){
@@ -92,19 +91,21 @@ class Contenido {
 				//printVar(count($buscaUrl));
 				$pasaString=array();
 				$string = '';
-				for ($j=0; $j < count($buscaUrl) ; $j++) { 
-					//printVar($buscaUrl[$j]['idUrl']);
-					$string.=",".$buscaUrl[$j]['idUrl'];
-				}	
-
-				$string = substr($string, 1); // remove leading ","
+				$conteo=count($buscaUrl);
+				//printVar($buscaUrl);
+				$string=implode(',', array_map(function ($input) {
+				return $input['idUrl'];
+				}, $buscaUrl));
+				//printVar($string);
+				//die();
+				//$string = substr($string, 1); // remove leading ","
 
 				//printVar($string);
 				
 				//debug(1);
 				$getUrlC=array(
 					'conditions'=> 'id IN ('.$string.')',
-					'fields' => array('id','orden','url','descripcion'),
+					'fields' => array('id','orden','url','descripcion','link'),
 					'order' => 'orden ASC'
 					);
 				
@@ -121,7 +122,10 @@ class Contenido {
 
 
 		/*Trae datos de la tabla contenido*/
-		
+		if($mySeccionId=='6'){
+			header('location: /');
+			
+		}
 
 		view()->assign("idSeccion",$mySeccionId);
 		//printVar($internaD);

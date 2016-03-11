@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-03 00:39:51
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-08 11:35:26
          compiled from "..\views\youth\indexNew.html" */ ?>
 <?php /*%%SmartyHeaderCode:2302456ce8187c06449-87898421%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9ea295d060c122f85dc895644794518b01df2293' => 
     array (
       0 => '..\\views\\youth\\indexNew.html',
-      1 => 1456983588,
+      1 => 1457454925,
       2 => 'file',
     ),
   ),
@@ -86,8 +86,10 @@ $_smarty_tpl->tpl_vars['descripcionCapsula']->_loop = true;
 foreach ($_from as $_smarty_tpl->tpl_vars['GeleriaC']->key => $_smarty_tpl->tpl_vars['GeleriaC']->value) {
 $_smarty_tpl->tpl_vars['GeleriaC']->_loop = true;
 ?>
+			        	
 			          <div class="slide">
-			            <figure><a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['GeleriaC']->value['url'];?>
+			            <figure><a href="<?php echo $_smarty_tpl->tpl_vars['GeleriaC']->value['link'];?>
+"><img src="<?php echo $_smarty_tpl->tpl_vars['GeleriaC']->value['url'];?>
 " alt="Destacado" title="Destacado" class="img-responsive"></a></figure>
 			            <?php echo utf8_encode($_smarty_tpl->tpl_vars['GeleriaC']->value['descripcion']);?>
 
