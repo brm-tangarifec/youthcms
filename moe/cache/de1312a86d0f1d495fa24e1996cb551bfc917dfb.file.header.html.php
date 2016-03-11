@@ -1,4 +1,25 @@
-<!DOCTYPE html><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="es-CO"> <![endif]-->
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-11 16:01:32
+         compiled from "..\views\base\header.html" */ ?>
+<?php /*%%SmartyHeaderCode:1906956e328c94ecfb3-54260364%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'de1312a86d0f1d495fa24e1996cb551bfc917dfb' => 
+    array (
+      0 => '..\\views\\base\\header.html',
+      1 => 1457729937,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '1906956e328c94ecfb3-54260364',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_56e328c94f4cb4_53806039',
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_56e328c94f4cb4_53806039')) {function content_56e328c94f4cb4_53806039($_smarty_tpl) {?><!DOCTYPE html><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="es-CO"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="es-CO"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang="es-CO"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="es-CO"> <!--<![endif]-->
@@ -13,12 +34,17 @@
 
 <!--   <link rel="stylesheet" href="/css/jquery.bxslider.css"> -->
   <link rel="stylesheet" href="/css/youth.min.css">
-  {#include  file="base/youthCss.html"#}
+  <?php echo $_smarty_tpl->getSubTemplate ("base/youthCss.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
   <!--font-->
   <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet" type="text/css"><!--[if lt IE]>
-  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <?php echo '<script'; ?>
+ src="//html5shiv.googlecode.com/svn/trunk/html5.js"><?php echo '</script'; ?>
+>
   <![endif]-->
-  <script src="/js/libs/modernizr-2.6.2.min.js"></script>
+  <?php echo '<script'; ?>
+ src="/js/libs/modernizr-2.6.2.min.js"><?php echo '</script'; ?>
+>
 </head>
 <body>
   <!--header-->
@@ -71,4 +97,4 @@
       </div>
     </section>
   </header>
-  <!--/-header-->
+  <!--/-header--><?php }} ?>

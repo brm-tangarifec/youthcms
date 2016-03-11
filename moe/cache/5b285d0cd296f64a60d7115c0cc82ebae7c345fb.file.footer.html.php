@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-11 14:45:18
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-11 16:46:01
          compiled from "..\views\base\footer.html" */ ?>
 <?php /*%%SmartyHeaderCode:1697256e32011ef0f19-45428600%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5b285d0cd296f64a60d7115c0cc82ebae7c345fb' => 
     array (
       0 => '..\\views\\base\\footer.html',
-      1 => 1457725498,
+      1 => 1457732739,
       2 => 'file',
     ),
   ),
@@ -54,6 +54,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   <?php echo '<script'; ?>
  src="/js/youth/youthfunciones.js"><?php echo '</script'; ?>
 >
+  <?php echo $_smarty_tpl->getSubTemplate ("base/youthJs.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+  <div class="cargajs"></div>
   <!--BX Slider-->
   <?php echo '<script'; ?>
 >

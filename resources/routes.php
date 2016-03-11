@@ -23,7 +23,8 @@ foreach ($seccions as $seccionGet) {
 	
 	$ruta = (substr($ruta, 0, 1)=="/" && strlen($ruta)>1) ? substr($ruta,2) : $ruta ;
 	$ruta=CleanDoor::allClean(strtolower($ruta));
-	//printVar($ruta);
+	$mySeccionId=$seccionGet['id'];
+	//printVar($mySeccionId);
 	$rutaArray[$ruta]="Contenido@getContent";
 }
  Moe::routes($rutaArray);

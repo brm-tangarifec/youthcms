@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-11 14:45:18
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-11 15:02:13
          compiled from "..\views\base\headerHome.html" */ ?>
 <?php /*%%SmartyHeaderCode:473556e32011ec5f93-31173761%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '882f24201d215fbb429bf3c205925a8f075c1142' => 
     array (
       0 => '..\\views\\base\\headerHome.html',
-      1 => 1457725514,
+      1 => 1457726524,
       2 => 'file',
     ),
   ),
@@ -29,10 +29,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   <meta name="description" content="NESTLÉ® | Iniciativa por los Jóvenes">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/animate.css">
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/css/jquery.bxslider.css">
-  <link rel="stylesheet" href="/css/style.css">
+ <link rel="stylesheet" href="/css/youth.min.css">
   <!--font-->
   <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet" type="text/css"><!--[if lt IE]>
   <?php echo '<script'; ?>
