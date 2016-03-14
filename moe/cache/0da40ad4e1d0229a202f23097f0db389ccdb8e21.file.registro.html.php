@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-11 16:01:56
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-14 10:37:36
          compiled from "..\views\youth\registro.html" */ ?>
 <?php /*%%SmartyHeaderCode:3055256e329da6d7b12-42227129%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0da40ad4e1d0229a202f23097f0db389ccdb8e21' => 
     array (
       0 => '..\\views\\youth\\registro.html',
-      1 => 1457730114,
+      1 => 1457969854,
       2 => 'file',
     ),
   ),
@@ -123,7 +123,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             </label>
           </div>
           <!--/-Acepto términos-->
-          <button type="submit" class="btn btn-submit azul-oscuro">Enviar</button>
+          <button type="button" class="btn btn-submit azul-oscuro">Enviar</button>
         </div>
       </form>
     </article>

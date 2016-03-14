@@ -27,6 +27,7 @@ foreach ($seccions as $seccionGet) {
 	//printVar($mySeccionId);
 	$rutaArray[$ruta]="Contenido@getContent";
 }
+$rutaArray["registroYouth/"]="Contenido@registro";
  Moe::routes($rutaArray);
 /*Moe::routes(array(
 	"/"=>"Seccion@index",

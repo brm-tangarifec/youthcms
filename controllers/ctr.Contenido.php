@@ -39,7 +39,7 @@ class Contenido {
 			}
 			}
 
-			printVar($mySeccionId);
+			//printVar($mySeccionId);
 			/*Trae el template asociado a la sección*/
 			$confT=array(
 				"conditions" => 'idSeccion = '.$mySeccionId,
@@ -48,7 +48,7 @@ class Contenido {
 			$traeTemplate=$newTemplate->getData($confT);
 			$templateCss=array();
 			$templateJs=array();
-			printVar($traeTemplate);
+			//printVar($traeTemplate);
 			$templateInterna=$traeTemplate[0]['template'];
 			if(isset($traeTemplate[0]['urlCss'])){
 				
@@ -68,10 +68,8 @@ class Contenido {
 				}
 			}
 		/*Carga de la interna de registro*/
-		if($mySeccionId=='18'){
-			echo 'Hola';
-		}else{
-
+		if($mySeccionId!='18'){
+			
 			/*Se pasan los parametros de busqueda*/
 			$conf=array(
 				"conditions" => 'idSeccion = '.$mySeccionId,
@@ -162,5 +160,11 @@ class Contenido {
 		view()->assign("idSeccion",$mySeccionId);
 		//printVar($internaD);
 		view()->display($templateInterna);
+	}
+
+	function registro(){
+		debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		printVar($varPost);
 	}
 }

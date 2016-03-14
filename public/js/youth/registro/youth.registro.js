@@ -1,5 +1,5 @@
 $(document).on('ready', function () {
-alert('hola');
+
 	/*validacion de formulario de fiesta*/
 	$("#registro").validate({
 
@@ -12,8 +12,8 @@ alert('hola');
 	      /*Campos para validar en form para pedir fiesta*/
 
 	    rules: {
-	           nombres:       {required: true, accept: "[a-zA-Z]+" },
-	           apellidos:       {required: true, accept: "[a-zA-Z]+" },
+	           nombres:       {required: true, accept: "[a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ_\s]+" },
+	           apellidos:       {required: true, accept: "[a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ_\s]+" },
 	           celular:          {required: true,  digits: true},  
 	           direccion:       {required: true},
 	           email:       {required: true, email: true},  
@@ -61,6 +61,27 @@ alert('hola');
 	    //   $(element).parent().parent().parent().find('.col-lg-6').removeClass('u-error');
 	    //   // body...
 	    // }
+	    
 
+	});
+	jQuery(document).on('click','.btn-submit',function(){
+
+	    if(jQuery('#registro').valid()) {
+	    	var urlR=/registroYouth/,
+	    		dataF=jQuery("#registro").serialize();
+	    	jQuery.ajax({
+	    		url: urlR,
+				dataType:'json' ,
+				type: 'POST',
+				data:dataF,
+				success: function (data){
+					console.log(data);
+					
+				}
+	    	});
+	    	return false;
+	    }else{
+	    	return false;
+	    }
 	});
 });
