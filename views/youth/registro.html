@@ -40,9 +40,10 @@
           <!--/-Botón registro con Google+-->
           
           <!--img de perfil-->
-          <div class="form-group img-perfil"><img src="images/profile-placeholder.jpg" class="img-responsive"></div>
+          <div class="form-group img-perfil"><img src="/fbappCasaBienestar/images/profile-placeholder.jpg" class="img-responsive"></div>
           <!--/-img de perfil-->
-          
+          <!--redId-->
+          <input type="hidden" class="form-control" value="" id="idRs" name="idRs">
           <!--Nombres-->
           <div class="form-group">
             <label for="nombres">Nombres:</label>
@@ -78,9 +79,9 @@
             <label for="tipo">Tipo de documento:</label>
             <select name="tipo" class="form-control ciudad">
               <option value=""></option>
-              <option value="1">CC</option>
-              <option value="2">CE</option>
-              <option value="3">TI</option>
+              <option value="CC">C.C</option>
+              <option value="CE">C.E</option>
+              <option value="TI">T.I</option>
             </select>
           </div>
           <!--/-Tipo de documento-->
@@ -98,8 +99,8 @@
           <!--/-nacimiento-->
           <!--Ciudad-->
           <div class="form-group">
-            <label for="Ciudad">Ciudad:</label>
-            <select name="ciudad" class="form-control ciudad">
+            <label for="Ciudad">Departamento:</label>
+            <select name="departamento" class="form-control departamento" id="departamento">
               <option value=""></option>
               <option value="1">2</option>
               <option value="2">3</option>
@@ -107,9 +108,20 @@
             </select>
           </div>
           <!--/-Ciudad-->
+          <!--Ciudad-->
+          <div class="form-group">
+            <label for="Ciudad">Ciudad:</label>
+            <select name="ciudad" class="form-control ciudad" id="ciudad">
+              <option value=""></option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+          <!--/-Ciudad-->
           <!--Acepto términos-->
           <div class="checkbox">
-            <input type="checkbox" name="terminos">
+            <input type="checkbox" name="terminos" id="terminos">
             <label for="terminos">
               Acepto los términos y condiciones establecidos en los avisos legales:
               <a href="#">Politica de Privacidad</a> y <a href="#">Politica de Tratamiento de datos</a>

@@ -13,6 +13,9 @@ class DataObjects_LallamaradaRegistro extends DB_DataObject
     public $__tempName = 'LallamaradaRegistro';    // tempName
     public $id;                             // int(4) primary_key not_null
     public $idCampania;                     // varchar(45)
+    public $idFacebook;                     // varchar(45)
+    public $idGoogle;                     // varchar(45)
+    public $imgPerfil;                     // varchar(45)
     public $nombre;                         // varchar(45)
     public $apellido;                       // varchar(45)
     public $email;                          // varchar(45)
@@ -37,6 +40,9 @@ class DataObjects_LallamaradaRegistro extends DB_DataObject
          return array(
              'id' =>  DB_DATAOBJECT_INT + DB_DATAOBJECT_NOTNULL,
              'idCampania' =>  DB_DATAOBJECT_STR,
+             'idFacebook' =>  DB_DATAOBJECT_STR,
+             'idGoogle' =>  DB_DATAOBJECT_STR,
+             'imgPerfil' =>  DB_DATAOBJECT_STR,
              'nombre' =>  DB_DATAOBJECT_STR,
              'apellido' =>  DB_DATAOBJECT_STR,
              'email' =>  DB_DATAOBJECT_STR,

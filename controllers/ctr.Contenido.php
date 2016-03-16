@@ -164,12 +164,32 @@ class Contenido {
 
 	function registro(){
 		debug(1);
+		$reusu= model("LallamaradaRegistro");
 		$varPost = filter_input_array(INPUT_POST);
 		printVar($varPost);
+		if($varPost=='fb'){
+			$reusu->idFacebook=$varPost['idRs'];
+		}else{
+			$reusu->idGoogle=$varPost['idRs'];
+		}
+		$reusu->imgPerfil=$varPost['imgPer'];
+		$reusu->nombre=$varPost['nombres'];
+		$reusu->apellido=$varPost['apellidos'];
+		$reusu->email=$varPost['email'];
+		$reusu->telefono=$varPost['celular'];
+		$reusu->idDepto=$varPost;
+		$reusu->idCiudad=$varPost;
+		$reusu->tipoDocumento=$varPost;
+		$reusu->numeroDocumento=$varPost;
+		$reusu->genero=$varPost;
+		$reusu->autorizacionMarca=$varPost;
+		$reusu->ipAccesso;
+		$reusu->fecha;
 	}
 	function Gmail(){
 		debug(1);
 		$varPost = filter_input_array(INPUT_POST);
 		view()->display("quick.html");
+
 	}
 }

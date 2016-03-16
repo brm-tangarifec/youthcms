@@ -44,6 +44,8 @@ window.fbAsyncInit = function() {
         FB.api('/me', 'get', { access_token: token, fields: 'id,first_name,last_name,email' } ,function (response) {
           console.log(response);
           //console.log(response.first_name);
+          jQuery("#idRs").val(response.id).attr('data','fb');
+          jQuery("#nombres").val(response.first_name).parent().addClass('input-activo');
           jQuery("#nombres").val(response.first_name).parent().addClass('input-activo');
           jQuery("#apellidos").val(response.last_name).parent().addClass('input-activo');
           jQuery("#email").val(response.email).parent().addClass('input-activo');
@@ -88,6 +90,7 @@ window.fbAsyncInit = function() {
           var profileImage = responseI.data.url;
             //var fbid=jQuery("#pictureP").val(profileImage);
             console.log(profileImage);
+            jQuery('.img-perfil img').attr('src',profileImage);
        });
       }
 
@@ -125,9 +128,12 @@ window.fbAsyncInit = function() {
         }, function(error) {
           alert(JSON.stringify(error, undefined, 2));
         });*/
+      jQuery("#idRs").val(googleUser.getBasicProfile().getId()).attr('data','g+');
       jQuery("#nombres").val(googleUser.getBasicProfile().getGivenName()).parent().addClass('input-activo');
       jQuery("#apellidos").val(googleUser.getBasicProfile().getFamilyName()).parent().addClass('input-activo');
       jQuery("#email").val(googleUser.getBasicProfile().getEmail()).parent().addClass('input-activo');
+      jQuery("#email").val(googleUser.getBasicProfile().getEmail()).parent().addClass('input-activo');
+      jQuery('.img-perfil img').attr('src',googleUser.getBasicProfile().getImageUrl());
     });
   }
 jQuery(document).ready(function(){
