@@ -40,13 +40,13 @@ window.fbAsyncInit = function() {
       };
 
       var getFacebookData = function () {
+        obtenerFotoPerfil()
         FB.api('/me', 'get', { access_token: token, fields: 'id,first_name,last_name,email' } ,function (response) {
-          //console.log(response);
+          console.log(response);
           //console.log(response.first_name);
           jQuery("#nombres").val(response.first_name).parent().addClass('input-activo');
           jQuery("#apellidos").val(response.last_name).parent().addClass('input-activo');
           jQuery("#email").val(response.email).parent().addClass('input-activo');
-
 
 
         });
@@ -82,6 +82,14 @@ window.fbAsyncInit = function() {
 
         facebookLogin();
       });
+
+      function obtenerFotoPerfil(){
+        FB.api('/me/picture?width=325&height=325', function(responseI) {
+          var profileImage = responseI.data.url;
+            //var fbid=jQuery("#pictureP").val(profileImage);
+            console.log(profileImage);
+       });
+      }
 
 
 /*Funciones para Gmail*/
