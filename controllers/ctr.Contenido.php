@@ -167,4 +167,9 @@ class Contenido {
 		$varPost = filter_input_array(INPUT_POST);
 		printVar($varPost);
 	}
+	function Gmail(){
+		debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("quick.html");
+	}
 }

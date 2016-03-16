@@ -47,46 +47,46 @@ jQuery(document).ready(function(){
 if(jQuery('.list').length > 0){
 	var lista=".list ul li";
 	jQuery(lista).on('click',function(event){
-		//console.log(event);
 		event.preventDefault();
 		var lic=jQuery(this).attr('data-contenidoc')
+		console.log(lic);
 		if(lic=="ventas"){
-			jQuery('.cambiaContenventas').show('fade');
-			jQuery('.cambiaContenlogistica').hide('fade');
-			jQuery('.cambiaContenpia').hide('fade');
-			jQuery('.cambiaContencafe').hide('fade');
+			jQuery('.cambiaContenventas').show();
+			jQuery('.cambiaContenlogistica').hide();
+			jQuery('.cambiaContenpia').hide();
+			jQuery('.cambiaContencafe').hide();
 		}else if(lic=="cafe"){
-			jQuery('.cambiaContenventas').hide('fade');
-			jQuery('.cambiaContenlogistica').hide('fade');
-			jQuery('.cambiaContenpia').hide('fade');
-			jQuery('.cambiaContencafe').show('fade');
+			jQuery('.cambiaContenventas').hide();
+			jQuery('.cambiaContenlogistica').hide();
+			jQuery('.cambiaContenpia').hide();
+			jQuery('.cambiaContencafe').show();
 		}else if(lic=="pia"){
-			jQuery('.cambiaContenventas').hide('fade');
-			jQuery('.cambiaContenlogistica').hide('fade');
-			jQuery('.cambiaContenpia').show('fade');
-			jQuery('.cambiaContencafe').hide('fade');
+			jQuery('.cambiaContenventas').hide();
+			jQuery('.cambiaContenlogistica').hide();
+			jQuery('.cambiaContenpia').show();
+			jQuery('.cambiaContencafe').hide();
 		}else if(lic=="logistica"){
-			jQuery('.cambiaContenventas').hide('fade');
-			jQuery('.cambiaContenlogistica').show('fade');
-			jQuery('.cambiaContenpia').hide('fade');
-			jQuery('.cambiaContencafe').hide('fade');
+			jQuery('.cambiaContenventas').hide();
+			jQuery('.cambiaContenlogistica').show();
+			jQuery('.cambiaContenpia').hide();
+			jQuery('.cambiaContencafe').hide();
 		}
 
 
 		/*ContenidoB*/
 		var lib=jQuery(this).attr('data-contenidob');
 		if(lib=="practicantes"){
-			jQuery('.cambiaContengraduados').hide('fade');
-			jQuery('.cambiaContenaprendices').hide('fade');
-			jQuery('.cambiaContenpracticantes').show('fade');
+			jQuery('.cambiaContengraduados').hide();
+			jQuery('.cambiaContenaprendices').hide();
+			jQuery('.cambiaContenpracticantes').show();
 		}else if(lib=="aprendices"){
-			jQuery('.cambiaContengraduados').hide('fade');
-			jQuery('.cambiaContenaprendices').show('fade');
-			jQuery('.cambiaContenpracticantes').hide('fade');
+			jQuery('.cambiaContengraduados').hide();
+			jQuery('.cambiaContenaprendices').show();
+			jQuery('.cambiaContenpracticantes').hide();
 		}else if(lib=="graduados"){
-			jQuery('.cambiaContengraduados').show('fade');
-			jQuery('.cambiaContenaprendices').hide('fade');
-			jQuery('.cambiaContenpracticantes').hide('fade');
+			jQuery('.cambiaContengraduados').show();
+			jQuery('.cambiaContenaprendices').hide();
+			jQuery('.cambiaContenpracticantes').hide();
 		}
 		jQuery(lista).removeClass('active');
     	jQuery(this).addClass('active');
