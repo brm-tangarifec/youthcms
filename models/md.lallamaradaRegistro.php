@@ -32,6 +32,7 @@ class DataObjects_LallamaradaRegistro extends DB_DataObject
     public $deseoInformacion;               // enum(1) default_N
     public $autorizacionMarca;              // enum(1) default_N
     public $ipAccesso;                      // varchar(140)
+    public $fechaNacimiento;                // date
     public $fecha;                          // datetime
     public $fechaActualizacion;             // datetime
 
@@ -59,6 +60,7 @@ class DataObjects_LallamaradaRegistro extends DB_DataObject
              'deseoInformacion' =>  DB_DATAOBJECT_STR,
              'autorizacionMarca' =>  DB_DATAOBJECT_STR,
              'ipAccesso' =>  DB_DATAOBJECT_STR,
+             'fechaNacimiento' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_DATE,
              'fecha' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_DATE + DB_DATAOBJECT_TIME,
              'fechaActualizacion' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_DATE + DB_DATAOBJECT_TIME,
          );

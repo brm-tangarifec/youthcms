@@ -66,6 +66,7 @@ $(document).on('ready', function () {
 	    
 
 	});
+
 	jQuery(document).on('click','.btn-submit',function(){
 
 	    if(jQuery('#registro').valid()) {
@@ -78,18 +79,13 @@ $(document).on('ready', function () {
 	    		celularJ=jQuery('#celular').val(),
 	    		direccionJ=jQuery('#direccion').val(),
 	    		emailJ=jQuery('#email').val(),
+	    		deptoJ=jQuery('#departamento').val(),
+				ciudadJ=jQuery('#ciudad').val(),
 	    		tipoJ=jQuery('#tipo').val(),
 	    		documentoJ=jQuery('#documento').val(),
 	    		nacimientoJ=jQuery('#nacimiento').val(),
 	    		terminosJ=jQuery('#terminos').val();
-	    		jQuery('#departamento').on('change',function(){
-	    			var deptoJ=jQuery(this).val();
-	    			console.log(deptoJ)
-	    		});
-	    		jQuery('#ciudad').on('change',function(){
-	    			var ciudadJ=jQuery(this).val();
-	    			console.log(ciudadJ);
-	    		});	
+	    		
 	    		console.log(rs);
 	    	jQuery.ajax({
 	    		url: urlR,

@@ -177,14 +177,17 @@ class Contenido {
 		$reusu->apellido=$varPost['apellidos'];
 		$reusu->email=$varPost['email'];
 		$reusu->telefono=$varPost['celular'];
-		$reusu->idDepto=$varPost;
-		$reusu->idCiudad=$varPost;
-		$reusu->tipoDocumento=$varPost;
-		$reusu->numeroDocumento=$varPost;
-		$reusu->genero=$varPost;
-		$reusu->autorizacionMarca=$varPost;
-		$reusu->ipAccesso;
-		$reusu->fecha;
+		$reusu->idDepto=$varPost['depto'];
+		$reusu->idCiudad=$varPost['ciudad'];
+		$reusu->tipoDocumento=$varPost['tipo'];
+		$reusu->numeroDocumento=$varPost['documento'];
+		//$reusu->genero=$varPost;
+		$reusu->autorizacionMarca=$varPost['terminos'];
+		//$reusu->ipAccesso;
+		$reusu->fechaNacimiento=$varPost['nacimiento'];
+		$reusu->fecha=date('Y-m-d H:i:s');
+		$guardaUsu=$reusu->setInstancia();
+		printVar($guardaUsu);
 	}
 	function Gmail(){
 		debug(1);
