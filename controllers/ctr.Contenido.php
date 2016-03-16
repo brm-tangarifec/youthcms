@@ -167,7 +167,7 @@ class Contenido {
 		$reusu= model("LallamaradaRegistro");
 		$varPost = filter_input_array(INPUT_POST);
 		printVar($varPost);
-		if($varPost=='fb'){
+		if($varPost['rs']=='fb'){
 			$reusu->idFacebook=$varPost['idRs'];
 		}else{
 			$reusu->idGoogle=$varPost['idRs'];

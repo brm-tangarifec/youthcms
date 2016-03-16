@@ -44,6 +44,10 @@ window.fbAsyncInit = function() {
         FB.api('/me', 'get', { access_token: token, fields: 'id,first_name,last_name,email' } ,function (response) {
           console.log(response);
           //console.log(response.first_name);
+          jQuery("#idRs").val('');
+          jQuery("#nombres").val('');
+          jQuery("#apellidos").val('');
+          jQuery("#email").val('');
           jQuery("#idRs").val(response.id).attr('data','fb');
           jQuery("#nombres").val(response.first_name).parent().addClass('input-activo');
           jQuery("#nombres").val(response.first_name).parent().addClass('input-activo');
@@ -112,26 +116,24 @@ window.fbAsyncInit = function() {
         client_id: CLIENT_ID,
         //cookiepolicy: 'single_host_origin',
         // Request scopes in addition to 'profile' and 'email'
-        //scope: 'additional_scope'
+        scope: 'https://www.googleapis.com/auth/plus.me'
       });
       attachSignin(document.getElementById('btn-g'));
     });
   };
 
   function attachSignin(element) {
-     console.log(element.id);
+     //console.log(element.id);
     auth2.attachClickHandler(element, {},
         function(googleUser) {
-          console.log(googleUser.getBasicProfile());
-         /* document.getElementById('name').innerText = "Signed in: " +
-              googleUser.getBasicProfile().getName();
-        }, function(error) {
-          alert(JSON.stringify(error, undefined, 2));
-        });*/
+          //console.log(googleUser);
+      jQuery("#idRs").val('');
+      jQuery("#nombres").val('');
+      jQuery("#apellidos").val('');
+      jQuery("#email").val('');
       jQuery("#idRs").val(googleUser.getBasicProfile().getId()).attr('data','g+');
       jQuery("#nombres").val(googleUser.getBasicProfile().getGivenName()).parent().addClass('input-activo');
       jQuery("#apellidos").val(googleUser.getBasicProfile().getFamilyName()).parent().addClass('input-activo');
-      jQuery("#email").val(googleUser.getBasicProfile().getEmail()).parent().addClass('input-activo');
       jQuery("#email").val(googleUser.getBasicProfile().getEmail()).parent().addClass('input-activo');
       jQuery('.img-perfil img').attr('src',googleUser.getBasicProfile().getImageUrl());
     });
