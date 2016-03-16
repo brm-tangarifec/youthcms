@@ -181,7 +181,7 @@ class Contenido {
 		$reusu->idCiudad=$varPost['ciudad'];
 		$reusu->tipoDocumento=$varPost['tipo'];
 		$reusu->numeroDocumento=$varPost['documento'];
-		//$reusu->genero=$varPost;
+		$reusu->genero=$varPost['genero'];
 		$reusu->autorizacionMarca=$varPost['terminos'];
 		//$reusu->ipAccesso;
 		$reusu->fechaNacimiento=$varPost['nacimiento'];
@@ -189,10 +189,47 @@ class Contenido {
 		$guardaUsu=$reusu->setInstancia();
 		printVar($guardaUsu);
 	}
-	function Gmail(){
-		debug(1);
+	function cursosHv(){
+		//debug(1);
 		$varPost = filter_input_array(INPUT_POST);
-		view()->display("quick.html");
+		view()->display("cursos/hojaVida/index.html");
 
 	}
+	function cursosHv1(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/hojaVida/page1.html");
+
+	}
+	function cursosHv2(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/hojaVida/page2.html");
+
+	}
+	function cursosHv3(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/hojaVida/page3.html");
+
+	}
+	function cursosHv4(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/hojaVida/page4.html");
+
+	}
+	function cursosHv5(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/hojaVida/page5.html");
+
+	}
+	function cursosHv6(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/hojaVida/page6.html");
+
+	}
+
 }

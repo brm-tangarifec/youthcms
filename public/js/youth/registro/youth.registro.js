@@ -82,6 +82,7 @@ $(document).on('ready', function () {
 	    		deptoJ=jQuery('#departamento').val(),
 				ciudadJ=jQuery('#ciudad').val(),
 	    		tipoJ=jQuery('#tipo').val(),
+	    		generoJ=jQuery('#genero').val(),
 	    		documentoJ=jQuery('#documento').val(),
 	    		nacimientoJ=jQuery('#nacimiento').val(),
 	    		terminosJ=jQuery('#terminos').val();
@@ -101,6 +102,7 @@ $(document).on('ready', function () {
     				direccion:direccionJ,
     				email: emailJ,
     				tipo:tipoJ,
+    				genero:generoJ,
     				documento: documentoJ,
     				nacimiento: nacimientoJ,
     				depto: deptoJ,

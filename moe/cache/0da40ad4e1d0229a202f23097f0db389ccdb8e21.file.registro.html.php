@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-14 10:37:36
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-16 17:35:40
          compiled from "..\views\youth\registro.html" */ ?>
 <?php /*%%SmartyHeaderCode:3055256e329da6d7b12-42227129%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0da40ad4e1d0229a202f23097f0db389ccdb8e21' => 
     array (
       0 => '..\\views\\youth\\registro.html',
-      1 => 1457969854,
+      1 => 1458161012,
       2 => 'file',
     ),
   ),
@@ -58,9 +58,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
           </button>
           <!--/-Botón registro con Facebook-->
           <!--Botón registro con Google+-->
-          <button type="button" class="btn btn-g"><i class="icon icon-g"></i> <span>Conéctate con google +</span></button>
+          <button type="button" id="btn-g" class="btn btn-g"><i class="icon icon-g"></i> <span>Conéctate con google +</span></button>
           <!--/-Botón registro con Google+-->
           
+          <!--img de perfil-->
+          <div class="form-group img-perfil"><img src="/fbappCasaBienestar/images/profile-placeholder.jpg" class="img-responsive"></div>
+          <!--/-img de perfil-->
+          <!--redId-->
+          <input type="hidden" class="form-control" value="" id="idRs" name="idRs">
           <!--Nombres-->
           <div class="form-group">
             <label for="nombres">Nombres:</label>
@@ -91,6 +96,28 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <input type="text" id="email" name="email" class="form-control">
           </div>
           <!--/-email-->
+          <!--Genero-->
+          <div class="form-group">
+            <label for="tipo">Género:</label>
+            <select name="genero" class="form-control genero" id="genero">
+              <option value=""></option>
+              <option value=""></option>
+              <option value="M">M</option>
+              <option value="F">F</option>
+            </select>
+          </div>
+          <!--/-Tipo de documento-->
+          <!--Tipo de documento-->
+          <div class="form-group">
+            <label for="tipo">Tipo de documento:</label>
+            <select name="tipo" class="form-control tipo" id="tipo">
+              <option value=""></option>
+              <option value="CC">C.C</option>
+              <option value="CE">C.E</option>
+              <option value="TI">T.I</option>
+            </select>
+          </div>
+          <!--/-Tipo de documento-->
           <!--documento-->
           <div class="form-group">
             <label for="documento">Número de documento:</label>
@@ -105,8 +132,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
           <!--/-nacimiento-->
           <!--Ciudad-->
           <div class="form-group">
-            <label for="Ciudad">Ciudad:</label>
-            <select name="ciudad" class="form-control ciudad">
+            <label for="Ciudad">Departamento:</label>
+            <select name="departamento" class="form-control departamento" id="departamento">
               <option value=""></option>
               <option value="1">2</option>
               <option value="2">3</option>
@@ -114,16 +141,27 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             </select>
           </div>
           <!--/-Ciudad-->
+          <!--Ciudad-->
+          <div class="form-group">
+            <label for="Ciudad">Ciudad:</label>
+            <select name="ciudad" class="form-control ciudad" id="ciudad">
+              <option value=""></option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+          <!--/-Ciudad-->
           <!--Acepto términos-->
           <div class="checkbox">
-            <input type="checkbox" name="terminos">
-            <label for="">
+            <input type="checkbox" name="terminos" id="terminos" value="S">
+            <label for="terminos">
               Acepto los términos y condiciones establecidos en los avisos legales:
               <a href="#">Politica de Privacidad</a> y <a href="#">Politica de Tratamiento de datos</a>
             </label>
           </div>
           <!--/-Acepto términos-->
-          <button type="button" class="btn btn-submit azul-oscuro">Enviar</button>
+          <button type="submit" class="btn btn-submit azul-oscuro">Enviar</button>
         </div>
       </form>
     </article>
