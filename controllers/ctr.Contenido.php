@@ -2,7 +2,7 @@
 
 class Contenido {
 
-
+private $idSession='';
 	/*Funcion para hacer display al contenido*/
 	function getContent(){
 		
@@ -14,6 +14,7 @@ class Contenido {
 		$newMutlXUrl = model('LallamaradaMultXUrl');
 		$newSexXContent = model('LallamaradaSeccionXContenido');
 		$newTemplate = model('LallamaradaArchivoTemplate');
+		$reusua= model("LallamaradaRegistro");
 		$seccions = $seccion->getData();
 		foreach ($seccions as $seccionGet) {
 				// Cuando el nombre de la ruta es distinta a "/" agrega un / al final
@@ -148,6 +149,12 @@ class Contenido {
 				
 			}
 		}
+		/*Trae datos de usuario*/
+		if($mySeccionId=='19'){
+			$this->perfilUsuReg();
+			printVar($this->idSession);
+			//view()->assign("SeccionCss",$templateCss);
+		}
 
 		if($templateCss!='' && isset($templateCss)){
 			view()->assign("SeccionCss",$templateCss);
@@ -209,12 +216,36 @@ class Contenido {
 		}
 		$traeUsu=$reusu->getData($confPer);
 		$idUsuario=$traeUsu[0]['id'];
-		cargaIdUsuario($idUsuario);
+		if($idUsuario!=''){
+			setcookie("youth_usu", base64_encode($idUsuario),time()+1200, "/");
+			//printVar($this->idSession);
+			echo $idUsuario;
+			//printVar($_SESSION);
+
+		}
 
 	}
 	/*Perfil de usuario*/
-	function cargaIdUsuario($idUsuario){
+	function cargaIdUsuario($mySeccionId){
+		$reusua= model("LallamaradaRegistro");
+		if($mySeccionId=='19'){
+		printVar($mySeccionId);
+		printVar($this->traeIdUsu());
+		printVar($_SESSION['usuario']);
+			if(isset($_SESSION['usuario']) && $_SESSION['usuario']!=''){
+				$confPerf=array(
+				"conditions" => 'id = '.$_SESSION['usuario'],
+				);
+				$datosUsu=$reusua->getData($confPerf);
+				return $datosUsu;
+				//printVar($datosUsu);
+
+			}
+		}
+	}
+	function traeIdUsu($idUsuario){
 		printVar($idUsuario);
+		return $idUsuario;
 	}
 	/*Ruta curso*/
 	function cursosHv(){

@@ -1,5 +1,8 @@
 {#include  file="base/header.html"#}
 <!--Slider PPAl-->
+{#foreach from=usuario item=datosUsu#}
+{#$datosUsu|printVar#}
+{#/foreach#}
 <section class="container-fluid u-no-border slider-ppal slider-perfil">
   <div id="carrusel-ppal" data-ride="carousel" class="carousel slide"></div>
 </section>

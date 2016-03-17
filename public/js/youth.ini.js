@@ -50,3 +50,9 @@ $(document).ready(function() {
 	});
 	
 });
+
+/*tiempo de slider header*/
+$('.carousel').carousel({
+
+	interval: 13000
+});

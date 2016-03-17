@@ -1,6 +1,5 @@
 <?php
 ini_set('display_errors',1);
-
 $rutaArray=array();
 /*$rutaArray["cursos/hojavida/"]="Contenido@cursosHv";
 $rutaArray["cursos/hojavida/page1/"]="Contenido@cursosHv1";

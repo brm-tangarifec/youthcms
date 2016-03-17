@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-11 15:02:13
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-17 10:33:21
          compiled from "..\views\base\headerHome.html" */ ?>
 <?php /*%%SmartyHeaderCode:473556e32011ec5f93-31173761%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '882f24201d215fbb429bf3c205925a8f075c1142' => 
     array (
       0 => '..\\views\\base\\headerHome.html',
-      1 => 1457726524,
+      1 => 1458170749,
       2 => 'file',
     ),
   ),
@@ -48,7 +48,40 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       <div class="login-wrapper">
         <div class="row">
           <div class="col-lg-12">
-            
+            <div class="close"><i class="glyphicon glyphicon-remove-circle"></i></div>
+            <h2>Inicio de sesión</h2>
+            <!--Botón registro con Facebook-->
+            <button type="button" class="btn btn-fb">
+              <span>Conéctate con facebook</span> <i class="icon icon-fb"></i>
+              
+            </button>
+            <!--/-Botón registro con Facebook-->
+            <!--Botón registro con Google+-->
+            <button type="button" class="btn btn-g"><i class="icon icon-g"></i> <span>Conéctate con google +</span></button>
+            <!--/-Botón registro con Google+-->
+            <form id="login" method="">
+              <!--Usuario-->
+              <div class="form-group">
+                <label for="login-usuario">Usuario:</label>
+                <input type="text" id="login-usuario" name="login-usuario" class="form-control">
+              </div>
+              <!--Contraseña-->
+              <div class="form-group">
+                <label for="login-password">Contraseña: </label>
+                <input type="text" id="login-password" name="login-password" class="form-control">
+              </div>
+              <!--Recordarme-->
+              <div class="checkbox">
+                <input type="checkbox" name="recordar">
+                <label for="recordar">Recordar mi cuenta
+                </label>
+              </div>
+              <button id="login-submit" type="submit" class="btn btn-login amarillo">Ingresar</button>
+              <p>
+                <a href="#">¿Olvidaste tu contraseña?</a> / Eres nuevo, <a href="registro.php">regístrate</a>
+                
+              </p>
+            </form>
           </div>
         </div>
       </div>

@@ -12,8 +12,8 @@ jQuery(document).ready(function(){
 		}
 
 			jQuery('.down').removeClass('magenta-text').addClass('verde-text');
-		
-	}else if(window.location.href.indexOf('empleate') > -1){
+			jQuery('.button-container').removeClass('amarillo').addClass('verde');		
+	}if(window.location.href.indexOf('empleate') > -1){
 		if (jQuery('section').hasClass('slider-ppal')) {
 			
 			jQuery('.slider-ppal').removeClass('slider-entrenate');
@@ -21,10 +21,13 @@ jQuery(document).ready(function(){
 
 			jQuery('.navbar-nav li:nth-child(3)').addClass('active');
 			jQuery('.navbar-nav li:nth-child(3) a').addClass('naranja');
+			jQuery('.navbar-nav li:nth-child(4)').removeClass('active');
+			jQuery('.navbar-nav li:nth-child(4) a').removeClass('purpura');
 
 		}
-		jQuery('.down').removeClass('magenta-text').addClass('naranja-text');
-	}else if(window.location.href.indexOf('oportunidades') > -1){
+		jQuery('.down').removeClass('purpura-text').addClass('naranja-text');
+		jQuery('.button-container').removeClass('amarillo').addClass('naranja');
+	}if(window.location.href.indexOf('oportunidades') > -1){
 		if (jQuery('section').hasClass('slider-ppal')) {
 			
 			jQuery('.slider-ppal').removeClass('slider-entrenate');
@@ -35,13 +38,17 @@ jQuery(document).ready(function(){
 
 		}
 		jQuery('.down').removeClass('magenta-text').addClass('purpura-text');
-	}else if(window.location.href.indexOf('entrenate') > -1){
+		jQuery('.button-container').removeClass('amarillo').addClass('purpura');
+	}if(window.location.href.indexOf('entrenate') > -1){
 		if (jQuery('section').hasClass('slider-ppal')) {
 				jQuery('.navbar-nav li:nth-child(2)').addClass('active');
 				jQuery('.navbar-nav li:nth-child(2) a').addClass('magenta');
 
 
 		}
+		jQuery('.down').removeClass('purpura-text').addClass('magenta-text');
+		jQuery('.button-container').removeClass('amarillo').addClass('magenta');
+		
 	}
 
 if(jQuery('.list').length > 0){

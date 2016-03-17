@@ -166,6 +166,9 @@ function loginProf(idP) {
     },
     success: function (data){
       console.log(data);
+      if(data!=0){
+        window.location= "/fbappCasaBienestar/perfil/";
+      }
       
     }
 
