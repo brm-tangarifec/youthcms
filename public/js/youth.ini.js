@@ -56,3 +56,17 @@ $('.carousel').carousel({
 
 	interval: 13000
 });
+
+/*Scroll down*/
+
+$(document).on("click", ".go-down", function () {
+		
+		// $(window).scrollTop(0);
+		var opacity=1.3-($(window).scrollTop()/500);
+		if(opacity>1)opacity=1;
+		if(opacity<0)opacity=0;$('.go-down').fadeTo(0.1,opacity);
+
+		$('html,body').animate({scrollTop:$(window).scrollTop()+580+'px'},1000);
+
+
+});
