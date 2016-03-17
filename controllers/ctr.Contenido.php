@@ -68,7 +68,7 @@ class Contenido {
 				}
 			}
 		/*Carga de la interna de registro*/
-		if($mySeccionId!='18'){
+		if($mySeccionId!='18' || $mySeccionId!='19'){
 			
 			/*Se pasan los parametros de busqueda*/
 			$conf=array(
@@ -163,7 +163,7 @@ class Contenido {
 	}
 
 	function registro(){
-		debug(1);
+		//debug(1);
 		$reusu= model("LallamaradaRegistro");
 		$varPost = filter_input_array(INPUT_POST);
 		printVar($varPost);
@@ -189,6 +189,34 @@ class Contenido {
 		$guardaUsu=$reusu->setInstancia();
 		printVar($guardaUsu);
 	}
+	/*Carga Perfil de usuario*/
+	function perfilUsuReg(){
+		$reusu= model("LallamaradaRegistro");
+		$varPostR = filter_input_array(INPUT_POST);
+		
+			/*Se Obtiene los datos del contenido en la seccion*/
+			
+		if($varPostR['rrs']=='fb'){
+			$confPer=array(
+					"conditions" => 'idFacebook = '.$varPostR['revisaIdRs'],
+					'fields' => array('id')
+					);
+		}else{
+			$confPer=array(
+				"conditions" => 'idGoogle = '.$varPostR['revisaIdRs'],
+				'fields' => array('id')
+				);
+		}
+		$traeUsu=$reusu->getData($confPer);
+		$idUsuario=$traeUsu[0]['id'];
+		cargaIdUsuario($idUsuario);
+
+	}
+	/*Perfil de usuario*/
+	function cargaIdUsuario($idUsuario){
+		printVar($idUsuario);
+	}
+	/*Ruta curso*/
 	function cursosHv(){
 		//debug(1);
 		$varPost = filter_input_array(INPUT_POST);

@@ -1,6 +1,7 @@
 
 var app_id = '1000170106703203';
 var scopes = 'public_profile,email';
+var idP;
 window.fbAsyncInit = function() {
     FB.init({
       appId      : '1000170106703203',
@@ -42,18 +43,19 @@ window.fbAsyncInit = function() {
       var getFacebookData = function () {
         obtenerFotoPerfil()
         FB.api('/me', 'get', { access_token: token, fields: 'id,first_name,last_name,email' } ,function (response) {
-          console.log(response);
+          //console.log(response);
           //console.log(response.first_name);
           jQuery("#idRs").val('');
           jQuery("#nombres").val('');
           jQuery("#apellidos").val('');
           jQuery("#email").val('');
           jQuery("#idRs").val(response.id).attr('data','fb');
+          idP=jQuery('#idRs');
           jQuery("#nombres").val(response.first_name).parent().addClass('input-activo');
           jQuery("#nombres").val(response.first_name).parent().addClass('input-activo');
           jQuery("#apellidos").val(response.last_name).parent().addClass('input-activo');
           jQuery("#email").val(response.email).parent().addClass('input-activo');
-
+          loginProf(idP);
 
         });
       };
@@ -93,7 +95,7 @@ window.fbAsyncInit = function() {
         FB.api('/me/picture?width=325&height=325', function(responseI) {
           var profileImage = responseI.data.url;
             //var fbid=jQuery("#pictureP").val(profileImage);
-            console.log(profileImage);
+            //console.log(profileImage);
             jQuery('.img-perfil img').attr('src',profileImage);
        });
       }
@@ -132,12 +134,42 @@ window.fbAsyncInit = function() {
       jQuery("#apellidos").val('');
       jQuery("#email").val('');
       jQuery("#idRs").val(googleUser.getBasicProfile().getId()).attr('data','g+');
+      idP=jQuery('#idRs');
       jQuery("#nombres").val(googleUser.getBasicProfile().getGivenName()).parent().addClass('input-activo');
       jQuery("#apellidos").val(googleUser.getBasicProfile().getFamilyName()).parent().addClass('input-activo');
       jQuery("#email").val(googleUser.getBasicProfile().getEmail()).parent().addClass('input-activo');
       jQuery('.img-perfil img').attr('src',googleUser.getBasicProfile().getImageUrl());
+      loginProf(idP);
     });
   }
 jQuery(document).ready(function(){
     startApp();
 });
+
+/*Funcion de login*/
+function loginProf(idP) {
+
+  console.log(idP);
+
+  var revisaUsu=idP.val(),
+  rrs=idP.attr('data'),
+  urlRr='/fbappCasaBienestar/registroYouthP/';
+  console.log(revisaUsu);
+  console.log(rrs);
+  jQuery.ajax({
+    url: urlRr,
+    dataType:'json' ,
+    type: 'POST',
+    data:{
+      revisaIdRs: revisaUsu,
+      rrs:rrs,
+    },
+    success: function (data){
+      console.log(data);
+      
+    }
+
+  });
+
+}
+

@@ -1,5 +1,7 @@
 $(document).on('ready', function () {
 
+	
+
 	/*validacion de formulario de fiesta*/
 	$("#registro").validate({
 
@@ -87,7 +89,6 @@ $(document).on('ready', function () {
 	    		nacimientoJ=jQuery('#nacimiento').val(),
 	    		terminosJ=jQuery('#terminos').val();
 	    		
-	    		console.log(rs);
 	    	jQuery.ajax({
 	    		url: urlR,
 				dataType:'json' ,
@@ -119,4 +120,31 @@ $(document).on('ready', function () {
 	    	return false;
 	    }
 	});
+
+
 });
+
+/*Validación Usuario registrado*/
+/*jQuery(document).on('change','#idRs',function(){
+	console.log('hola, cambié');
+	var revisaUsu=jQuery(this).val(),
+	rrs=jQuery(this).attr('data'),
+	urlRr='/fbappCasaBienestar/registroYouthP/';
+	console.log(revisaUsu);
+	console.log(rrs);
+	jQuery.ajax({
+		url: urlRr,
+		dataType:'json' ,
+		type: 'POST',
+		data:{
+			revisaIdRs: revisaUsu,
+			rrs:rrs,
+		},
+		success: function (data){
+			console.log(data);
+			
+		}
+
+	});
+	    		
+});*/
