@@ -1,6 +1,6 @@
 $(document).on('ready', function () {
 
-	
+
 
 	/*validacion de formulario de fiesta*/
 	$("#registro").validate({
@@ -19,10 +19,16 @@ $(document).on('ready', function () {
 	           celular:          {required: true,  digits: true},  
 	           direccion:       {required: true},
 	           tipo:       {required: true},
+	           genero:       {required: true},
 	           email:       {required: true, email: true},  
 	           documento:          {required: true, digits: true},  
 	           nacimiento:          {required: true, date: true},  
 	           ciudad:       {required: true},
+	           password:       {required: true},
+	           confirmPass:{
+	           	required: true,
+	           	equalTo : '#password',
+	           },
 	           terminos:        {required: true} 
 	           },
 
@@ -34,10 +40,13 @@ $(document).on('ready', function () {
 	      celular:      {required: "Indíca un número", digits: "Ingresa solo números" },
 	      direccion:      {required: "debes ingresar la dirección del lugar"},
 	      tipo:      {required: "debes seleccionar un tipo de documento"},
+	      genero:      {required: "debes seleccionar un ´genero"},
 	      email:      {required: "debes ingresar un email", email: "Ingresa un email válido"},
 	      documento:  {required: "Indíca un númerno de documento", digits: "solo se aceptan números" },
 	      nacimiento:  {required: "Indíca una fecha de nacimiento", date: "no es un formato de fecha válido" },
 	      ciudad:      {required: "debes ingresar la ciudad"},
+	      password:      {required: "Campo contraseña requerido"},
+	      confirmPass:      {required: "Por favor confirme su contraseña",equalTo:'Las contraseñas no coinciden'},
 	      terminos:         {required: "Debes aceptar los términos y condiciones"}
 	     
 
@@ -87,6 +96,8 @@ $(document).on('ready', function () {
 	    		generoJ=jQuery('#genero').val(),
 	    		documentoJ=jQuery('#documento').val(),
 	    		nacimientoJ=jQuery('#nacimiento').val(),
+	    		passwordJ=jQuery('#password').val(),
+	    		confirmPassJ=jQuery('#confirmPass').val(),
 	    		terminosJ=jQuery('#terminos').val();
 	    		
 	    	jQuery.ajax({
@@ -108,6 +119,8 @@ $(document).on('ready', function () {
     				nacimiento: nacimientoJ,
     				depto: deptoJ,
     				ciudad: ciudadJ,
+    				password: passwordJ,
+    				confirmPass: confirmPassJ,
     				terminos: terminosJ
 				},
 				success: function (data){

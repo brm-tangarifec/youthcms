@@ -37,6 +37,7 @@ private $idSession='';
 				//printVar($ruta);
 			if ($ruta==$nombreSeccion) {
 				$mySeccionId=$seccionGet['id'];
+				$tituloSeccion=$seccionGet['nombre'];
 			}
 			}
 
@@ -181,6 +182,7 @@ private $idSession='';
 		}
 
 		view()->assign("idSeccion",$mySeccionId);
+		view()->assign("titulo",$tituloSeccion);
 		//printVar($internaD);
 		view()->display($templateInterna);
 	}
@@ -190,27 +192,33 @@ private $idSession='';
 		$reusu= model("LallamaradaRegistro");
 		$varPost = filter_input_array(INPUT_POST);
 		printVar($varPost);
-		if($varPost['rs']=='fb'){
-			$reusu->idFacebook=$varPost['idRs'];
+		if($varPost['password']==$varPost['confirmPass']){
+
+			if($varPost['rs']=='fb'){
+				$reusu->idFacebook=$varPost['idRs'];
+			}else{
+				$reusu->idGoogle=$varPost['idRs'];
+			}
+			$reusu->imgPerfil=$varPost['imgPer'];
+			$reusu->nombre=$varPost['nombres'];
+			$reusu->apellido=$varPost['apellidos'];
+			$reusu->email=$varPost['email'];
+			$reusu->telefono=$varPost['celular'];
+			$reusu->idDepto=$varPost['depto'];
+			$reusu->idCiudad=$varPost['ciudad'];
+			$reusu->tipoDocumento=$varPost['tipo'];
+			$reusu->numeroDocumento=$varPost['documento'];
+			$reusu->genero=$varPost['genero'];
+			$reusu->password=$varPost['password'];
+			$reusu->autorizacionMarca=$varPost['terminos'];
+			//$reusu->ipAccesso;
+			$reusu->fechaNacimiento=$varPost['nacimiento'];
+			$reusu->fecha=date('Y-m-d H:i:s');
+			$guardaUsu=$reusu->setInstancia();
+			printVar($guardaUsu);
 		}else{
-			$reusu->idGoogle=$varPost['idRs'];
+			echo "El registro no pudo ser realizado";
 		}
-		$reusu->imgPerfil=$varPost['imgPer'];
-		$reusu->nombre=$varPost['nombres'];
-		$reusu->apellido=$varPost['apellidos'];
-		$reusu->email=$varPost['email'];
-		$reusu->telefono=$varPost['celular'];
-		$reusu->idDepto=$varPost['depto'];
-		$reusu->idCiudad=$varPost['ciudad'];
-		$reusu->tipoDocumento=$varPost['tipo'];
-		$reusu->numeroDocumento=$varPost['documento'];
-		$reusu->genero=$varPost['genero'];
-		$reusu->autorizacionMarca=$varPost['terminos'];
-		//$reusu->ipAccesso;
-		$reusu->fechaNacimiento=$varPost['nacimiento'];
-		$reusu->fecha=date('Y-m-d H:i:s');
-		$guardaUsu=$reusu->setInstancia();
-		printVar($guardaUsu);
 	}
 	/*Carga Perfil de usuario*/
 	function perfilUsuReg(){

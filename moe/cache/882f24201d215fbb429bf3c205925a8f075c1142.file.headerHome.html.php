@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-17 10:33:21
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-18 15:45:03
          compiled from "..\views\base\headerHome.html" */ ?>
 <?php /*%%SmartyHeaderCode:473556e32011ec5f93-31173761%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '882f24201d215fbb429bf3c205925a8f075c1142' => 
     array (
       0 => '..\\views\\base\\headerHome.html',
-      1 => 1458170749,
+      1 => 1458319237,
       2 => 'file',
     ),
   ),
@@ -17,6 +17,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'version' => 'Smarty-3.1.21-dev',
   'unifunc' => 'content_56e32011ee1518_67444104',
+  'variables' => 
+  array (
+    'titulo' => 0,
+  ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_56e32011ee1518_67444104')) {function content_56e32011ee1518_67444104($_smarty_tpl) {?><!DOCTYPE html><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="es-CO"> <![endif]-->
@@ -25,7 +29,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <!--[if gt IE 8]><!--> <html class="no-js" lang="es-CO"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>NESTLÉ® | Iniciativa por los Jóvenes</title>
+  <title><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
+|NESTLÉ® Iniciativa por los Jóvenes</title>
   <meta name="description" content="NESTLÉ® | Iniciativa por los Jóvenes">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

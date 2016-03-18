@@ -32,7 +32,7 @@ function initRestriccion(posArg){
 // -------------------------------------------- Navegación Pages --------------------------------------------
 function iniciar(){
 	$(document).ready(function() {
-		$('.contenidosPages').load('page'+page+'.html', function() {
+		$('.contenidosPages').load('/cursos/hojavida/page'+page+'/', function() {
 		status = "incomplete";
 		});
 	});
@@ -42,7 +42,7 @@ function iniciar(){
 function cargarSIG(){
 	if(page < maxPages){
 		page = page + 1;
-		$('.contenidosPages').load('page'+page+'.html', function() {
+		$('.contenidosPages').load('/cursos/hojavida/page'+page+'/', function() {
 
 
 		});
@@ -63,7 +63,7 @@ function cargarSIG(){
 function cargarPREV(){
 	if(page < maxPages){
 		page = page - 1;
-		$('.contenidosPages').load('page'+page+'.html', function() {
+		$('.contenidosPages').load('/cursos/hojavida/page'+page+'/', function() {
 			status = "incomplete";
 
 		});
