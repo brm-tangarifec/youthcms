@@ -188,6 +188,9 @@ private $idSession='';
 	}
 
 	function registro(){
+
+		$ipAccesso=MyQuerys::getRealIP();
+		printVar($ipAccesso);
 		//debug(1);
 		$reusu= model("LallamaradaRegistro");
 		$varPost = filter_input_array(INPUT_POST);
@@ -211,11 +214,12 @@ private $idSession='';
 			$reusu->genero=$varPost['genero'];
 			$reusu->password=$varPost['password'];
 			$reusu->autorizacionMarca=$varPost['terminos'];
+			$reusu->ipAccesso=$ipAccesso;
 			//$reusu->ipAccesso;
 			$reusu->fechaNacimiento=$varPost['nacimiento'];
 			$reusu->fecha=date('Y-m-d H:i:s');
-			$guardaUsu=$reusu->setInstancia();
-			printVar($guardaUsu);
+			//$guardaUsu=$reusu->setInstancia();
+			//printVar($guardaUsu);
 		}else{
 			echo "El registro no pudo ser realizado";
 		}
