@@ -149,13 +149,13 @@ jQuery(document).ready(function(){
 /*Funcion de login*/
 function loginProf(idP) {
 
-  console.log(idP);
+  //console.log(idP);
 
   var revisaUsu=idP.val(),
   rrs=idP.attr('data'),
   urlRr='/fbappCasaBienestar/registroYouthP/';
-  console.log(revisaUsu);
-  console.log(rrs);
+ //console.log(revisaUsu);
+ //console.log(rrs);
   jQuery.ajax({
     url: urlRr,
     dataType:'json' ,
@@ -176,3 +176,66 @@ function loginProf(idP) {
 
 }
 
+
+/*Traer ciudades*/
+jQuery(document).on('change','#departamento',function(){
+  console.log('hola, me cambiaron');
+  var depto=jQuery(this).val();
+  var urlC='/fbappCasaBienestar/ciudades/';
+    jQuery.ajax({
+      url: urlC,
+      dataType:'json',
+      type: 'POST',
+      data:{
+        idDepto:depto
+      },
+      success: function (data){
+        var totalCiudades=data.length;
+        
+          var ciudades="";
+          ciudades+=" <option value=''></option>";
+          for(f=0; f<totalCiudades; f++)
+            {
+             
+              ciudades+="<option value="+data[f].idCiudad+">"+data[f].nombre+"</option>";
+            }
+            //ciudades+="<option value='otroC'>OTRO</option>";
+
+            jQuery('#ciudad').html(ciudades);
+            jQuery("#ciudad").removeAttr("disabled");
+        
+      }
+
+    });
+});
+
+jQuery(document).on('change','',function(){
+
+
+    jQuery("#password").each(function () {
+        var validated =  true;
+        if(this.value.length < 8)
+          console.log('menor');
+            validated = false;
+        if(!/\d/.test(this.value))
+            console.log('digito');
+            validated = false;
+        if(!/[a-z]/.test(this.value))
+          console.log('minuscula');
+            validated = false;
+        if(!/[A-Z]/.test(this.value))
+          console.log('mayuscula');
+            validated = false;
+        if(/[^0-9a-zA-Z]/.test(this.value))
+          console.log('numerosyletras');
+            validated = false;
+        if(/^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/.test(this.value))
+            console.log('especiales');
+            validated = false;
+        /*Se ponen los errores en el html*/
+        jQuery('div').text(validated ? "pass" : "fail");
+        // use DOM traversal to select the correct div for this input above
+    });
+
+
+});

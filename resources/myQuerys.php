@@ -74,6 +74,35 @@ class MyQuerys
 			}
 			    	return $imagenes;
 	}
+
+	function encriptado($data,$key){
+		if($key=='!Y0uth$h4StCryPt'){
+			$baseM='holapersonaquebuscalacookie';
+			$baseF='adiospersonaquebuscalacookie';
+			$date=date('y.m.d');
+			$encriptar=$baseM.'~'.$date.'.'.$data.'.'.'1459'.'~'.$baseF;
+			return base64_encode($encriptar);
+
+		}else{
+			header('location: http://corporativa.nestle.com.co');
+		}
+	}
+	function devuelvedato($data,$key){
+		if($key=='!Y0uth$h4StCryPt'){
+			$data = base64_decode($data);
+			$limpiaData=base64_decode($data);
+
+			$porciones = explode("~",$limpiaData);
+			$sacadato= explode('.',$porciones[1]);
+			//printVar($sacadato[3]);
+			$eldato=$sacadato[3];
+
+	  		return $eldato; 
+
+		}else{
+			header('location: http://corporativa.nestle.com.co');
+		}
+	}
 	
 }
 

@@ -29,6 +29,7 @@ class DataObjects_LallamaradaRegistro extends DB_DataObject
     public $tipoDocumento;                  // enum(2)
     public $numeroDocumento;                // varchar(100)
     public $genero;                         // enum(1)
+    public $direccion;                         // varchar(200)
     public $deseoInformacion;               // enum(1) default_N
     public $autorizacionMarca;              // enum(1) default_N
     public $ipAccesso;                      // varchar(140)
@@ -57,6 +58,7 @@ class DataObjects_LallamaradaRegistro extends DB_DataObject
              'tipoDocumento' =>  DB_DATAOBJECT_STR,
              'numeroDocumento' =>  DB_DATAOBJECT_STR,
              'genero' =>  DB_DATAOBJECT_STR,
+             'direccion' =>  DB_DATAOBJECT_STR,
              'deseoInformacion' =>  DB_DATAOBJECT_STR,
              'autorizacionMarca' =>  DB_DATAOBJECT_STR,
              'ipAccesso' =>  DB_DATAOBJECT_STR,

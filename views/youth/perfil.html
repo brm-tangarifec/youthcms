@@ -1,17 +1,17 @@
 {#include  file="base/header.html"#}
 <!--Slider PPAl-->
-{#foreach from=usuario item=datosUsu#}
-{#$datosUsu|printVar#}
-{#/foreach#}
+
 <section class="container-fluid u-no-border slider-ppal slider-perfil">
   <div id="carrusel-ppal" data-ride="carousel" class="carousel slide"></div>
 </section>
 <!--/-Slider PPAl-->
 <section class="container-fluid bg-registro">
   <article class="row">
+    {#foreach from=$datosUsu item=usuario#}
+
     <form id="perfil" method="">
       <h1 class="col-lg-offset-2 col-md-offset-2 col-sm-offset-2">Editar Cuenta</h1>
-      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-2 col-md-offset-2 col-sm-offset-2"><img src="images/profile-placeholder.jpg" class="img-responsive"/>
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-2 col-md-offset-2 col-sm-offset-2"><img src="{#$usuario['imgPerfil']#}" class="img-responsive"/>
         <div class="subir-img">
           <label for="perfil">Selecciona tu archivo</label>
           <input type="file" name="perfil" id="perfil"/>
@@ -23,45 +23,56 @@
         <!--Nombres-->
         <div class="form-group input-activo">
           <label for="nombres">Nombres:</label>
-          <input type="text" id="nombres" name="nombres" value="Cris" class="form-control"/>
+          <input type="text" id="nombres" name="nombres" value="{#$usuario['nombre']#}" class="form-control"/>
         </div>
         <!--/-Nombres-->
         <!--Apellidos-->
         <div class="form-group input-activo">
           <label for="apellidos">Apellidos:</label>
-          <input type="text" id="apellidos" name="apellidos" value="test" class="form-control"/>
+          <input type="text" id="apellidos" name="apellidos" value="{#$usuario['apellido']#}" class="form-control"/>
         </div>
         <!--/-Apellidos-->
         <!--celular-->
         <div class="form-group input-activo">
           <label for="celular">Celular:</label>
-          <input type="text" id="celular" name="celular" value="123456" class="form-control"/>
+          <input type="text" id="celular" name="celular" value="{#$usuario['telefono']#}" class="form-control"/>
         </div>
         <!--/-celular-->
         <!--direccion-->
         <div class="form-group input-activo">
           <label for="direccion">Dirección:</label>
-          <input type="text" id="direccion" name="direccion" value="calle falsa 123" class="form-control"/>
+          <input type="text" id="direccion" name="direccion" value="{#$usuario['direccion']#}" class="form-control"/>
         </div>
         <!--/-direccion-->
         <!--email-->
         <div class="form-group input-activo">
           <label for="email">Email:</label>
-          <input type="text" id="email" name="email" value="cris@cris.com" class="form-control"/>
+          <input type="text" id="email" name="email" value="{#$usuario['email']#}" class="form-control"/>
         </div>
         <!--/-email-->
         <!--documento-->
         <div class="form-group input-activo">
           <label for="documento">Número de documento:</label>
-          <input type="text" id="documento" name="documento" value="23456789" class="form-control"/>
+          <input type="text" id="documento" name="documento" value="{#$usuario['numeroDocumento']#}" class="form-control"/>
         </div>
         <!--/-documento-->
         <!--nacimiento-->
         <div class="form-group input-activo">
           <label for="nacimiento">Fecha de nacimiento:</label>
-          <input type="text" id="nacimiento" name="nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')" value="2016-03-17" class="form-control"/>
+          <input type="text" id="nacimiento" name="nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')" value="{#$usuario['fechaNacimiento']#}" class="form-control"/>
         </div>
         <!--/-nacimiento-->
+        <!--Departamento-->
+          <div class="form-group">
+            <label for="Ciudad">Departamento:</label>
+
+            <select name="departamento" class="form-control departamento" id="departamento">
+              <option value=""></option>
+               {#foreach from=$deptos item=departamento#}
+                <option value="{#$departamento['id']#}">{#$departamento['nombre']|utf8_decode#}</option>
+                {#/foreach#}
+            </select>
+          </div>
         <!--Ciudad-->
         <div class="form-group input-activo">
           <label for="Ciudad">Ciudad:</label>
@@ -84,6 +95,7 @@
         <button type="button" class="btn btn-submit azul-oscuro">Cambiar clave</button>
       </div>
     </form>
+    {#/foreach#}
   </article>
 </section>
 

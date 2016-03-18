@@ -151,9 +151,25 @@ private $idSession='';
 		}
 		/*Trae datos de usuario*/
 		if($mySeccionId=='19'){
-			$this->perfilUsuReg();
-			printVar($this->idSession);
+			//sprintVar($_COOKIE['youth_usu']);
+			$idUsuario=MyQuerys::devuelvedato($_COOKIE['youth_usu'],'!Y0uth$h4StCryPt');
+			//printVar($idUsuario);
+			if(isset($idUsuario) && $idUsuario!=''){
+				$confPerf=array(
+				"conditions" => 'id = '.$idUsuario,
+				);
+				$datosUsu=$reusua->getData($confPerf);
+				//printVar($datosUsu);
+				view()->assign("datosUsu",$datosUsu);
+
+			}
+
 			//view()->assign("SeccionCss",$templateCss);
+		}
+		if($mySeccionId=='18' || $mySeccionId=='19'){
+			$departamentos=$this->departamento();
+			//printVar($departamentos);
+			view()->assign('deptos',$departamentos);
 		}
 
 		if($templateCss!='' && isset($templateCss)){
@@ -217,7 +233,8 @@ private $idSession='';
 		$traeUsu=$reusu->getData($confPer);
 		$idUsuario=$traeUsu[0]['id'];
 		if($idUsuario!=''){
-			setcookie("youth_usu", base64_encode($idUsuario),time()+1200, "/");
+			$encri=MyQuerys::encriptado($idUsuario,'!Y0uth$h4StCryPt');
+			setcookie("youth_usu", base64_encode($encri),time()+1200, "/");
 			//printVar($this->idSession);
 			echo $idUsuario;
 			//printVar($_SESSION);
@@ -229,9 +246,6 @@ private $idSession='';
 	function cargaIdUsuario($mySeccionId){
 		$reusua= model("LallamaradaRegistro");
 		if($mySeccionId=='19'){
-		printVar($mySeccionId);
-		printVar($this->traeIdUsu());
-		printVar($_SESSION['usuario']);
 			if(isset($_SESSION['usuario']) && $_SESSION['usuario']!=''){
 				$confPerf=array(
 				"conditions" => 'id = '.$_SESSION['usuario'],
@@ -243,9 +257,26 @@ private $idSession='';
 			}
 		}
 	}
-	function traeIdUsu($idUsuario){
-		printVar($idUsuario);
-		return $idUsuario;
+
+	/*Traer departamentos*/
+	function departamento(){
+		$depto =model('LallamaradaDepartamento');
+		$departamentos=$depto->getData();
+		return $departamentos;
+	}
+	/*Ciudades*/
+	function ciudad(){
+		$varPostC = filter_input_array(INPUT_POST);
+		$idDepto =$varPostC['idDepto'];
+		$ciudad =model('LallamaradaCiudad');
+		$traeCiudad=array(
+					"conditions" => 'idDepto = '.$idDepto,
+					'fields' => array('id','nombre')
+					);
+		$ciudades=$ciudad->getData($traeCiudad);
+		//printVar($ciudades);
+		echo json_encode($ciudades);
+
 	}
 	/*Ruta curso*/
 	function cursosHv(){

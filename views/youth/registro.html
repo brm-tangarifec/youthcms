@@ -78,6 +78,7 @@
           <div class="form-group">
             <label for="tipo">Género:</label>
             <select name="genero" class="form-control genero" id="genero">
+              <option value=""></option>
               <option value="M">Masculino</option>
               <option value="F">Femenino</option>
             </select>
@@ -111,20 +112,17 @@
             <label for="Ciudad">Departamento:</label>
             <select name="departamento" class="form-control departamento" id="departamento">
               <option value=""></option>
-              <option value="1">2</option>
-              <option value="2">3</option>
-              <option value="3">4</option>
+               {#foreach from=$deptos item=departamento#}
+                <option value="{#$departamento['id']#}">{#$departamento['nombre']|utf8_decode#}</option>
+                {#/foreach#}
             </select>
           </div>
           <!--/-Ciudad-->
           <!--Ciudad-->
           <div class="form-group">
             <label for="Ciudad">Ciudad:</label>
-            <select name="ciudad" class="form-control ciudad" id="ciudad">
+            <select name="ciudad" class="form-control ciudad" id="ciudad" disabled>
               <option value=""></option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
             </select>
           </div>
           <!--/-Ciudad-->

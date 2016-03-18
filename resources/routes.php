@@ -35,6 +35,7 @@ foreach ($seccions as $seccionGet) {
 }
 $rutaArray["registroYouth/"]="Contenido@registro";
 $rutaArray["registroYouthP/"]="Contenido@perfilUsuReg";
+$rutaArray["ciudades/"]="Contenido@ciudad";
 
  Moe::routes($rutaArray);
 /*Moe::routes(array(

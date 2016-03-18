@@ -1,6 +1,9 @@
 
 
 var page = 1;
+var pagina=1;
+var status="incomplete";
+var scoreRaw = 0;
 // *** Aquí se ingresa el total de páginas ***
 var maxPages = 6;
 
@@ -26,89 +29,44 @@ function initRestriccion(posArg){
 	}
 }
 
-function iniciar()
-{
-	
-		url = "/cursos/hojavida/page"+page+"/";
-		console.log(url);
-		document.getElementById('page').src = url;
-	}
-
-
-
 // -------------------------------------------- Navegación Pages --------------------------------------------
-
-function contenidoVisto(){
-	if(page != maxPages){
-		restriccion[page-1] = 1;
-		document.getElementById('imgSig').style.opacity = "1";
-		document.getElementById('imgFlecha').style.visibility = "visible";
-
-	}
+function iniciar(){
+	$(document).ready(function() {
+		$('.contenidosPages').load('page'+page+'.html', function() {
+		status = "incomplete";
+		});
+	});
 }
 
-function cargarPREV(){
-	if(page > 1){
-		page = page - 1;
-		url = "page"+page+"/";
-    	document.getElementById('page').src = url;
-
-	}
-}
 
 function cargarSIG(){
-			if(page < maxPages){
-		
-			page = page + 1;
-			url = "page"+page+"/";
-			document.getElementById('page').src = url;
-					
-		}
-	//}
+	if(page < maxPages){
+		page = page + 1;
+		$('.contenidosPages').load('page'+page+'.html', function() {
+
+
+		});
+
+		if(page == maxPages){
+				status = "completed";
+				scoreRaw = 100;
+			}	
+
+
+	}
+
+
+
 }
 
-function cargarPAG(pageArg){
-	page = pageArg;
-	url = "page"+page+"/";
-    document.getElementById('page').src = url;
-	//document.getElementById('imgFlecha').style.visibility = "hidden";
 
-}
-// -------------------------------------------- Navegación Pop --------------------------------------------
-function cargarPop(nombrePopArg){
-	var nombrePop = nombrePopArg;
-	document.getElementById('pop').src = "pop/"+nombrePop+"/";
-	document.getElementById('contenidosPop').style.zIndex = 5;
-}
-function cerrarPop(){
-	document.getElementById('pop').src = "";
-	document.getElementById('contenidosPop').style.zIndex = -10;
-}
+function cargarPREV(){
+	if(page < maxPages){
+		page = page - 1;
+		$('.contenidosPages').load('page'+page+'.html', function() {
+			status = "incomplete";
 
-// *** Funciones de interfaz gráfica de la Plantilla ***
-
-function cargarAyuda(){
-	cargarPop("ayuda");
-}
-
-function cargarGlosario(){
-	cargarPop("glosario");
-}
-
-function cargarMenu(){
-	cargarPop("menu");
-}
-
-function ocultarInterfaz(oculta){
-	if(oculta){
-		document.getElementById('banner').style.visibility = "hidden";
-		document.getElementById('imgGlosario').style.visibility = "hidden";
-		document.getElementById('imgAyuda').style.visibility = "hidden";
-		document.getElementById('imgMenu').style.visibility = "hidden";
-	}else{
-		document.getElementById('banner').style.visibility = "visible";
-		document.getElementById('imgGlosario').style.visibility = "visible";
-		document.getElementById('imgAyuda').style.visibility = "visible";
-		document.getElementById('imgMenu').style.visibility = "visible";
+		});
 	}
 }
+

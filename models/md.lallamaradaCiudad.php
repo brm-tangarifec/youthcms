@@ -18,7 +18,6 @@ class DataObjects_LallamaradaCiudad extends DB_DataObject
     public $nombreDane;                     // varchar(100)
     public $coordenada;                     // varchar(100)
     public $fecha;                          // datetime
-    public $lallamarada_ciudadcol;          // varchar(45)
 
     function table()
     {
@@ -30,7 +29,6 @@ class DataObjects_LallamaradaCiudad extends DB_DataObject
              'nombreDane' =>  DB_DATAOBJECT_STR,
              'coordenada' =>  DB_DATAOBJECT_STR,
              'fecha' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_DATE + DB_DATAOBJECT_TIME,
-             'lallamarada_ciudadcol' =>  DB_DATAOBJECT_STR,
          );
     }
 
