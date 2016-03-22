@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-18 15:45:03
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-18 18:13:01
          compiled from "..\views\base\headerHome.html" */ ?>
 <?php /*%%SmartyHeaderCode:473556e32011ec5f93-31173761%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '882f24201d215fbb429bf3c205925a8f075c1142' => 
     array (
       0 => '..\\views\\base\\headerHome.html',
-      1 => 1458319237,
+      1 => 1458342137,
       2 => 'file',
     ),
   ),
@@ -56,13 +56,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <div class="close"><i class="glyphicon glyphicon-remove-circle"></i></div>
             <h2>Inicio de sesión</h2>
             <!--Botón registro con Facebook-->
-            <button type="button" class="btn btn-fb">
+            <button type="button" class="btn btn-fb" >
               <span>Conéctate con facebook</span> <i class="icon icon-fb"></i>
               
             </button>
             <!--/-Botón registro con Facebook-->
             <!--Botón registro con Google+-->
-            <button type="button" class="btn btn-g"><i class="icon icon-g"></i> <span>Conéctate con google +</span></button>
+            <button type="button" class="btn btn-g" id="btn-g"><i class="icon icon-g"></i> <span>Conéctate con google +</span></button>
             <!--/-Botón registro con Google+-->
             <form id="login" method="">
               <!--Usuario-->
@@ -100,6 +100,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
           <p class="pais">Colombia</p>
         </div>
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-5 col-md-offset-5 col-sm-offset-5">
+          <p class="user-tools">
+            <a href="/registro/">Registrarse</a><br />
+            <a class="show-login" href="#login">Iniciar Sesión</a>
+          </p>
           
         </div>
         <!--/-Logo-->

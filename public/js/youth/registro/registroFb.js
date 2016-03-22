@@ -55,6 +55,9 @@ window.fbAsyncInit = function() {
           jQuery("#nombres").val(response.first_name).parent().addClass('input-activo');
           jQuery("#apellidos").val(response.last_name).parent().addClass('input-activo');
           jQuery("#email").val(response.email).parent().addClass('input-activo');
+           if(window.location.hash=='#logout'){
+             jQuery("#idRs").val('');      
+           }
           loginProf(idP);
 
         });
@@ -100,6 +103,11 @@ window.fbAsyncInit = function() {
        });
       }
 
+      function logout() {
+            FB.logout(function(response) {
+              // user is now logged out
+            });
+        }
 
 /*Funciones para Gmail*/
 
@@ -139,13 +147,71 @@ window.fbAsyncInit = function() {
       jQuery("#apellidos").val(googleUser.getBasicProfile().getFamilyName()).parent().addClass('input-activo');
       jQuery("#email").val(googleUser.getBasicProfile().getEmail()).parent().addClass('input-activo');
       jQuery('.img-perfil img').attr('src',googleUser.getBasicProfile().getImageUrl());
+      if(window.location.hash=='#logout'){
+        jQuery("#idRs").val('');      
+      }
       loginProf(idP);
     });
   }
+
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+
 jQuery(document).ready(function(){
     startApp();
-});
 
+    /*Valiadción de formulario de login*/
+    /*validacion de formulario de fiesta*/
+  $("#login").validate({
+
+         debug: true,
+
+        /*Contenedor y clase donde se pinta el error*/
+        errorElement: "div",
+        errorClass: "alert-danger",
+
+        /*Campos para validar en form para pedir fiesta*/
+
+      rules: {
+             loginUsuario:       {required: true, email: true },
+             loginPassword:       {required: true},
+             },
+
+      /*Mensajes en caso de dar error para cada input*/
+
+      messages: {
+        loginUsuario:{
+          required:'Ingrese el nombre de usuario',
+          email :'El usuario es el e-mail'
+        },
+        loginPassword:{
+          required:'Ingrese su contraseña'
+        }
+       
+
+             },
+
+      errorPlacement: function (error, element) {
+
+          error.insertAfter(element);
+   
+
+      },
+
+      
+
+  });
+});
+jQuery(document).on('click','.logout',function(){
+  logout();
+  signOut();
+  setTimeout(function(){ window.location='/fbappCasaBienestar/logout/'; }, 3000);
+  
+});
 /*Funcion de login*/
 function loginProf(idP) {
 
@@ -165,7 +231,7 @@ function loginProf(idP) {
       rrs:rrs,
     },
     success: function (data){
-      console.log(data);
+      //console.log(data);
       if(data!=0){
         //window.location= "/fbappCasaBienestar/perfil/";
       }
@@ -208,6 +274,34 @@ jQuery(document).on('change','#departamento',function(){
     });
 });
 
+
+/*Logueo con usuario y contraseña*/
+jQuery(document).on('click','#login-submit',function(){
+
+  if(jQuery('#login').valid()){
+    //console.log('valido');
+    var user=jQuery('#loginUsuario').val();
+    var pass=jQuery('#loginPassword').val();
+    var urlL='/fbappCasaBienestar/loginUser/';
+    jQuery.ajax({
+      url: urlL,
+      dataType:'json',
+      type: 'POST',
+      data:{
+        usuario:user,
+        pass:pass
+      },
+      success: function (data){
+       console.log(data);
+        
+      }
+
+    });
+  }else{
+     //console.log('no valido');
+    return false
+  }
+});
 jQuery(document).on('change','#password',function(){
 
 

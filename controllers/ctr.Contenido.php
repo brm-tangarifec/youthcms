@@ -37,7 +37,11 @@ private $idSession='';
 				//printVar($ruta);
 			if ($ruta==$nombreSeccion) {
 				$mySeccionId=$seccionGet['id'];
+				if($seccionGet['nombre']!='/'){
 				$tituloSeccion=$seccionGet['nombre'];
+				}else{
+					$tituloSeccion='Iniciativa por los J&oacute;venes Nestl&eacute;&reg; Colombia';
+				}
 			}
 			}
 
@@ -181,6 +185,12 @@ private $idSession='';
 			view()->assign("SeccionJs",$templateJs);
 		}
 
+		if(isset($_COOKIE['youth_usu'])){
+			$loggeado=1;
+		}else{
+			$loggeado=0;
+		}
+		view()->assign('loggueado',$loggeado);
 		view()->assign("idSeccion",$mySeccionId);
 		view()->assign("titulo",$tituloSeccion);
 		//printVar($internaD);
@@ -190,36 +200,46 @@ private $idSession='';
 	function registro(){
 
 		$ipAccesso=MyQuerys::getRealIP();
-		printVar($ipAccesso);
+		//printVar($ipAccesso);
 		//debug(1);
 		$reusu= model("LallamaradaRegistro");
 		$varPost = filter_input_array(INPUT_POST);
-		printVar($varPost);
+		//printVar($varPost);
+		$emailEx=$this->verificaExistenciaE($varPost['email']);
+		$documentoEx=$this->verificaExistenciaC($varPost['documento']);
+		//printvar($emailEx);
+		//printvar($documentoEx);
 		if($varPost['password']==$varPost['confirmPass']){
-
-			if($varPost['rs']=='fb'){
-				$reusu->idFacebook=$varPost['idRs'];
+			if($emailEx==''){
+				if($documentoEx==''){
+					if($varPost['rs']=='fb'){
+						$reusu->idFacebook=$varPost['idRs'];
+					}else{
+						$reusu->idGoogle=$varPost['idRs'];
+					}
+					$reusu->imgPerfil=$varPost['imgPer'];
+					$reusu->nombre=$varPost['nombres'];
+					$reusu->apellido=$varPost['apellidos'];
+					$reusu->email=$varPost['email'];
+					$reusu->telefono=$varPost['celular'];
+					$reusu->idDepto=$varPost['depto'];
+					$reusu->idCiudad=$varPost['ciudad'];
+					$reusu->tipoDocumento=$varPost['tipo'];
+					$reusu->numeroDocumento=$varPost['documento'];
+					$reusu->genero=$varPost['genero'];
+					$reusu->password=$varPost['password'];
+					$reusu->autorizacionMarca=$varPost['terminos'];
+					$reusu->ipAccesso=$ipAccesso;
+					$reusu->fechaNacimiento=$varPost['nacimiento'];
+					$reusu->fecha=date('Y-m-d H:i:s');
+					$guardaUsu=$reusu->setInstancia();
+					//printVar($guardaUsu);
+				}else{
+				echo "El registro no pudo ser realizado";
+				}
 			}else{
-				$reusu->idGoogle=$varPost['idRs'];
+			echo "El registro no pudo ser realizado";
 			}
-			$reusu->imgPerfil=$varPost['imgPer'];
-			$reusu->nombre=$varPost['nombres'];
-			$reusu->apellido=$varPost['apellidos'];
-			$reusu->email=$varPost['email'];
-			$reusu->telefono=$varPost['celular'];
-			$reusu->idDepto=$varPost['depto'];
-			$reusu->idCiudad=$varPost['ciudad'];
-			$reusu->tipoDocumento=$varPost['tipo'];
-			$reusu->numeroDocumento=$varPost['documento'];
-			$reusu->genero=$varPost['genero'];
-			$reusu->password=$varPost['password'];
-			$reusu->autorizacionMarca=$varPost['terminos'];
-			$reusu->ipAccesso=$ipAccesso;
-			//$reusu->ipAccesso;
-			$reusu->fechaNacimiento=$varPost['nacimiento'];
-			$reusu->fecha=date('Y-m-d H:i:s');
-			//$guardaUsu=$reusu->setInstancia();
-			//printVar($guardaUsu);
 		}else{
 			echo "El registro no pudo ser realizado";
 		}
@@ -230,7 +250,7 @@ private $idSession='';
 		$varPostR = filter_input_array(INPUT_POST);
 		
 			/*Se Obtiene los datos del contenido en la seccion*/
-			
+		
 		if($varPostR['rrs']=='fb'){
 			$confPer=array(
 					"conditions" => 'idFacebook = '.$varPostR['revisaIdRs'],
@@ -294,44 +314,120 @@ private $idSession='';
 	function cursosHv(){
 		//debug(1);
 		$varPost = filter_input_array(INPUT_POST);
-		view()->display("cursos/hojaVida/index.html");
+		view()->display("cursos/hojavida/index.html");
 
 	}
 	function cursosHv1(){
 		//debug(1);
 		$varPost = filter_input_array(INPUT_POST);
-		view()->display("cursos/hojaVida/page1.html");
+		view()->display("cursos/hojavida/page1.html");
 
 	}
 	function cursosHv2(){
 		//debug(1);
 		$varPost = filter_input_array(INPUT_POST);
-		view()->display("cursos/hojaVida/page2.html");
+		view()->display("cursos/hojavida/page2.html");
 
 	}
 	function cursosHv3(){
 		//debug(1);
 		$varPost = filter_input_array(INPUT_POST);
-		view()->display("cursos/hojaVida/page3.html");
+		view()->display("cursos/hojavida/page3.html");
 
 	}
 	function cursosHv4(){
 		//debug(1);
 		$varPost = filter_input_array(INPUT_POST);
-		view()->display("cursos/hojaVida/page4.html");
+		view()->display("cursos/hojavida/page4.html");
 
 	}
 	function cursosHv5(){
 		//debug(1);
 		$varPost = filter_input_array(INPUT_POST);
-		view()->display("cursos/hojaVida/page5.html");
+		view()->display("cursos/hojavida/page5.html");
 
 	}
 	function cursosHv6(){
 		//debug(1);
 		$varPost = filter_input_array(INPUT_POST);
-		view()->display("cursos/hojaVida/page6.html");
+		view()->display("cursos/hojavida/page6.html");
 
 	}
 
+	function verificaExistenciaE($dato){
+		debug(1);
+		$reusuae= model("LallamaradaRegistro");
+		$condE=array(
+			"conditions" => 'email = '.'"'.$dato.'"',
+			'fields' => array('id')
+			);
+		$exite=$reusuae->getData($condE);
+		//printVar($exite[0]['id']);
+		if(isset($exite) && $exite!=''){
+			
+			$existeE=$exite[0]['id'];
+		}else{
+			
+			$existeE="";
+		}
+		return $existeE;
+
+	}
+	function verificaExistenciaC($docu){
+		//debug(1);
+		$reusuae= model("LallamaradaRegistro");
+		$condC=array(
+			"conditions" => 'numeroDocumento = '.'"'.$docu.'"',
+			'fields' => array('id')
+			);
+		$exiteC=$reusuae->getData($condC);
+		//printVar($exiteC[0]['id']);
+		if(isset($exiteC) && $exiteC!=''){
+			$existeCe=$exiteC[0]['id'];
+		}else{
+			$existeCe="";
+		}
+		return $existeCe;
+
+	}
+	function login(){
+		$varPostL=filter_input_array(INPUT_POST);
+		$reusuae= model("LallamaradaRegistro");
+		//printVar($varPostL);
+		$user=$varPostL['usuario'];
+		$pass=$varPostL['pass'];
+		$passw=base64_encode($pass);
+		//printVar($passw);
+		$condC=array(
+			"conditions" => 'email = '.'"'.$user.'" AND password="'.$passw.'"',
+			'fields' => array('id')
+			);
+		$log=$reusuae->getData($condC);
+		//printVar($log);
+		if($log[0]['id']!=''){
+			$idUsuario=$log[0]['id'];
+			if($idUsuario!=''){
+				$encri=MyQuerys::encriptado($idUsuario,'!Y0uth$h4StCryPt');
+				setcookie("youth_usu", base64_encode($encri),time()+1200, "/");
+				//printVar($this->idSession);
+				echo $idUsuario;
+				//printVar($_SESSION);
+			}
+		}else{
+			$mensaje='Lo sentimos, no reconocemos el nombre de usuario o la contrase&ntilde;a';
+			echo json_encode($mensaje);
+			/*Acá va la valdiacón de intentos*/
+		}
+
+	}
+	function cerrarSession(){
+		foreach ($_COOKIE as $key => $value) {
+    		unset($value);
+    		//var_dump($key);
+    		$_COOKIE[$key]="";
+    		setcookie($key, null, time() - 3600,'/');
+		}
+		header('location: /fbappCasaBienestar/#logout');
+
+	}
 }

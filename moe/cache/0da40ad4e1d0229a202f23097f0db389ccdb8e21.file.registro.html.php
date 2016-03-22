@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-16 17:35:40
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-18 17:43:12
          compiled from "..\views\youth\registro.html" */ ?>
 <?php /*%%SmartyHeaderCode:3055256e329da6d7b12-42227129%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0da40ad4e1d0229a202f23097f0db389ccdb8e21' => 
     array (
       0 => '..\\views\\youth\\registro.html',
-      1 => 1458161012,
+      1 => 1458329939,
       2 => 'file',
     ),
   ),
@@ -17,6 +17,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'version' => 'Smarty-3.1.21-dev',
   'unifunc' => 'content_56e329da70e626_62465998',
+  'variables' => 
+  array (
+    'deptos' => 0,
+    'departamento' => 0,
+  ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_56e329da70e626_62465998')) {function content_56e329da70e626_62465998($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("base/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
@@ -65,7 +70,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
           <div class="form-group img-perfil"><img src="/fbappCasaBienestar/images/profile-placeholder.jpg" class="img-responsive"></div>
           <!--/-img de perfil-->
           <!--redId-->
-          <input type="hidden" class="form-control" value="" id="idRs" name="idRs">
+          <input type="text" class="form-control" value="" id="idRs" name="idRs">
           <!--Nombres-->
           <div class="form-group">
             <label for="nombres">Nombres:</label>
@@ -101,9 +106,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <label for="tipo">Género:</label>
             <select name="genero" class="form-control genero" id="genero">
               <option value=""></option>
-              <option value=""></option>
-              <option value="M">M</option>
-              <option value="F">F</option>
+              <option value="M">Masculino</option>
+              <option value="F">Femenino</option>
             </select>
           </div>
           <!--/-Tipo de documento-->
@@ -135,23 +139,40 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <label for="Ciudad">Departamento:</label>
             <select name="departamento" class="form-control departamento" id="departamento">
               <option value=""></option>
-              <option value="1">2</option>
-              <option value="2">3</option>
-              <option value="3">4</option>
+               <?php  $_smarty_tpl->tpl_vars['departamento'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['departamento']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['deptos']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['departamento']->key => $_smarty_tpl->tpl_vars['departamento']->value) {
+$_smarty_tpl->tpl_vars['departamento']->_loop = true;
+?>
+                <option value="<?php echo $_smarty_tpl->tpl_vars['departamento']->value['id'];?>
+"><?php echo utf8_decode($_smarty_tpl->tpl_vars['departamento']->value['nombre']);?>
+</option>
+                <?php } ?>
             </select>
           </div>
           <!--/-Ciudad-->
           <!--Ciudad-->
           <div class="form-group">
             <label for="Ciudad">Ciudad:</label>
-            <select name="ciudad" class="form-control ciudad" id="ciudad">
+            <select name="ciudad" class="form-control ciudad" id="ciudad" disabled>
               <option value=""></option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
             </select>
           </div>
           <!--/-Ciudad-->
+          <div class="block-pass">
+            <!--contraseña-->
+            <div class="form-group">
+              <label for="password">Contraseña:</label>
+              <input type="text" id="password" name="password" onfocus="(this.type='text')" onblur="(this.type='password')" class="form-control">
+            </div>
+            <!--/-contraseña-->
+            <!--confirmar contraseña-->
+            <div class="form-group">
+              <label for="confirmPass">Confirmar Contraseña:</label>
+              <input type="text" id="confirmPass" name="confirmPass" onfocus="(this.type='text')" onblur="(this.type='password')" class="form-control">
+            </div>
+            <!--/-confirmar contraseña-->
+          </div>
           <!--Acepto términos-->
           <div class="checkbox">
             <input type="checkbox" name="terminos" id="terminos" value="S">
@@ -161,7 +182,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             </label>
           </div>
           <!--/-Acepto términos-->
-          <button type="submit" class="btn btn-submit azul-oscuro">Enviar</button>
+          <button type="button" class="btn btn-submit azul-oscuro">Enviar</button>
         </div>
       </form>
     </article>

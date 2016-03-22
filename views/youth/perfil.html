@@ -9,13 +9,13 @@
   <article class="row">
     {#foreach from=$datosUsu item=usuario#}
 
-    <form id="perfil" method="">
+    <form id="perfil" method="post">
       <h1 class="col-lg-offset-2 col-md-offset-2 col-sm-offset-2">Editar Cuenta</h1>
       <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-2 col-md-offset-2 col-sm-offset-2"><img src="{#$usuario['imgPerfil']#}" class="img-responsive"/>
-        <div class="subir-img">
+        <!-- <div class="subir-img">
           <label for="perfil">Selecciona tu archivo</label>
           <input type="file" name="perfil" id="perfil"/>
-        </div>
+        </div> -->
         <h3>Foto de Perfil</h3>
       </div>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -57,7 +57,7 @@
         </div>
         <!--/-documento-->
         <!--nacimiento-->
-        <div class="form-group input-activo">
+        <div class="form-group input-activo"> 
           <label for="nacimiento">Fecha de nacimiento:</label>
           <input type="text" id="nacimiento" name="nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')" value="{#$usuario['fechaNacimiento']#}" class="form-control"/>
         </div>
@@ -81,15 +81,15 @@
             </select>
         </div>
         <!--/-Ciudad-->
-        <button type="button" class="btn btn-submit azul-oscuro">Actualizar perfil</button>
-        <h3>Cambiar Clave</h3>
+        <button type="button" id="updatePer" class="btn btn-submit azul-oscuro">Actualizar perfil</button>
+        <!-- <h3>Cambiar Clave</h3> -->
         <!--cambio de clave-->
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="password">Nueva clave:</label>
           <input type="text" id="password" name="password" class="form-control"/>
-        </div>
+        </div> -->
         <!--/-cambio de clave-->
-        <button type="button" class="btn btn-submit azul-oscuro">Cambiar clave</button>
+        <!-- <button type="button" class="btn btn-submit azul-oscuro">Cambiar clave</button> -->
       </div>
     </form>
     {#/foreach#}

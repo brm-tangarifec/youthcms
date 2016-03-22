@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-17 10:36:34
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-18 17:43:12
          compiled from "..\views\base\header.html" */ ?>
 <?php /*%%SmartyHeaderCode:1906956e328c94ecfb3-54260364%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'de1312a86d0f1d495fa24e1996cb551bfc917dfb' => 
     array (
       0 => '..\\views\\base\\header.html',
-      1 => 1458170749,
+      1 => 1458340956,
       2 => 'file',
     ),
   ),
@@ -17,6 +17,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'version' => 'Smarty-3.1.21-dev',
   'unifunc' => 'content_56e328c94f4cb4_53806039',
+  'variables' => 
+  array (
+    'titulo' => 0,
+  ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_56e328c94f4cb4_53806039')) {function content_56e328c94f4cb4_53806039($_smarty_tpl) {?><!DOCTYPE html><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="es-CO"> <![endif]-->
@@ -25,7 +29,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <!--[if gt IE 8]><!--> <html class="no-js" lang="es-CO"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Cartelera de vacantes de aliados | NESTLÉ® - Iniciativa por los Jóvenes</title>
+  <title><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
+| NESTLÉ® - Iniciativa por los Jóvenes</title>
   <meta name="description" content="NESTLÉ® | Iniciativa por los Jóvenes">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -101,6 +106,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
           <p class="pais">Colombia</p>
         </div>
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-5 col-md-offset-5 col-sm-offset-5">
+
+          <p class="user-tools">
+            <a href="/registro/">Registrarse</a><br />
+            <a class="show-login" href="#login">Iniciar Sesión</a>
+          </p>
           
         </div>
         <!--/-Logo-->

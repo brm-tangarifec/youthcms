@@ -13,7 +13,8 @@ jQuery(document).ready(function(){
 
 			jQuery('.down').removeClass('magenta-text').addClass('verde-text');
 			jQuery('.button-container').removeClass('amarillo').addClass('verde');		
-	}if(window.location.href.indexOf('empleate') > -1){
+	}
+	if(window.location.href.indexOf('empleate') > -1){
 		if (jQuery('section').hasClass('slider-ppal')) {
 			
 			jQuery('.slider-ppal').removeClass('slider-entrenate');
@@ -27,7 +28,8 @@ jQuery(document).ready(function(){
 		}
 		jQuery('.down').removeClass('purpura-text').addClass('naranja-text');
 		jQuery('.button-container').removeClass('amarillo').addClass('naranja');
-	}if(window.location.href.indexOf('oportunidades') > -1){
+	}
+	if(window.location.href.indexOf('oportunidades') > -1){
 		if (jQuery('section').hasClass('slider-ppal')) {
 			
 			jQuery('.slider-ppal').removeClass('slider-entrenate');
@@ -39,7 +41,8 @@ jQuery(document).ready(function(){
 		}
 		jQuery('.down').removeClass('magenta-text').addClass('purpura-text');
 		jQuery('.button-container').removeClass('amarillo').addClass('purpura');
-	}if(window.location.href.indexOf('entrenate') > -1){
+	}
+	if(window.location.href.indexOf('entrenate') > -1){
 		if (jQuery('section').hasClass('slider-ppal')) {
 				jQuery('.navbar-nav li:nth-child(2)').addClass('active');
 				jQuery('.navbar-nav li:nth-child(2) a').addClass('magenta');
@@ -50,6 +53,17 @@ jQuery(document).ready(function(){
 		jQuery('.button-container').removeClass('amarillo').addClass('magenta');
 		
 	}
+	if(window.location.href.indexOf('perfil') > -1){
+		jQuery('.login-wrapper').remove();
+		jQuery('.show-login').remove();
+		
+	}
+	if(window.location.href.indexOf('registro') > -1){
+		jQuery('.login-wrapper').remove();
+		jQuery('.show-login').remove();
+		
+	}
+	
 
 if(jQuery('.list').length > 0){
 	var lista=".list ul li";

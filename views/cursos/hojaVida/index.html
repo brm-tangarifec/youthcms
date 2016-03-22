@@ -8,25 +8,22 @@
 	<script src="/js/cursos/hojavida/js/plantilla.js" type="text/javascript"></script>
 	<script src="/js/cursos/hojavida/js/jquery-2.1.1.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
-	$(document).ready(function() { var id; var minRes=479; var maxRes=520;
-			if ($(window).width()>maxRes){ $("#pantallaMovil").hide(); }
-			if ($(window).width()<minRes){ $("#pantallaMovil").css('visibility','visible'); $("#pantallaMovil").show();}
-			$(window).resize(function() {  clearTimeout(id);  id = setTimeout(doneResizing, 10);});
-			function doneResizing(){
-				if ($(window).width()<minRes){ $("#pantallaMovil").css('visibility','visible'); $("#pantallaMovil").show(); }
-				if ($(window).width()>maxRes){  $("#pantallaMovil").hide();} } });
+		$(window).load(function() {
+			$("#cargandoIcono").fadeOut("slow");
+		})
+
 	</script>
 
 	<link href="/css/cursos/hojavida/css/estilos.css" rel="stylesheet" type="text/css">
 </head>
 <body onLoad="iniciar()" >
-	<div id="pantallaMovil" > Por favor utilice su dispositivo en modo horizontal</div>
 	
+	<div id="cargandoIcono" ><img  width="30%"  src="/images/cursos/hojavida/1cargandocurso.gif"/></div>
 
-		<div class="contenidosPages">
+	<div class="contenidosPages">
 
 
-		
 	</div>
-</body>
-</html>
+	
+	</body>
+	</html>

@@ -1,307 +1,202 @@
 @charset "utf-8";
 /* CSS Document */
-
+html { overflow:hidden; }
 body, html{
 	background-color: #ffffff;
 	margin:0px 0px 0px 0px;
-overflow:hidden !important;
-}
-
-#wrapper{
-	position:relative;
+	overflow:hidden !important;
 	overflow:hidden;
-
-	width:1024px;
-	height:720px;
-	margin: auto;
-	overflow-y:hidden !important;
-
+	overflow-y:hidden;
+	overflow:hidden !important;
 }
 
-#wrapper::-webkit-scrollbar { width: 0 !important }
-#wrapper{ overflow: -moz-scrollbars-none; }
+ #cargandoIcono  {  width: 30%; height: 30%; padding-top: 20%; margin-left: 45%; align-content: center;  }
 
-#pantallaMovil{ background-color:#2a7cc2;font-family: Arial; font-size:18px; color:#fff; }
+
+
+ 	#pantallaMovil{ background-color:#2a7cc2;font-family: Arial; font-size:14px; color:#fff; display:none; }
+}
 .contenidosPages{
-	position:absolute;
+	/*position:absolute;*/
 	margin: 0px 0px 0px 0px;
+	overflow:hidden !important;
 
-	width:1024px;
-	height:700px;
-}
-	
-#contenidosPop{
-	z-index:-10;
-	position:absolute;
-	margin: 0px 0px 0px 0px;
-	width:1024px;
-	height:700px;
-}
-			
-#page {
-	border:0px solid #ccc;
-	width:1024px;
-	height:720px;
-			overflow:hidden !important;
-}
-	
-#pop {
-	border:0px solid #ccc;
-	width:1024px;
-	height:690px;
 }
 
-#banner{
-	z-index:3;
-	background-image:url(../images/imagenes_plantilla/banner.png);
-	background-repeat:no-repeat;
-	position:absolute;
-	width:1024px;
-	height:61px;
+
+
+
+@media only screen and (min-width: 1900px)  {
+	#cargando .contenidosPages {
+		width: 1880px !important;
+
+	}  
+	#pantallaMovil{visibility: hidden;}  
+
 }
 
-#imgSig{
-	position:absolute;
-	right:0px;
-	background-image:url(../images/imagenes_plantilla/next.png);
-	background-repeat:no-repeat;
-	cursor: pointer; cursor: hand;
-	float:right;	
-	width:50px;
-	height:50px;
-}
-			
-#imgPrev{
-	position:absolute;
-	float:left;
-	background-image:url(../images/imagenes_plantilla/prev.png);
-	background-repeat:no-repeat;
-	cursor: pointer; cursor: hand;
-	width:50px;
-	height:50px;
-	margin-left:750px;
-}
-
-#imgMenu{
-	background-image:url(../images/imagenes_plantilla/footer.png)	;
-	background-repeat:no-repeat;
-	width:1024px;
-	height:50px;
-	z-index:3;
-	position:absolute;
-	bottom:0px;
-}
-
-#imgAyuda{
-	float:left;
-	background-image:url(../images/imagenes_plantilla/btn_ayuda.png);
-	background-repeat:no-repeat;
-	cursor: pointer; cursor: hand;
-	width:40px;
-	height:40px;
-	margin-left:10px;
-	margin-top:5px;
-}
-
-#imgGlosario{
-	float:left;
-	background-image:url(../images/imagenes_plantilla/btn_glosario.png);
-	background-repeat:no-repeat;
-	cursor: pointer; cursor: hand;
-	width:40px;
-	height:40px;
-	margin-top:5px;
-	margin-left:5px;
-}
-
-#imgHome{
-	position:relative;
-	background-image:url(../images/imagenes_plantilla/menu.png);
-	background-repeat:no-repeat;
-	cursor: pointer; cursor: hand;
-	float:left;
-	width:50px;
-	height:50px;
-}
-
-#imgFlecha{
-	z-index:3;
-	position:absolute;
-	background-image:url(../images/imagenes_plantilla/flecha.png);
-	width:45px;
-	height:56px;
-	right:5px;
-	margin-top:490px;
-}
+@media only screen and (max-width: 1600px)  {
+	#cargando .contenidosPages {
+		width: 1580px !important;
 		
-#imgSig:hover{
-	background-image:url(../images/imagenes_plantilla/nextOver.png);
-}
-					
-#imgPrev:hover{
-	background-image:url(../images/imagenes_plantilla/prevOver.png);
+	}
+	#pantallaMovil{visibility: hidden;}  
 }
 
-#imgHome:hover{
-	background-image:url(../images/imagenes_plantilla/menuOver.png);
-}
 
-		embed {
-		overflow:hidden;
-		overflow-y:hidden;
-		overflow:hidden !important;
-		}
+@media only screen and (max-width: 1024px)  {
+	#cargando .contenidosPages {
+		width: 1000px !important;
+		
+	}
 
-      @media only screen and (max-width: 1600px)  {
-        .contenidosPages {
-        width: 1580px !important;
-/*	height:  1030px !important;*/
-          }
-        }
-       
-     @media only screen and (min-width: 1900px)  {
-        .contenidosPages {
-          width: 1880px !important;
-       
-        }  
+#pantallaMovil{visibility: hidden;}  
+
 
 }
 
 
 
-      @media only screen and (max-width: 1024px)  {
-        .contenidosPages {
-          width: 1000px !important;
-          /*height: 670px !important;*/
-        }
-        
-       
+@media only screen and (max-width: 980px) {
+	#cargando .contenidosPages {
+		width: 950px !important;
 
+	}    
+	#pantallaMovil{visibility: hidden;}     
+}
 
-      }
+@media only screen and (max-width: 900px) {
+	#cargando .contenidosPages {
+		width: 870px !important;
 
+	}       
+	#pantallaMovil{visibility: hidden;}  
+}
 
+@media only screen and (max-width: 800px) {
+	#cargando .contenidosPages {
+		width: 770px !important;
 
-      	  @media only screen and (max-width: 980px) {
-        .contenidosPages {
-          width: 955px !important;
-          /*height: 640px !important;*/
-        }       
-      }
-	  
-	  @media only screen and (max-width: 900px) {
-        .contenidosPages {
-          width: 870px !important;
-          /*height: 586px !important;*/
-        }       
-      }
-	  
-		@media only screen and (max-width: 800px) {
-		.contenidosPages {
-		width: 775px !important;
-		/*height: 519px !important;*/
-		}       
-		}
+	}    
+	#pantallaMovil{visibility: hidden;}     
+}
 
-		@media only screen and (max-width: 768px) {
-		.contenidosPages {
-		width: 745px !important;
-		/*height: 476px !important;*/
-		}       
-		}
+@media only screen and (max-width: 768px) {
+	#cargando .contenidosPages {
+		width: 740px !important;
+		
+	}  
+
+	#pantallaMovil{visibility: hidden;}      
+}
 
 
 
-		@media only screen and (max-width: 736px) {
-		.contenidosPages {
+@media only screen and (max-width: 736px) {
+	#cargando .contenidosPages {
 		width: 710px !important;
-		/*height: 476px !important;*/
-		}       
-		}
+	
+	}   
+#pantallaMovil{visibility: hidden;}  
+}
 
-	@media only screen and (max-width: 700px) {
-		.contenidosPages {
+@media only screen and (max-width: 700px) {
+	#cargando .contenidosPages {
 		width: 675px !important;
-		/*height: 452px !important;*/
-		}       
-		}
 
-	@media only screen and (max-width: 667px) {
-		.contenidosPages {
+	}    
+#pantallaMovil{visibility: hidden;}  
+}
+
+@media only screen and (max-width: 667px) {
+	#cargando .contenidosPages {
 		width: 640px !important;
-		height: 429px !important;
-		}       
-		}
+		
+	}   
+ #pantallaMovil{visibility: hidden;}  
+}
 
-   
-		@media only screen and (max-width: 640px) {
-		#wrapper,.contenidosPages,#contenidosPop,#page,#pop,#banner,#imgMenu  {
+
+@media only screen and (max-width: 640px) {
+	#cargando .contenidosPages {
 		width: 625px !important;
-		/*height:360px !important;*/
-		}       
-		}
-	  
-		@media only screen and (max-width: 600px) {
-		.contenidosPages {
+	
+	}   
+ #pantallaMovil{visibility: hidden;}  
+}
+
+@media only screen and (max-width: 600px) {
+	#cargando .contenidosPages {
 		width: 575px !important;
-		/*height: 384px !important;*/
-		}       
-		}
-	  
-	@media only screen and (max-width: 568px) {
-		.contenidosPages {
+	
+	}    
+#pantallaMovil{visibility: hidden;}  
+}
+
+@media only screen and (max-width: 568px) {
+	#cargando .contenidosPages {
 		width: 545px !important;
-		/*height: 363px !important;*/
-		}       
-		}
+	
+
+	}       
+
+	#pantallaMovil{visibility: hidden;}  
+}
 
 
 
-		@media only screen and (max-width: 560px) {
-		.contenidosPages {
+@media only screen and (max-width: 560px) {
+	#cargando .contenidosPages {
 		width: 535px !important;
-		/*height: 357px !important;*/
-		}       
-		}
-	  
+	
+	}       
+	
+}
 
-		@media only screen and (max-width: 480px) {
-		.contenidosPages {
+
+@media only screen and (max-width: 480px) {
+	#cargando .contenidosPages {
 		width: 455px !important;
-		/*eight: 303px !important;*/
-		}       
-		}
+	
+	} 
+   
+}
 
-		@media only screen and (max-width: 414px) {
-		.contenidosPages {
+@media only screen and (max-width: 414px) {
+	#cargando .contenidosPages {
 		width: 390px !important;
-		/*height: 259px !important;*/
-		}       
-		}	  
+
+	}     
+
+}	  
 
 
 
 
-		@media only screen and (max-width: 375px) {
-		.contenidosPages {
+@media only screen and (max-width: 375px) {
+	#cargando .contenidosPages {
 		width: 345px !important;
-		/*height: 233px !important;*/
-		}
 
-		}
+	}
+
+	
+
+}
 
 
-		@media only screen and (max-width: 360px) {
-		.contenidosPages {
+@media only screen and (max-width: 360px) {
+	#cargando .contenidosPages {
 		width: 330px !important;
-		/*height: 223px !important;*/
-		}
+	
+	}
+	
 
-		}
+}
 
-		@media only screen and (max-width: 320px) {
-		.contenidosPages {
+@media only screen and (max-width: 320px) {
+	#cargando .contenidosPages {
 		width: 290px !important;
-		height: 196px !important;
-		}
-		}
+
+	}
+	
+}

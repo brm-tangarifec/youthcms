@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-11 16:46:01
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-18 18:13:01
          compiled from "..\views\base\footer.html" */ ?>
 <?php /*%%SmartyHeaderCode:1697256e32011ef0f19-45428600%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5b285d0cd296f64a60d7115c0cc82ebae7c345fb' => 
     array (
       0 => '..\\views\\base\\footer.html',
-      1 => 1457732739,
+      1 => 1458342176,
       2 => 'file',
     ),
   ),
@@ -53,6 +53,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 >
   <?php echo '<script'; ?>
  src="/js/youth/youthfunciones.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="/js/youth/registro/registroFb.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="/js/youth/registro/registroFb.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="/js/youth/registro/client.js?onload=checkAuth"><?php echo '</script'; ?>
 >
   <?php echo $_smarty_tpl->getSubTemplate ("base/youthJs.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
