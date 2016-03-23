@@ -307,26 +307,32 @@ jQuery(document).on('change','#password',function(){
 
     jQuery("#password").each(function () {
         var validated =  true;
-        if(this.value.length < 8)
+        if(this.value.length < 8){
           console.log('menor');
-          $('.mensajes-pass').append('<p>La contraseña no debe ser menor a ocho caracteres</p>');
+          $('.mensajes-pass').append('<p>La contraseña no debe ser menor a ocho caracteres</p>').show('fade');
             validated = false;
-        if(!/\d/.test(this.value))
+        }
+        if(!/\d/.test(this.value)){
             console.log('digito');
-          $('.mensajes-pass').append('<p>La contraseña debe contener al menos un digito</p>');
+          $('.mensajes-pass').append('<p>La contraseña debe contener al menos un digito</p>').show('fade');
             validated = false;
-        if(!/[a-z]/.test(this.value))
+        }
+        if(!/[a-z]/.test(this.value)){
           console.log('minuscula');
-          $('.mensajes-pass').append('<p>La contraseña debe contener al menos una minúscula </p>');
-            validated = false;
-        if(!/[A-Z]/.test(this.value))
+          $('.mensajes-pass').append('<p>La contraseña debe contener al menos una minúscula </p>').show('fade');
+            validated = false;          
+        }
+        if(!/[A-Z]/.test(this.value)){
           console.log('mayuscula');
-          $('.mensajes-pass').append('<p>La contraseña debe contener al menos una mayúscula</p>');
+          $('.mensajes-pass').append('<p>La contraseña debe contener al menos una mayúscula</p>').show('fade');
             validated = false;
-        if(!/[`~!@#$%^&*()_°¬|+\-=?;:'",.<>\{\}\[\]\\\/]/gi.test(this.value))
+        }
+        if(!/[`~!@#$%^&*()_°¬|+\-=?;:'",.<>\{\}\[\]\\\/]/gi.test(this.value)){
             console.log('especiales');
-          $('.mensajes-pass').append('<p>La contraseña debe contener al menos un caracter especial</p>');
+          $('.mensajes-pass').append('<p>La contraseña debe contener al menos un caracter especial</p>').show('fade');
             validated = false;
+          
+        }
         /*Se ponen los errores en el html*/
         //jQuery('div').text(validated ? "pass" : "fail");
         // use DOM traversal to select the correct div for this input above
