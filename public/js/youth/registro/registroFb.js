@@ -122,13 +122,13 @@ window.fbAsyncInit = function() {
   var startApp = function() {
     gapi.load('auth2', function(){
       // Retrieve the singleton for the GoogleAuth library and set up the client.
-      auth2 = gapi.auth2.init({
+      auth2 = gapi.auth2.getAuthInstance({
         client_id: CLIENT_ID,
         //cookiepolicy: 'single_host_origin',
         // Request scopes in addition to 'profile' and 'email'
         scope: 'https://www.googleapis.com/auth/plus.me'
       });
-      attachSignin(document.getElementById('btn-g'));
+     attachSignin(document.getElementById('btn-g'));
     });
   };
 
@@ -209,7 +209,7 @@ jQuery(document).ready(function(){
 jQuery(document).on('click','.logout',function(){
   logout();
   signOut();
-  setTimeout(function(){ window.location='/fbappCasaBienestar/logout/'; }, 3000);
+  setTimeout(function(){ window.location='/logout/'; }, 3000);
   
 });
 /*Funcion de login*/
@@ -219,7 +219,7 @@ function loginProf(idP) {
 
   var revisaUsu=idP.val(),
   rrs=idP.attr('data'),
-  urlRr='/fbappCasaBienestar/registroYouthP/';
+  urlRr='/registroYouthP/';
  //console.log(revisaUsu);
  //console.log(rrs);
   jQuery.ajax({
@@ -233,7 +233,7 @@ function loginProf(idP) {
     success: function (data){
       //console.log(data);
       if(data!=0){
-        //window.location= "/fbappCasaBienestar/perfil/";
+        //window.location= "/perfil/";
       }
       
     }
@@ -246,7 +246,7 @@ function loginProf(idP) {
 /*Traer ciudades*/
 jQuery(document).on('change','#departamento',function(){
   var depto=jQuery(this).val();
-  var urlC='/fbappCasaBienestar/ciudades/';
+  var urlC='/ciudades/';
     jQuery.ajax({
       url: urlC,
       dataType:'json',
@@ -282,7 +282,7 @@ jQuery(document).on('click','#login-submit',function(){
     //console.log('valido');
     var user=jQuery('#loginUsuario').val();
     var pass=jQuery('#loginPassword').val();
-    var urlL='/fbappCasaBienestar/loginUser/';
+    var urlL='/loginUser/';
     jQuery.ajax({
       url: urlL,
       dataType:'json',

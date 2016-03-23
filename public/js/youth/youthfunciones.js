@@ -41,6 +41,7 @@ jQuery(document).ready(function(){
 		}
 		jQuery('.down').removeClass('magenta-text').addClass('purpura-text');
 		jQuery('.button-container').removeClass('amarillo').addClass('purpura');
+		jQuery('h1').remove();
 	}
 	if(window.location.href.indexOf('entrenate') > -1){
 		if (jQuery('section').hasClass('slider-ppal')) {

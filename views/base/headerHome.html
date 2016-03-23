@@ -14,6 +14,7 @@
   <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <script src="/js/libs/modernizr-2.6.2.min.js"></script>
+  <script src="/js/youth/registro/client.js?onload=checkAuth"></script>
 </head>
 <body>
   <!--mensajes del sistema-->
@@ -50,7 +51,7 @@
                 <label for="loginPassword">Contraseña: </label>
                 <input type="text" id="loginPassword" name="loginPassword" class="form-control">
               </div>
-              <input type="text" class="form-control" value="" id="idRs" name="idRs">
+              <input type="hidden" class="form-control" value="" id="idRs" name="idRs">
               <!--Recordarme-->
               <!-- <div class="checkbox">
                 <input type="checkbox" name="recordar">

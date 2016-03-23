@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-18 17:43:12
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-22 20:54:50
          compiled from "..\views\base\header.html" */ ?>
 <?php /*%%SmartyHeaderCode:1906956e328c94ecfb3-54260364%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'de1312a86d0f1d495fa24e1996cb551bfc917dfb' => 
     array (
       0 => '..\\views\\base\\header.html',
-      1 => 1458340956,
+      1 => 1458696644,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'titulo' => 0,
+    'loggueado' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -52,69 +53,103 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 >
 </head>
 <body>
+  <!--mensajes del sistema-->
+  <div class="mensajes-sistema"></div>
+  <!--/-mensajes del sistema-->
   <!--header-->
   <header>
     <section class="container-fluid">
+      <?php if ($_smarty_tpl->tpl_vars['loggueado']->value==0) {?>
+      <!--sin l-->
       <!--Form login-->
-            <div class="login-wrapper">
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="close"><i class="glyphicon glyphicon-remove-circle"></i></div>
-                  <h2>Inicio de sesión</h2>
-                  <!--Botón registro con Facebook-->
-                  <button type="button" class="btn btn-fb">
-                    <span>Conéctate con facebook</span> <i class="icon icon-fb"></i>
-                    
-                  </button>
-                  <!--/-Botón registro con Facebook-->
-                  <!--Botón registro con Google+-->
-                  <button type="button" class="btn btn-g"><i class="icon icon-g"></i> <span>Conéctate con google +</span></button>
-                  <!--/-Botón registro con Google+-->
-                  <form id="login" method="">
-                    <!--Usuario-->
-                    <div class="form-group">
-                      <label for="login-usuario">Usuario:</label>
-                      <input type="text" id="login-usuario" name="login-usuario" class="form-control">
-                    </div>
-                    <!--Contraseña-->
-                    <div class="form-group">
-                      <label for="login-password">Contraseña: </label>
-                      <input type="text" id="login-password" name="login-password" class="form-control">
-                    </div>
-                    <!--Recordarme-->
-                    <div class="checkbox">
-                      <input type="checkbox" name="recordar">
-                      <label for="recordar">Recordar mi cuenta
-                      </label>
-                    </div>
-                    <button id="login-submit" type="submit" class="btn btn-login amarillo">Ingresar</button>
-                    <p>
-                      <a href="#">¿Olvidaste tu contraseña?</a> / Eres nuevo, <a href="registro.php">regístrate</a>
-                      
-                    </p>
-                  </form>
-                </div>
+      <div class="login-wrapper">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="close"><i class="glyphicon glyphicon-remove-circle"></i></div>
+            <h2>Inicio de sesión</h2>
+            <!--Botón registro con Facebook-->
+            <button type="button" class="btn btn-fb" >
+              <span>Conéctate con facebook</span> <i class="icon icon-fb"></i>
+              
+            </button>
+            <!--/-Botón registro con Facebook-->
+            <!--Botón registro con Google+-->
+            <button type="button" class="btn btn-g" id="btn-g"><i class="icon icon-g"></i> <span>Conéctate con google +</span></button>
+            <!--/-Botón registro con Google+-->
+            <form id="login" method="">
+              <!--Usuario-->
+              <div class="form-group">
+                <label for="loginUsuario">Usuario:</label>
+                <input type="text" id="loginUsuario" name="loginUsuario" class="form-control">
               </div>
-            </div>
-            <!--/-Form login-->
+              <!--Contraseña-->
+              <div class="form-group">
+                <label for="loginPassword">Contraseña: </label>
+                <input type="text" id="loginPassword" name="loginPassword" class="form-control">
+              </div>
+              <input type="text" class="form-control" value="" id="idRs" name="idRs">
+              <!--Recordarme-->
+              <!-- <div class="checkbox">
+                <input type="checkbox" name="recordar">
+                <label for="recordar">Recordar mi cuenta
+                </label>
+              </div> -->
+              <button id="login-submit" type="button" class="btn btn-login amarillo">Ingresar</button>
+              <p>
+                <a href="#">¿Olvidaste tu contraseña?</a> / Eres nuevo, <a href="registro.php">regístrate</a>
+                
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!--/-Form login-->
       <div class="row">
         <!--Logo-->
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
           <h1 class="logo"><a href="/"><img src="/images/logo-youth.svg" alt="NESTLÉ® | Iniciativa por los Jóvenes" title="NESTLÉ® | Iniciativa por los Jóvenes" class="img-responsive"></a></h1>
         </div>
-        <div class="col-lg-2 col-md-2 hidden-xs">				
+        <div class="col-lg-2 col-md-2 hidden-xs">       
           <p class="pais">Colombia</p>
         </div>
+        <!--sin l-->
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-5 col-md-offset-5 col-sm-offset-5">
-
           <p class="user-tools">
             <a href="/registro/">Registrarse</a><br />
             <a class="show-login" href="#login">Iniciar Sesión</a>
           </p>
           
         </div>
+
+
+
         <!--/-Logo-->
       </div>
+      <?php } else { ?>
+      <!--Con L-->
+      <div class="row">
+        <!--Logo-->
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+          <h1 class="logo"><a href="/"><img src="/images/logo-youth.svg" alt="NESTLÉ® | Iniciativa por los Jóvenes" title="NESTLÉ® | Iniciativa por los Jóvenes" class="img-responsive"></a></h1>
+        </div>
+        <div class="col-lg-2 col-md-2 hidden-xs">       
+          <p class="pais">Colombia</p>
+        </div>
+        <!--sin l-->
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-5 col-md-offset-5 col-sm-offset-5">
+          <p class="user-tools">
+            <a href="/perfil/">Ver perfil</a><br />
+            <a href="#" class="logout">Cerrar Sesión</a>
+          </p>
+          
+        </div>
+
+        
+
+        <!--/-Logo-->
+      </div>
+      <?php }?>
+
     </section>
     <section class="container-fluid container-menu">
       <div class="row">
