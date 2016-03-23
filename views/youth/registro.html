@@ -113,7 +113,7 @@
             <select name="departamento" class="form-control departamento" id="departamento">
               <option value=""></option>
                {#foreach from=$deptos item=departamento#}
-                <option value="{#$departamento['id']#}">{#$departamento['nombre']#}</option>
+                <option value="{#$departamento['id']#}">{#$departamento['nombre']|utf8_encode#}</option>
                 {#/foreach#}
             </select>
           </div>

@@ -122,7 +122,7 @@ window.fbAsyncInit = function() {
   var startApp = function() {
     gapi.load('auth2', function(){
       // Retrieve the singleton for the GoogleAuth library and set up the client.
-      auth2 = gapi.auth2.getAuthInstance({
+      auth2 = gapi.auth2.init({
         client_id: CLIENT_ID,
         //cookiepolicy: 'single_host_origin',
         // Request scopes in addition to 'profile' and 'email'
@@ -133,7 +133,7 @@ window.fbAsyncInit = function() {
   };
 
   function attachSignin(element) {
-     //console.log(element.id);
+     console.log(element.id);
     auth2.attachClickHandler(element, {},
         function(googleUser) {
           //console.log(googleUser);
@@ -233,7 +233,7 @@ function loginProf(idP) {
     success: function (data){
       //console.log(data);
       if(data!=0){
-        //window.location= "/perfil/";
+        window.location= "/perfil/";
       }
       
     }
