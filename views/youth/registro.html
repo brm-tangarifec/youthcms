@@ -40,10 +40,10 @@
           <!--/-Botón registro con Google+-->
           
           <!--img de perfil-->
-          <div class="form-group img-perfil"><img src="/fbappCasaBienestar/images/profile-placeholder.jpg" class="img-responsive"></div>
+          <div class="form-group img-perfil"><img src="/images/profile-placeholder.jpg" class="img-responsive"></div>
           <!--/-img de perfil-->
           <!--redId-->
-          <input type="text" class="form-control" value="" id="idRs" name="idRs">
+          <input type="hidden" class="form-control" value="" id="idRs" name="idRs">
           <!--Nombres-->
           <div class="form-group">
             <label for="nombres">Nombres:</label>
@@ -113,7 +113,7 @@
             <select name="departamento" class="form-control departamento" id="departamento">
               <option value=""></option>
                {#foreach from=$deptos item=departamento#}
-                <option value="{#$departamento['id']#}">{#$departamento['nombre']|utf8_decode#}</option>
+                <option value="{#$departamento['id']#}">{#$departamento['nombre']|utf8_encode#}</option>
                 {#/foreach#}
             </select>
           </div>

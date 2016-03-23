@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-18 18:13:01
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-22 20:37:35
          compiled from "..\views\base\headerHome.html" */ ?>
 <?php /*%%SmartyHeaderCode:473556e32011ec5f93-31173761%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '882f24201d215fbb429bf3c205925a8f075c1142' => 
     array (
       0 => '..\\views\\base\\headerHome.html',
-      1 => 1458342137,
+      1 => 1458696644,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'titulo' => 0,
+    'loggueado' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -46,9 +47,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 >
 </head>
 <body>
+  <!--mensajes del sistema-->
+  <div class="mensajes-sistema"></div>
+  <!--/-mensajes del sistema-->
   <!--header-->
   <header>
-    <section class="container-fluid">
+   <section class="container-fluid">
+      <?php if ($_smarty_tpl->tpl_vars['loggueado']->value==0) {?>
+      <!--sin l-->
       <!--Form login-->
       <div class="login-wrapper">
         <div class="row">
@@ -67,21 +73,22 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <form id="login" method="">
               <!--Usuario-->
               <div class="form-group">
-                <label for="login-usuario">Usuario:</label>
-                <input type="text" id="login-usuario" name="login-usuario" class="form-control">
+                <label for="loginUsuario">Usuario:</label>
+                <input type="text" id="loginUsuario" name="loginUsuario" class="form-control">
               </div>
               <!--Contraseña-->
               <div class="form-group">
-                <label for="login-password">Contraseña: </label>
-                <input type="text" id="login-password" name="login-password" class="form-control">
+                <label for="loginPassword">Contraseña: </label>
+                <input type="text" id="loginPassword" name="loginPassword" class="form-control">
               </div>
+              <input type="text" class="form-control" value="" id="idRs" name="idRs">
               <!--Recordarme-->
-              <div class="checkbox">
+              <!-- <div class="checkbox">
                 <input type="checkbox" name="recordar">
                 <label for="recordar">Recordar mi cuenta
                 </label>
-              </div>
-              <button id="login-submit" type="submit" class="btn btn-login amarillo">Ingresar</button>
+              </div> -->
+              <button id="login-submit" type="button" class="btn btn-login amarillo">Ingresar</button>
               <p>
                 <a href="#">¿Olvidaste tu contraseña?</a> / Eres nuevo, <a href="registro.php">regístrate</a>
                 
@@ -96,9 +103,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
           <h1 class="logo"><a href="/"><img src="/images/logo-youth.svg" alt="NESTLÉ® | Iniciativa por los Jóvenes" title="NESTLÉ® | Iniciativa por los Jóvenes" class="img-responsive"></a></h1>
         </div>
-        <div class="col-lg-2 col-md-2 hidden-xs">				
+        <div class="col-lg-2 col-md-2 hidden-xs">       
           <p class="pais">Colombia</p>
         </div>
+        <!--sin l-->
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-5 col-md-offset-5 col-sm-offset-5">
           <p class="user-tools">
             <a href="/registro/">Registrarse</a><br />
@@ -106,8 +114,36 @@ $_valid = $_smarty_tpl->decodeProperties(array (
           </p>
           
         </div>
+
+
+
         <!--/-Logo-->
       </div>
+      <?php } else { ?>
+      <!--Con L-->
+      <div class="row">
+        <!--Logo-->
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+          <h1 class="logo"><a href="/"><img src="/images/logo-youth.svg" alt="NESTLÉ® | Iniciativa por los Jóvenes" title="NESTLÉ® | Iniciativa por los Jóvenes" class="img-responsive"></a></h1>
+        </div>
+        <div class="col-lg-2 col-md-2 hidden-xs">       
+          <p class="pais">Colombia</p>
+        </div>
+        <!--sin l-->
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-5 col-md-offset-5 col-sm-offset-5">
+          <p class="user-tools">
+           <a href="/perfil/">Ver perfil</a><br />
+            <a href="#" class="logout">Cerrar Sesión</a>
+          </p>
+          
+        </div>
+
+        
+
+        <!--/-Logo-->
+      </div>
+      <?php }?>
+
     </section>
     <section class="container-fluid container-menu">
       <div class="row">

@@ -128,12 +128,12 @@ window.fbAsyncInit = function() {
         // Request scopes in addition to 'profile' and 'email'
         scope: 'https://www.googleapis.com/auth/plus.me'
       });
-      attachSignin(document.getElementById('btn-g'));
+     attachSignin(document.getElementById('btn-g'));
     });
   };
 
   function attachSignin(element) {
-     //console.log(element.id);
+     console.log(element.id);
     auth2.attachClickHandler(element, {},
         function(googleUser) {
           //console.log(googleUser);
@@ -209,7 +209,7 @@ jQuery(document).ready(function(){
 jQuery(document).on('click','.logout',function(){
   logout();
   signOut();
-  setTimeout(function(){ window.location='/fbappCasaBienestar/logout/'; }, 3000);
+  setTimeout(function(){ window.location='/logout/'; }, 3000);
   
 });
 /*Funcion de login*/
@@ -219,7 +219,7 @@ function loginProf(idP) {
 
   var revisaUsu=idP.val(),
   rrs=idP.attr('data'),
-  urlRr='/fbappCasaBienestar/registroYouthP/';
+  urlRr='/registroYouthP/';
  //console.log(revisaUsu);
  //console.log(rrs);
   jQuery.ajax({
@@ -233,7 +233,7 @@ function loginProf(idP) {
     success: function (data){
       //console.log(data);
       if(data!=0){
-        //window.location= "/fbappCasaBienestar/perfil/";
+        window.location= "/perfil/";
       }
       
     }
@@ -246,7 +246,7 @@ function loginProf(idP) {
 /*Traer ciudades*/
 jQuery(document).on('change','#departamento',function(){
   var depto=jQuery(this).val();
-  var urlC='/fbappCasaBienestar/ciudades/';
+  var urlC='/ciudades/';
     jQuery.ajax({
       url: urlC,
       dataType:'json',
@@ -282,7 +282,7 @@ jQuery(document).on('click','#login-submit',function(){
     //console.log('valido');
     var user=jQuery('#loginUsuario').val();
     var pass=jQuery('#loginPassword').val();
-    var urlL='/fbappCasaBienestar/loginUser/';
+    var urlL='/loginUser/';
     jQuery.ajax({
       url: urlL,
       dataType:'json',
@@ -307,26 +307,32 @@ jQuery(document).on('change','#password',function(){
 
     jQuery("#password").each(function () {
         var validated =  true;
-        if(this.value.length < 8)
+        if(this.value.length < 8){
           console.log('menor');
-          $('.mensajes-pass').append('<p>La contraseña no debe ser menor a ocho caracteres</p>');
+          $('.mensajes-pass').append('<p>La contraseña no debe ser menor a ocho caracteres</p>').show('fade');
             validated = false;
-        if(!/\d/.test(this.value))
+        }
+        if(!/\d/.test(this.value)){
             console.log('digito');
-          $('.mensajes-pass').append('<p>La contraseña debe contener al menos un digito</p>');
+          $('.mensajes-pass').append('<p>La contraseña debe contener al menos un digito</p>').show('fade');
             validated = false;
-        if(!/[a-z]/.test(this.value))
+        }
+        if(!/[a-z]/.test(this.value)){
           console.log('minuscula');
-          $('.mensajes-pass').append('<p>La contraseña debe contener al menos una minúscula </p>');
-            validated = false;
-        if(!/[A-Z]/.test(this.value))
+          $('.mensajes-pass').append('<p>La contraseña debe contener al menos una minúscula </p>').show('fade');
+            validated = false;          
+        }
+        if(!/[A-Z]/.test(this.value)){
           console.log('mayuscula');
-          $('.mensajes-pass').append('<p>La contraseña debe contener al menos una mayúscula</p>');
+          $('.mensajes-pass').append('<p>La contraseña debe contener al menos una mayúscula</p>').show('fade');
             validated = false;
-        if(!/[`~!@#$%^&*()_°¬|+\-=?;:'",.<>\{\}\[\]\\\/]/gi.test(this.value))
+        }
+        if(!/[`~!@#$%^&*()_°¬|+\-=?;:'",.<>\{\}\[\]\\\/]/gi.test(this.value)){
             console.log('especiales');
-          $('.mensajes-pass').append('<p>La contraseña debe contener al menos un caracter especial</p>');
+          $('.mensajes-pass').append('<p>La contraseña debe contener al menos un caracter especial</p>').show('fade');
             validated = false;
+          
+        }
         /*Se ponen los errores en el html*/
         //jQuery('div').text(validated ? "pass" : "fail");
         // use DOM traversal to select the correct div for this input above

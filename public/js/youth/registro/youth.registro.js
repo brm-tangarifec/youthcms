@@ -83,7 +83,7 @@ $(document).ready(function () {
 	jQuery(document).on('click','#registroUser',function(){
 
 	    if(jQuery('#registro').valid()) {
-	    	var urlR='/fbappCasaBienestar/registroYouth/',
+	    	var urlR='/registroYouth/',
 	    		rs=jQuery('#idRs').attr('data'),
 	    		idrs=jQuery('#idRs').val(),
 	    		imgPf=jQuery('.img-perfil img').attr('src'),
@@ -200,7 +200,7 @@ jQuery(document).on('click','#updatePer',function(){
 	console.log('hola, me dieron click');
 
 	    if(jQuery('#perfil').valid()) {
-	    	var urlR='/fbappCasaBienestar/updateRegistro/',
+	    	var urlR='/updateRegistro/',
 	    		idrs=jQuery('#idusr').val(),
 	    		nombreJ=jQuery('#nombres').val(),
 	    		apellidoJ=jQuery('#apellidos').val(),
