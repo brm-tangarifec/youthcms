@@ -116,7 +116,7 @@ class MyQuerys
 
 	//Función para actualizar los inscritos en youth
 	function actulizaInscrito($campos) {
-		printVar($campos);
+		//printVar($campos);
 		$updE=model('LallamaradaRegistro');
 		//$updE->imgPerfil=$campos['imgPer'];
 		$updE->nombre=$campos['nombre'];

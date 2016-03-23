@@ -451,7 +451,13 @@ private $idSession='';
 		$campos['ipAccesso'] = $ipAccesso;
 
 		$res = MyQuerys::actulizaInscrito($campos);
-		//printVar($res);
+		if($res==1){
+
+			$mensaje="Tus datos han sido actualizados";
+		}else{
+			$mensaje='';
+		}
+		echo json_encode($mensaje);
 
 	}
 }
