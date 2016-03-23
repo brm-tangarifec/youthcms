@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors',0);
+ini_set('display_errors',1);
 $rutaArray=array();
 $rutaArray["cursos/hojavida/"]="Contenido@cursosHv";
 $rutaArray["cursos/hojavida/page1/"]="Contenido@cursosHv1";
@@ -38,6 +38,7 @@ $rutaArray["registroYouthP/"]="Contenido@perfilUsuReg";
 $rutaArray["ciudades/"]="Contenido@ciudad";
 $rutaArray["loginUser/"]="Contenido@login";
 $rutaArray["logout/"]="Contenido@cerrarSession";
+$rutaArray["updateRegistro/"]="Contenido@updateRegistro";
 
  Moe::routes($rutaArray);
 /*Moe::routes(array(

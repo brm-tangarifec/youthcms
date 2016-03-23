@@ -227,6 +227,7 @@ private $idSession='';
 					$reusu->tipoDocumento=$varPost['tipo'];
 					$reusu->numeroDocumento=$varPost['documento'];
 					$reusu->genero=$varPost['genero'];
+					$reusu->direccion=$varPost['direccion'];
 					$reusu->password=$varPost['password'];
 					$reusu->autorizacionMarca=$varPost['terminos'];
 					$reusu->ipAccesso=$ipAccesso;
@@ -428,6 +429,29 @@ private $idSession='';
     		setcookie($key, null, time() - 3600,'/');
 		}
 		header('location: /fbappCasaBienestar/#logout');
+
+	}
+
+	function updateRegistro(){
+		$ipAccesso=MyQuerys::getRealIP();
+		$varActu=filter_input_array(INPUT_POST);
+		//printVar($varActu);
+		$campos['id'] = $varActu['idRs'];
+		$campos['nombre'] = $varActu['nombres'];
+		$campos['apellido'] = $varActu['apellidos'];
+		$campos['email'] = $varActu['email'];
+		$campos['telefono'] = $varActu['celular'];
+		$campos['documento'] = $varActu['documento'];
+		$campos['nacimiento'] = $varActu['nacimiento'];
+		$campos['idDepto'] = $varActu['depto'];
+		$campos['direccion']=$varActu['direccion'];
+		$campos['idCiudad'] = $varActu['ciudad'];
+		$campos['tipoDocumento'] = $varActu['tipo'];
+		$campos['genero'] = $varActu['genero'];
+		$campos['ipAccesso'] = $ipAccesso;
+
+		$res = MyQuerys::actulizaInscrito($campos);
+		//printVar($res);
 
 	}
 }

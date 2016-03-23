@@ -200,11 +200,8 @@ jQuery(document).on('click','#updatePer',function(){
 	console.log('hola, me dieron click');
 
 	    if(jQuery('#perfil').valid()) {
-	    	console.log('hola');
-	    	/*var urlR='/fbappCasaBienestar/registroYouth/',
-	    		rs=jQuery('#idRs').attr('data'),
-	    		idrs=jQuery('#idRs').val(),
-	    		imgPf=jQuery('.img-perfil img').attr('src'),
+	    	var urlR='/fbappCasaBienestar/updateRegistro/',
+	    		idrs=jQuery('#idusr').val(),
 	    		nombreJ=jQuery('#nombres').val(),
 	    		apellidoJ=jQuery('#apellidos').val(),
 	    		celularJ=jQuery('#celular').val(),
@@ -215,10 +212,7 @@ jQuery(document).on('click','#updatePer',function(){
 	    		tipoJ=jQuery('#tipo').val(),
 	    		generoJ=jQuery('#genero').val(),
 	    		documentoJ=jQuery('#documento').val(),
-	    		nacimientoJ=jQuery('#nacimiento').val(),
-	    		passwordJ=jQuery('#password').val(),
-	    		confirmPassJ=jQuery('#confirmPass').val(),
-	    		terminosJ=jQuery('#terminos').val();
+	    		nacimientoJ=jQuery('#nacimiento').val();
 	    		
 	    	jQuery.ajax({
 	    		url: urlR,
@@ -226,8 +220,6 @@ jQuery(document).on('click','#updatePer',function(){
 				type: 'POST',
 				data:{
 					idRs: idrs,
-					rs:rs,
-					imgPer: imgPf,
     				nombres: nombreJ,
     				apellidos: apellidoJ,
     				celular: celularJ,
@@ -239,18 +231,14 @@ jQuery(document).on('click','#updatePer',function(){
     				nacimiento: nacimientoJ,
     				depto: deptoJ,
     				ciudad: ciudadJ,
-    				password: passwordJ,
-    				confirmPass: confirmPassJ,
-    				terminos: terminosJ
 				},
 				success: function (data){
 					console.log(data);
 					
 				}
 	    	});
-	    	return false;*/
+	    	return false;
 	    }else{
-	    	console.log('adios');
 	    	return false;
 	    }
 	});

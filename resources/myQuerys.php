@@ -116,25 +116,26 @@ class MyQuerys
 
 	//Función para actualizar los inscritos en youth
 	function actulizaInscrito($campos) {
+		printVar($campos);
 		$updE=model('LallamaradaRegistro');
-		$updE->imgPerfil=$campos['imgPer'];
-		$updE->nombre=$campos['nombres'];
-		$updE->apellido=$campos['apellidos'];
+		//$updE->imgPerfil=$campos['imgPer'];
+		$updE->nombre=$campos['nombre'];
+		$updE->apellido=$campos['apellido'];
 		$updE->email=$campos['email'];
-		$updE->telefono=$campos['celular'];
-		$updE->idDepto=$campos['depto'];
-		$updE->idCiudad=$campos['ciudad'];
-		$updE->tipoDocumento=$campos['tipo'];
+		$updE->telefono=$campos['telefono'];
+		$updE->idDepto=$campos['idDepto'];
+		$updE->idCiudad=$campos['idCiudad'];
+		$updE->tipoDocumento=$campos['tipoDocumento'];
+		$updE->direccion=$campos['direccion'];
 		$updE->numeroDocumento=$campos['documento'];
 		$updE->genero=$campos['genero'];
-		$updE->autorizacionMarca=$campos['terminos'];
 		$updE->ipAccesso=$campos['ipAccesso'];
 		$updE->fechaNacimiento=$campos['nacimiento'];
 		$updE->fechaActualizacion=date('Y-m-d H:i:s');
-		$objDBO-> whereAdd("id=" . $campos['id']);
-		$objDBO -> find();
-		$ret = $objDBO -> update(DB_DATAOBJECT_WHEREADD_ONLY);
-		$objDBO -> free();
+		$updE-> whereAdd("id=" . $campos['id']);
+		$updE -> find();
+		$ret = $updE -> update(DB_DATAOBJECT_WHEREADD_ONLY);
+		$updE -> free();
 		return ($ret);
 		//Asigna los valores
 

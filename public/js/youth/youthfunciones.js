@@ -56,7 +56,25 @@ jQuery(document).ready(function(){
 	if(window.location.href.indexOf('perfil') > -1){
 		jQuery('.login-wrapper').remove();
 		jQuery('.show-login').remove();
-		
+
+		var tipoD=jQuery('#tipoDocumentoTr').val();
+		var generoTr=jQuery('#generoTr').val();
+		var DeptoTr=jQuery('#deptoTr').val();
+		var ciudadTr=jQuery('#ciudadTr').val();
+
+		jQuery('#tipo option[value='+tipoD+']').attr('selected', 'selected');
+		jQuery('#genero option[value='+generoTr+']').attr('selected', 'selected');
+		jQuery('#departamento option[value='+DeptoTr+']').prop('selected', 'selected').change();
+		if(ciudadTr!=''){
+			window.setTimeout(function(){
+				$('#ciudad').val(ciudadTr);
+			 }, 3000);
+		//jQuery('#ciudad option[value='+ciudadTr+']').prop('selected', 'selected').change();;
+		}
+		jQuery('#tipo').parent().addClass('input-activo');
+		jQuery('#genero').parent().addClass('input-activo');
+		jQuery('#departamento').parent().addClass('input-activo');
+		jQuery('#ciudad').parent().addClass('input-activo');
 	}
 	if(window.location.href.indexOf('registro') > -1){
 		jQuery('.login-wrapper').remove();
