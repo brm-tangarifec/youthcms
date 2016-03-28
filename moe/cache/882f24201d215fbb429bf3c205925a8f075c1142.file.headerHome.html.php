@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-22 20:37:35
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-28 16:11:17
          compiled from "..\views\base\headerHome.html" */ ?>
 <?php /*%%SmartyHeaderCode:473556e32011ec5f93-31173761%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '882f24201d215fbb429bf3c205925a8f075c1142' => 
     array (
       0 => '..\\views\\base\\headerHome.html',
-      1 => 1458696644,
+      1 => 1459199463,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'titulo' => 0,
+    'descripcionS' => 0,
     'loggueado' => 0,
   ),
   'has_nocache_code' => false,
@@ -31,11 +32,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <head>
   <meta charset="utf-8">
   <title><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
-|NESTLÉ® Iniciativa por los Jóvenes</title>
-  <meta name="description" content="NESTLÉ® | Iniciativa por los Jóvenes">
+</title>
+  <meta name="description" content="<?php echo $_smarty_tpl->tpl_vars['descripcionS']->value;?>
+">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" href="/css/youth.min.css">
+ <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+ <link rel="stylesheet" href="/css/youth.min.css?1232123123">
   <!--font-->
   <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet" type="text/css"><!--[if lt IE]>
   <?php echo '<script'; ?>
@@ -43,7 +46,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 >
   <![endif]-->
   <?php echo '<script'; ?>
- src="/js/libs/modernizr-2.6.2.min.js"><?php echo '</script'; ?>
+ src="/js/libs/modernizr-2.6.2.min.js?1232123123"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="/js/youth/registro/client.js?onload=checkAuth"><?php echo '</script'; ?>
 >
 </head>
 <body>
@@ -81,7 +87,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <label for="loginPassword">Contraseña: </label>
                 <input type="text" id="loginPassword" name="loginPassword" class="form-control">
               </div>
-              <input type="text" class="form-control" value="" id="idRs" name="idRs">
+              <input type="hidden" class="form-control" value="" id="idRs" name="idRs">
               <!--Recordarme-->
               <!-- <div class="checkbox">
                 <input type="checkbox" name="recordar">
@@ -90,7 +96,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
               </div> -->
               <button id="login-submit" type="button" class="btn btn-login amarillo">Ingresar</button>
               <p>
-                <a href="#">¿Olvidaste tu contraseña?</a> / Eres nuevo, <a href="registro.php">regístrate</a>
+                Eres nuevo, <a href="/registro/">regístrate</a>
                 
               </p>
             </form>

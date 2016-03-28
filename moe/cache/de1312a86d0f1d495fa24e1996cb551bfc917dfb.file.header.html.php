@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-22 20:54:50
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-28 16:58:44
          compiled from "..\views\base\header.html" */ ?>
 <?php /*%%SmartyHeaderCode:1906956e328c94ecfb3-54260364%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'de1312a86d0f1d495fa24e1996cb551bfc917dfb' => 
     array (
       0 => '..\\views\\base\\header.html',
-      1 => 1458696644,
+      1 => 1459201284,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'titulo' => 0,
+    'descripcionS' => 0,
     'loggueado' => 0,
   ),
   'has_nocache_code' => false,
@@ -31,15 +32,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <head>
   <meta charset="utf-8">
   <title><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
-| NESTLÉ® - Iniciativa por los Jóvenes</title>
-  <meta name="description" content="NESTLÉ® | Iniciativa por los Jóvenes">
+</title>
+  <meta name="description" content="<?php echo $_smarty_tpl->tpl_vars['descripcionS']->value;?>
+">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
   <!--link rel="stylesheet" href="/css/animate.css">
   <link rel="stylesheet" href="/css/bootstrap.min.css"-->
 
 <!--   <link rel="stylesheet" href="/css/jquery.bxslider.css"> -->
-  <link rel="stylesheet" href="/css/youth.min.css">
+  <link rel="stylesheet" href="/css/youth.min.css?21312312301">
   <?php echo $_smarty_tpl->getSubTemplate ("base/youthCss.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
   <!--font-->
@@ -49,7 +52,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 >
   <![endif]-->
   <?php echo '<script'; ?>
- src="/js/libs/modernizr-2.6.2.min.js"><?php echo '</script'; ?>
+ src="/js/libs/modernizr-2.6.2.min.js?21312312301"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="/js/youth/registro/client.js?onload=checkAuth"><?php echo '</script'; ?>
 >
 </head>
 <body>
@@ -87,7 +93,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <label for="loginPassword">Contraseña: </label>
                 <input type="text" id="loginPassword" name="loginPassword" class="form-control">
               </div>
-              <input type="text" class="form-control" value="" id="idRs" name="idRs">
+              <input type="hidden" class="form-control" value="" id="idRs" name="idRs">
               <!--Recordarme-->
               <!-- <div class="checkbox">
                 <input type="checkbox" name="recordar">
@@ -96,7 +102,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
               </div> -->
               <button id="login-submit" type="button" class="btn btn-login amarillo">Ingresar</button>
               <p>
-                <a href="#">¿Olvidaste tu contraseña?</a> / Eres nuevo, <a href="registro.php">regístrate</a>
+                <a href="#">¿Olvidaste tu contraseña?</a> / Eres nuevo, <a href="/registro/">regístrate</a>
                 
               </p>
             </form>
@@ -107,7 +113,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       <div class="row">
         <!--Logo-->
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-          <h1 class="logo"><a href="/"><img src="/images/logo-youth.svg" alt="NESTLÉ® | Iniciativa por los Jóvenes" title="NESTLÉ® | Iniciativa por los Jóvenes" class="img-responsive"></a></h1>
+          <h2 class="logo"><a href="/"><img src="/images/logo-youth.svg" alt="NESTLÉ® | Iniciativa por los Jóvenes" title="NESTLÉ® | Iniciativa por los Jóvenes" class="img-responsive"></a></h2>
         </div>
         <div class="col-lg-2 col-md-2 hidden-xs">       
           <p class="pais">Colombia</p>
@@ -130,7 +136,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       <div class="row">
         <!--Logo-->
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-          <h1 class="logo"><a href="/"><img src="/images/logo-youth.svg" alt="NESTLÉ® | Iniciativa por los Jóvenes" title="NESTLÉ® | Iniciativa por los Jóvenes" class="img-responsive"></a></h1>
+          <h2 class="logo"><a href="/"><img src="/images/logo-youth.svg" alt="NESTLÉ® | Iniciativa por los Jóvenes" title="NESTLÉ® | Iniciativa por los Jóvenes" class="img-responsive"></a></h2>
         </div>
         <div class="col-lg-2 col-md-2 hidden-xs">       
           <p class="pais">Colombia</p>

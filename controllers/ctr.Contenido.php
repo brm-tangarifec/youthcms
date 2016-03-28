@@ -2,7 +2,6 @@
 
 class Contenido {
 
-private $idSession='';
 	/*Funcion para hacer display al contenido*/
 	function getContent(){
 		
@@ -35,14 +34,13 @@ private $idSession='';
 				$ruta = (substr($ruta, 0, 1)=="/" && strlen($ruta)>1) ? substr($ruta,2) : $ruta ;
 				$ruta=CleanDoor::allClean(strtolower($ruta));
 				//printVar($ruta);
-			if ($ruta==$nombreSeccion) {
-				$mySeccionId=$seccionGet['id'];
-				if($seccionGet['nombre']!='/'){
-				$tituloSeccion=$seccionGet['nombre'];
-				}else{
-					$tituloSeccion='Iniciativa por los J&oacute;venes Nestl&eacute;&reg; Colombia';
+				if ($ruta==$nombreSeccion) {
+					$mySeccionId=$seccionGet['id'];
+						//printVar($seccionGet);
+					$tituloSeccion=$seccionGet['tituloSeo'];
+					$descripcionSeo=$seccionGet['descripcionSeo'];
+					
 				}
-			}
 			}
 
 			//printVar($mySeccionId);
@@ -104,7 +102,7 @@ private $idSession='';
 						);
 					$buscaContenido=$newContent->getData($cont);
 					//printVar($buscaContenido[0]);
-					view()->assign("titulo",$buscaContenido[0]['titulo']);
+					view()->assign("tituloC",$buscaContenido[0]['titulo']);
 					view()->assign('poscicionCon',$numC);
 					view()->assign("contenido",$buscaContenido[0]['contenido']);
 				}else if(isset($contenidoOrd['idMultXUrl'])){
@@ -156,6 +154,8 @@ private $idSession='';
 		}
 		/*Trae datos de usuario*/
 		if($mySeccionId=='19'){
+			if(isset($_COOKIE['youth_usu'])){
+
 			//sprintVar($_COOKIE['youth_usu']);
 			$idUsuario=MyQuerys::devuelvedato($_COOKIE['youth_usu'],'!Y0uth$h4StCryPt');
 			//printVar($idUsuario);
@@ -167,6 +167,9 @@ private $idSession='';
 				//printVar($datosUsu);
 				view()->assign("datosUsu",$datosUsu);
 
+			}
+			}else{
+				header('location: /');
 			}
 
 			//view()->assign("SeccionCss",$templateCss);
@@ -193,7 +196,8 @@ private $idSession='';
 		view()->assign('loggueado',$loggeado);
 		view()->assign("idSeccion",$mySeccionId);
 		view()->assign("titulo",$tituloSeccion);
-		//printVar($internaD);
+		view()->assign("descripcionS",$descripcionSeo);
+		//printVar($templateInterna);
 		view()->display($templateInterna);
 	}
 
@@ -235,14 +239,18 @@ private $idSession='';
 					$reusu->fecha=date('Y-m-d H:i:s');
 					$guardaUsu=$reusu->setInstancia();
 					//printVar($guardaUsu);
+					echo $guardaUsu;
 				}else{
-				echo "El registro no pudo ser realizado";
+					$mensaje="El registro no pudo ser realizado";
+					echo json_encode($mensaje);
 				}
 			}else{
-			echo "El registro no pudo ser realizado";
+				$mensaje="El registro no pudo ser realizado";
+					echo json_encode($mensaje);
 			}
 		}else{
-			echo "El registro no pudo ser realizado";
+				$mensaje="El registro no pudo ser realizado";
+					echo json_encode($mensaje);
 		}
 	}
 	/*Carga Perfil de usuario*/
@@ -356,7 +364,7 @@ private $idSession='';
 	}
 
 	function verificaExistenciaE($dato){
-		debug(1);
+		//debug(1);
 		$reusuae= model("LallamaradaRegistro");
 		$condE=array(
 			"conditions" => 'email = '.'"'.$dato.'"',
@@ -428,7 +436,7 @@ private $idSession='';
     		$_COOKIE[$key]="";
     		setcookie($key, null, time() - 3600,'/');
 		}
-		header('location: /fbappCasaBienestar/#logout');
+		header('location: /#logout');
 
 	}
 

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-22 13:54:12
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-28 10:26:13
          compiled from "..\views\cursos\hojavida\page2.html" */ ?>
 <?php /*%%SmartyHeaderCode:1756356f194d4c65085-54039133%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c6c7624280f55a9869f0449a1cefbd789cee4d01' => 
     array (
       0 => '..\\views\\cursos\\hojavida\\page2.html',
-      1 => 1458658832,
+      1 => 1458751882,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
   'unifunc' => 'content_56f194d4c93e94_31389867',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_56f194d4c93e94_31389867')) {function content_56f194d4c93e94_31389867($_smarty_tpl) {?><!DOCTYPE html>
 <html>

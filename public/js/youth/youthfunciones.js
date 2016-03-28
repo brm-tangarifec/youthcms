@@ -29,7 +29,7 @@ jQuery(document).ready(function(){
 		jQuery('.down').removeClass('purpura-text').addClass('naranja-text');
 		jQuery('.button-container').removeClass('amarillo').addClass('naranja');
 	}
-	if(window.location.href.indexOf('oportunidades') > -1){
+	if(window.location.pathname=='/oportunidades/'){
 		if (jQuery('section').hasClass('slider-ppal')) {
 			
 			jQuery('.slider-ppal').removeClass('slider-entrenate');
@@ -41,7 +41,7 @@ jQuery(document).ready(function(){
 		}
 		jQuery('.down').removeClass('magenta-text').addClass('purpura-text');
 		jQuery('.button-container').removeClass('amarillo').addClass('purpura');
-		jQuery('h1').remove();
+		jQuery('.contenido h1').remove();
 	}
 	if(window.location.href.indexOf('entrenate') > -1){
 		if (jQuery('section').hasClass('slider-ppal')) {

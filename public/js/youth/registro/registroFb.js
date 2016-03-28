@@ -292,7 +292,7 @@ jQuery(document).on('click','#login-submit',function(){
         pass:pass
       },
       success: function (data){
-       console.log(data);
+       jQuery('.mensajes-sistema').html(data);
         
       }
 
@@ -478,10 +478,14 @@ var Base64 = {
     
 var input = document.getElementById('confirmPass');
 
-
 jQuery(document).on('blur','#confirmPass',function(){
   var codi=Base64.encode(input.value);
-  console.log(codi);
+  //console.log(codi);
   jQuery('#password').val(codi);
   jQuery('#confirmPass').val(codi);
+});
+
+jQuery(document).on('focus','#password',function(){
+
+  jQuery('.mensajes-pass p').remove('p')
 });

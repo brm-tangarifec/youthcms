@@ -81,6 +81,7 @@ $(document).ready(function () {
 	});
 
 	jQuery(document).on('click','#registroUser',function(){
+		//console.log('hola, me dieron click');
 
 	    if(jQuery('#registro').valid()) {
 	    	var urlR='/registroYouth/',
@@ -126,9 +127,13 @@ $(document).ready(function () {
     				terminos: terminosJ
 				},
 				success: function (data){
-					console.log(data);
+					//console.log(data);
+					 jQuery('.mensajes-sistema').html(data)
 					
-				}
+				}, 
+				error: function(result) {
+                    jQuery('.mensajes-sistema').html(result)
+                }
 	    	});
 	    	return false;
 	    }else{
@@ -197,7 +202,7 @@ $(document).ready(function () {
 	});
 
 jQuery(document).on('click','#updatePer',function(){
-	console.log('hola, me dieron click');
+	//console.log('hola, me dieron click');
 
 	    if(jQuery('#perfil').valid()) {
 	    	var urlR='/updateRegistro/',
@@ -233,9 +238,14 @@ jQuery(document).on('click','#updatePer',function(){
     				ciudad: ciudadJ,
 				},
 				success: function (data){
-					console.log(data);
+			
+					 jQuery('.mensajes-sistema').html(data)
 					
-				}
+				},
+				error: function(result) {
+
+                    jQuery('.mensajes-sistema').html(result);
+                }
 	    	});
 	    	return false;
 	    }else{

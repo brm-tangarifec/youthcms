@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-11 15:21:29
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-23 11:20:14
          compiled from "..\views\youth\interna.html" */ ?>
 <?php /*%%SmartyHeaderCode:1864456e328c9435603-09513578%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2cd2802a1687dfdb6fdd30f0e44ea87adf304553' => 
     array (
       0 => '..\\views\\youth\\interna.html',
-      1 => 1456973046,
+      1 => 1458750013,
       2 => 'file',
     ),
   ),
@@ -15,18 +15,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_56e328c94dd5b0_06411889',
   'variables' => 
   array (
     'multimedia' => 0,
     'pos' => 0,
     'descripcionCapsulaK' => 0,
     'descripcionCapsula' => 0,
-    'titulo' => 0,
+    'tituloC' => 0,
     'contenido' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_56e328c94dd5b0_06411889',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_56e328c94dd5b0_06411889')) {function content_56e328c94dd5b0_06411889($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("base/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
@@ -77,7 +77,7 @@ $_smarty_tpl->tpl_vars['descripcionCapsula']->_loop = true;
     </div>
     <!--/-más información-->
     <article class="row contenido">
-		<h1><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
+		<h1><?php echo $_smarty_tpl->tpl_vars['tituloC']->value;?>
 </h1>
 		<?php echo $_smarty_tpl->tpl_vars['contenido']->value;?>
 

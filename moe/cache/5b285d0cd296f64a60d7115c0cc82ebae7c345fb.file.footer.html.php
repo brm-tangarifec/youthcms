@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-22 20:02:41
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-23 15:17:35
          compiled from "..\views\base\footer.html" */ ?>
 <?php /*%%SmartyHeaderCode:1697256e32011ef0f19-45428600%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5b285d0cd296f64a60d7115c0cc82ebae7c345fb' => 
     array (
       0 => '..\\views\\base\\footer.html',
-      1 => 1458683417,
+      1 => 1458750733,
       2 => 'file',
     ),
   ),
@@ -26,11 +26,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <div class="row">
       <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">
         <p class="text-center">
-          <a href="#">Políticas de privacidad </a>  |  <a href="#"> Ver información corporativa</a>   |  <a href="#"> Política de tratamiento de datos personales</a>
+          <a href="https://www.consumidor.nestle.com.co/politicas-privacidad" target="_blank">Políticas de privacidad </a>  |  <a href="http://corporativa.nestle.com.co/" target="_blank"> Ver información corporativa</a>   |  <a href="https://www.consumidor.nestle.com.co/politicas-datos" target="_blank"> Política de tratamiento de datos personales</a>
           
         </p>
         <p class="text-center">
-          NESTLÉ&reg; Colombia 2016 - Todos los derechos reservados
+          Nestlé&reg; Colombia 2016 - Todos los derechos reservados
           
           
         </p>
@@ -40,34 +40,28 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   <!--/-Footer-->
   <!--Scripts-->
   <?php echo '<script'; ?>
- src="/js/libs/jquery.js"><?php echo '</script'; ?>
+ src="/js/libs/jquery.js?1232123"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
- src="/js/libs/bootstrap.min.js"><?php echo '</script'; ?>
+ src="/js/libs/bootstrap.min.js?1232123"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
- src="/js/youth.ini.js"><?php echo '</script'; ?>
+ src="/js/youth.ini.js?1232123"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
- src="/js/libs/jquery.validate.js"><?php echo '</script'; ?>
+ src="/js/libs/jquery.validate.js?1232123"><?php echo '</script'; ?>
 >
    <?php echo '<script'; ?>
- src="/js/libs/additional-methods.js"><?php echo '</script'; ?>
+ src="/js/libs/additional-methods.js?1232123"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
- src="/js/libs/jquery.bxslider.min.js"><?php echo '</script'; ?>
+ src="/js/libs/jquery.bxslider.min.js?1232123"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
- src="/js/youth/youthfunciones.js"><?php echo '</script'; ?>
+ src="/js/youth/youthfunciones.js?1232123"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
- src="/js/youth/registro/registroFb.js"><?php echo '</script'; ?>
->
-  <?php echo '<script'; ?>
- src="/js/youth/registro/registroFb.js"><?php echo '</script'; ?>
->
-  <?php echo '<script'; ?>
- src="/js/youth/registro/client.js?onload=checkAuth"><?php echo '</script'; ?>
+ src="/js/youth/registro/registroFb.js?1232123"><?php echo '</script'; ?>
 >
   <?php echo $_smarty_tpl->getSubTemplate ("base/youthJs.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
