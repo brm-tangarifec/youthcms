@@ -468,4 +468,49 @@ class Contenido {
 		echo json_encode($mensaje);
 
 	}
+
+	/*Curso Proyecto de vida*/
+	/*Ruta curso*/
+	function cursosPv(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/proyectovida/index.html");
+
+	}
+	function cursosPv1(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/proyectovida/page1.html");
+
+	}
+	function cursosPv2(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/proyectovida/page2.html");
+
+	}
+	function cursosPv3(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/proyectovida/page3.html");
+
+	}
+	function cursosPv4(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/proyectovida/page4.html");
+
+	}
+	function cursosPv5(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/proyectovida/page5.html");
+
+	}
+	function cursosPv6(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/proyectovida/page6.html");
+
+	}
 }

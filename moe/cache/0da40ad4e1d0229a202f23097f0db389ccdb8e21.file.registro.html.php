@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-18 17:43:12
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-04-08 15:24:35
          compiled from "..\views\youth\registro.html" */ ?>
 <?php /*%%SmartyHeaderCode:3055256e329da6d7b12-42227129%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0da40ad4e1d0229a202f23097f0db389ccdb8e21' => 
     array (
       0 => '..\\views\\youth\\registro.html',
-      1 => 1458329939,
+      1 => 1460147050,
       2 => 'file',
     ),
   ),
@@ -53,7 +53,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     </div>
     <!--/-más información-->
     <article class="row">
-      <form id="registro" method="">
+      <form id="registro" method="post" name="registro">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-lg-offset-3 col-md-offset-3 col-sm-offset-3">
           <p class="text-center">Todos los campos son obligatorios</p>
           <!--Botón registro con Facebook-->
@@ -67,10 +67,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
           <!--/-Botón registro con Google+-->
           
           <!--img de perfil-->
-          <div class="form-group img-perfil"><img src="/fbappCasaBienestar/images/profile-placeholder.jpg" class="img-responsive"></div>
+          <div class="form-group img-perfil"><img src="/images/profile-placeholder.jpg" class="img-responsive"></div>
           <!--/-img de perfil-->
           <!--redId-->
-          <input type="text" class="form-control" value="" id="idRs" name="idRs">
+          <input type="hidden" class="form-control" value="" id="idRs" name="idRs">
           <!--Nombres-->
           <div class="form-group">
             <label for="nombres">Nombres:</label>
@@ -145,7 +145,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['departamento']->key => $_smarty_tpl->
 $_smarty_tpl->tpl_vars['departamento']->_loop = true;
 ?>
                 <option value="<?php echo $_smarty_tpl->tpl_vars['departamento']->value['id'];?>
-"><?php echo utf8_decode($_smarty_tpl->tpl_vars['departamento']->value['nombre']);?>
+"><?php echo utf8_encode($_smarty_tpl->tpl_vars['departamento']->value['nombre']);?>
 </option>
                 <?php } ?>
             </select>
@@ -172,6 +172,9 @@ $_smarty_tpl->tpl_vars['departamento']->_loop = true;
               <input type="text" id="confirmPass" name="confirmPass" onfocus="(this.type='text')" onblur="(this.type='password')" class="form-control">
             </div>
             <!--/-confirmar contraseña-->
+            <!--requerido de contraseña-->
+            <div class="mensajes-pass"></div>
+            <!--/-requerido de contraseña-->
           </div>
           <!--Acepto términos-->
           <div class="checkbox">
@@ -182,7 +185,7 @@ $_smarty_tpl->tpl_vars['departamento']->_loop = true;
             </label>
           </div>
           <!--/-Acepto términos-->
-          <button type="button" class="btn btn-submit azul-oscuro">Enviar</button>
+          <button type="button" id="registroUser" class="btn btn-submit azul-oscuro">Enviar</button>
         </div>
       </form>
     </article>

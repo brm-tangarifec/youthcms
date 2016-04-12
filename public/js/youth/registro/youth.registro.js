@@ -128,11 +128,12 @@ $(document).ready(function () {
 				},
 				success: function (data){
 					//console.log(data);
-					 jQuery('.mensajes-sistema').html(data)
+					 window.location= "/perfil/#exitoso";
+					 jQuery('.mensajes-sistema').html(data);
 					
 				}, 
 				error: function(result) {
-                    jQuery('.mensajes-sistema').html(result)
+                    jQuery('.mensajes-sistema').html(result);
                 }
 	    	});
 	    	return false;

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-03-28 16:58:44
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-04-08 14:50:32
          compiled from "..\views\base\header.html" */ ?>
 <?php /*%%SmartyHeaderCode:1906956e328c94ecfb3-54260364%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'de1312a86d0f1d495fa24e1996cb551bfc917dfb' => 
     array (
       0 => '..\\views\\base\\header.html',
-      1 => 1459201284,
+      1 => 1460143229,
       2 => 'file',
     ),
   ),
@@ -59,6 +59,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 >
 </head>
 <body>
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5ZM4VB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<?php echo '<script'; ?>
+>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5ZM4VB');<?php echo '</script'; ?>
+>
+<!-- End Google Tag Manager -->
+
   <!--mensajes del sistema-->
   <div class="mensajes-sistema"></div>
   <!--/-mensajes del sistema-->

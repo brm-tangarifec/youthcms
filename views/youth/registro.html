@@ -30,13 +30,13 @@
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-lg-offset-3 col-md-offset-3 col-sm-offset-3">
           <p class="text-center">Todos los campos son obligatorios</p>
           <!--Botón registro con Facebook-->
-          <button type="button" class="btn btn-fb">
+          <button type="button" class="btn btn-fb" onclick="dataLayer.push({'Registrate-apis': 'Facebook', 'event': 'Registrate-redes'});">
             <span>Conéctate con facebook</span> <i class="icon icon-fb"></i>
             
           </button>
           <!--/-Botón registro con Facebook-->
           <!--Botón registro con Google+-->
-          <button type="button" id="btn-g" class="btn btn-g"><i class="icon icon-g"></i> <span>Conéctate con google +</span></button>
+          <button type="button" id="btn-g" class="btn btn-g" onclick="dataLayer.push({'Registrate-apis': 'Gmail', 'event': 'Registrate-redes'});"><i class="icon icon-g"></i> <span>Conéctate con google +</span></button>
           <!--/-Botón registro con Google+-->
           
           <!--img de perfil-->
@@ -152,7 +152,8 @@
             </label>
           </div>
           <!--/-Acepto términos-->
-          <button type="button" id="registroUser" class="btn btn-submit azul-oscuro">Enviar</button>
+          <button type="button" id="registroUser" class="btn btn-submit azul-oscuro" onclick="dataLayer.push({'event': 'enviar-formulario-registro'});"
+>Enviar</button>
         </div>
       </form>
     </article>

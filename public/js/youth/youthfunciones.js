@@ -84,7 +84,7 @@ jQuery(document).ready(function(){
 	}
 	
 
-if(jQuery('.list').length > 0){
+	if(jQuery('.list').length > 0){
 	var lista=".list ul li";
 	jQuery(lista).on('click',function(event){
 		event.preventDefault();
@@ -131,6 +131,10 @@ if(jQuery('.list').length > 0){
 		jQuery(lista).removeClass('active');
     	jQuery(this).addClass('active');
 	});
+	
+	}
 
-}
+	if(window.location.hash=='#exitoso'){
+            dataLayer.push({'event': 'registro-exitoso'});      
+           }
 });

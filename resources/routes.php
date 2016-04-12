@@ -1,6 +1,7 @@
 <?php
 ini_set('display_errors',0);
 $rutaArray=array();
+/*Curso hoja de vida*/
 $rutaArray["cursos/hojavida/"]="Contenido@cursosHv";
 $rutaArray["cursos/hojavida/page1/"]="Contenido@cursosHv1";
 $rutaArray["cursos/hojavida/page2/"]="Contenido@cursosHv2";
@@ -8,6 +9,14 @@ $rutaArray["cursos/hojavida/page3/"]="Contenido@cursosHv3";
 $rutaArray["cursos/hojavida/page4/"]="Contenido@cursosHv4";
 $rutaArray["cursos/hojavida/page5/"]="Contenido@cursosHv5";
 $rutaArray["cursos/hojavida/page6/"]="Contenido@cursosHv6";
+/*Curso proyecto de vida*/
+$rutaArray["cursos/proyectovida/"]="Contenido@cursosPv";
+$rutaArray["cursos/proyectovida/page1/"]="Contenido@cursosPv1";
+$rutaArray["cursos/proyectovida/page2/"]="Contenido@cursosPv2";
+$rutaArray["cursos/proyectovida/page3/"]="Contenido@cursosPv3";
+$rutaArray["cursos/proyectovida/page4/"]="Contenido@cursosPv4";
+$rutaArray["cursos/proyectovida/page5/"]="Contenido@cursosPv5";
+$rutaArray["cursos/proyectovida/page6/"]="Contenido@cursosPv6";
 //printVar($rutaArray);
 $seccion = model("LallamaradaSeccion");
 $seccions = $seccion->getData();
