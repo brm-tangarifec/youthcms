@@ -1,5 +1,30 @@
 $(document).ready(function() {
 
+	if ( window.location.hash != "#manifiesto"){
+
+		$('.contenedor-lightbox').addClass('animated fadeIn');
+		$('.contenedor-lightbox').removeClass('hidden');
+
+		$('.contenedor-lightbox .close').click(function() {
+				
+			$(this).parent().parent().addClass('animated fadeOut');
+			
+			setTimeout(function () {
+				$('.contenedor-lightbox').addClass('hidden');
+			}, 1000);
+
+			window.location = '#manifiesto';
+
+		});
+
+		$('.contenedor-lightbox').one(animationEnd, function () {
+			 
+			 $(this).removeClass('animated fadeIn fadeOut');
+		});
+
+
+	};
+
 	/*Mostrar Login*/
 	$('.show-login').click(function(event) {
 
