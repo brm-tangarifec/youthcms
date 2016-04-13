@@ -13,6 +13,7 @@ jQuery(document).ready(function(){
 
 			jQuery('.down').removeClass('magenta-text').addClass('verde-text');
 			jQuery('.button-container').removeClass('amarillo').addClass('verde');		
+			jQuery('.row.contenido').addClass('contenido-orientate');
 	}
 	if(window.location.href.indexOf('empleate') > -1){
 		if (jQuery('section').hasClass('slider-ppal')) {
@@ -25,9 +26,11 @@ jQuery(document).ready(function(){
 			jQuery('.navbar-nav li:nth-child(4)').removeClass('active');
 			jQuery('.navbar-nav li:nth-child(4) a').removeClass('purpura');
 
+
 		}
 		jQuery('.down').removeClass('purpura-text').addClass('naranja-text');
 		jQuery('.button-container').removeClass('amarillo').addClass('naranja');
+		jQuery('.row.contenido').addClass('contenido-empleate');
 	}
 	if(window.location.pathname=='/oportunidades/'){
 		if (jQuery('section').hasClass('slider-ppal')) {
@@ -42,6 +45,7 @@ jQuery(document).ready(function(){
 		jQuery('.down').removeClass('magenta-text').addClass('purpura-text');
 		jQuery('.button-container').removeClass('amarillo').addClass('purpura');
 		jQuery('.contenido h1').remove();
+		jQuery('.row.contenido').addClass('contenido-orientate');
 	}
 	if(window.location.href.indexOf('entrenate') > -1){
 		if (jQuery('section').hasClass('slider-ppal')) {
@@ -52,6 +56,7 @@ jQuery(document).ready(function(){
 		}
 		jQuery('.down').removeClass('purpura-text').addClass('magenta-text');
 		jQuery('.button-container').removeClass('amarillo').addClass('magenta');
+		jQuery('.row.contenido').addClass('contenido-entrenate');
 		
 	}
 	if(window.location.href.indexOf('perfil') > -1){
