@@ -1,3 +1,5 @@
+var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+
 $(document).ready(function() {
 
 	if ( window.location.hash != "#manifiesto"){
