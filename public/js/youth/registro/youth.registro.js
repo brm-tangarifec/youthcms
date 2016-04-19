@@ -129,11 +129,11 @@ $(document).ready(function () {
 				success: function (data){
 					//console.log(data);
 					 window.location= "/perfil/#exitoso";
-					 jQuery('.mensajes-sistema').html(data);
+					 jQuery('.mensaje-reg-exitoso').html(data);
 					
 				}, 
 				error: function(result) {
-                    jQuery('.mensajes-sistema').html(result);
+                    jQuery('.mensaje-reg-exitoso').html(result);
                 }
 	    	});
 	    	return false;

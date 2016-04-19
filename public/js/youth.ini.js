@@ -2,7 +2,7 @@ var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimation
 
 $(document).ready(function() {
 
-	if ( window.location.hash != "#manifiesto"){
+	/*if ( window.location.hash != "#manifiesto"){
 
 		$('.contenedor-lightbox').addClass('animated fadeIn');
 		$('.contenedor-lightbox').removeClass('hidden');
@@ -25,7 +25,29 @@ $(document).ready(function() {
 		});
 
 
-	};
+	};*/
+	if ($.cookie('pop') == null) {
+         $('.contenedor-lightbox').addClass('animated fadeIn');
+		$('.contenedor-lightbox').removeClass('hidden');
+
+		$('.contenedor-lightbox .close').click(function() {
+				
+			$(this).parent().parent().addClass('animated fadeOut');
+			
+			setTimeout(function () {
+				$('.contenedor-lightbox').addClass('hidden');
+			}, 1000);
+
+			//window.location = '#manifiesto';
+
+		});
+
+		$('.contenedor-lightbox').one(animationEnd, function () {
+			 
+			 $(this).removeClass('animated fadeIn fadeOut');
+		});
+         $.cookie('pop', '7');
+     };
 
 	/*Mostrar Login*/
 	$('.show-login').click(function(event) {

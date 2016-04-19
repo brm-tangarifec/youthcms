@@ -513,4 +513,92 @@ class Contenido {
 		view()->display("cursos/proyectovida/page6.html");
 
 	}
+	/*Curso Entrevista laboral*/
+	/*Ruta curso*/
+	function cursosEl(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/entrevistalaboral/index.html");
+
+	}
+	function cursosEl1(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/entrevistalaboral/page1.html");
+
+	}
+	function cursosEl2(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/entrevistalaboral/page2.html");
+
+	}
+	function cursosEl3(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/entrevistalaboral/page3.html");
+
+	}
+	function cursosEl4(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/entrevistalaboral/page4.html");
+
+	}
+	function cursosEl5(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/entrevistalaboral/page5.html");
+
+	}
+	function cursosEl6(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/entrevistalaboral/page6.html");
+
+	}
+
+	/*Ruta curso oferta laboral*/
+	function cursosOl(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/ofertalaboral/index.html");
+
+	}
+	function cursosOl1(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/ofertalaboral/page1.html");
+
+	}
+	function cursosOl2(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/ofertalaboral/page2.html");
+
+	}
+	function cursosOl3(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/ofertalaboral/page3.html");
+
+	}
+	function cursosOl4(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/ofertalaboral/page4.html");
+
+	}
+	function cursosOl5(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/ofertalaboral/page5.html");
+
+	}
+	function cursosOl6(){
+		//debug(1);
+		$varPost = filter_input_array(INPUT_POST);
+		view()->display("cursos/ofertalaboral/page6.html");
+
+	}
 }

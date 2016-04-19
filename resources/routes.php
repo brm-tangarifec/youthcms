@@ -17,6 +17,25 @@ $rutaArray["cursos/proyectovida/page3/"]="Contenido@cursosPv3";
 $rutaArray["cursos/proyectovida/page4/"]="Contenido@cursosPv4";
 $rutaArray["cursos/proyectovida/page5/"]="Contenido@cursosPv5";
 $rutaArray["cursos/proyectovida/page6/"]="Contenido@cursosPv6";
+/*Curso entrevista laboral*/
+$rutaArray["cursos/entrevistalaboral/"]="Contenido@cursosEl";
+$rutaArray["cursos/entrevistalaboral/page1/"]="Contenido@cursosEl1";
+$rutaArray["cursos/entrevistalaboral/page2/"]="Contenido@cursosEl2";
+$rutaArray["cursos/entrevistalaboral/page3/"]="Contenido@cursosEl3";
+$rutaArray["cursos/entrevistalaboral/page4/"]="Contenido@cursosEl4";
+$rutaArray["cursos/entrevistalaboral/page5/"]="Contenido@cursosEl5";
+$rutaArray["cursos/entrevistalaboral/page6/"]="Contenido@cursosEl6";
+
+/*Curso oferta laboral*/
+$rutaArray["cursos/ofertalaboral/"]="Contenido@cursosOl";
+$rutaArray["cursos/ofertalaboral/page1/"]="Contenido@cursosOl1";
+$rutaArray["cursos/ofertalaboral/page2/"]="Contenido@cursosOl2";
+$rutaArray["cursos/ofertalaboral/page3/"]="Contenido@cursosOl3";
+$rutaArray["cursos/ofertalaboral/page4/"]="Contenido@cursosOl4";
+$rutaArray["cursos/ofertalaboral/page5/"]="Contenido@cursosOl5";
+$rutaArray["cursos/ofertalaboral/page6/"]="Contenido@cursosOl6";
+
+
 //printVar($rutaArray);
 $seccion = model("LallamaradaSeccion");
 $seccions = $seccion->getData();

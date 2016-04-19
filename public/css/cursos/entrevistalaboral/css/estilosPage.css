@@ -1,0 +1,248 @@
+@charset "utf-8";
+/* CSS Document */
+
+body, html{
+	margin:0px 0px 0px 0px;
+	overflow:hidden !important;
+}
+
+#fondo {
+    position: relative;
+    width: 600px;
+    height: 400px;
+	padding: 10px 10px 10px 10px;
+	background-color:#666666;
+	box-shadow: 0px 0px 10px #333;
+	border-radius: 0px 5px 5px 5px;
+}
+
+#bar {
+    background-color: #339999; 
+    position:relative; 
+    width:500px; 
+    height:30px;
+	box-shadow: 0px 0px 10px #333;
+	border-radius: 5px 5px 0px 0px;
+}
+
+#fondoImg {
+    position: relative;
+    width: 600px;
+    height: 300px;
+	padding: 10px 10px 10px 10px;
+	background-color:#666666;
+	box-shadow: 0px 0px 10px #333;
+	border-radius: 0px 5px 5px 5px;
+	overflow:hidden !important;
+}
+
+#barImg {
+    background-color: #339999; 
+    position:relative;
+    width:300px; 
+    height:30px;
+	box-shadow: 0px 0px 10px #333;
+	border-radius: 5px 5px 0px 0px;
+}
+
+#imagen{
+	background-image:url(../images/image01.png);
+	width: 300px;
+	height: 300px;
+	float:left;
+}
+
+.textoCaja{
+	color: #FFF;
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: 400; 
+  	font-size: 13px;
+	text-align: justify;
+	text-justify: inter-word;	
+}
+
+.textoCajaImg{
+	width:300px;
+	height:300px;
+	float:left;
+	text-align:justify;
+	text-justify:inter-word;
+	color: #FFF;
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: 400; 
+  	font-size: 13px;	
+}
+
+.textoCajaNav{
+	color: #FFF;
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: 400; 
+  	font-size: 13px;
+	text-align: justify;
+	text-justify: inter-word;
+	padding: 0px 5px 0px 5px;	
+}
+
+.textoTitulo{
+	color: #FFF;
+	margin-right:5px;
+	margin-top:5px;
+	text-align: right;
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: 700; 
+  	font-size: 16px;	
+}
+
+#slider > div {
+  position:relative;
+  float:left;
+  width:590px;
+  height:400px;
+}
+
+#prev, #next{
+  display:inline-block;
+  position:relative;
+  top:400px;
+  cursor:pointer;
+  padding:5px;
+}
+
+/* --- Estilos del pop --- */
+
+.modalDialog {
+	position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 99999;
+	opacity:0;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	pointer-events: none;
+}
+
+.modalDialog:target {
+	opacity:1;
+	pointer-events: auto;
+}
+
+.modalDialog > div {
+	width: 400px;
+	position: relative;
+	margin: 10% auto;
+	padding: 5px 20px 13px 20px;
+	border-radius: 10px;
+	background: #fff;
+	background: -moz-linear-gradient(#fff, #999);
+	background: -webkit-linear-gradient(#fff, #999);
+	background: -o-linear-gradient(#fff, #999);
+}
+
+.close {
+	background: #606061;
+	color: #FFFFFF;
+	line-height: 25px;
+	position: absolute;
+	right: -12px;
+	text-align: center;
+	top: -10px;
+	width: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	-moz-box-shadow: 1px 1px 3px #000;
+	-webkit-box-shadow: 1px 1px 3px #000;
+	box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover { background: #339999; }
+
+@media screen and (max-width:600px) {
+
+body, html{
+	margin:0px 0px 0px 0px;
+}
+
+#fondo {
+    position: relative;
+    width: 400px;
+    height: 300px;
+	padding: 8px 8px 8px 8px;
+	background-color:#666666;
+	box-shadow: 0px 0px 10px #333;
+	border-radius: 0px 5px 5px 5px;
+}
+
+#bar {
+    background-color: #339999; 
+    position:relative; 
+    width:300px; 
+    height:20px;
+	box-shadow: 0px 0px 10px #333;
+	border-radius: 5px 5px 0px 0px;
+}
+
+.textoCaja{
+	color: #FFF;
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: 400; 
+  	font-size: 11px;
+	text-align: justify;
+	text-justify: inter-word;	
+}
+
+.textoCajaImg{
+	width:200px;
+	height:200px;
+	float:left;
+	text-align:justify;
+	text-justify:inter-word;
+	color: #FFF;
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: 400; 
+  	font-size: 11px;	
+}
+
+.textoTitulo{
+	color: #FFF;
+	margin-right:5px;
+	margin-top:5px;
+	text-align: right;
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: 700; 
+  	font-size: 13px;	
+}
+
+#fondoImg {
+    position: relative;
+    width: 400px;
+    height: 200px;
+	padding: 8px 8px 8px 8px;
+	background-color:#666666;
+	box-shadow: 0px 0px 10px #333;
+	border-radius: 0px 5px 5px 5px;
+}
+
+#barImg {
+    background-color: #339999; 
+    position:relative;
+    width:300px; 
+    height:20px;
+	box-shadow: 0px 0px 10px #333;
+	border-radius: 5px 5px 0px 0px;
+}
+
+#imagen{
+	background-image:url(../images/image01_800.png);
+	width: 200px;
+	height: 200px;
+	float:left;
+}
+
+}

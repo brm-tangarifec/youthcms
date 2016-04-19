@@ -142,4 +142,9 @@ jQuery(document).ready(function(){
 	if(window.location.hash=='#exitoso'){
             dataLayer.push({'event': 'registro-exitoso'});      
            }
+     if(window.location.hash=="#cursos"){
+     	jQuery('html,body').animate({
+            scrollTop: jQuery(".orientate").offset().top},
+            'slow');
+     }
 });

@@ -4,7 +4,7 @@
 //Edge symbol: 'stage'
 (function(symbolName){var visto1=false;var visto2=false;var visto3=false;var visto4=false;var visto5=false;var visto6=false;var visto7=false;var visto8=false;var visto9=false;var visto10=false;var visto11=false;var visto12=false;var visto13=false;var visto14=false;var visto15=false;var visto16=false;var contador=0;Symbol.bindElementAction(compId,symbolName,"${continuar}","click",function(sym,e){sym.play("6");sym.getSymbol("mascaragrafica").play();});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${modelo_hv3}","click",function(sym,e){window.open("/images/cursos/hojavida/media/modelo_hoja_de_vida.docx","_blank");});
+Symbol.bindElementAction(compId,symbolName,"${modelo_hv3}","click",function(sym,e){window.open("/images/cursos/hojavida/media/modelo_hoja_de_vida.docx","_self");});
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${modelo_hv3}","mouseover",function(sym,e){sym.getSymbol("modelo_hv3").play("1");});
 //Edge binding end
@@ -54,7 +54,7 @@ Symbol.bindElementAction(compId,symbolName,"${tips}","mouseout",function(sym,e){
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${tips}","mouseover",function(sym,e){sym.getSymbol("tips").play("1");});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${tips}","click",function(sym,e){window.open("/images/cursos/hojavida/media/tips.pdf","_blank");});
+Symbol.bindElementAction(compId,symbolName,"${tips}","click",function(sym,e){window.open("/images/cursos/hojavida/media/tips.pdf","_self");});
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${siguiente_final}","click",function(sym,e){sym.play("c");sym.$("_12")[0].pause();});
 //Edge binding end
@@ -80,21 +80,27 @@ Symbol.bindElementAction(compId,symbolName,"${facebook2}","mouseover",function(s
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${facebook2}","mouseout",function(sym,e){sym.getSymbol("facebook2").stop(0);});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${facebook2}","click",function(sym,e){window.open("https://www.facebook.com/sharer.php?u=https://www.jovenesnestle.com.co/","_blank");});
+Symbol.bindElementAction(compId,symbolName,"${facebook2}","click",function(sym,e){window.open(
+
+
+	"https://www.facebook.com/dialog/feed?app_id=184683071273&link=https%3A%2F%2Fwww.jovenesnestle.com.co%2Fcursos%2Fhojavida%2F&picture=https%3A%2F%2Fwww.jovenesnestle.com.co%2Fimages%2Fcursos%2Fhojavida%2Finsignia.png&name=%C2%A1Ya%20tienes%20tu%20Pasaporte%20sellado!%20%C2%A1Est%C3%A1s%20en%20la%20ruta%20del%20%C3%A9xito%20laboral!&caption=%20&description=Ent%C3%A9rate%20acerca%20del%20compromiso%20que%20hemos%20hecho%20en%20Nestl%C3%A9%C2%AE%20de%20generar%20500%20vacantes%20de%20empleo%20para%20j%C3%B3venes%2C%20entre%202015%20y%202018.%20T%C3%BA%20podr%C3%ADas%20ser%20uno%20de%20los%20talentos%20que%20se%20sume%20a%20nuestro%20equipo%20en%20Colombia&redirect_uri=http%3A%2F%2Fwww.facebook.com%2F"
+,"_self");});
+
+
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${twitter2}","click",function(sym,e){window.open("https://twitter.com/?status=Me gusta esta página https://www.jovenesnestle.com.co/","_blank");});
+Symbol.bindElementAction(compId,symbolName,"${twitter2}","click",function(sym,e){window.open("http://twitter.com/intent/tweet?text=%C2%A1Ya%20tienes%20tu%20Pasaporte%20sellado!%20%C2%A1Est%C3%A1s%20en%20la%20ruta%20del%20%C3%A9xito%20laboral!%20https%3A%2F%2Fwww.jovenesnestle.com.co%2Fimages%2Fcursos%2Fhojavida%2Finsignia.png","_self");});
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${twitter2}","mouseover",function(sym,e){sym.getSymbol("twitter2").play("over");});
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${twitter2}","mouseout",function(sym,e){sym.getSymbol("twitter2").stop(0);});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${linkedin2}","click",function(sym,e){window.open("https://www.linkedin.com/cws/share?url=https://www.jovenesnestle.com.co/","_blank");});
+Symbol.bindElementAction(compId,symbolName,"${linkedin2}","click",function(sym,e){window.open("https://www.linkedin.com/cws/share?url=http://www.jovenesnestle.com.co/cursos/hojavida/","_self");});
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${linkedin2}","mouseover",function(sym,e){sym.getSymbol("linkedin2").play("over");});
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${linkedin2}","mouseout",function(sym,e){sym.getSymbol("linkedin2").stop(0);});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${RoundRect}","click",function(sym,e){window.open("https://www.jovenesnestle.com.co/","_blank");});
+Symbol.bindElementAction(compId,symbolName,"${RoundRect}","click",function(sym,e){window.open("https://www.jovenesnestle.com.co/","_self");});
 //Edge binding end
 })("stage");
 //Edge symbol end:'stage'

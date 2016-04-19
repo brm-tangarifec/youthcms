@@ -3,6 +3,8 @@ var avance=0;
 var previo=0;
 var url="";
 var status="incomplete";
+
+
 switch(avance) {
     case 0:
     page=1;
@@ -29,6 +31,8 @@ switch(avance) {
     case 6: 
     page=6;
     break;
+
+
     default:
     page=1;
 
@@ -82,25 +86,27 @@ $(document).ready(function() {
 
     $('.contenidosPages').fadeOut('slow');
     url=String('/cursos/proyectovida/page'+page+'/');
-
    
         $( ".contenidosPages" ).load( url, function() {
-        
-        $('.contenidosPages').fadeIn('fast');
+        $('.contenidosPages').fadeIn('slow');
         $('#cargandoIcono').fadeOut('slow');
+       
     });
 
+ 
+
 });
+ 
+dataLayer.push({'pagina': '1 - Visualizanto tu futuro', 'event': 'Inicio del curso-Video'});
 }
 
 function cargarSIG(){
-	 for (var x in jQuery.cache){
-        delete jQuery.cache[x];
-    }
+
     if(page == maxPages){
         status = "completed";
         scoreRaw = 100;
-        avance=6;
+        avance=7;
+        dataLayer.push({'pagina': '6 - Ya sabes para donde vas', 'event': 'Fin del curso'});
     }   
     $('#cargandoIcono').fadeIn('slow');
 
@@ -113,6 +119,7 @@ function cargarSIG(){
         $('.contenidosPages').html('');
         page = page + 1;
 
+        
 
 
         url=String('/cursos/proyectovida/page'+page+'/');
@@ -122,11 +129,34 @@ function cargarSIG(){
        
             $( ".contenidosPages" ).load( url, function() {
             
-            $('.contenidosPages').fadeIn('fast');
+            $('.contenidosPages').fadeIn('slow');
             $('#cargandoIcono').fadeOut('slow');
 
         });
+
+  
     }
+
+        if(page ==2){
+            dataLayer.push({'pagina': '2-Importancia de elaborar un proyecto de vida', 'event': 'click pagina siguiente'});
+         }
+
+        if(page ==3){
+        dataLayer.push({'pagina': '3-​¿Qué limita mi desarrollo?', 'event': 'click pagina siguiente'});
+        }
+
+        if(page ==4){
+        dataLayer.push({'pagina': '4- Manejando mis emociones', 'event': 'click pagina siguiente'});
+        }
+
+        if(page ==5){
+        dataLayer.push({'pagina': '5- Sueños o metas?', 'event': 'click pagina siguiente'});
+        }
+
+        if(page ==maxPages){
+        dataLayer.push({'pagina': '6- Tips-Visualizando tu futuro -insignia', 'event': 'click pagina siguiente'});
+        }
+
 }
 
 function cargarPREV(){
@@ -143,19 +173,49 @@ function cargarPREV(){
     cargandopage=false;
     if(page < maxPages){
         page = page - 1;
+
+
         avance=page-1;
         url=String('/cursos/proyectovida/page'+page+'/');
         $('.contenidosPages').html(' ');
 
-       
+
+
 
             $( ".contenidosPages" ).load( url, function() {
             
-            $('.contenidosPages').fadeIn('fast');
+            $('.contenidosPages').fadeIn('slow');
             $('#cargandoIcono').fadeOut('slow');
             cargandopage=true;
             status = "incomplete";
         });
+
+
+        if(page ==1){
+        dataLayer.push({'pagina': '1 - Visualizanto tu futuro', 'event': 'Inicio del curso-Video'});
+        }
+
+       if(page ==2){
+            dataLayer.push({'pagina': '2-Importancia de elaborar un proyecto de vida', 'event': 'click pagina anterior'});
+         }
+
+        if(page ==3){
+        dataLayer.push({'pagina': '3-​¿Qué limita mi desarrollo?', 'event': 'click pagina anterior'});
+        }
+
+        if(page ==4){
+        dataLayer.push({'pagina': '4- Manejando mis emociones', 'event': 'click pagina anterior'});
+        }
+
+        if(page ==5){
+        dataLayer.push({'pagina': '5- Sueños o metas?', 'event': 'click pagina anterior'});
+        }
+
+        if(page ==maxPages){
+        dataLayer.push({'pagina': '6- Tips-Visualizando tu futuro -insignia', 'event': 'click pagina anterior'});
+        }
+
+
     }
 
  for (var x in jQuery.cache){
