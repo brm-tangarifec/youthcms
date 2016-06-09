@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-04-08 15:24:35
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-05-17 17:10:08
          compiled from "..\views\youth\registro.html" */ ?>
 <?php /*%%SmartyHeaderCode:3055256e329da6d7b12-42227129%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0da40ad4e1d0229a202f23097f0db389ccdb8e21' => 
     array (
       0 => '..\\views\\youth\\registro.html',
-      1 => 1460147050,
+      1 => 1463523004,
       2 => 'file',
     ),
   ),
@@ -57,13 +57,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-lg-offset-3 col-md-offset-3 col-sm-offset-3">
           <p class="text-center">Todos los campos son obligatorios</p>
           <!--Botón registro con Facebook-->
-          <button type="button" class="btn btn-fb">
+          <button type="button" class="btn btn-fb" onclick="dataLayer.push({'Registrate-apis': 'Facebook', 'event': 'Registrate-redes'});">
             <span>Conéctate con facebook</span> <i class="icon icon-fb"></i>
             
           </button>
           <!--/-Botón registro con Facebook-->
           <!--Botón registro con Google+-->
-          <button type="button" id="btn-g" class="btn btn-g"><i class="icon icon-g"></i> <span>Conéctate con google +</span></button>
+          <button type="button" id="btn-g" class="btn btn-g" onclick="dataLayer.push({'Registrate-apis': 'Gmail', 'event': 'Registrate-redes'});"><i class="icon icon-g"></i> <span>Conéctate con google +</span></button>
           <!--/-Botón registro con Google+-->
           
           <!--img de perfil-->
@@ -184,10 +184,20 @@ $_smarty_tpl->tpl_vars['departamento']->_loop = true;
               <a href="#">Politica de Privacidad</a> y <a href="#">Politica de Tratamiento de datos</a>
             </label>
           </div>
+          <!--Captcha-->
+          <div class="g-recaptcha" data-sitekey="6LdUHSATAAAAAGAdX7sZHhsrKDoVMOIyHj3-ouRE"></div>
+          <!--F captca-->
           <!--/-Acepto términos-->
-          <button type="button" id="registroUser" class="btn btn-submit azul-oscuro">Enviar</button>
+          <button type="button" id="registroUser" class="btn btn-submit azul-oscuro" onclick="dataLayer.push({'event': 'enviar-formulario-registro'});"
+>Enviar</button>
         </div>
       </form>
+
+          <!--mensaje de registro-->
+      <div class="mensaje-reg-exitoso col-lg-4 col-md-4 col-sm-12 col-lg-offset-4 col-md-offset-4 col-sm-offset-4">
+
+      </div>
+          <!--/-mensaje de registro-->
     </article>
   </section>
   <!--Footer-->

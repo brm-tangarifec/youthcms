@@ -79,6 +79,7 @@ function iniciar(){
 
 
 
+
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
  }
 
@@ -100,7 +101,7 @@ $(document).ready(function() {
 
 });
  
-dataLayer.push({'pagina': '1 - A un paso de la cima', 'event': 'Inicio del curso'});
+dataLayer.push({'pagina': '1 - A un paso de la cima', 'event': 'Clic-siguiente-pantalla'});
 }
 
 function cargarSIG(){
@@ -109,7 +110,7 @@ function cargarSIG(){
         status = "completed";
         scoreRaw = 100;
         avance=7;
-        dataLayer.push({'pagina': '7 - A un paso de la cima', 'event': 'Fin del curso'});
+        dataLayer.push({'pagina': '7 - A un paso de la cima', 'event': 'pantalla-final'});
     }   
     $('#cargandoIcono').fadeIn('slow');
 
@@ -141,27 +142,27 @@ function cargarSIG(){
     }
 
         if(page ==2){
-            dataLayer.push({'pagina': '2- Consejos para una entrevista de trabajo', 'event': 'click pagina siguiente'});
+            dataLayer.push({'pagina': '2- Consejos para una entrevista de trabajo', 'event': 'Clic-siguiente-pantalla'});
          }
 
         if(page ==3){
-        dataLayer.push({'pagina': '3- Antes de la entrevista', 'event': 'click pagina siguiente'});
+        dataLayer.push({'pagina': '3- Antes de la entrevista', 'event': 'Clic-siguiente-pantalla'});
         }
 
         if(page ==4){
-        dataLayer.push({'pagina': '4- Durante la entrevista', 'event': 'click pagina siguiente'});
+        dataLayer.push({'pagina': '4- Durante la entrevista', 'event': 'Clic-siguiente-pantalla'});
         }
 
         if(page ==5){
-        dataLayer.push({'pagina': '5- Después de la entrevista', 'event': 'click pagina siguiente'});
+        dataLayer.push({'pagina': '5- Después de la entrevista', 'event': 'Clic-siguiente-pantalla'});
         }
 
         if(page ==6){
-        dataLayer.push({'pagina': '6- Actividad', 'event': 'click pagina siguiente'});
+        dataLayer.push({'pagina': '6- Actividad', 'event': 'Clic-siguiente-pantalla'});
         }
 
         if(page ==maxPages){
-        dataLayer.push({'pagina': '7- Tips-Entrevista Laboral-insignia', 'event': 'click pagina siguiente'});
+        dataLayer.push({'pagina': '7- Tips-Entrevista Laboral-insignia', 'event': 'pantalla-final'});
         }
 
 }
@@ -200,33 +201,33 @@ function cargarPREV(){
         });
 
 
- if(page ==2){
-dataLayer.push({'pagina': '1 - A un paso de la cima', 'event': 'Inicio del curso'});
+ if(page ==1){
+dataLayer.push({'pagina': '1 - A un paso de la cima', 'event': 'Clic-anterior-pantalla'});
      }
 
  if(page ==2){
-            dataLayer.push({'pagina': '2- Consejos para una entrevista de trabajo', 'event': 'click pagina atras'});
+            dataLayer.push({'pagina': '2- Consejos para una entrevista de trabajo', 'event': 'Clic-anterior-pantalla'});
          }
 
         if(page ==3){
-        dataLayer.push({'pagina': '3- Antes de la entrevista', 'event': 'click pagina atras'});
+        dataLayer.push({'pagina': '3- Antes de la entrevista', 'event': 'Clic-anterior-pantalla'});
         }
 
         if(page ==4){
-        dataLayer.push({'pagina': '4- Durante la entrevista', 'event': 'click pagina atras'});
+        dataLayer.push({'pagina': '4- Durante la entrevista', 'event': 'Clic-anterior-pantalla'});
         }
 
         if(page ==5){
-        dataLayer.push({'pagina': '5- Después de la entrevista', 'event': 'click pagina atras'});
+        dataLayer.push({'pagina': '5- Después de la entrevista', 'event': 'Clic-anterior-pantalla'});
         }
 
 
        if(page ==6){
-        dataLayer.push({'pagina': '6- Actividad', 'event': 'click pagina atras'});
+        dataLayer.push({'pagina': '6- Actividad', 'event': 'Clic-anterior-pantalla'});
         }
 
         if(page ==maxPages){
-        dataLayer.push({'pagina': '7- Tips-Entrevista Laboral-insignia', 'event': 'click pagina atras'});
+        dataLayer.push({'pagina': '7- Tips-Entrevista Laboral-insignia', 'event': 'Clic-anterior-pantalla'});
         }
 
 

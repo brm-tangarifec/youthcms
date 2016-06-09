@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-04-13 17:09:24
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-05-13 10:20:37
          compiled from "..\views\cursos\hojavida\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:2379456f1942e763671-82031303%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f77847d34486202cc0a834a5abe974716b9876af' => 
     array (
       0 => '..\\views\\cursos\\hojavida\\index.html',
-      1 => 1460585360,
+      1 => 1460587081,
       2 => 'file',
     ),
   ),
@@ -47,10 +47,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
  src="/js/cursos/hojavida/js/jquery-2.2.2.min.js" type="text/javascript"><?php echo '</script'; ?>
 >
 <link href="/css/cursos/hojavida/css/estilos.css" rel="stylesheet" type="text/css">
-<link rel="icon" href="/images/favicon.png">
+<link rel="icon" href="/images/favicon.ico">
 </head>
 <body onLoad="iniciar()" >
-	  <!-- Google Tag Manager -->
+<!-- Google Tag Manager -->
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5ZM4VB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <?php echo '<script'; ?>
 >(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

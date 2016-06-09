@@ -36,6 +36,7 @@ $rutaArray["cursos/ofertalaboral/page5/"]="Contenido@cursosOl5";
 $rutaArray["cursos/ofertalaboral/page6/"]="Contenido@cursosOl6";
 
 
+
 //printVar($rutaArray);
 $seccion = model("LallamaradaSeccion");
 $seccions = $seccion->getData();
@@ -67,6 +68,11 @@ $rutaArray["ciudades/"]="Contenido@ciudad";
 $rutaArray["loginUser/"]="Contenido@login";
 $rutaArray["logout/"]="Contenido@cerrarSession";
 $rutaArray["updateRegistro/"]="Contenido@updateRegistro";
+/*Captcha*/
+$rutaArray["comprobarcaptcha/"]="Contenido@validaCaptcha";
+/*Descarga Usuarios*/
+$rutaArray["reporte-iniciativa-jovenes/"]="Contenido@descargaReporte";
+$rutaArray["valdiadescarga/"]="Contenido@validaIngresoDescarga";
 
  Moe::routes($rutaArray);
 /*Moe::routes(array(

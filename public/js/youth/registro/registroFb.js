@@ -58,7 +58,7 @@ window.fbAsyncInit = function() {
            if(window.location.hash=='#logout'){
              jQuery("#idRs").val('');      
            }
-          loginProf(idP);
+          //loginProf(idP);
 
         });
       };
@@ -92,6 +92,10 @@ window.fbAsyncInit = function() {
         e.preventDefault();
 
         facebookLogin();
+        setTimeout(function(){
+          var idP=jQuery("#idRs");
+          loginProf(idP);
+        }, 2000);
       });
 
       function obtenerFotoPerfil(){
@@ -292,7 +296,14 @@ jQuery(document).on('click','#login-submit',function(){
         pass:pass
       },
       success: function (data){
-       jQuery('.mensajes-sistema').html(data);
+        console.log(data);
+        if(data=='exito'){
+          //console.log('hola');
+          window.location= "/perfil/";
+
+        }else{
+          jQuery('.mensajes-sistema').html(data);
+        }
         
       }
 

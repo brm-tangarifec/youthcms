@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-04-08 14:50:27
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-05-17 16:56:29
          compiled from "..\views\base\youthJs.html" */ ?>
 <?php /*%%SmartyHeaderCode:447356e3322cde7b87-19135417%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '791299e02dda3566d00bfd8bff2ead59f166f03a' => 
     array (
       0 => '..\\views\\base\\youthJs.html',
-      1 => 1460132624,
+      1 => 1463513977,
       2 => 'file',
     ),
   ),
@@ -34,7 +34,7 @@ $_smarty_tpl->tpl_vars['archivo']->_loop = true;
 ?>
 	<?php echo '<script'; ?>
  src="/js/youth/<?php echo $_smarty_tpl->tpl_vars['archivo']->value;?>
-"><?php echo '</script'; ?>
+?1313"><?php echo '</script'; ?>
 >	
 	<?php } ?>
 <?php }?>

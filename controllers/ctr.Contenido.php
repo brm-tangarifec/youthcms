@@ -240,6 +240,8 @@ class Contenido {
 					$guardaUsu=$reusu->setInstancia();
 					//printVar($guardaUsu);
 					echo $guardaUsu;
+					$encri=MyQuerys::encriptado($guardaUsu,'!Y0uth$h4StCryPt');
+					setcookie("youth_usu", base64_encode($encri),time()+1200, "/");
 				}else{
 					$mensaje="El registro no pudo ser realizado";
 					echo json_encode($mensaje);
@@ -277,8 +279,22 @@ class Contenido {
 			$encri=MyQuerys::encriptado($idUsuario,'!Y0uth$h4StCryPt');
 			setcookie("youth_usu", base64_encode($encri),time()+1200, "/");
 			//printVar($this->idSession);
-			echo $idUsuario;
-			//printVar($_SESSION);
+			
+			/*UrlAnt*/
+				$urlAnt=$_COOKIE['youth_urlAnt'];
+				if(isset($urlAnt) && $urlAnt!=''){
+ 				  $urlAnte=base64_decode($urlAnt);
+ 				   //header("location:$urlAnte");
+ 				   //echo json_encode($urlAnte);
+ 				   $mensaje='exitourl';
+					//printVar($_SESSION);
+ 				   $msj=array("mensaje"=>$mensaje,"url"=>$urlAnte);
+					echo json_encode($msj);
+ 				 }else{
+ 				 	$mensaje='exito';
+					//printVar($_SESSION);
+					echo json_encode($mensaje);
+ 				 }
 
 		}
 
@@ -322,8 +338,14 @@ class Contenido {
 	/*Ruta curso*/
 	function cursosHv(){
 		//debug(1);
-		$varPost = filter_input_array(INPUT_POST);
-		view()->display("cursos/hojavida/index.html");
+		if(isset($_COOKIE['youth_usu'])){
+			$varPost = filter_input_array(INPUT_POST);
+			view()->display("cursos/hojavida/index.html");
+		}else{
+			setcookie("youth_urlAnt", base64_encode($_SERVER['REQUEST_URI']),time()+1200, "/");
+			header('location: /#cursos');
+		}
+		
 
 	}
 	function cursosHv1(){
@@ -400,6 +422,7 @@ class Contenido {
 
 	}
 	function login(){
+		//debug(3);youth_urlAnt
 		$varPostL=filter_input_array(INPUT_POST);
 		$reusuae= model("LallamaradaRegistro");
 		//printVar($varPostL);
@@ -412,15 +435,29 @@ class Contenido {
 			'fields' => array('id')
 			);
 		$log=$reusuae->getData($condC);
-		//printVar($log);
-		if($log[0]['id']!=''){
+		//printVar($log[0]['id']);
+		if($log[0]['id']!=0){
 			$idUsuario=$log[0]['id'];
 			if($idUsuario!=''){
 				$encri=MyQuerys::encriptado($idUsuario,'!Y0uth$h4StCryPt');
 				setcookie("youth_usu", base64_encode($encri),time()+1200, "/");
 				//printVar($this->idSession);
-				echo $idUsuario;
-				//printVar($_SESSION);
+				
+				/*UrlAnt*/
+				$urlAnt=$_COOKIE['youth_urlAnt'];
+				if(isset($urlAnt) && $urlAnt!=''){
+ 				  $urlAnte=base64_decode($urlAnt);
+ 				   //header("location:$urlAnte");
+ 				   //echo json_encode($urlAnte);
+ 				   $mensaje='exitourl';
+					//printVar($_SESSION);
+ 				   $msj=array("mensaje"=>$mensaje,"url"=>$urlAnte);
+					echo json_encode($msj);
+ 				 }else{
+ 				 	$mensaje='exito';
+					//printVar($_SESSION);
+					echo json_encode($mensaje);
+ 				 }
 			}
 		}else{
 			$mensaje='Lo sentimos, no reconocemos el nombre de usuario o la contrase&ntilde;a';
@@ -473,8 +510,16 @@ class Contenido {
 	/*Ruta curso*/
 	function cursosPv(){
 		//debug(1);
-		$varPost = filter_input_array(INPUT_POST);
-		view()->display("cursos/proyectovida/index.html");
+		if(isset($_COOKIE['youth_usu'])){
+
+			$varPost = filter_input_array(INPUT_POST);
+			view()->display("cursos/proyectovida/index.html");
+		}else{
+			setcookie("youth_urlAnt", base64_encode($_SERVER['REQUEST_URI']),time()+1200, "/");
+			header('location: /#cursos');
+
+		}
+
 
 	}
 	function cursosPv1(){
@@ -517,9 +562,13 @@ class Contenido {
 	/*Ruta curso*/
 	function cursosEl(){
 		//debug(1);
-		$varPost = filter_input_array(INPUT_POST);
-		view()->display("cursos/entrevistalaboral/index.html");
-
+		if(isset($_COOKIE['youth_usu'])){
+			$varPost = filter_input_array(INPUT_POST);
+			view()->display("cursos/entrevistalaboral/index.html");
+		}else{
+			setcookie("youth_urlAnt", base64_encode($_SERVER['REQUEST_URI']),time()+1200, "/");
+			header('location: /#cursos');
+		}
 	}
 	function cursosEl1(){
 		//debug(1);
@@ -561,9 +610,13 @@ class Contenido {
 	/*Ruta curso oferta laboral*/
 	function cursosOl(){
 		//debug(1);
-		$varPost = filter_input_array(INPUT_POST);
-		view()->display("cursos/ofertalaboral/index.html");
-
+		if(isset($_COOKIE['youth_usu'])){
+			$varPost = filter_input_array(INPUT_POST);
+			view()->display("cursos/ofertalaboral/index.html");
+		}else{
+			setcookie("youth_urlAnt", base64_encode($_SERVER['REQUEST_URI']),time()+1200, "/");
+			header('location: /#cursos');
+		}
 	}
 	function cursosOl1(){
 		//debug(1);
@@ -600,5 +653,137 @@ class Contenido {
 		$varPost = filter_input_array(INPUT_POST);
 		view()->display("cursos/ofertalaboral/page6.html");
 
+	}
+	/*Validar captcha jovenes nestlé*/
+	function validaCaptcha(){
+
+		$varCap = filter_input_array(INPUT_POST);
+		$secret = "6LdUHSATAAAAACQ_lg8hlxNDRmjvyosCfdwsEOD5";
+ 
+		if(isset($varCap['recaptchaResponse']) && !empty($varCap['recaptchaResponse'])){
+		     //get verified response data
+		     $param = "https://www.google.com/recaptcha/api/siteverify?secret=".$secret."&response=".$varCap['recaptchaResponse'];
+		     $verifyResponse = file_get_contents($param);
+		     $responseData = json_decode($verifyResponse);
+
+		     if($responseData->success){
+		         // success
+		         echo "validado";
+		     }else{
+		         // failure
+		         echo "Error";
+		     }
+
+		 }else{
+		     echo "NA";
+		 }
+	}
+
+
+	/*Descarga de usuarios*/
+	function departamentoReg($idDepto){
+		//debug(1);
+		//printVar($idDepto,'hola');
+		$deptoReg=model('LallamaradaDepartamento');
+		$deptoReg-> selectAdd();
+		$deptoReg-> selectAdd("nombre");
+		$deptoReg-> whereAdd("id=" . $idDepto);
+		$deptoReg -> find();
+		$deptoReg->fetch();
+		$departamentosReg = $deptoReg->nombre;
+		return $departamentosReg;
+		$deptoReg -> free();
+	}
+	/*Ciudades registro*/
+	function ciudadReg($idCiudad){
+		$ciudadR =model('LallamaradaCiudad');
+		$ciudadR-> selectAdd();
+		$ciudadR-> selectAdd("nombre");
+		$ciudadR-> whereAdd("id=" . $idCiudad);
+		$ciudadR -> find();
+		$ciudadR->fetch();
+		$ciudadesReg = $ciudadR->nombre;
+		return $ciudadesReg;
+
+	}
+
+	function descargaReporte(){
+
+		$siSirve=$_COOKIE['youth_descarga'];
+
+
+    	if(isset($siSirve) && $siSirve!=''){
+		$registro = model("LallamaradaRegistro");
+		$registros = $registro->getData();
+			// Create the instance of the exportexcel format
+			$excel_obj = new ExportExcel(date('Y-m-d')."JovenesNesle.xls");
+			// Setting the values of the headers and data of the excel file
+			// and these values comes from the other file which file shows the data
+			$excelHeader = array("id",
+				"imgPerfil",
+				"nombre",
+				"apellido",
+				"email",
+				"telefono",
+				"Departamento",
+				"Ciudad",
+				"Tipo Documento",
+				"Documento",
+				"genero",
+				"direccion",
+				"Deseo Informacion",
+				"Autorizacion Marca",
+				"ipAccesso",
+				"fechaNacimiento",
+				"fecha");
+			if($registros){
+
+				$excelValues = array();
+				$conteo=count($registros);
+				for( $i=0; $i < $conteo; $i++){
+					$excelValues[$i][]= $registros[$i]['id'];
+					$excelValues[$i][] = $registros[$i]['imgPerfil'];
+					$excelValues[$i][] = $registros[$i]['nombre'];
+					$excelValues[$i][] = $registros[$i]['apellido'];
+					$excelValues[$i][] = $registros[$i]['email'];
+					$excelValues[$i][] = $registros[$i]['telefono'];
+					/*Depto Ciudad*/
+					$deptoReg=$this->departamentoReg($registros[$i]['idDepto']);
+					$ciudadRegU=$this->ciudadReg($registros[$i]['idCiudad']);
+					$excelValues[$i][]=utf8_decode($deptoReg);
+					$excelValues[$i][]=utf8_decode($ciudadRegU);
+					/*F Depto Ciudad*/
+					$excelValues[$i][] = $registros[$i]['tipoDocumento'];
+					$excelValues[$i][] = $registros[$i]['numeroDocumento'];
+					$excelValues[$i][] = $registros[$i]['genero'];
+					$excelValues[$i][] = $registros[$i]['direccion'];
+					$excelValues[$i][] = $registros[$i]['deseoInformacion'];
+					$excelValues[$i][] = $registros[$i]['autorizacionMarca'];
+					$excelValues[$i][] = $registros[$i]['ipAccesso'];
+					$excelValues[$i][] = $registros[$i]['fechaNacimiento'];
+					$excelValues[$i][] = $registros[$i]['fecha'];
+				}
+				$excel_obj->setHeadersAndValues($excelHeader, $excelValues);
+				// Now generate the excel file with the data and headers set
+				$excel_obj->GenerateExcelFile();
+			}
+		}else{
+			header('location: https://www.jovenesnestle.com.co/');
+		}
+	}
+
+	/*Valdia Ingreso*/
+	function validaIngresoDescarga(){
+		$varPostD = filter_input_array(INPUT_POST);
+		$siSirve=$varPostD['validarIngreso'];
+
+		if($siSirve=='toc4h4c3rcl1c3n3st4v41n4'){
+		 $encri=MyQuerys::encriptado($siSirve,'!Y0uth$h4StCryPt');
+			setcookie("youth_descarga", base64_encode($encri),time()+800, "/");
+		 	header('location: https://www.jovenesnestle.com.co/reporte-iniciativa-jovenes/');
+
+		}else{
+			header('location: https://www.jovenesnestle.com.co/');
+		}
 	}
 }

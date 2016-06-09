@@ -97,7 +97,7 @@ $(document).ready(function() {
 
 });
  
-dataLayer.push({'pagina': '1 - Tu Pasaporte', 'event': 'Inicio del curso-Video'});
+dataLayer.push({'pagina': '1 - Tu Pasaporte', 'event': 'Clic-siguiente-pantalla'});
 }
 
 function cargarSIG(){
@@ -105,11 +105,9 @@ function cargarSIG(){
     if(page == maxPages){
         status = "completed";
         scoreRaw = 100;
-        avance=7;
-        dataLayer.push({'pagina': '6 - Tu Pasaporte', 'event': 'Fin del curso'});
+        dataLayer.push({'pagina': '6 - Tu Pasaporte', 'event': 'pantalla-final'});
     }   
     $('#cargandoIcono').fadeIn('slow');
-
 
     $('.contenidosPages').fadeOut('slow');
 
@@ -118,9 +116,6 @@ function cargarSIG(){
     if(page < maxPages){
         $('.contenidosPages').html('');
         page = page + 1;
-
-        
-
 
         url=String('/cursos/hojavida/page'+page+'/');
         avance=page+1;
@@ -133,34 +128,25 @@ function cargarSIG(){
             $('#cargandoIcono').fadeOut('slow');
 
         });
-
-  
     }
 
         if(page ==2){
-            dataLayer.push({'pagina': '2- Que es y para que sirve la Hoja de vida', 'event': 'click pagina siguiente'});
+        dataLayer.push({'pagina': '2-Que es y para que sirve la Hoja de vida', 'event': 'Clic-siguiente-pantalla'});
          }
-
         if(page ==3){
-        dataLayer.push({'pagina': '3- Como diligenciar tu hoja de vida', 'event': 'click pagina siguiente'});
+        dataLayer.push({'pagina': '3-Como diligenciar-tu-hoja-de-vida', 'event': 'Clic-siguiente-pantalla'});
         }
-
         if(page ==4){
-        dataLayer.push({'pagina': '4- Actividad  hoja de vida', 'event': 'click pagina siguiente'});
+        dataLayer.push({'pagina': '4-Actividad-hoja-de-vida', 'event': 'Clic-siguiente-pantalla'});
         }
-
         if(page ==5){
-        dataLayer.push({'pagina': '5-Actividad  hoja de vida', 'event': 'click pagina siguiente'});
+        dataLayer.push({'pagina': '5-Actividad-hoja-de-vida', 'event': 'Clic-siguiente-pantalla'});
         }
-
-
-
         if(page ==maxPages){
-        dataLayer.push({'pagina': '6- Tips-Hoja de vida -insignia', 'event': 'click pagina siguiente'});
+        dataLayer.push({'pagina': '6-Tips-Hoja-de-vida -insignia', 'event': 'Clic-siguiente-pantalla'});
         }
 
 }
-
 function cargarPREV(){
     previo=1;
     $('#cargandoIcono').fadeIn('slow');
@@ -179,42 +165,42 @@ function cargarPREV(){
 
        
 
-        avance=page-1;
-        url=String('/cursos/hojavida/page'+page+'/');
-        $('.contenidosPages').html(' ');
+	avance=page-1;
+	url=String('/cursos/hojavida/page'+page+'/');
+	$('.contenidosPages').html(' ');
 
 
 
 
-            $( ".contenidosPages" ).load( url, function() {
-            
-            $('.contenidosPages').fadeIn('slow');
-            $('#cargandoIcono').fadeOut('slow');
-            cargandopage=true;
-            status = "incomplete";
-        });
+	$( ".contenidosPages" ).load( url, function() {
+
+	$('.contenidosPages').fadeIn('slow');
+	$('#cargandoIcono').fadeOut('slow');
+	cargandopage=true;
+	status = "incomplete";
+	});
 
 
 
    if(page ==2){
-            dataLayer.push({'pagina': '2- Que es y para que sirve la Hoja de vida', 'event': 'click pagina anterior'});
+         dataLayer.push({'pagina': '2- Que es y para que sirve la Hoja de vida', 'event': 'Clic-anterior-pantalla'});
          }
 
         if(page ==3){
-        dataLayer.push({'pagina': '3- Como diligenciar tu hoja de vida', 'event': 'click pagina anterior'});
+        dataLayer.push({'pagina': '3-Como diligenciar tu hoja de vida', 'event': 'Clic-anterior-pantalla'});
         }
 
         if(page ==4){
-        dataLayer.push({'pagina': '4- Actividad  hoja de vida', 'event': 'click pagina anterior'});
+        dataLayer.push({'pagina': '4-Actividad-hoja-de-vida', 'event': 'Clic-anterior-pantalla'});
         }
 
         if(page ==5){
-        dataLayer.push({'pagina': '5-Actividad  hoja de vida', 'event': 'click pagina anterior'});
+        dataLayer.push({'pagina': '5-Actividad-hoja-de-vida', 'event': 'Clic-anterior-pantalla'});
         }
 
 
         if(page ==maxPages){
-        dataLayer.push({'pagina': '6- Tips-Hoja de vida -insignia', 'event': 'click pagina anterior'});
+        dataLayer.push({'pagina': '6-Tips-Hoja de vida -insignia', 'event': 'Clic-anterior-pantalla'});
         }
 
 

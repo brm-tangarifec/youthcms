@@ -97,7 +97,7 @@ $(document).ready(function() {
 
 });
  
-dataLayer.push({'pagina': '1 - Visualizanto tu futuro', 'event': 'Inicio del curso-Video'});
+dataLayer.push({'pagina': '1 - Visualizanto tu futuro', 'event': 'Clic-siguiente-pantalla'});
 }
 
 function cargarSIG(){
@@ -106,7 +106,7 @@ function cargarSIG(){
         status = "completed";
         scoreRaw = 100;
         avance=7;
-        dataLayer.push({'pagina': '6 - Ya sabes para donde vas', 'event': 'Fin del curso'});
+        dataLayer.push({'pagina': '6 - Ya sabes para donde vas', 'event': 'pantalla-final'});
     }   
     $('#cargandoIcono').fadeIn('slow');
 
@@ -137,24 +137,24 @@ function cargarSIG(){
   
     }
 
-        if(page ==2){
-            dataLayer.push({'pagina': '2-Importancia de elaborar un proyecto de vida', 'event': 'click pagina siguiente'});
+        if(page == 2){
+            dataLayer.push({'pagina': '2-Importancia de elaborar un proyecto de vida', 'event': 'Clic-siguiente-pantalla'});
          }
 
-        if(page ==3){
-        dataLayer.push({'pagina': '3-​¿Qué limita mi desarrollo?', 'event': 'click pagina siguiente'});
+        if(page == 3){
+        dataLayer.push({'pagina': '3-​¿Qué limita mi desarrollo?', 'event': 'Clic-siguiente-pantalla'});
         }
 
-        if(page ==4){
-        dataLayer.push({'pagina': '4- Manejando mis emociones', 'event': 'click pagina siguiente'});
+        if(page == 4){
+        dataLayer.push({'pagina': '4- Manejando mis emociones', 'event': 'Clic-siguiente-pantalla'});
         }
 
-        if(page ==5){
-        dataLayer.push({'pagina': '5- Sueños o metas?', 'event': 'click pagina siguiente'});
+        if(page == 5){
+        dataLayer.push({'pagina': '5- Sueños o metas?', 'event': 'Clic-siguiente-pantalla'});
         }
 
-        if(page ==maxPages){
-        dataLayer.push({'pagina': '6- Tips-Visualizando tu futuro -insignia', 'event': 'click pagina siguiente'});
+        if(page == maxPages){
+        dataLayer.push({'pagina': '6- Tips-Visualizando tu futuro -insignia', 'event': 'Clic-siguiente-pantalla'});
         }
 
 }
@@ -179,9 +179,6 @@ function cargarPREV(){
         url=String('/cursos/proyectovida/page'+page+'/');
         $('.contenidosPages').html(' ');
 
-
-
-
             $( ".contenidosPages" ).load( url, function() {
             
             $('.contenidosPages').fadeIn('slow');
@@ -192,27 +189,27 @@ function cargarPREV(){
 
 
         if(page ==1){
-        dataLayer.push({'pagina': '1 - Visualizanto tu futuro', 'event': 'Inicio del curso-Video'});
+        dataLayer.push({'pagina': '1 - Visualizanto tu futuro', 'event': 'Clic-anterior-pantalla'});
         }
 
        if(page ==2){
-            dataLayer.push({'pagina': '2-Importancia de elaborar un proyecto de vida', 'event': 'click pagina anterior'});
+            dataLayer.push({'pagina': '2-Importancia de elaborar un proyecto de vida', 'event': 'Clic-anterior-pantalla'});
          }
 
         if(page ==3){
-        dataLayer.push({'pagina': '3-​¿Qué limita mi desarrollo?', 'event': 'click pagina anterior'});
+        dataLayer.push({'pagina': '3-​¿Qué limita mi desarrollo?', 'event': 'Clic-anterior-pantalla'});
         }
 
         if(page ==4){
-        dataLayer.push({'pagina': '4- Manejando mis emociones', 'event': 'click pagina anterior'});
+        dataLayer.push({'pagina': '4- Manejando mis emociones', 'event': 'Clic-anterior-pantalla'});
         }
 
         if(page ==5){
-        dataLayer.push({'pagina': '5- Sueños o metas?', 'event': 'click pagina anterior'});
+        dataLayer.push({'pagina': '5- Sueños o metas?', 'event': 'Clic-anterior-pantalla'});
         }
 
         if(page ==maxPages){
-        dataLayer.push({'pagina': '6- Tips-Visualizando tu futuro -insignia', 'event': 'click pagina anterior'});
+        dataLayer.push({'pagina': '6- Tips-Visualizando tu futuro -insignia', 'event': 'pantalla-final'});
         }
 
 

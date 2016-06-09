@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-04-14 15:02:16
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-05-17 16:56:29
          compiled from "..\views\base\header.html" */ ?>
 <?php /*%%SmartyHeaderCode:1906956e328c94ecfb3-54260364%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'de1312a86d0f1d495fa24e1996cb551bfc917dfb' => 
     array (
       0 => '..\\views\\base\\header.html',
-      1 => 1460664017,
+      1 => 1463435830,
       2 => 'file',
     ),
   ),
@@ -100,7 +100,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.goog
               <!--Contraseña-->
               <div class="form-group">
                 <label for="loginPassword">Contraseña: </label>
-                <input type="text" id="loginPassword" name="loginPassword" class="form-control">
+                <input type="password" id="loginPassword" name="loginPassword" class="form-control">
               </div>
               <input type="hidden" class="form-control" value="" id="idRs" name="idRs">
               <!--Recordarme-->

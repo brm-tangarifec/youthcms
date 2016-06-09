@@ -100,7 +100,7 @@ $(document).ready(function() {
 
 });
  
-dataLayer.push({'pagina': '1 - Tu Itinerario- Recomendaciones', 'event': 'Inicio del curso'});
+dataLayer.push({'pagina': '1 - Tu Itinerario- Recomendaciones', 'event': 'Clic-siguiente-pantalla'});
 }
 
 function cargarSIG(){
@@ -109,7 +109,7 @@ function cargarSIG(){
         status = "completed";
         scoreRaw = 100;
         avance=7;
-        dataLayer.push({'pagina': '7 - Tu Itinerario-Insignia Oferta y demanda ', 'event': 'Fin del curso'});
+        dataLayer.push({'pagina': '7 - Tu Itinerario-Insignia Oferta y demanda ', 'event': 'pantalla-final'});
     }   
     $('#cargandoIcono').fadeIn('slow');
 
@@ -140,27 +140,27 @@ function cargarSIG(){
       }
 
         if(page ==2){
-            dataLayer.push({'pagina': '2- Tu Itinerario Oferta y demanda', 'event': 'click pagina siguiente'});
+            dataLayer.push({'pagina': '2- Tu Itinerario Oferta y demanda', 'event': 'Clic-siguiente-pantalla'});
          }
 
         if(page ==3){
-        dataLayer.push({'pagina': '3- Tu Itinerario  Clasificaciones de las empresas', 'event': 'click pagina siguiente'});
+        dataLayer.push({'pagina': '3- Tu Itinerario  Clasificaciones de las empresas', 'event': 'Clic-siguiente-pantalla'});
         }
 
         if(page ==4){
-        dataLayer.push({'pagina': '4- Tu Itinerario  Areas de una compañía', 'event': 'click pagina siguiente'});
+        dataLayer.push({'pagina': '4- Tu Itinerario  Areas de una compañía', 'event': 'Clic-siguiente-pantalla'});
         }
 
         if(page ==5){
-        dataLayer.push({'pagina': '5- Tu Itinerario  Crecimiento dentro de la empresa', 'event': 'click pagina siguiente'});
+        dataLayer.push({'pagina': '5- Tu Itinerario  Crecimiento dentro de la empresa', 'event': 'Clic-siguiente-pantalla'});
         }
 
         if(page ==6){
-        dataLayer.push({'pagina': '6- Tu Itinerario  Actividad', 'event': 'click pagina siguiente'});
+        dataLayer.push({'pagina': '6- Tu Itinerario  Actividad', 'event': 'Clic-siguiente-pantalla'});
         }
 
         if(page ==maxPages){
-        dataLayer.push({'pagina': '7- Tu Itinerario  Tips-Oferta Laboral-insignia', 'event': 'click pagina siguiente'});
+        dataLayer.push({'pagina': '7- Tu Itinerario  Tips-Oferta Laboral-insignia', 'event': 'pantalla-final'});
         }
 
 }
@@ -202,32 +202,32 @@ function cargarPREV(){
 
 
  if(page ==1){
-dataLayer.push({'pagina': '1 - Tu Itinerario- Recomendaciones', 'event': 'Inicio del curso'});
+dataLayer.push({'pagina': '1 - Tu Itinerario- Recomendaciones', 'Clic-anterior-pantalla'});
 }
 
 
  if(page ==2){
-            dataLayer.push({'pagina': '2- Tu Itinerario Oferta y demanda', 'event': 'click pagina anterior'});
+            dataLayer.push({'pagina': '2- Tu Itinerario Oferta y demanda', 'event': 'Clic-anterior-pantalla'});
          }
 
         if(page ==3){
-        dataLayer.push({'pagina': '3- Tu Itinerario  Clasificaciones de las empresas', 'event': 'click pagina anterior'});
+        dataLayer.push({'pagina': '3- Tu Itinerario  Clasificaciones de las empresas', 'event': 'Clic-anterior-pantalla'});
         }
 
         if(page ==4){
-        dataLayer.push({'pagina': '4- Tu Itinerario  Areas de una compañía', 'event': 'click pagina anterior'});
+        dataLayer.push({'pagina': '4- Tu Itinerario  Areas de una compañía', 'event': 'Clic-anterior-pantalla'});
         }
 
         if(page ==5){
-        dataLayer.push({'pagina': '5- Tu Itinerario  Crecimiento dentro de la empresa', 'event': 'click pagina anterior'});
+        dataLayer.push({'pagina': '5- Tu Itinerario  Crecimiento dentro de la empresa', 'event': 'Clic-anterior-pantalla'});
         }
 
         if(page ==6){
-        dataLayer.push({'pagina': '6- Tu Itinerario  Actividad', 'event': 'click pagina anterior'});
+        dataLayer.push({'pagina': '6- Tu Itinerario  Actividad', 'event': 'Clic-anterior-pantalla'});
         }
 
         if(page ==maxPages){
-        dataLayer.push({'pagina': '7- Tu Itinerario  Tips-Oferta Laboral-insignia', 'event': 'click pagina anterior'});
+        dataLayer.push({'pagina': '7- Tu Itinerario  Tips-Oferta Laboral-insignia', 'event': 'Clic-anterior-pantalla'});
         }
 
 

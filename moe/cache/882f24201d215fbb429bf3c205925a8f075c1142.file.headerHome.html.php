@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-04-14 17:56:45
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-05-16 16:57:26
          compiled from "..\views\base\headerHome.html" */ ?>
 <?php /*%%SmartyHeaderCode:473556e32011ec5f93-31173761%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '882f24201d215fbb429bf3c205925a8f075c1142' => 
     array (
       0 => '..\\views\\base\\headerHome.html',
-      1 => 1460663993,
+      1 => 1463435840,
       2 => 'file',
     ),
   ),
@@ -38,7 +38,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
- <link rel="stylesheet" href="/css/youth.min.css?132543">
+ <link rel="stylesheet" href="/css/youth.min.css?1325123">
   <!--font-->
   <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet" type="text/css"><!--[if lt IE]>
   <?php echo '<script'; ?>
@@ -345,13 +345,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.goog
         </div>
         <div class="col-lg-12">
           <p>
-            El desempleo juvenil es un problema que impacta a millones de familias en el mundo. Colombia no es ajena a esta problemática, la cifra  de desempleo juvenil supera el 16% de la población. <strong>La Iniciativa
-            por los Jóvenes Nestlé&reg;</strong> busca ser parte de la solución promoviendo el empleo juvenil en Colombia a través de cuatro pilares:<strong> Orientación, Entrenamiento, Empleabilidad, y Más Oportunidades</strong> con aliados. 
+            La Iniciativa por los Jóvenes Nestlé busca promover el empleo juvenil en Colombia a través de cuatro pilares: <strong>Orientación, Entrenamiento, Empleabilidad, y Más Oportunidades con aliados.</strong>
             
           </p>
           <p>
-            <strong>Durante los próximos tres años,</strong> Nestlé&reg; creará 500 empleos directos, entrenará a 2100 jóvenes a través de programas de formación, orientará y acompañará a más de 97.000 jóvenes en la búsqueda de su primer empleo con módulos de e-learning y promoverá la creación de otros
-            500 empleos en su cadena de valor.  
+          <strong> Durante los próximos tres años, Nestlé&reg;</strong> creará 500 empleos directos, entrenará a 2100 jóvenes, orientará y acompañará a más de 97.000 jóvenes en la búsqueda de su primer empleo con módulos de e-learning y promoverá la creación de 500 empleos en su cadena de valor.  
             
           </p>
         </div>
@@ -392,7 +390,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.goog
               <!--Contraseña-->
               <div class="form-group">
                 <label for="loginPassword">Contraseña: </label>
-                <input type="text" id="loginPassword" name="loginPassword" class="form-control">
+                <input type="password" id="loginPassword" name="loginPassword" class="form-control">
               </div>
               <input type="hidden" class="form-control" value="" id="idRs" name="idRs">
               <!--Recordarme-->

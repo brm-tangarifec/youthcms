@@ -83,63 +83,93 @@ $(document).ready(function () {
 	jQuery(document).on('click','#registroUser',function(){
 		//console.log('hola, me dieron click');
 
-	    if(jQuery('#registro').valid()) {
-	    	var urlR='/registroYouth/',
-	    		rs=jQuery('#idRs').attr('data'),
-	    		idrs=jQuery('#idRs').val(),
-	    		imgPf=jQuery('.img-perfil img').attr('src'),
-	    		nombreJ=jQuery('#nombres').val(),
-	    		apellidoJ=jQuery('#apellidos').val(),
-	    		celularJ=jQuery('#celular').val(),
-	    		direccionJ=jQuery('#direccion').val(),
-	    		emailJ=jQuery('#email').val(),
-	    		deptoJ=jQuery('#departamento').val(),
-				ciudadJ=jQuery('#ciudad').val(),
-	    		tipoJ=jQuery('#tipo').val(),
-	    		generoJ=jQuery('#genero').val(),
-	    		documentoJ=jQuery('#documento').val(),
-	    		nacimientoJ=jQuery('#nacimiento').val(),
-	    		passwordJ=jQuery('#password').val(),
-	    		confirmPassJ=jQuery('#confirmPass').val(),
-	    		terminosJ=jQuery('#terminos').val();
-	    		
-	    	jQuery.ajax({
-	    		url: urlR,
-				dataType:'json' ,
-				type: 'POST',
-				data:{
-					idRs: idrs,
-					rs:rs,
-					imgPer: imgPf,
-    				nombres: nombreJ,
-    				apellidos: apellidoJ,
-    				celular: celularJ,
-    				direccion:direccionJ,
-    				email: emailJ,
-    				tipo:tipoJ,
-    				genero:generoJ,
-    				documento: documentoJ,
-    				nacimiento: nacimientoJ,
-    				depto: deptoJ,
-    				ciudad: ciudadJ,
-    				password: passwordJ,
-    				confirmPass: confirmPassJ,
-    				terminos: terminosJ
-				},
-				success: function (data){
-					//console.log(data);
-					 window.location= "/perfil/#exitoso";
-					 jQuery('.mensaje-reg-exitoso').html(data);
-					
-				}, 
-				error: function(result) {
-                    jQuery('.mensaje-reg-exitoso').html(result);
-                }
-	    	});
-	    	return false;
-	    }else{
-	    	return false;
-	    }
+	    /*Valida captcha*/
+	    var recaptchaResponse = grecaptcha.getResponse();
+
+		jQuery.ajax({
+		      type: "POST", //Método a usar
+		      url: "/comprobarcaptcha/", //Url del archivo
+		      data: {recaptchaResponse: recaptchaResponse},
+		        /*data: son los valores que le mandamos a 'comprobar.php' por
+		        el método POST*/
+		      dataType: "html", //el tipo de dato que se espera recibir
+		      error: function(){
+		            console.log("error petición ajax");
+		        //muestra una alerta si no se realiza la petición
+		      },
+		      success: function(data){ 
+		            //console.log(data);
+		            var captcha=data;
+		        /*devuelve el resultado de la petición en la variable  
+		        'data' y lo muestra en una alerta*/
+		        if(captcha=='NA'){
+		        	 jQuery('.mensaje-reg-exitoso').html('<p>El captcha es requerido</p>');
+		        }else if(captcha=='Error'){
+		        	jQuery('.mensaje-reg-exitoso').html('<p>El captcha no es válido</p>');
+		        }
+
+	    		else if(jQuery('#registro').valid() && captcha=='validado') {
+	    			var urlR='/registroYouth/',
+	    				rs=jQuery('#idRs').attr('data'),
+	    				idrs=jQuery('#idRs').val(),
+	    				imgPf=jQuery('.img-perfil img').attr('src'),
+	    				nombreJ=jQuery('#nombres').val(),
+	    				apellidoJ=jQuery('#apellidos').val(),
+	    				celularJ=jQuery('#celular').val(),
+	    				direccionJ=jQuery('#direccion').val(),
+	    				emailJ=jQuery('#email').val(),
+	    				deptoJ=jQuery('#departamento').val(),
+						ciudadJ=jQuery('#ciudad').val(),
+	    				tipoJ=jQuery('#tipo').val(),
+	    				generoJ=jQuery('#genero').val(),
+	    				documentoJ=jQuery('#documento').val(),
+	    				nacimientoJ=jQuery('#nacimiento').val(),
+	    				passwordJ=jQuery('#password').val(),
+	    				confirmPassJ=jQuery('#confirmPass').val(),
+	    				terminosJ=jQuery('#terminos').val();
+	    				
+	    			jQuery.ajax({
+	    				url: urlR,
+						dataType:'json' ,
+						type: 'POST',
+						data:{
+							idRs: idrs,
+							rs:rs,
+							imgPer: imgPf,
+    						nombres: nombreJ,
+    						apellidos: apellidoJ,
+    						celular: celularJ,
+    						direccion:direccionJ,
+    						email: emailJ,
+    						tipo:tipoJ,
+    						genero:generoJ,
+    						documento: documentoJ,
+    						nacimiento: nacimientoJ,
+    						depto: deptoJ,
+    						ciudad: ciudadJ,
+    						password: passwordJ,
+    						confirmPass: confirmPassJ,
+    						terminos: terminosJ
+						},
+						success: function (data){
+							console.log(data);
+							 //window.location= "/perfil/#exitoso";
+							 //jQuery('.mensaje-reg-exitoso').html(data);
+							
+						}, 
+						error: function(result) {
+           	        	 jQuery('.mensaje-reg-exitoso').html(result);
+           	    		 }
+	    			});
+	    			return false;
+	   		 	}else{
+	    			return false;
+	   		 	}
+
+	   		 /*F success*/
+	   		}
+	    /*F captcha*/
+	    });
 	});
 
 
