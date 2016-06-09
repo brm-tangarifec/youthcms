@@ -1,6 +1,6 @@
 <?php
 
-class Seccion {
+class CmsSeccion {
 
 	function listaSecciones(){
 

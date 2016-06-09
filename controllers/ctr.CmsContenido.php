@@ -1,6 +1,6 @@
 <?php
 
-class Contenido {
+class CmsContenido {
 
 	/*Hace display a la creación de contenido*/
 	function creaContenido($idSeccion){

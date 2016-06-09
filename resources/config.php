@@ -12,7 +12,7 @@ Moe::config(array(
 	/* Configuración base de datos */
 	'DATABASE' =>array(
 		'SERVER' => '127.0.0.1',
-		'DBNAME' => 'lataberna',
+		'DBNAME' => 'youth',
 		'USER' => 'root',
 		'PASSWORD' => '1nt3r4ct1v3'
 		)

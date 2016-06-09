@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-04-13 10:46:41
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-06-09 11:47:17
          compiled from "..\views\base\header-404.html" */ ?>
 <?php /*%%SmartyHeaderCode:28319570e69e1897837-48927139%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e00998ffba842b365c2de68195cac1235f960f03' => 
     array (
       0 => '..\\views\\base\\header-404.html',
-      1 => 1460559431,
+      1 => 1465488537,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_570e69e18aef36_18823038',
   'variables' => 
   array (
     'titulo' => 0,
@@ -22,8 +24,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'loggueado' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_570e69e18aef36_18823038',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_570e69e18aef36_18823038')) {function content_570e69e18aef36_18823038($_smarty_tpl) {?><!DOCTYPE html><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="es-CO"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="es-CO"> <![endif]-->
