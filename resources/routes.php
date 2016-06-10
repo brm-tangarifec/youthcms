@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors',0);
+ini_set('display_errors',1);
 $rutaArray=array();
 
 
@@ -80,14 +80,14 @@ $rutaArray["reporte-iniciativa-jovenes/"]="Contenido@descargaReporte";
 $rutaArray["valdiadescarga/"]="Contenido@validaIngresoDescarga";
 
 /*Urls del administador*/
-$rutaArray['admSecciones'] = "Seccion@listaSecciones";
-$rutaArray['admEditSecciones'] = "Seccion@editaSecciones";
-$rutaArray['agrSecciones'] = "Seccion@agregarSeccion";
-$rutaArray['grdSecciones'] = "Seccion@grdSeccion";
-$rutaArray['agrContenido'] = "Contenido@creaContenido";
-$rutaArray['grdContenido'] = "Contenido@grdContenido";
-$rutaArray['agrMultimedia'] = "Contenido@creaMultimedia";
-$rutaArray['grdMultmedia'] = "Contenido@grdMultmedia";
+$rutaArray['admSecciones/'] = "CmsSeccion@listaSecciones";
+$rutaArray['admEditSecciones/'] = "CmsSeccion@editaSecciones";
+$rutaArray['agrSecciones/'] = "CmsSeccion@agregarSeccion";
+$rutaArray['grdSecciones/'] = "CmsSeccion@grdSeccion";
+$rutaArray['agrContenido/'] = "CmsContenido@creaContenido";
+$rutaArray['grdContenido/'] = "CmsContenido@grdContenido";
+$rutaArray['agrMultimedia/'] = "CmsContenido@creaMultimedia";
+$rutaArray['grdMultmedia/'] = "CmsContenido@grdMultmedia";
 
 
 /*Cargado de rutas*/
