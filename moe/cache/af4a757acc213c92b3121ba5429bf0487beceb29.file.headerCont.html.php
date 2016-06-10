@@ -1,4 +1,25 @@
-<!DOCTYPE html>
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-06-10 18:04:41
+         compiled from "..\views\taberna\headerCont.html" */ ?>
+<?php /*%%SmartyHeaderCode:5588575b47598b6429-80722472%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'af4a757acc213c92b3121ba5429bf0487beceb29' => 
+    array (
+      0 => '..\\views\\taberna\\headerCont.html',
+      1 => 1465599880,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '5588575b47598b6429-80722472',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_575b47598c5e25_57658784',
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_575b47598c5e25_57658784')) {function content_575b47598c5e25_57658784($_smarty_tpl) {?><!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -21,19 +42,37 @@
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+          <?php echo '<script'; ?>
+ src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"><?php echo '</script'; ?>
+>
+          <?php echo '<script'; ?>
+ src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"><?php echo '</script'; ?>
+>
         <![endif]--><!-- jQuery 2.0.2 -->
-        <script src="/js/libs.youth.min.js" type="text/javascript"></script>
+        <?php echo '<script'; ?>
+ src="/js/libs.youth.min.js" type="text/javascript"><?php echo '</script'; ?>
+>
 
         <!-- Bootstrap ->
-        <script src="/js/bootstrap.min.js" type="text/javascript"></script>
+        <?php echo '<script'; ?>
+ src="/js/bootstrap.min.js" type="text/javascript"><?php echo '</script'; ?>
+>
         <!--Editor js-->
-        <script type="text/javascript" src="/js/raptor/jquery-ui.js"></script>
-        <script type="text/javascript" src="/js/raptor/raptor.min.js"></script>
-        <script type="text/javascript" src="/js/raptor/jquery.base64.js"></script>
-        <script type="text/javascript" src="/js/contenido.js"></script>
-        <script type="text/javascript" src="/js/taberna/multimedia.js"></script>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="/js/raptor/jquery-ui.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="/js/raptor/raptor.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="/js/raptor/jquery.base64.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="/js/contenido.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="/js/taberna/multimedia.js"><?php echo '</script'; ?>
+>
         <!--FIn editor-->
         <!-- Taberna -->
     </head>
@@ -249,4 +288,4 @@
                     </ul>
                 </div>
             </nav>
-        </header>
+        </header><?php }} ?>

@@ -80,15 +80,14 @@ $rutaArray["reporte-iniciativa-jovenes/"]="Contenido@descargaReporte";
 $rutaArray["valdiadescarga/"]="Contenido@validaIngresoDescarga";
 
 /*Urls del administador*/
-$rutaArray['admSecciones/'] = "CmsSeccion@listaSecciones";
-$rutaArray['admEditSecciones/'] = "CmsSeccion@editaSecciones";
-$rutaArray['agrSecciones/'] = "CmsSeccion@agregarSeccion";
-$rutaArray['grdSecciones/'] = "CmsSeccion@grdSeccion";
-$rutaArray['agrContenido/'] = "CmsContenido@creaContenido";
-$rutaArray['grdContenido/'] = "CmsContenido@grdContenido";
-$rutaArray['agrMultimedia/'] = "CmsContenido@creaMultimedia";
-$rutaArray['grdMultmedia/'] = "CmsContenido@grdMultmedia";
-
+$rutaArray['youth/admSecciones/'] = "CmsSeccion@listaSecciones";
+$rutaArray['youth/admEditSecciones/'] = "CmsSeccion@editaSecciones";
+$rutaArray['youth/agrSecciones/'] = "CmsSeccion@agregarSeccion";
+$rutaArray['youth/grdSecciones/'] = "CmsSeccion@grdSeccion";
+$rutaArray['youth/agrContenido/'] = "CmsContenido@creaContenido";
+$rutaArray['youth/grdContenido/'] = "CmsContenido@grdContenido";
+$rutaArray['youth/agrMultimedia/'] = "CmsContenido@creaMultimedia";
+$rutaArray['youth/grdMultmedia/'] = "CmsContenido@grdMultmedia";
 
 /*Cargado de rutas*/
  Moe::routes($rutaArray);
