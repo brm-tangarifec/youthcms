@@ -58,8 +58,8 @@ class MyQuerys
 	}
 
 	function traeImagenes($directorio){
-		$base='youth/public/';
-		$displaImg="/youth/images/";
+		$base='/public/';
+		$displaImg="/images/";
 		$directorio=$_SERVER['DOCUMENT_ROOT'].$base.$directorio;
 			$directorio = opendir($directorio); //ruta actual
 			$imagenes=array();
