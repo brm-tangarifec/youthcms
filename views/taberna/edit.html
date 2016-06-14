@@ -1,0 +1,68 @@
+    <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
+<!-- </div> -->
+
+    <div class="box-tools m-b-15">
+        <div class="input-group">
+            <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
+            <div class="input-group-btn">
+                <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+</div>
+    <table class="table table-hover">
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>PADRE</th>
+            <th>PUBLICA</th>
+            <th>MASCARA URL</th>
+            <th>TITULO SEO</th>
+            <th>DESCRIPCIÓN SEO</th>
+            <th>FECHA INICIO</th>
+            <th>FECHA FIN</th>
+        </tr>
+       {#foreach from=$seccion item=edita#}
+            <td>
+              <input class='' name="idSec" id="idSec" disabled="disabled" value="{#$edita->id#}" size='1'/>
+            </td>
+            <td>
+              <input class='' name="nombSec" id="nombSec" value="{#$edita->nombre#}"/>
+            </td>
+            <td>
+              <select><option value="{#$edita->idPadre[0]->id#}">{#$edita->idPadre[0]->nombre#}</option></select>
+            </td>
+            <td>
+              {#if $edita->produccionVisible=='S'#} 
+                <label>Si</label>
+                <input type="radio" name="visoble{#$edita->id#}" checked="checked" value="S" >
+                <label>No</label>
+                <input type="radio" name="visoble{#$edita->id#}" value="N" >
+              {#else#}
+                <label>Si</label>
+                <input type="radio" name="visoble{#$edita->id#}"  value="S" >
+                <label>No</label>
+                <input type="radio" name="visoble{#$edita->id#}" checked="checked" value="N" >
+              {#/if#}
+            </td>
+            <td>
+              <input class='' name="mascUrl" id="mascUrl" value="{#$edita->mascaraUrl#}"/>
+            </td>
+            <td>
+              <input type="text" class="" name="titleSeo" id="titleSeo" value="{#$edita->tituloSeo#}"/>
+            </td>
+            <td>
+              <input type="text" class="" name="descSeo" id="descSeo" value="{#$edita->descripcionSeo#}"/>
+            </td>
+            <td>
+              <input type="date" name="fechaIni" id="fechaIni" value="{#$edita->fechaInicio#}"/>
+            </td>
+            <td>
+              <input type="date" name="fechaIni" id="fechaIni" value="{#$edita->fechaFin#}"/>
+            </td>
+           
+            <td><span class="glyphicon glyphicon-ok" data-seccion="{#$edita->id#}"></span></td>
+        </tr>
+        {#/foreach#}
+          </table>
+<!-- /.box-body -->
+    

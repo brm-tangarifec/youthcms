@@ -1,4 +1,5 @@
-<?php  
+<?php 
+
 Moe::config(array(
 	// Activa el debug nativo de php, niveles desde 0 hasta 2
 	'DEBUG_PHP' =>0,
