@@ -351,4 +351,101 @@ class CmsContenido {
 		//printVar($internaD);
 		view()->display($templateInterna);
 	}
+
+	function perfil(){
+		$res = model('latabernaPerfiles');
+		$res1 = model('latabernaPermisos');
+		$res2 = model('latabernaPermisoXTipo');
+		$varPost = filter_input_array(INPUT_POST);
+		if($varPost != NULL){			
+			//Guardar en la tabla Permisos
+			$res->descripcion = $varPost['perfil'];
+			$res->tipo = $varPost['perfil'];
+			$guardaUsu=$res->setInstancia();
+
+			//Guardar en tipo x permiso
+			foreach ($varPost['permisos'] as $key => $value) {
+				$res2->idTipo = $guardaUsu;
+				$res2->idPermiso = $value;
+				$guardaPermi=$res2->setInstancia();
+			}		
+		}
+
+		$daras = $res->getData();
+		$dataPermisos = $res1->getData();
+		view()->assign("list",$daras);
+		view()->assign("permisos",$dataPermisos);
+		view()->display("taberna/addPerfiles.html");
+	}
+
+	function logUser(){
+		$varPost = filter_input_array(INPUT_POST);
+		if($varPost != NULL){
+
+			$users = model("latabernaUser");
+			$confTi=array(
+				"conditions" => 'username = "'.$varPost['user'].'"',
+				"fields" => array('id','username','idPerfil'),
+			);
+			$dara = $users->getData($confTi);
+
+			if(isset($dara[0])){ // Si existe el dato post, se manda al template de usuario loggeado, sino vuelve al formulario
+				
+				/* armo el array con todas las opciones a mostrar en el template*/
+				$confi = array();
+				$confi['username'] = $dara[0]['username'];
+				
+				$res = model('latabernaPerfiles');
+				$config = array(
+					"conditions" => 'id = '.$dara[0]['idPerfil'],
+					"fields" => array('tipo'),
+				);
+				$daras = $res->getData($config);
+				$confi['perfil'] = $daras[0]['tipo'];
+				$confi['idPerfil'] = $dara[0]['idPerfil'];
+				$confi['items'] = array('item1' => 'item1', 'item2' => 'item2');
+
+				/* Paso el array y pinto con el template */
+				view()->assign("confi",$confi);
+				view()->display("taberna/logUserAdminTrue.html");
+
+			}else{
+				view()->display("taberna/logUserAdmin.html");
+			}
+		}else{
+			view()->display("taberna/logUserAdmin.html");
+		}
+		
+	}
+
+	function user(){
+		$res = model('latabernaUser');
+		$guardaUsu=$res->getData();
+		view()->assign("confi",$guardaUsu);
+		view()->display("taberna/addUser.html");
+	}
+
+	function addUser(){
+		$varPost = filter_input_array(INPUT_POST);
+		if($varPost != NULL){
+			$user = model("latabernaUser");
+			$con = array(
+				"conditions" => 'username = "'.$varPost['perfil'].'"',
+			);
+			$resul = $user->getData($con);
+			if(isset($resul[0]['username'])){
+				view()->assign("mensaje","Error, el nombre de usuario ya esta siento utilizado");
+			}else{
+				$user->username = $varPost['perfil'];
+				$user->idPerfil = $varPost['permisos'];
+				$guardaPermi=$user->setInstancia();
+				view()->assign("mensaje","Usuario creado exitosamente");
+			}
+		}
+		$res = model('latabernaPerfiles');
+		$guardaUsu=$res->getData();
+		view()->assign("confi",$guardaUsu);
+		view()->display("taberna/addUser2.html");
+	}
+
 }

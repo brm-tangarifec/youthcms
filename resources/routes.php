@@ -89,6 +89,12 @@ $rutaArray['youth/grdContenido/'] = "CmsContenido@grdContenido";
 $rutaArray['youth/agrMultimedia/'] = "CmsContenido@creaMultimedia";
 $rutaArray['youth/grdMultmedia/'] = "CmsContenido@grdMultmedia";
 
+/* Urls del administrador Haspe */
+$rutaArray['youth/logUser/'] = "CmsContenido@logUser";
+$rutaArray['youth/logUser/perfil/'] = "CmsContenido@perfil";
+$rutaArray['youth/logUser/user/'] = "CmsContenido@user";
+$rutaArray['youth/logUser/user/add/'] = "CmsContenido@addUser";
+
 /*Cargado de rutas*/
  Moe::routes($rutaArray);
 /*Moe::routes(array(

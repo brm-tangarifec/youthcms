@@ -1,0 +1,27 @@
+<ul>
+	{#foreach key=key from=$list item=value#}
+		<li>
+			<span >{#$value["descripcion"]#}</span>
+		</li>
+	{#/foreach#}
+</ul>
+
+<html>
+   <head>
+      <title>Creacion de perfiles</title>
+   </head>
+   <body>
+      <form action="/youth/logUser/perfil/" method="post">
+        <input type="text" name="perfil" /> <br />
+        <select multiple value="" id="permisos[]" name="permisos[]">
+        	<option value="">-Ninguna-</option>
+       		{#foreach key=key from=$permisos item=value#}
+				<option value={#$value["id"]#}>
+					{#$value["permiso"]#}
+				</option>
+			{#/foreach#}
+		</select>
+        <input type="submit" value='Entrar'>
+      </form>
+   </body>
+</html>

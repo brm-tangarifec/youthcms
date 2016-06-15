@@ -1,0 +1,22 @@
+<html>
+   <head>
+      <title>Creacion de Usuarios</title>
+   </head>
+   <body>
+      {#if $mensaje !== NULL#}
+        <div>{#$mensaje#}</div>
+      {#/if#}
+      <form action="/youth/logUser/user/add/" method="post">
+        <input type="text" name="perfil" /> <br />
+        <select value="" id="permisos" name="permisos">
+        	<option value="">-Ninguna-</option>
+       		{#foreach key=key from=$confi item=value#}
+				<option value={#$value["id"]#}>
+					{#$value["descripcion"]#}
+				</option>
+			{#/foreach#}
+		</select>
+        <input type="submit" value='Guardar'>
+      </form>
+   </body>
+</html>

@@ -1,0 +1,19 @@
+{#include  file="taberna/headerCont.html"#}
+<!--Llamado de smarty-->
+{#$myvar#}
+<html>
+   <head>
+      <title>Autenticacion de Usuarios</title>
+   </head>
+   <body>
+      <form action="/youth/logUser/" method="post">
+        <input type="text" name="user" /> <br />
+        <input type="password" name="pass" /> <br />
+        <input type="submit" value='Entrar'>
+      </form>
+   </body>
+</html>
+
+       
+
+{#include  file="taberna/footer.html"#}

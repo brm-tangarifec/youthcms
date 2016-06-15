@@ -1,0 +1,12 @@
+<div><a href="/youth/logUser/user/add/">Añadir Usuario</a></div><br>
+<table border="1">
+	<tr>
+		<td>Usuario</td>
+		<td>Accion</td>
+	</tr>
+	{#foreach key=key from=$confi item=value#}
+	<tr>
+		<td>{#$value['username']#}</td>
+	</tr>
+{#/foreach#}
+</table>
