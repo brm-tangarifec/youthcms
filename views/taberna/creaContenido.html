@@ -1,7 +1,5 @@
 {#include  file="taberna/headerCont.html"#}
 <!--Editor js-->
-       
-        <!--FIn editor-->
 
         <div class="wrapper row-offcanvas row-offcanvas-left">
                                 <div class="panel-body table-responsive CreaContenido">
@@ -20,12 +18,12 @@
                                         <h2>Creación de Contenido</h2>
                                         <label for="titulo">Titulo</label>
                                         <div class="col-md-12 contenidoEditable titulo-contenido">
-                                            <h1>Ingresa el título</h1>
+                                            <input type="text" name="titulo" id="titulo" value="" class="form-control"/>
                                         </div>
                                         <!--Contenido editable-->
                                         <div class="clear"></div>
                                         <div class="col-md-8 contenidoEditable contenido-texto">
-                                            <p>Haz click sobre el texto para ingresar un contenido</p>
+                                            <textarea class="form-control" id="contenidoNew" name="contenidoNew" style="width: 733px !important;"></textarea>
                                          </div>
                                          <div class="col-md-4">
                                             <span>Visible</span>
@@ -59,15 +57,16 @@
                                 </div><!-- /.box-body -->
 </div>
 <div class="row">
-    
-    <select class="form-control" id="directorios">
-        <option value="">Todas las imagenes</option>
-        {#for $i=0 to $imagenes|count max=$imagenes|count#}
-        <option value="{#$imagenes[$i]#}">{#$imagenes[$i]#}</option>
-        {#/for#}
+   
+   <select class="form-control" id="directorios">
+       <option value="">Todas las imagenes</option>
+       {#for $i=0 to $imagenes|count max=$imagenes|count#}
+       <option value="{#$imagenes[$i]#}">{#$imagenes[$i]#}</option>
+       {#/for#}
 
-    </select>
-    <div class="img col-lg-12 cargaImages"></div>
+   </select>
+   <div class="img col-lg-12 cargaImages"></div>
 </div>
 
+     <script type="text/javascript" src="/js/taberna/contenido.js"></script>
 {#include  file="taberna/footer.html"#}

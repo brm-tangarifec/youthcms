@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-06-10 17:48:34
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-06-15 10:46:51
          compiled from "..\views\taberna\list.html" */ ?>
 <?php /*%%SmartyHeaderCode:24019575b43c27b23a8-39589574%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'aee6b0d4b3bd09ff787ae32ed52fee1ddd9f5ba9' => 
     array (
       0 => '..\\views\\taberna\\list.html',
-      1 => 1456153850,
+      1 => 1456374732,
       2 => 'file',
     ),
   ),
@@ -15,22 +15,23 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_575b43c299e727_60961064',
   'variables' => 
   array (
     'seccions' => 0,
     'seccion' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_575b43c299e727_60961064',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_575b43c299e727_60961064')) {function content_575b43c299e727_60961064($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("taberna/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
 
-        <div class="wrapper row-offcanvas row-offcanvas-left">
+        <section class="container-fluid">
            
             <!-- Right side column. Contains the navbar and content of the page -->
-            <aside class="right-side">
+            <article class="row">
+
 
                 <!-- Main content -->
                 <div class="col-xs-12">
@@ -49,6 +50,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                                             </div>
                                         </div>
                                     </div>
+                                    <div><a href="/youth/agrSecciones/">Crear sección</a></div> 
                                     <table class="table table-hover">
                                         <tr>
                                             <th>ID</th>
@@ -107,7 +109,9 @@ $_smarty_tpl->tpl_vars['seccion']->_loop = true;
                                 </div>
                             </div><!-- /.box -->
                         </div>
-                    </div>
+
+                        
+                </article>
                 </section><!-- /.content -->
                  <?php echo $_smarty_tpl->getSubTemplate ("taberna/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 

@@ -85,6 +85,7 @@ $rutaArray['youth/admEditSecciones/'] = "CmsSeccion@editaSecciones";
 $rutaArray['youth/agrSecciones/'] = "CmsSeccion@agregarSeccion";
 $rutaArray['youth/grdSecciones/'] = "CmsSeccion@grdSeccion";
 $rutaArray['youth/agrContenido/'] = "CmsContenido@creaContenido";
+$rutaArray['youth/adtContenido/'] = "CmsContenido@editContenido";
 $rutaArray['youth/grdContenido/'] = "CmsContenido@grdContenido";
 $rutaArray['youth/agrMultimedia/'] = "CmsContenido@creaMultimedia";
 $rutaArray['youth/grdMultmedia/'] = "CmsContenido@grdMultmedia";

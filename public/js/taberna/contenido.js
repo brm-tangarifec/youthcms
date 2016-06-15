@@ -4,8 +4,9 @@ jQuery(document).ready(function(){
 jQuery(document).on('click','.ui-icon-save',function(){
 		$.base64.utf8encode = true;
 		//console.log('hola, soy un click');
-		var tituloCont= jQuery('.titulo-contenido').text();
+		var tituloContT= jQuery('.titulo-contenido').html();
 		var contenidohtml= jQuery('.contenido-texto').html();
+		var tituloCont=$.base64.btoa(tituloContT);
 		var contenidoTexto=$.base64.btoa(contenidohtml);
 		var fechaInicio= jQuery('#fechaIni').val();
 		var fechaFin= jQuery('#fechaFin').val();
@@ -43,32 +44,10 @@ jQuery(document).on('click','.ui-icon-save',function(){
 	
 
 	});
-
-	
-	jQuery(function($) {
-		$('.contenidoEditable').raptor({
-		"plugins": {
-		    dock: {                  // Dock specific plugin options
-	            docked: true,        // Start the editor already docked
-	            dockToElement: true, // Dock the editor inplace of the element
-	            persist: false,      // Do not save the docked state
-	            unsavedEditWarning: false,
-	        },
-		    classMenu: {
-		        "classes": {
-		            "Blue background": "cms-blue-bg",
-		            "Round corners": "cms-round-corners",
-		            "Indent and center": "cms-indent-center"
-		        }
-		    },
-		}
-		});
-	});
-
 	jQuery('#directorios').change(function(){
 		var lacarpeta=jQuery('#directorios').val(),
 		urlD='/youth/listaImg/';
-		console.log(lacarpeta);
+		//console.log(lacarpeta);
 		jQuery.ajax({
 				url : urlD,
 				type : 'POST',
@@ -78,7 +57,7 @@ jQuery(document).on('click','.ui-icon-save',function(){
 				},
 				datatype : "json",
 				success : function(data) {
-					console.log(data);
+					//console.log(data);
 					jQuery('.cargaImages').html(data);
 					
 				}
@@ -91,6 +70,45 @@ jQuery(document).on('click','.ui-icon-save',function(){
 	jQuery(document).on('mouseover',function () {
  	 $('[data-toggle="popover"]').popover()
 	});
-});
+
+	/*Activar editor de texto en la edición del contenido*/
+	jQuery('.titulo-contenido').on('blur',function(){
+		//jQuery(this).removeClass('activa-titulo');
+		//jQuery(this).addClass('nicEdit-main');
+		var tituloN=jQuery(this).html();
+		console.log(tituloN);
+		//jQuery(this).text('<input type="text" name="titulo" id="titulo" value="'+tituloN+'" class="form-control"/>')
+
+	});
+
+	jQuery('#contenido-editado').click(function(){
+		jQuery('#myNicPanel').show('fade');
+	});
+	jQuery('#contenido-editado').on('blur',function(){
+		jQuery('#myNicPanel').hide('fade');
+	});
 	
-    
+
+	  bkLib.onDomLoaded(function() {
+
+          var myNicEditor = new nicEditor({fullPanel : true});
+          myNicEditor.setPanel('myNicPanel');
+          myNicEditor.addInstance('contenido-editado');
+          fullPanel : true;
+          /*myNicEditor.addInstance('myInstance2');
+          myNicEditor.addInstance('myInstance3');*/
+     });
+});
+
+
+jQuery(document).on('blur','.nicEdit-main',function(){
+	var contenidoG=jQuery(this).html();
+	var textAreg=jQuery(this).parent().next().attr('id');
+	console.log(contenidoG);
+	console.log(textAreg);
+	jQuery('#'+textAreg).text(contenidoG);
+
+});
+
+
+

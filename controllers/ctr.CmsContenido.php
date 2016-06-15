@@ -60,6 +60,7 @@ class CmsContenido {
 			if(isset($traeIdContenido[$i]['idContenido'])){
 
 				$idContenido=$traeIdContenido[$i]['idContenido'];
+				$posicion=$traeIdContenido[$i]['posicion'];
 			}
 		}
 		/*Trae contenido para edición*/
@@ -68,8 +69,12 @@ class CmsContenido {
 			"fields" => array('titulo','contenido','visible','fechaInicio','fechaFin')
 			);
 		$editaContenido=$contenido->getData($buscaEd);
+			$traeImagenes=MyQuerys::listaDir();
+		//printVar($traeImagenes);
+		view()->assign("imagenes",$traeImagenes);
 		/*Fin traida contenido*/
 		view()->assign("contenido",$editaContenido);
+		view()->assign("posicion",$posicion);
 		view()->assign("seccion",$filtraSeccion['idSeccion']);
 		view()->display("taberna/editContenido.html");
 	}
@@ -78,6 +83,9 @@ class CmsContenido {
 		//printVar($idSeccion);
 		$filtraSeccion = filter_input_array(INPUT_POST);
 		$contenido= model('LallamaradaContenido');
+			$traeImagenes=MyQuerys::listaDir();
+		//printVar($traeImagenes);
+		view()->assign("imagenes",$traeImagenes);
 		view()->assign("seccion",$filtraSeccion['idSeccion']);
 		view()->display("taberna/creaMultimedia.html");
 	}
