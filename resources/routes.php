@@ -88,6 +88,7 @@ $rutaArray['youth/agrContenido/'] = "CmsContenido@creaContenido";
 $rutaArray['youth/grdContenido/'] = "CmsContenido@grdContenido";
 $rutaArray['youth/agrMultimedia/'] = "CmsContenido@creaMultimedia";
 $rutaArray['youth/grdMultmedia/'] = "CmsContenido@grdMultmedia";
+$rutaArray['youth/listaImg/']="CmsContenido@imgInterna";
 
 /*Cargado de rutas*/
  Moe::routes($rutaArray);

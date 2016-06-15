@@ -6,8 +6,9 @@ class CmsContenido {
 	function creaContenido($idSeccion){
 		//printVar($idSeccion);
 		$filtraSeccion = filter_input_array(INPUT_POST);
-		$directorio='images/';
-		$traeImagenes=MyQuerys::traeImagenes($directorio);
+		//$directorio='images/';
+		//$traeImagenes=MyQuerys::traeImagenes($directorio);
+		$traeImagenes=MyQuerys::listaDir();
 		//printVar($traeImagenes);
 		view()->assign("imagenes",$traeImagenes);
 		view()->assign("seccion",$filtraSeccion['idSeccion']);
@@ -83,7 +84,7 @@ class CmsContenido {
 
 	function grdMultmedia(){
 		/*Modelos*/
-		debug(1);
+		//debug(1);
 		$newTipoM= model('LallamaradaMultimedia');
 		$newUrl= model('LallamaradaUrl');
 		$newTXU= model('LallamaradaMultXUrl');
@@ -350,5 +351,16 @@ class CmsContenido {
 		view()->assign("idSeccion",$mySeccionId);
 		//printVar($internaD);
 		view()->display($templateInterna);
+	}
+
+	/*Función para traer las imagenes desde la carpeta imagenes*/
+	function imgInterna(){
+		$Frecibido=filter_input_array(INPUT_POST);
+		printVar($Frecibido['carpeta']);
+		$directorio=$Frecibido['carpeta'];
+		$traeImagenes=MyQuerys::traeImagenes($directorio);
+		view()->assign('imgDisponible',$traeImagenes);
+		view()->display('taberna/listaImages.html');
+		//printVar($traeImagenes);
 	}
 }
