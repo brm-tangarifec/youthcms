@@ -58,8 +58,9 @@ class MyQuerys
 	}
 
 	function traeImagenes($directorio){
-		$base='youth/public/';
-		$displaImg="/youth/images/";
+		$base='public/images/';
+		$displaImg=$directorio;
+		printVar($displaImg);
 		$directorio=$_SERVER['DOCUMENT_ROOT'].$base.$directorio;
 			$directorio = opendir($directorio); //ruta actual
 			$imagenes=array();
@@ -67,7 +68,8 @@ class MyQuerys
 			{
 			    if (!is_dir($archivo))//verificamos si es o no un directorio
 			    {   
-			    	$archivo=$displaImg.$archivo;
+			    	$archivo=$displaImg.'/'.$archivo;
+			    	//printvar($archivo);
 			    	array_push($imagenes,$archivo);
 			    	
 			    }
@@ -141,6 +143,32 @@ class MyQuerys
 
 		//Libera el objeto DBO
 	}
+
+	/*Funcion para traer los directorios de las imagenes*/
+	function listaDir(){
+		$base='public/images/';
+		//$displaImg="images/";
+			$path = $_SERVER['DOCUMENT_ROOT'].$base;
+			$dirs = array();
+			// directory handle
+			$dir = dir($path);
+			while (false !== ($entry = $dir->read())) {
+				if ($entry != '.' && $entry != '..') {
+					if (is_dir($path . '/' .$entry)) {
+						//printVar($entry);
+						if($entry!='cursos'){
+							$dirs[] = $entry;
+						}
+					}
+				}
+			}
+			return $dirs;
+
+
+
+
+	}
+	
 	
 }
 

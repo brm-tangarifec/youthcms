@@ -88,6 +88,7 @@ $rutaArray['youth/agrContenido/'] = "CmsContenido@creaContenido";
 $rutaArray['youth/grdContenido/'] = "CmsContenido@grdContenido";
 $rutaArray['youth/agrMultimedia/'] = "CmsContenido@creaMultimedia";
 $rutaArray['youth/grdMultmedia/'] = "CmsContenido@grdMultmedia";
+$rutaArray['youth/listaImg/']="CmsContenido@imgInterna";
 
 /* Urls del administrador Haspe */
 $rutaArray['youth/logUser/'] = "CmsContenido@logUser";

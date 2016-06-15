@@ -12,7 +12,7 @@ jQuery(document).on('click','.ui-icon-save',function(){
 		var visible= jQuery('#visible').val();
 		var posicion= jQuery('#posicion').val();
 		var idSeccion = jQuery('#idSeccion').val();
-		var url="/youth/grdContenido";
+		var url="/youth/grdContenido/";
 		jQuery.ajax({
 				url : url,
 				type : 'POST',
@@ -63,6 +63,33 @@ jQuery(document).on('click','.ui-icon-save',function(){
 		    },
 		}
 		});
+	});
+
+	jQuery('#directorios').change(function(){
+		var lacarpeta=jQuery('#directorios').val(),
+		urlD='/youth/listaImg/';
+		console.log(lacarpeta);
+		jQuery.ajax({
+				url : urlD,
+				type : 'POST',
+				data :
+				{
+				'carpeta':lacarpeta,
+				},
+				datatype : "json",
+				success : function(data) {
+					console.log(data);
+					jQuery('.cargaImages').html(data);
+					
+				}
+			});
+
+			//console.log('no es');
+			return false;
+	});
+
+	jQuery(document).on('mouseover',function () {
+ 	 $('[data-toggle="popover"]').popover()
 	});
 });
 	
