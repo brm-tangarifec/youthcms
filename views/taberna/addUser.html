@@ -1,12 +1,25 @@
+{#include  file="taberna/header.html"#}
+<div class="wrapper row-offcanvas row-offcanvas-left">
+	<div class="panel-body table-responsive CreaContenido">
 <div><a href="/youth/logUser/user/add/">Añadir Usuario</a></div><br>
-<table border="1">
+<table class="table table-hover usertable">
 	<tr>
-		<td>Usuario</td>
-		<td>Accion</td>
+		<th>Usuario</td>
+		<th>Rol</td>
+		<th>Accion</td>
 	</tr>
 	{#foreach key=key from=$confi item=value#}
 	<tr>
-		<td>{#$value['username']#}</td>
+		<td>{#$key#}</td>
+		<td>{#$value[0]['tipo']#}</td>
+		<td>
+			<span class="glyphicon glyphicon-pencil editarUserHaspe" data-seccion="{#$key#}"></span>
+			<span>Eliminar</span>
+			<form name="user-{#$key#}" id="user-{#$key#}" method="POST"><input type="hidden" name="user" id="user" value="{#$key#}"/></form>
+		</td>
 	</tr>
-{#/foreach#}
+	{#/foreach#}
 </table>
+</div>
+</div>
+{#include  file="taberna/footer.html"#}

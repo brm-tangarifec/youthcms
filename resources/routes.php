@@ -94,8 +94,12 @@ $rutaArray['youth/listaImg/']="CmsContenido@imgInterna";
 /* Urls del administrador Haspe */
 $rutaArray['youth/logUser/'] = "CmsContenido@logUser";
 $rutaArray['youth/logUser/perfil/'] = "CmsContenido@perfil";
+$rutaArray['youth/logUser/perfil/add/'] = "CmsContenido@addPerfil";
+$rutaArray['youth/logUser/perfil/edit/'] = "CmsContenido@editPerfil";
 $rutaArray['youth/logUser/user/'] = "CmsContenido@user";
 $rutaArray['youth/logUser/user/add/'] = "CmsContenido@addUser";
+$rutaArray['youth/logUser/user/edit/'] = "CmsContenido@editUser";
+$rutaArray['youth/logUser/user/edit2/'] = "CmsContenido@editUser2";
 
 /*Cargado de rutas*/
  Moe::routes($rutaArray);

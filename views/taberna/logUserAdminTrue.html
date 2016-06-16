@@ -1,33 +1,27 @@
 {#include  file="taberna/headerCont.html"#}
 <!--Llamado de smarty-->
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 <div class="cont_gen">
-	<ul>
-		{#foreach key=key from=$confi['items'] item=value#}
-			<li>
-				<a href={#$key#} >{#$value#}</a>
-			</li>
-		{#/foreach#}
+	<ul class="contItemAdmin">
 		<!-- idPerfil -->
 		{#if $confi['idPerfil'] == "1"#}
-			<li>
+			<li class="itemAdminMenu">
+				<a href="/youth/admSecciones/">Secciones</a>
+			</li>
+		{#/if#}
+		{#if $confi['idPerfil'] == "1"#}
+			<li class="itemAdminMenu">
 				<a href="/youth/logUser/perfil/">Perfiles</a>
 			</li>
-			<li>
+		{#/if#}
+		{#if $confi['idPerfil'] == "1"#}
+			<li class="itemAdminMenu">
 				<a href="/youth/logUser/user/">Usuarios</a>
 			</li>
 		{#/if#}
 		
 	</ul>
+	<div class="userNameUser"><span>Hola {#$confi['username']#}  Eres {#$confi['perfil']#}</span></div>
 </div>
-
-Hola {#$confi['username']#}  Eres {#$confi['perfil']#}   
 
 {#include  file="taberna/footer.html"#}

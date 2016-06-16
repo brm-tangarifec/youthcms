@@ -81,3 +81,21 @@ jQuery(document).on('click','.glyphicon-list-alt',function(){
 
 		formCont.submit();
 });
+
+/*Editar Usuarios*/
+	jQuery(document).on('click','.editarUserHaspe',function(){
+		var seccionAc=jQuery(this).data('seccion');
+		console.log(seccionAc);
+		var urlC="/youth/logUser/user/edit/";
+		var formCont=jQuery('#user-'+seccionAc).attr('action',urlC);
+		formCont.submit();
+});
+
+/*Editar Perfiles*/
+	jQuery(document).on('click','.editarPerfilHaspe',function(){
+		var seccionAc=jQuery(this).data('seccion');
+		console.log(seccionAc);
+		var urlC="/youth/logUser/perfil/edit/";
+		var formCont=jQuery('#perfil-'+seccionAc).attr('action',urlC);
+		formCont.submit();
+});

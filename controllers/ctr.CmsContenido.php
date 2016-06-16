@@ -381,9 +381,25 @@ class CmsContenido {
 		}
 
 		$daras = $res->getData();
-		$dataPermisos = $res1->getData();
+		
+		foreach ($daras as $key => $value) {
+			$confTi=array(
+				"conditions" => 'idTipo = "'.$value['id'].'"',
+				"fields" => array('idPermiso'),
+			);
+			$data = $res2->getData($confTi);
+
+			foreach ($data as $key2 => $value2) {
+				$confTi2=array(
+					"conditions" => 'id = "'.$value2['idPermiso'].'"',
+					"fields" => array('permiso'),
+				);
+				$dataPermisos[$value['tipo']][] = $res1->getData($confTi2);
+			}
+		}
 		view()->assign("list",$daras);
 		view()->assign("permisos",$dataPermisos);
+		
 		view()->display("taberna/addPerfiles.html");
 	}
 
@@ -412,7 +428,7 @@ class CmsContenido {
 				$daras = $res->getData($config);
 				$confi['perfil'] = $daras[0]['tipo'];
 				$confi['idPerfil'] = $dara[0]['idPerfil'];
-				$confi['items'] = array('item1' => 'item1', 'item2' => 'item2');
+				//$confi['items'] = array('item1' => 'item1', 'item2' => 'item2');
 
 				/* Paso el array y pinto con el template */
 				view()->assign("confi",$confi);
@@ -429,8 +445,17 @@ class CmsContenido {
 
 	function user(){
 		$res = model('latabernaUser');
+		$res2 = model('latabernaPerfiles');
 		$guardaUsu=$res->getData();
-		view()->assign("confi",$guardaUsu);
+		
+		foreach ($guardaUsu as $key => $value) {
+			$con = array(
+				"conditions" => 'id = '.$value['idPerfil'],
+				"fields" => array('tipo'),
+			);
+			$guardaUsu2[$value['username']]=$res2->getData($con);
+		}
+		view()->assign("confi",$guardaUsu2);
 		view()->display("taberna/addUser.html");
 	}
 
@@ -468,4 +493,58 @@ class CmsContenido {
 		//printVar($traeImagenes);
 	}
 
+	function editUser(){
+		$fir = filter_input_array(INPUT_POST);
+		$user = model("latabernaUser");
+		$con = array(
+			"conditions" => 'username = "'.$fir['user'].'"',
+		);
+		$resul = $user->getData($con);
+
+		$res2 = model('latabernaPerfiles');
+		$allPermision = $res2->getData();
+
+		view()->assign('permision',$allPermision);
+		view()->assign('edita',"1");
+		view()->assign('info', $resul);
+		view()->display("taberna/addUser2.html");
+	}
+
+	function editUser2(){
+		
+		$fir = filter_input_array(INPUT_POST);
+		$user = model("latabernaUser");
+
+		$user->username = $fir['perfil'];
+		$user->idPerfil = $fir['permisos'];
+
+		$result2 = $user->updateInstancia($fir['idP']);
+		header('Location: /youth/logUser/user/');
+	}
+
+	function editPerfil(){
+		$fir = filter_input_array(INPUT_POST);
+		var_dump($fir);
+		$res = model('latabernaPerfiles');
+		$res1 = model('latabernaPermisos');
+		$res2 = model('latabernaPermisoXTipo');
+		$guardaUsu=$res->getData();
+		$daras = $res->getData();
+		$dataPermisos = $res1->getData();
+		view()->assign("list",$daras);
+		view()->assign("permisos",$dataPermisos);
+		view()->display("taberna/addPerfiles2.html");
+	}
+
+	function addPerfil(){
+		$res = model('latabernaPerfiles');
+		$res1 = model('latabernaPermisos');
+		$res2 = model('latabernaPermisoXTipo');
+		$guardaUsu=$res->getData();
+		$daras = $res->getData();
+		$dataPermisos = $res1->getData();
+		view()->assign("list",$daras);
+		view()->assign("permisos",$dataPermisos);
+		view()->display("taberna/addPerfiles2.html");
+	}
 }

@@ -1,27 +1,28 @@
-<ul>
-	{#foreach key=key from=$list item=value#}
-		<li>
-			<span >{#$value["descripcion"]#}</span>
-		</li>
-	{#/foreach#}
-</ul>
-
-<html>
-   <head>
-      <title>Creacion de perfiles</title>
-   </head>
-   <body>
-      <form action="/youth/logUser/perfil/" method="post">
-        <input type="text" name="perfil" /> <br />
-        <select multiple value="" id="permisos[]" name="permisos[]">
-        	<option value="">-Ninguna-</option>
-       		{#foreach key=key from=$permisos item=value#}
-				<option value={#$value["id"]#}>
-					{#$value["permiso"]#}
-				</option>
-			{#/foreach#}
-		</select>
-        <input type="submit" value='Entrar'>
-      </form>
-   </body>
-</html>
+{#include  file="taberna/header.html"#}
+<div class="wrapper row-offcanvas row-offcanvas-left">
+  <div class="panel-body table-responsive CreaContenido">
+<div><a href="/youth/logUser/perfil/add/">Añadir Perfil</a></div><br>
+<table class="table table-hover">
+  <tr>
+    <th>Perfil</td>
+    <th>Permisos</td>
+    <th>Accion</td>
+  </tr>
+  {#foreach key=key from=$permisos item=value#}
+  <tr>
+    <td>{#$key#}</td>
+    <td>
+      {#foreach key=key2 from=$value item=value2#}
+        <span>{#$value2[0]['permiso']#} - <span>
+      {#/foreach#}
+    </td>
+    <td>
+      <span class="glyphicon glyphicon-pencil editarPerfilHaspe" data-seccion="{#$key#}"></span>
+      <span>Eliminar</span>
+      <form name="perfil-{#$key#}" id="perfil-{#$key#}" method="POST"><input type="hidden" name="perfil" id="perfil" value="{#$key#}"/></form>
+  </tr>
+  {#/foreach#}
+</table>
+</div>
+</div>
+{#include  file="taberna/footer.html"#}
