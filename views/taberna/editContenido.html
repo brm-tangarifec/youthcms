@@ -13,6 +13,7 @@
                                     <div class="input-group">
                                         <label for="idContenido">Id del contenido</label>
                                         <input type="text" name="idContenido" id="idContenido" class="form-control" value="{#$editar.id#}" readonly="readonly" disabled="disabled"/>
+                                        <input type="hidden" name="idCruce" id="idCruce" class="form-control" value="{#$idCruce#}" readonly="readonly" disabled="disabled"/>
                                     
                                     </div>
                                 </div>
@@ -38,7 +39,7 @@
                                             <label for="visble">Si</label>
                                             <input type="radio" name="visible" id="visible" value="S" class='limpiar' >
                                             <label for="visble">No</label>
-                                            <input type="radio" name="visible" id="visible" value="N" selected class='limpiar' >
+                                            <input type="radio" name="visible" id="visible" value="N" checked class='limpiar' >
                                         {#/if#}
                                         
                                      </div>

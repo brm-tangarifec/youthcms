@@ -131,10 +131,11 @@ jQuery(document).on('click','.ui-icon-save',function(){
 		var contenidoTexto=$.base64.btoa(contenidohtml);
 		var fechaInicio= jQuery('#fechaIni').val();
 		var fechaFin= jQuery('#fechaFin').val();
-		var visible= jQuery('#visible').val();
+		var visible= jQuery('#visible:checked').val();
 		var posicion= jQuery('#posicion').val();
 		var idSeccion = jQuery('#idSeccion').val();
 		var idContenido = jQuery('#idContenido').val();
+		var idCruce = jQuery('#idCruce').val();
 		var url="/youth/updContenido/";
 		jQuery.ajax({
 				url : url,
@@ -147,17 +148,13 @@ jQuery(document).on('click','.ui-icon-save',function(){
 				'fechaFin': fechaFin,
 				'visible': visible,
 				'posicion': posicion,
-				'idSeccion':idSeccion
+				'idSeccion':idSeccion,
+				'idCruce':idCruce,
+				'idContenido':idContenido
 				},
 				datatype : "json",
 				success : function(data) {
-					if(data>0){
-						console.log('entramos');
-						jQuery('.limpiar').val('');
-						jQuery('.titulo-contenido').text('Ingresa el título');
-						jQuery('.contenido-texto').text('Haz click sobre el texto para ingresar un contenido');
-						//window.location='/youth/admSecciones/';
-					}
+					console.log(data);
 				}
 			});
 

@@ -38,7 +38,7 @@ class CleanDoor extends Moe
 							"&Oacute;" => "O",
 							"&Uacute;" => "U",
 							"&ntilde;" => "n",
-							"&Ntilde;" => "Ñ",
+							"&Ntilde;" => "N",
 							"&iquest;" => "",
 							"(" => "_",
 							")" => "_"
