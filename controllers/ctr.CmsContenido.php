@@ -495,7 +495,7 @@ class CmsContenido {
 		//printVar($traeImagenes);
 	}
 
-<<<<<<< HEAD
+
 	function editUser(){
 		$fir = filter_input_array(INPUT_POST);
 		$user = model("latabernaUser");
@@ -550,7 +550,7 @@ class CmsContenido {
 		view()->assign("permisos",$dataPermisos);
 		view()->display("taberna/addPerfiles2.html");
 	}
-=======
+
 	/*Actulizar contenido interna*/
 	function eupdContenido(){
 		$cont=filter_input_array(INPUT_POST);
@@ -584,6 +584,4 @@ class CmsContenido {
 			$newSeccion->fechaActualizacion=date('Y-m-d H:m:s');
 			$secxcont=$newSeccion->updateInstancia($cont['idCruce']);
 	}
-
->>>>>>> 37fff6969745b6d66830e65675ab95802bd1b1c2
 }
