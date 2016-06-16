@@ -102,9 +102,9 @@ var nicEditorSaveButton=nicEditorButton.extend({init:function(){if(!this.ne.opti
 
 
 var nicUploadOptions = {
-	buttons : {
+	/*buttons : {
 		'upload' : {name : 'Upload Image', type : 'nicUploadButton'}
-	}
+	}*/
 	
 };
 

@@ -66,7 +66,7 @@ class CmsContenido {
 		/*Trae contenido para edición*/
 		$buscaEd=array(
 			"conditions"=> 'id ='.$idContenido,
-			"fields" => array('titulo','contenido','visible','fechaInicio','fechaFin')
+			"fields" => array('id,titulo','contenido','visible','fechaInicio','fechaFin')
 			);
 		$editaContenido=$contenido->getData($buscaEd);
 			$traeImagenes=MyQuerys::listaDir();
@@ -460,12 +460,37 @@ class CmsContenido {
 	/*Función para traer las imagenes desde la carpeta imagenes*/
 	function imgInterna(){
 		$Frecibido=filter_input_array(INPUT_POST);
-		printVar($Frecibido['carpeta']);
+		//printVar($Frecibido['carpeta']);
 		$directorio=$Frecibido['carpeta'];
 		$traeImagenes=MyQuerys::traeImagenes($directorio);
 		view()->assign('imgDisponible',$traeImagenes);
 		view()->display('taberna/listaImages.html');
 		//printVar($traeImagenes);
+	}
+
+	/*Actulizar contenido interna*/
+	function eupdContenido(){
+		$cont=filter_input_array(INPUT_POST);
+			$newContenido= model('LallamaradaContenido');
+			$newSeccion= model('LallamaradaSeccionXContenido');
+			$newContenido->titulo=trim(ltrim(rtrim(utf8_decode(base64_decode($cont['tituloCont'])))));
+			$newContenido->contenido=trim(ltrim(rtrim(utf8_decode(base64_decode($cont['contenidoTexto'])))));
+			$newContenido->visible=$cont['visible'];
+			
+			$newContenido->fechaInicio=$cont['fechaInicio'];
+			$newContenido->fechaFin=$cont['fechaFin'];
+			$newContenido->fecha=date('Y-m-d H:m:s');
+			$newContenido->fechaActualizacion=date('Y-m-d H:m:s');
+			$ret=$newContenido->updateInstancia();
+			$seccion=$cont['idSeccion'];
+			echo json_encode($ret);
+			/*Guarda en la tabla contenido por seccion*/
+			$newSeccion->idSeccion=$seccion;
+			$newSeccion->idContenido=$ret;
+			$newSeccion->posicion=$cont['posicion'];
+			//$newSeccion->fecha=date('Y-m-d H:m:s');
+			$newSeccion->fechaActualizacion=date('Y-m-d H:m:s');
+			$secxcont=$newSeccion->setInstancia();
 	}
 
 }

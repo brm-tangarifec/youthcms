@@ -157,6 +157,7 @@ class MyQuerys
 					if (is_dir($path . '/' .$entry)) {
 						//printVar($entry);
 						if($entry!='cursos'){
+							//printVar($entry);
 							$dirs[] = $entry;
 						}
 					}
