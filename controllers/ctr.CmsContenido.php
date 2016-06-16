@@ -51,7 +51,7 @@ class CmsContenido {
 		$contenido= model('LallamaradaContenido');
 		$buscaC=array(
 			"conditions" => 'idSeccion = '.$mySeccionId,
-			"fields" => array('idContenido','posicion'),
+			"fields" => array('id,idContenido','posicion'),
 			'order' => 'posicion ASC'
 			);
 		$traeIdContenido=$SecXContenido->getData($buscaC);
@@ -59,6 +59,7 @@ class CmsContenido {
 			# code...
 			if(isset($traeIdContenido[$i]['idContenido'])){
 
+				$idSecXContenido=$traeIdContenido[$i]['id'];
 				$idContenido=$traeIdContenido[$i]['idContenido'];
 				$posicion=$traeIdContenido[$i]['posicion'];
 			}
@@ -66,7 +67,7 @@ class CmsContenido {
 		/*Trae contenido para edición*/
 		$buscaEd=array(
 			"conditions"=> 'id ='.$idContenido,
-			"fields" => array('titulo','contenido','visible','fechaInicio','fechaFin')
+			"fields" => array('id,titulo','contenido','visible','fechaInicio','fechaFin')
 			);
 		$editaContenido=$contenido->getData($buscaEd);
 			$traeImagenes=MyQuerys::listaDir();
@@ -74,6 +75,7 @@ class CmsContenido {
 		view()->assign("imagenes",$traeImagenes);
 		/*Fin traida contenido*/
 		view()->assign("contenido",$editaContenido);
+		view()->assign("idCruce",$idSecXContenido);
 		view()->assign("posicion",$posicion);
 		view()->assign("seccion",$filtraSeccion['idSeccion']);
 		view()->display("taberna/editContenido.html");
@@ -485,7 +487,7 @@ class CmsContenido {
 	/*Función para traer las imagenes desde la carpeta imagenes*/
 	function imgInterna(){
 		$Frecibido=filter_input_array(INPUT_POST);
-		printVar($Frecibido['carpeta']);
+		//printVar($Frecibido['carpeta']);
 		$directorio=$Frecibido['carpeta'];
 		$traeImagenes=MyQuerys::traeImagenes($directorio);
 		view()->assign('imgDisponible',$traeImagenes);
@@ -493,6 +495,7 @@ class CmsContenido {
 		//printVar($traeImagenes);
 	}
 
+<<<<<<< HEAD
 	function editUser(){
 		$fir = filter_input_array(INPUT_POST);
 		$user = model("latabernaUser");
@@ -547,4 +550,40 @@ class CmsContenido {
 		view()->assign("permisos",$dataPermisos);
 		view()->display("taberna/addPerfiles2.html");
 	}
+=======
+	/*Actulizar contenido interna*/
+	function eupdContenido(){
+		$cont=filter_input_array(INPUT_POST);
+		//printVar($cont);
+		$tituloCont=trim(ltrim(rtrim(base64_decode($cont['tituloCont']))));
+		$contentEdit=trim(ltrim(rtrim(base64_decode($cont['contenidoTexto']))));
+
+		$tituloContC=MyQuerys::limpiaContent($tituloCont);
+		$contentEditC=MyQuerys::limpiaContent($contentEdit);
+			//die();
+
+			$newContenido= model('LallamaradaContenido');
+			$newSeccion= model('LallamaradaSeccionXContenido');
+			$newContenido->titulo=$tituloContC;
+			$newContenido->contenido=$contentEditC;
+			
+			$newContenido->visible=$cont['visible'];
+			
+			$newContenido->fechaInicio=$cont['fechaInicio'];
+			$newContenido->fechaFin=$cont['fechaFin'];
+			//$newContenido->fecha=date('Y-m-d H:m:s');
+			$newContenido->fechaActualizacion=date('Y-m-d H:m:s');
+			$ret=$newContenido->updateInstancia($cont['idContenido']);
+			$seccion=$cont['idSeccion'];
+			echo json_encode($ret);
+			/*Guarda en la tabla contenido por seccion*/
+			$newSeccion->idSeccion=$seccion;
+			$newSeccion->idContenido=$ret;
+			$newSeccion->posicion=$cont['posicion'];
+			//$newSeccion->fecha=date('Y-m-d H:m:s');
+			$newSeccion->fechaActualizacion=date('Y-m-d H:m:s');
+			$secxcont=$newSeccion->updateInstancia($cont['idCruce']);
+	}
+
+>>>>>>> 37fff6969745b6d66830e65675ab95802bd1b1c2
 }

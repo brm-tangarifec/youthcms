@@ -5,18 +5,16 @@
     {#foreach from=$contenido item=editar#}
    
 
-    
 
     <div class="wrapper row-offcanvas row-offcanvas-left">
                             <div class="panel-body table-responsive CreaContenido">
                                 <p>Para crear contenido se debe dar click sobre lo que se desea agregar</p>
                                 <div class="box-tools m-b-15">
                                     <div class="input-group">
-                                        <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
-                                        <div class="input-group-btn">
-                                            <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
-
-                                        </div>
+                                        <label for="idContenido">Id del contenido</label>
+                                        <input type="text" name="idContenido" id="idContenido" class="form-control" value="{#$editar.id#}" readonly="readonly" disabled="disabled"/>
+                                        <input type="hidden" name="idCruce" id="idCruce" class="form-control" value="{#$idCruce#}" readonly="readonly" disabled="disabled"/>
+                                    
                                     </div>
                                 </div>
                                 <form name="agregaContenido" id="agregaContenido" method="POST">
@@ -41,7 +39,7 @@
                                             <label for="visble">Si</label>
                                             <input type="radio" name="visible" id="visible" value="S" class='limpiar' >
                                             <label for="visble">No</label>
-                                            <input type="radio" name="visible" id="visible" value="N" selected class='limpiar' >
+                                            <input type="radio" name="visible" id="visible" value="N" checked class='limpiar' >
                                         {#/if#}
                                         
                                      </div>
@@ -57,11 +55,11 @@
                                      
                                      <div class="col-md-6">
                                         <label for="fechaInicio">Fecha Inicio</label>
-                                       <input type="date" name="fechaIni" id="fechaIni" class="fechaBt"  data-date="" data-date-format="YYYY-MM-DD HH:mm:ss" value="{#!$editar.fechaInicio#}" class='limpiar'/>
+                                       <input type="date" name="fechaIni" id="fechaIni" class="fechaBt"  onfocus="(this.type='date')" onblur="(this.type='text')" data-date-format="YYYY-MM-DD HH:mm:ss" value="{#!$editar.fechaInicio#}" class='limpiar'/>
                                      </div>
                                      <div class="col-md-6">
                                      <label for="fechaFin">Fecha Fin</label>
-                                        <input type="date" name="fechaFin" id="fechaFin" class="fechaBt" data-date="" data-date-format="YYYY-MM-DD HH:mm:ss" value="{#!$editar.fechaFin#}"  class='limpiar'/>
+                                        <input type="date" name="fechaFin" id="fechaFin" class="fechaBt" onfocus="(this.type='date')" onblur="(this.type='text')" data-date-format="YYYY-MM-DD HH:mm:ss" value="{#!$editar.fechaFin#}"  class='limpiar'/>
                                         <input type="hidden" name="idSeccion" id="idSeccion" value="{#$seccion#}" class='limpiar'/>
                                      </div>
                                     <!--Contenido editable-->

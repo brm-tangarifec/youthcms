@@ -60,7 +60,7 @@ class MyQuerys
 	function traeImagenes($directorio){
 		$base='public/images/';
 		$displaImg=$directorio;
-		printVar($displaImg);
+		//printVar($displaImg);
 		$directorio=$_SERVER['DOCUMENT_ROOT'].$base.$directorio;
 			$directorio = opendir($directorio); //ruta actual
 			$imagenes=array();
@@ -157,6 +157,7 @@ class MyQuerys
 					if (is_dir($path . '/' .$entry)) {
 						//printVar($entry);
 						if($entry!='cursos'){
+							//printVar($entry);
 							$dirs[] = $entry;
 						}
 					}
@@ -167,6 +168,30 @@ class MyQuerys
 
 
 
+	}
+	/*Funcion para limpiar el texto antes de guardarlo*/
+	function limpiaContent($nombreVariable){
+		$limpieza = array(	"é" => "&eacute;",
+			"á" => "&aacute;",
+			"í" => "&iacute;",
+			"ó" => "&oacute;",
+			"ú" => "&uacute;",
+			"ñ" => "&ntilde;",
+			"É" => "&Eacute;",
+			"Á" => "&Aacute;",
+			"Í" => "&Iacute;",
+			"Ó" => "&Oacute;",
+			"Ú" => "&Uacute;",
+			"Ñ" => "&Ntilde;",
+			"®" => "&reg;",
+			"¿" => "&iquest;",
+			"¡" => "&iexcl;",
+			"®" => "&reg;",
+
+							
+		);
+		$nombreVariable = strtr($nombreVariable, $limpieza);
+		return $nombreVariable;
 	}
 	
 	
