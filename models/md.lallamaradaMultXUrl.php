@@ -12,8 +12,8 @@ class DataObjects_LallamaradaMultXUrl extends DB_DataObject
     public $__table = 'lallamarada_mult_x_url';    // table name
     public $__tempName = 'LallamaradaMultXUrl';    // tempName
     public $id;                             // int(4) primary_key not_null
-    public $idMultimedia;                   // int(4) primary_key not_null
-    public $idUrl;                          // int(4) primary_key not_null
+    public $idMultimedia;                   // int(4) not_null
+    public $idUrl;                          // int(4) not_null
     public $fecha;                          // datetime
     public $fechaActualizacion;             // datetime
 
@@ -30,7 +30,7 @@ class DataObjects_LallamaradaMultXUrl extends DB_DataObject
 
     function keys()
     {
-         return array('id', 'idMultimedia', 'idUrl');
+         return array('id');
     }
 
     function sequenceKey() // keyname, use native, native name

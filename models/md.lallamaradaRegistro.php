@@ -13,12 +13,12 @@ class DataObjects_LallamaradaRegistro extends DB_DataObject
     public $__tempName = 'LallamaradaRegistro';    // tempName
     public $id;                             // int(4) primary_key not_null
     public $idCampania;                     // varchar(45)
-    public $idFacebook;                     // varchar(45)
-    public $idGoogle;                     // varchar(45)
-    public $imgPerfil;                     // varchar(45)
+    public $idFacebook;                     // varchar(100)
+    public $idGoogle;                       // varchar(100)
+    public $imgPerfil;                      // text
     public $nombre;                         // varchar(45)
     public $apellido;                       // varchar(45)
-    public $email;                          // varchar(45)
+    public $email;                          // varchar(45) unique_key
     public $idPerfil;                       // int(4)
     public $username;                       // varchar(45)
     public $password;                       // varchar(45)
@@ -27,9 +27,9 @@ class DataObjects_LallamaradaRegistro extends DB_DataObject
     public $idDepto;                        // int(4)
     public $idCiudad;                       // int(4)
     public $tipoDocumento;                  // enum(2)
-    public $numeroDocumento;                // varchar(100)
+    public $numeroDocumento;                // varchar(100) unique_key
     public $genero;                         // enum(1)
-    public $direccion;                         // varchar(200)
+    public $direccion;                      // varchar(200)
     public $deseoInformacion;               // enum(1) default_N
     public $autorizacionMarca;              // enum(1) default_N
     public $ipAccesso;                      // varchar(140)
@@ -44,7 +44,7 @@ class DataObjects_LallamaradaRegistro extends DB_DataObject
              'idCampania' =>  DB_DATAOBJECT_STR,
              'idFacebook' =>  DB_DATAOBJECT_STR,
              'idGoogle' =>  DB_DATAOBJECT_STR,
-             'imgPerfil' =>  DB_DATAOBJECT_STR,
+             'imgPerfil' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_TXT,
              'nombre' =>  DB_DATAOBJECT_STR,
              'apellido' =>  DB_DATAOBJECT_STR,
              'email' =>  DB_DATAOBJECT_STR,

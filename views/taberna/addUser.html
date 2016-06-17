@@ -5,12 +5,18 @@
 <table class="table table-hover usertable">
 	<tr>
 		<th>Usuario</td>
+		<th>Nombre</td>
+		<th>Apellido</td>
+		<th>Email</td>
 		<th>Rol</td>
 		<th>Accion</td>
 	</tr>
 	{#foreach key=key from=$confi item=value#}
 	<tr>
 		<td>{#$key#}</td>
+		<td>{#$value['nombre']#}</td>
+		<td>{#$value['apellido']#}</td>
+		<td>{#$value['email']#}</td>
 		<td>{#$value[0]['tipo']#}</td>
 		<td>
 			<span class="glyphicon glyphicon-pencil editarUserHaspe" data-seccion="{#$key#}"></span>

@@ -1,20 +1,19 @@
 {#include  file="taberna/headerCont.html"#}
 <!--Llamado de smarty-->
-
 <div class="cont_gen">
 	<ul class="contItemAdmin">
 		<!-- idPerfil -->
-		{#if $confi['idPerfil'] == "1"#}
+		{#if $confi['idPerfil'] == "1" || $confi['idPerfil'] == "10"#}
 			<li class="itemAdminMenu">
 				<a href="/youth/admSecciones/">Secciones</a>
 			</li>
 		{#/if#}
-		{#if $confi['idPerfil'] == "1"#}
+		{#if $confi['idPerfil'] == "1" || $confi['idPerfil'] == "10"#}
 			<li class="itemAdminMenu">
 				<a href="/youth/logUser/perfil/">Perfiles</a>
 			</li>
 		{#/if#}
-		{#if $confi['idPerfil'] == "1"#}
+		{#if $confi['idPerfil'] == "1" || $confi['idPerfil'] == "10"#}
 			<li class="itemAdminMenu">
 				<a href="/youth/logUser/user/">Usuarios</a>
 			</li>

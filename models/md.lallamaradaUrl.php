@@ -14,23 +14,22 @@ class DataObjects_LallamaradaUrl extends DB_DataObject
     public $id;                             // int(4) primary_key not_null
     public $url;                            // varchar(300) not_null
     public $descripcion;                    // text
-    public $link;                           // varchar(100)
-    public $orden;                          // int(4)
-    public $seguimientoEvento;              // varchar(100)
+    public $link;                           // varchar(255)
+    public $orden;                          // varchar(255)
+    public $seguimientoEvento;              // varchar(255)
     public $fechaInicio;                    // datetime
     public $fechaFin;                       // datetime
     public $fecha;                          // datetime
     public $fechaActualizacion;             // datetime
-
 
     function table()
     {
          return array(
              'id' =>  DB_DATAOBJECT_INT + DB_DATAOBJECT_NOTNULL,
              'url' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_NOTNULL,
-             'link' =>  DB_DATAOBJECT_STR,
              'descripcion' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_TXT,
-             'orden' =>  DB_DATAOBJECT_INT,
+             'link' =>  DB_DATAOBJECT_STR,
+             'orden' =>  DB_DATAOBJECT_STR,
              'seguimientoEvento' =>  DB_DATAOBJECT_STR,
              'fechaInicio' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_DATE + DB_DATAOBJECT_TIME,
              'fechaFin' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_DATE + DB_DATAOBJECT_TIME,

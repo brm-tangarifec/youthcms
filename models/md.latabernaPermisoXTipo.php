@@ -15,6 +15,7 @@ class DataObjects_LatabernaPermisoXTipo extends DB_DataObject
     public $idTipo;                         // int(4)
     public $idPermiso;                      // int(4)
     public $fecha;                          // datetime
+    public $estado;                         // int(4)
 
     function table()
     {
@@ -23,6 +24,7 @@ class DataObjects_LatabernaPermisoXTipo extends DB_DataObject
              'idTipo' =>  DB_DATAOBJECT_INT,
              'idPermiso' =>  DB_DATAOBJECT_INT,
              'fecha' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_DATE + DB_DATAOBJECT_TIME,
+             'estado' =>  DB_DATAOBJECT_INT,
          );
     }
 

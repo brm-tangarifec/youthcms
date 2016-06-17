@@ -456,6 +456,15 @@ class CmsContenido {
 				"fields" => array('tipo'),
 			);
 			$guardaUsu2[$value['username']]=$res2->getData($con);
+			if(isset($value['nombre'])){
+				$guardaUsu2[$value['username']]['nombre'] = $value['nombre'];
+			}
+			if(isset($value['apellido'])){
+				$guardaUsu2[$value['username']]['apellido'] = $value['apellido'];
+			}
+			if(isset($value['email'])){
+				$guardaUsu2[$value['username']]['email'] = $value['email'];
+			}	
 		}
 		view()->assign("confi",$guardaUsu2);
 		view()->display("taberna/addUser.html");
@@ -474,6 +483,9 @@ class CmsContenido {
 			}else{
 				$user->username = $varPost['perfil'];
 				$user->idPerfil = $varPost['permisos'];
+				$user->nombre = $varPost['nombre'];
+				$user->apellido = $varPost['apellido'];
+				$user->email = $varPost['email'];
 				$guardaPermi=$user->setInstancia();
 				view()->assign("mensaje","Usuario creado exitosamente");
 			}
@@ -520,6 +532,9 @@ class CmsContenido {
 
 		$user->username = $fir['perfil'];
 		$user->idPerfil = $fir['permisos'];
+		$user->nombre = $fir['nombre'];
+		$user->apellido = $fir['apellido'];
+		$user->email = $fir['email'];
 
 		$result2 = $user->updateInstancia($fir['idP']);
 		header('Location: /youth/logUser/user/');
@@ -527,16 +542,40 @@ class CmsContenido {
 
 	function editPerfil(){
 		$fir = filter_input_array(INPUT_POST);
-		var_dump($fir);
 		$res = model('latabernaPerfiles');
 		$res1 = model('latabernaPermisos');
 		$res2 = model('latabernaPermisoXTipo');
-		$guardaUsu=$res->getData();
-		$daras = $res->getData();
+
+		$con = array(
+			"conditions" => 'tipo = "'.$fir['perfil'].'"',
+		);
+
+		$daras = $res->getData($con);
 		$dataPermisos = $res1->getData();
+		view()->assign("id",$daras);
 		view()->assign("list",$daras);
+		view()->assign('edita',"1");
+		view()->assign('info',$fir);
 		view()->assign("permisos",$dataPermisos);
 		view()->display("taberna/addPerfiles2.html");
+	}
+
+	function editPerfil2(){
+		$res = model('latabernaPerfiles');
+		$fir = filter_input_array(INPUT_POST);
+
+		$res->descripcion = $fir['perfil'];
+		$res->tipo = $fir['perfil'];
+
+		$res2 = model('latabernaPermisoXTipo');
+		$con = array(
+			"conditions" => 'idTipo = "'.$fir['idP'].'"',
+		);
+		var_dump($fir);
+		exit();
+
+		$result2 = $res->updateInstancia($fir['idP']);
+		header('Location: /youth/logUser/perfil/');
 	}
 
 	function addPerfil(){
