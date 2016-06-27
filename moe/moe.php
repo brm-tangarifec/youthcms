@@ -73,9 +73,13 @@ class Moe
 
 		$parametros = (count($parametros) == 0 && count($post)>0) ? $post : $parametros ;
 
+		foreach ($parametros as $key => $value) {
+			$parametros[$key]=CleanDoor::allClean($value);
+		}
+
 		// Si en el paso anterior no hubo una ruta igual a la de la url y la url es de dos parametros, le damos valor a class y function
-		/*
-			if($class=="" || $function==""){
+		
+			/*if($class=="" || $function==""){
 				if ($estadoClassFunction==false) {
 					$class=$urlArray[0];
 					$function=(isset($urlArray[1])) ? $urlArray[1] : "";
@@ -91,8 +95,8 @@ class Moe
 						}
 					}
 				}
-			}
-		*/
+			}*/
+		
 		// si la class es igual a generate y la function es igual a models
 		if ($class=="generate" && $function=="models") {
 			regenerateDataObject();

@@ -193,7 +193,55 @@ class MyQuerys
 		$nombreVariable = strtr($nombreVariable, $limpieza);
 		return $nombreVariable;
 	}
-	
+
+	/*Conteo de ip*/
+	static function cuentaIntentos($user){
+		//debug(1);
+		$tmplo= model("LallamaradaIntentologgin");
+		$tmplo->selectAdd();
+		$tmplo->selectAdd('usuario,fecha');
+		$tmplo->whereAdd('usuario ="'.$user.'"');
+		$tmplo->limit('3');
+		$tmplo->orderBy('fecha DESC');
+		$find=$tmplo->find();
+		//printVar($find);
+		$count=0;
+		while ($tmplo->fetch()) {
+			$ret[$count]->usuario=$tmplo->usuario;
+			$ret[$count]->fecha=$tmplo->fecha;
+		
+			$count++;
+		}
+		$tmplo -> free();
+		//printVar($ret);
+		//$ret=$tmplo->fetch();
+		return $ret;
+
+		/*$dbdata->whereAdd("nit ='".$user."' AND fecha BETWEEN'" .date('Y-m-d') . " 00:00:00' and '" . date('Y-m-d') . " 23:59:59'");
+
+			$total = $dbdata->count(DB_DATAOBJECT_WHEREADD_ONLY);
+			$dbdata->free();
+
+		return ($total);*/
+	}
+
+	/*Funcion para no permitir al usuario realizar loggin*/
+	static function userBlock($user){
+		//debug(1);
+		$userBlock=model('LallamaradaBloqueoUsuario');
+		$userBlock->selectAdd();
+		$userBlock->selectAdd('usuario,fechaDesbloqueo');
+		$userBlock->whereAdd('usuario ="'.$user.'"');
+		$userBlock->limit('1');
+		$userBlock->orderBy('fechaDesbloqueo DESC');
+		$userBlock->find();
+		$userBlock->fetch();
+		$fechaDesbloqueo=$userBlock->fechaDesbloqueo;
+		return $fechaDesbloqueo;
+		
+
+
+	}	
 	
 }
 

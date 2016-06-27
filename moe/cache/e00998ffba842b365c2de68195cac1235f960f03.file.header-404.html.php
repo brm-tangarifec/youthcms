@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-06-09 11:47:17
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-06-27 10:26:43
          compiled from "..\views\base\header-404.html" */ ?>
 <?php /*%%SmartyHeaderCode:28319570e69e1897837-48927139%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e00998ffba842b365c2de68195cac1235f960f03' => 
     array (
       0 => '..\\views\\base\\header-404.html',
-      1 => 1465488537,
+      1 => 1466616171,
       2 => 'file',
     ),
   ),
@@ -91,7 +91,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.goog
             <!--Botón registro con Google+-->
             <button type="button" class="btn btn-g" id="btn-g"><i class="icon icon-g"></i> <span>Conéctate con google +</span></button>
             <!--/-Botón registro con Google+-->
-            <form id="login" method="">
+            <form id="login" method="POST" action="/loginUser/">
               <!--Usuario-->
               <div class="form-group">
                 <label for="loginUsuario">Usuario:</label>
@@ -100,7 +100,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.goog
               <!--Contraseña-->
               <div class="form-group">
                 <label for="loginPassword">Contraseña: </label>
-                <input type="text" id="loginPassword" name="loginPassword" class="form-control">
+                <input type="text" id="loginElingreso" name="loginElingreso" class="form-control">
               </div>
               <input type="hidden" class="form-control" value="" id="idRs" name="idRs">
               <!--Recordarme-->
@@ -109,7 +109,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.goog
                 <label for="recordar">Recordar mi cuenta
                 </label>
               </div> -->
-              <button id="login-submit" type="button" class="btn btn-login amarillo">Ingresar</button>
+              <button id="login-submit" type="submit" class="btn btn-login amarillo">Ingresar</button>
               <p>
                 <a href="#">¿Olvidaste tu contraseña?</a> / Eres nuevo, <a href="/registro/">regístrate</a>
                 
@@ -154,7 +154,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.goog
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-5 col-md-offset-5 col-sm-offset-5">
           <p class="user-tools">
             <a href="/perfil/">Ver perfil</a><br />
-            <a href="#" class="logout">Cerrar Sesión</a>
+            <a href="/logout/" class="logout">Cerrar Sesión</a>
           </p>
           
         </div>

@@ -2,9 +2,21 @@
 
 class Contenido {
 
+
+
+ protected $protected='$y4tus4b3lac00k13';
 	/*Funcion para hacer display al contenido*/
 	function getContent(){
-		
+
+		//printVar($_COOKIE);
+	$session= new manejaSession();
+		if(isset($_COOKIE['youth_msj'])){
+			
+			$mensajeSis=$session->decryptS($_COOKIE['youth_msj'],$protected);
+			echo '<div class="mensajes-sistema">'.$mensajeSis.'</div>';
+			//printVar($mensajeSis);
+		}
+		setcookie("youth_urlAnt", base64_encode($_SERVER['REQUEST_URI']),time()+1200, "/");		
 		$nombreSeccion=Moe::$myRoute;
 		//printVar($idSeccion);
 		$seccion = model("LallamaradaSeccion");
@@ -156,24 +168,42 @@ class Contenido {
 		if($mySeccionId=='19'){
 			if(isset($_COOKIE['youth_usu'])){
 
-			//sprintVar($_COOKIE['youth_usu']);
-			$idUsuario=MyQuerys::devuelvedato($_COOKIE['youth_usu'],'!Y0uth$h4StCryPt');
-			//printVar($idUsuario);
-			if(isset($idUsuario) && $idUsuario!=''){
+			//printVar($_COOKIE['youth_usu']);
+			//printVar($_COOKIE['youth_fr']);
+			//$idUsuario=MyQuerys::devuelvedato($_COOKIE['youth_usu'],'!Y0uth$h4StCryPt');
+			$idUser=$session->decryptS($_COOKIE['youth_fr'],$protected);
+			//printVar($idUser,'hola');
+			$validaD=$session->read($idUser);
+			//printVar($validaD,'hola2');
+			$porciones = explode("~",$validaD);
+			$user=$porciones[0];
+			$domain=$porciones[1];
+			$constanto=$porciones[3];
+			$mail=$porciones[2];
+			//printVar($user,'d1');
+			//printVar($domain,'d2');
+			//printVar($constanto,'d3');
+
+
+			if($idUser==$user && $domain=='www.jovenesnestle.com.co' && $constanto=="9145" ){
+				
 				$confPerf=array(
-				"conditions" => 'id = '.$idUsuario,
+				"conditions" => 'id = '.$idUser,
 				);
 				$datosUsu=$reusua->getData($confPerf);
 				//printVar($datosUsu);
 				view()->assign("datosUsu",$datosUsu);
-
-			}
 			}else{
-				header('location: /');
+				header('location : /');
 			}
+			
+			
 
 			//view()->assign("SeccionCss",$templateCss);
+		}else{
+			header('location: /');
 		}
+	}
 		if($mySeccionId=='18' || $mySeccionId=='19'){
 			$departamentos=$this->departamento();
 			//printVar($departamentos);
@@ -240,8 +270,20 @@ class Contenido {
 					$guardaUsu=$reusu->setInstancia();
 					//printVar($guardaUsu);
 					echo $guardaUsu;
-					$encri=MyQuerys::encriptado($guardaUsu,'!Y0uth$h4StCryPt');
-					setcookie("youth_usu", base64_encode($encri),time()+1200, "/");
+					//$encri=MyQuerys::encriptado($guardaUsu,'!Y0uth$h4StCryPt');
+					//setcookie("youth_usu", base64_encode($encri),time()+1200, "/");
+					/*Creación de cookie de ususario*/
+					$session= new manejaSession();
+					$host=$_SERVER['SERVER_NAME'];
+					$dato=$guardaUsu."~".$host.'~'.$varPost['email'].'~9145';
+					$creaSession=$session->write($guardaUsu,$dato,$host);
+					$createCookie=$session->start_session('youth_usu',true);
+					/*Se crea cookie de usuario*/
+	   				setcookie('youth_usu', $creaSession, time() + 1200, '/', $secure, $httponly);
+
+	   				/*Id Usuario*/
+	   				$datoCookie=$session->encryptS($guardaUsu,$protected);
+	   				setcookie('youth_fr',$datoCookie, time() + 1200, '/', $secure, $httponly);
 				}else{
 					$mensaje="El registro no pudo ser realizado";
 					echo json_encode($mensaje);
@@ -259,7 +301,7 @@ class Contenido {
 	function perfilUsuReg(){
 		$reusu= model("LallamaradaRegistro");
 		$varPostR = filter_input_array(INPUT_POST);
-		
+		$session= new manejaSession();		
 			/*Se Obtiene los datos del contenido en la seccion*/
 		
 		if($varPostR['rrs']=='fb'){
@@ -276,8 +318,24 @@ class Contenido {
 		$traeUsu=$reusu->getData($confPer);
 		$idUsuario=$traeUsu[0]['id'];
 		if($idUsuario!=''){
-			$encri=MyQuerys::encriptado($idUsuario,'!Y0uth$h4StCryPt');
-			setcookie("youth_usu", base64_encode($encri),time()+1200, "/");
+			
+
+			/*Creación de sessión*/
+					
+					$host=$_SERVER['SERVER_NAME'];
+					$dato=$idUsuario."~".$host.'~'.$user.'~9145';
+					//debug(1);
+					$creaSession=$session->write($idUsuario,$dato,$host);
+
+					$createCookie=$session->start_session('youth_usu',true);
+					/*Se crea cookie de usuario*/
+	   				setcookie('youth_usu', $creaSession, time() + 1200, '/', $secure, $httponly);
+
+	   				/*Cookie con id de usuario*/
+	   				$datoCookie=$session->encryptS($idUsuario,$protected);
+	   				//printVar($datoCookie);
+	   				setcookie('youth_fr',$datoCookie, time() + 1200, '/', $secure, $httponly);
+				//printVar($_COOKIE);
 			//printVar($this->idSession);
 			
 			/*UrlAnt*/
@@ -323,11 +381,13 @@ class Contenido {
 	}
 	/*Ciudades*/
 	function ciudad(){
+		//debug(1);
 		$varPostC = filter_input_array(INPUT_POST);
 		$idDepto =$varPostC['idDepto'];
+		//printVar($idDepto);
 		$ciudad =model('LallamaradaCiudad');
 		$traeCiudad=array(
-					"conditions" => 'idDepto = '.$idDepto,
+					"conditions" => array('idDepto'=>$idDepto),
 					'fields' => array('id','nombre')
 					);
 		$ciudades=$ciudad->getData($traeCiudad);
@@ -408,7 +468,7 @@ class Contenido {
 		//debug(1);
 		$reusuae= model("LallamaradaRegistro");
 		$condC=array(
-			"conditions" => 'numeroDocumento = '.'"'.$docu.'"',
+			"conditions" => array('numeroDocumento'=>$docu),
 			'fields' => array('id')
 			);
 		$exiteC=$reusuae->getData($condC);
@@ -425,55 +485,127 @@ class Contenido {
 		//debug(3);youth_urlAnt
 		$varPostL=filter_input_array(INPUT_POST);
 		$reusuae= model("LallamaradaRegistro");
+		$tmplo= model("LallamaradaIntentologgin");
+		$blockUsu= model("LallamaradaBloqueoUsuario");
+		$session= new manejaSession();
 		//printVar($varPostL);
-		$user=$varPostL['usuario'];
-		$pass=$varPostL['pass'];
+		$user=$varPostL['loginUsuario'];
+		$pass=$varPostL['loginElingreso'];
 		$passw=base64_encode($pass);
+		$passw=base64_encode($passw);
 		//printVar($passw);
+		$userBlock=MyQuerys::userBlock($user);
+		$fechaNow=date('Y-m-d H:i:s');
+
+		if($fechaNow>$userBlock){
+
+		
+
+		printVar($userBlock,'bloqk');
 		$condC=array(
 			"conditions" => 'email = '.'"'.$user.'" AND password="'.$passw.'"',
 			'fields' => array('id')
 			);
 		$log=$reusuae->getData($condC);
+		
 		//printVar($log[0]['id']);
 		if($log[0]['id']!=0){
 			$idUsuario=$log[0]['id'];
 			if($idUsuario!=''){
-				$encri=MyQuerys::encriptado($idUsuario,'!Y0uth$h4StCryPt');
-				setcookie("youth_usu", base64_encode($encri),time()+1200, "/");
-				//printVar($this->idSession);
+
+					/*Creación de sessión*/
+					
+					$host=$_SERVER['SERVER_NAME'];
+					$dato=$idUsuario."~".$host.'~'.$user.'~9145';
+					//debug(1);
+					$creaSession=$session->write($idUsuario,$dato,$host);
+
+					$createCookie=$session->start_session('youth_usu',true);
+					/*Se crea cookie de usuario*/
+	   				setcookie('youth_usu', $creaSession, time() + 1200, '/', $secure, $httponly);
+
+	   				/*Cookie con id de usuario*/
+	   				$datoCookie=$session->encryptS($idUsuario,$protected);
+	   				//printVar($datoCookie);
+	   				setcookie('youth_fr',$datoCookie, time() + 1200, '/', $secure, $httponly);
+				//printVar($_COOKIE);
 				
 				/*UrlAnt*/
 				$urlAnt=$_COOKIE['youth_urlAnt'];
 				if(isset($urlAnt) && $urlAnt!=''){
+					//printVar($urlAnte,'hao');
+					//	printVar($urlAnte);
  				  $urlAnte=base64_decode($urlAnt);
  				   //header("location:$urlAnte");
  				   //echo json_encode($urlAnte);
- 				   $mensaje='exitourl';
+ 				 /*  $mensaje='exitourl';
 					//printVar($_SESSION);
  				   $msj=array("mensaje"=>$mensaje,"url"=>$urlAnte);
-					echo json_encode($msj);
+					echo json_encode($msj);*/
+					$mensaje='Bienvenido, ingresa a tu <a href="/perfil/">perfil</a>';
+					$msjCookie=$session->encryptS($mensaje,$protected);
+					setcookie('youth_msj',$msjCookie, time() + 20, '/', $secure, $httponly);
+					header("location: $urlAnte");
  				 }else{
- 				 	$mensaje='exito';
-					//printVar($_SESSION);
-					echo json_encode($mensaje);
+ 				 	//printVar($urlAnte,'eo');
+					header('location: /perfil/');
  				 }
 			}
 		}else{
-			$mensaje='Lo sentimos, no reconocemos el nombre de usuario o la contrase&ntilde;a';
-			echo json_encode($mensaje);
+			
 			/*Acá va la valdiacón de intentos*/
+			$cuentaUsu=MyQuerys::cuentaIntentos($user);
+			$conteoAttemps=count($cuentaUsu);
+			//printVar($conteoAttemps,'conteo');
+			//printVar($cuentaUsu);
+			if($conteoAttemps<3){
+				$ipAccesso=MyQuerys::getRealIP();
+				//printVar($ipAccesso);
+				//printVar($user);
+				$tmplo->usuario=$user;
+				$tmplo->ip=$ipAccesso;
+				$tmplo->fecha=date('Y-m-d H:i:s');
+				$guardaip=$tmplo->setInstancia();
+				$mensaje='Lo sentimos, no reconocemos el nombre de usuario o la contrase&ntilde;a';
+			}else{
+				$mensaje='Lo sentimos, tu usuario ha sido bloqueado';
+				$blockUsu->usuario=$user;
+				$blockUsu->fechaBloqueo=date('Y-m-d H:i:s');
+				$blockUsu->fechaDesbloqueo=date('Y-m-d H:i:s', strtotime('+3 hour'));
+				$bloqueaUsu=$blockUsu->setInstancia();
+
+			}
+			
+			$msjCookie=$session->encryptS($mensaje,$protected);
+			setcookie('youth_msj',$msjCookie, time() + 20, '/', $secure, $httponly);
+			$urlAnt=$_COOKIE['youth_urlAnt'];
+			$urlAnte=base64_decode($urlAnt);
+			//printVar($urlAnte,'hola');
+			header("location: $urlAnte");
+		}
+
+		/*El if*/
+		}else{
+			$mensaje='Lo sentimos, tu usuario ha sido bloqueado';
+			$msjCookie=$session->encryptS($mensaje,$protected);
+			setcookie('youth_msj',$msjCookie, time() + 20, '/', $secure, $httponly);
+			$urlAnt=$_COOKIE['youth_urlAnt'];
+			$urlAnte=base64_decode($urlAnt);
+			header("location: $urlAnte");
 		}
 
 	}
 	function cerrarSession(){
+		$session= new manejaSession();
+		$usuario=$session->decryptS($_COOKIE['youth_fr'],$protected);
+		$destruye=$session->destroy($usuario);
 		foreach ($_COOKIE as $key => $value) {
     		unset($value);
     		//var_dump($key);
     		$_COOKIE[$key]="";
     		setcookie($key, null, time() - 3600,'/');
 		}
-		header('location: /#logout');
+		header('location: /');
 
 	}
 
@@ -785,5 +917,11 @@ class Contenido {
 		}else{
 			header('location: https://www.jovenesnestle.com.co/');
 		}
+	}
+
+
+	function testeo(){
+		$user="cristian.tangarife@brm.com.co";
+		
 	}
 }

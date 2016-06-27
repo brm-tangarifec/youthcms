@@ -343,7 +343,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.goog
             <!--Botón registro con Google+-->
             <button type="button" class="btn btn-g" id="btn-g"><i class="icon icon-g"></i> <span>Conéctate con google +</span></button>
             <!--/-Botón registro con Google+-->
-            <form id="login" method="">
+            <form id="login" method="POST" action="/loginUser/">
               <!--Usuario-->
               <div class="form-group">
                 <label for="loginUsuario">Usuario:</label>
@@ -352,7 +352,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.goog
               <!--Contraseña-->
               <div class="form-group">
                 <label for="loginPassword">Contraseña: </label>
-                <input type="password" id="loginPassword" name="loginPassword" class="form-control">
+                <input type="password" id="loginElingreso" name="loginElingreso" class="form-control">
               </div>
               <input type="hidden" class="form-control" value="" id="idRs" name="idRs">
               <!--Recordarme-->
@@ -361,7 +361,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.goog
                 <label for="recordar">Recordar mi cuenta
                 </label>
               </div> -->
-              <button id="login-submit" type="button" class="btn btn-login amarillo">Ingresar</button>
+              <button id="login-submit" type="submit" class="btn btn-login amarillo">Ingresar</button>
               <p>
                 Eres nuevo, <a href="/registro/">regístrate</a>
                 
@@ -406,7 +406,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.goog
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-5 col-md-offset-5 col-sm-offset-5">
           <p class="user-tools">
            <a href="/perfil/">Ver perfil</a><br />
-            <a href="#" class="logout">Cerrar Sesión</a>
+            <a href="/logout/" class="logout">Cerrar Sesión</a>
           </p>
           
         </div>

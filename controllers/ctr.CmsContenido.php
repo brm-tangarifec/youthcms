@@ -21,8 +21,17 @@ class CmsContenido {
 			$varPost = filter_input_array(INPUT_POST);	
 			$newContenido= model('LallamaradaContenido');
 			$newSeccion= model('LallamaradaSeccionXContenido');
-			$newContenido->titulo=trim(ltrim(rtrim(utf8_decode(base64_decode($varPost['tituloCont'])))));
-			$newContenido->contenido=trim(ltrim(rtrim(utf8_decode(base64_decode($varPost['contenidoTexto'])))));
+
+			$tituloCont=trim(ltrim(rtrim(base64_decode($varPost['tituloCont']))));
+			$contentEdit=trim(ltrim(rtrim(base64_decode($varPost['contenidoTexto']))));
+
+			$tituloContC=MyQuerys::limpiaContent($tituloCont);
+			$contentEditC=MyQuerys::limpiaContent($contentEdit);
+
+			//die();
+			
+			$newContenido->titulo=$tituloContC;
+			$newContenido->contenido=$contentEditC;
 			$newContenido->visible=$varPost['visible'];
 			
 			$newContenido->fechaInicio=$varPost['fechaInicio'];
@@ -101,6 +110,7 @@ class CmsContenido {
 		$newSeccion= model('LallamaradaSeccionXContenido');
 		/*Recibe datos de multimedia*/
 		$varUrl = filter_input_array(INPUT_POST);
+
 		/*Guardar tipo multimedia*/
 		$newTipoM->tipo=$varUrl['tipo'];
 		$newTipoM->fecha=date('Y-m-d H:m:s');
@@ -108,6 +118,7 @@ class CmsContenido {
 		$guardaMultimedia=$newTipoM->setInstancia();
 
 		/*Guarda url de la multimedia*/
+		/*Revisar desde acá*/
 		$generados=array();
 		$posicionesGeneradas=array();
 		$guardaUlrid=array();
@@ -130,14 +141,16 @@ class CmsContenido {
 			
 			//$tipoMulti=$varUrl['tipo'];
 			printVar($descripcionesGeneradas);
-			   	for ($i=0; $i <count($generados) ; $i++) {
+			$mayor=count($descripcionesGeneradas);
+			if($mayor>1){
+				for ($i=0; $i <count($generados) ; $i++) {
 			   		
 					printVar($generados);
 					printVar($descripcionesGeneradas);
 
 			   			$newUrl->url=$generados[$i];
 			   			$newUrl->orden=$posicionesGeneradas[$i];
-			   			$newUrl->descripcion=trim(ltrim(rtrim(htmlspecialchars_decode($descripcionesGeneradas[$i]))));
+			   			$newUrl->descripcion=trim(ltrim(rtrim(MyQuerys::limpiaContent($descripcionesGeneradas[$i]))));
 			   			//$newUrl->descripcion=htmlspecialchars_decode(base64_decode($descripcionesGeneradas[$i]));
 			   			//$newUrl->descripcion=trim(ltrim(rtrim(base64_decode(html_entity_decode(htmlspecialchars_decode($descripcionesGeneradas[$i]))))));
 						//$newUrl->fechaInicio=$varPost['fechaInicio'];
@@ -180,10 +193,31 @@ class CmsContenido {
 			   		
 
 			   }
+			}else{
+				printVar($generados);
+					printVar($descripcionesGeneradas);
+
+			   			$newUrl->url=$generados;
+			   			$newUrl->orden=$posicionesGeneradas;
+			   			$newUrl->descripcion=trim(ltrim(rtrim(MyQuerys::limpiaContent($descripcionesGeneradas))));
+			   			//$newUrl->descripcion=htmlspecialchars_decode(base64_decode($descripcionesGeneradas));
+			   			//$newUrl->descripcion=trim(ltrim(rtrim(base64_decode(html_entity_decode(htmlspecialchars_decode($descripcionesGeneradas))))));
+						//$newUrl->fechaInicio=$varPost['fechaInicio'];
+						//$newUrl->fechaFin=$varPost['fechaFin'];
+						$newUrl->fecha=date('Y-m-d H:m:s');
+						$newUrl->fechaActualizacion=date('Y-m-d H:m:s');
+						if($generados!=NULL || $generados!=''){
+						$guardaUrl=$newUrl->setInstancia();
+						}else{
+			   			echo "No hay datos";
+			   			}
+						array_push($guardaUlrid,$guardaUrl);
+			}
+			   
 		}else{
 		$newUrl->url=$generados;
 		$newUrl->orden=$posicionesGeneradas;
-		$newUrl->descripcion=htmlspecialchars_decode(base64_decode($descripcionesGeneradas));
+		$newUrl->descripcion=trim(ltrim(rtrim(base64_decode(MyQuerys::limpiaContent($descripcionesGeneradas)))));
 		$newUrl->fecha=date('Y-m-d H:m:s');
 		$newUrl->fechaActualizacion=date('Y-m-d H:m:s');
 		$guardaUrl=$newUrl->setInstancia();

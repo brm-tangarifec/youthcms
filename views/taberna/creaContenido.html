@@ -5,27 +5,18 @@
                                 <div class="panel-body table-responsive CreaContenido">
                                     <p>Para crear contenido se debe dar click sobre lo que se desea agregar</p>
                                     <div class="box-tools m-b-15">
-                                        <div class="input-group">
-                                            <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
-                                            <div class="input-group-btn">
-                                                <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
-
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                     <form name="agregaContenido" id="agregaContenido" method="POST">
                                     <div class="row">
                                         <h2>Creación de Contenido</h2>
                                         <label for="titulo">Titulo</label>
                                         <div class="col-md-12 contenidoEditable titulo-contenido">
-                                            <input type="text" name="titulo" id="titulo" value="" class="form-control"/>
+                                            <input type="text" name="titulo" id="titulo" value="" class="form-control" placeholder="Titulo"/>
                                         </div>
                                         <!--Contenido editable-->
                                         <div class="clear"></div>
-                                        <div class="col-md-8 contenidoEditable contenido-texto">
-                                            <textarea class="form-control" id="contenidoNew" name="contenidoNew" style="width: 733px !important;"></textarea>
-                                         </div>
-                                         <div class="col-md-4">
+                                         <div class="col-md-12">
                                             <span>Visible</span>
                                             <label for="visble">Si</label>
                                             <input type="radio" name="visible" id="visible" value="S" class='limpiar' >
@@ -42,6 +33,16 @@
                                                 <option value="6">6</option>
                                             </select>
                                          </div>
+                                        <div class="clear"></div>
+                                         <div id="myNicPanel" style="width: 734px; display:none;"></div>
+                                         <div class="col-md-8 contenidoEditable contenido-texto" id="contenido-editado" contenteditable="true">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut mi leo, blandit eget quam ac, faucibus consequat quam. Praesent ut ligula vel nibh dignissim iaculis. Vivamus fermentum ipsum sed nulla auctor cursus et ac arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac pharetra diam, quis dictum leo. Aenean vehicula eget lectus ut maximus. Proin accumsan consequat felis eget tempor. Etiam auctor eros vitae massa ullamcorper, eu commodo diam consectetur. Maecenas viverra magna ac ullamcorper dignissim. Nulla interdum a nibh in gravida. Maecenas rhoncus lectus ex, ac dapibus quam ornare id. Integer at dui condimentum, sagittis nunc non, mollis odio. Donec id velit rutrum, commodo velit et, blandit mauris. Vestibulum sodales velit vitae dolor suscipit lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+                                            <p>Integer vitae luctus urna, nec dictum leo. Nullam non massa purus. Donec in accumsan ligula. Vivamus tempor vestibulum lorem. Cras purus nibh, iaculis non tortor at, congue tristique risus. Fusce feugiat massa ut vestibulum tincidunt. Maecenas quam erat, convallis non mauris et, molestie porttitor nisl. Morbi sollicitudin lorem nec fringilla ullamcorper. Suspendisse accumsan commodo massa, eu dapibus mauris varius congue.</p>
+                                            <p>Suspendisse ut ipsum risus. Nam sit amet iaculis lectus. Vestibulum rhoncus vehicula pellentesque. In mattis dictum augue, eu luctus magna lacinia quis. Integer rhoncus leo ut ex eleifend, at tempus est aliquam. Etiam ac sapien a lacus condimentum lacinia. Aliquam non ligula elit. Donec semper eros nec nulla congue congue. Suspendisse sed justo quam. Donec egestas enim risus, vitae consequat lacus lobortis tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut porttitor lacus sapien, eget tincidunt dolor varius nec. Mauris mattis dolor velit. Nulla sem lectus, luctus eget vulputate ac, fringilla eget nulla. In scelerisque orci non sollicitudin egestas.</p>
+                                            <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec vitae lacinia lacus. Praesent ultrices mollis nulla at euismod. Suspendisse id auctor orci, quis sollicitudin ipsum. Donec congue molestie enim, ac consequat nunc feugiat eu. Sed in odio arcu. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse potenti. Praesent posuere nibh nec commodo pharetra. Aenean aliquam ut purus eu ultrices. Sed vitae ornare est. Sed quis diam pellentesque velit ultrices imperdiet ut nec urna. Morbi dapibus nunc ut lorem venenatis tincidunt.</p>
+                                            <p>In non purus et odio egestas interdum. Maecenas lectus tortor, varius vel tellus id, cursus elementum justo. Etiam convallis, justo ut posuere luctus, odio magna semper libero, ut eleifend elit erat non urna. Donec quam libero, dictum id efficitur in, condimentum non neque. Pellentesque a lacinia leo. In fermentum est non dictum cursus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec egestas justo quis libero porttitor porttitor. In pharetra mattis interdum. Etiam dignissim bibendum urna, in laoreet sapien dignissim et. Sed ante turpis, luctus a ligula nec, mattis eleifend quam. Etiam commodo vulputate erat. Etiam at rutrum dolor. Nulla tincidunt ante et lobortis gravida. Praesent tempor mauris a ligula lacinia eleifend. Integer finibus quam quis dolor scelerisque, vitae commodo sem condimentum.</p>
+                                         </div>
+                                        
                                          <div class="col-md-6">
                                             <label for="fechaInicio">Fecha Inicio</label>
                                            <input type="date" name="fechaIni" id="fechaIni" value="" class='limpiar'/>
@@ -53,6 +54,7 @@
                                          </div>
                                         <!--Contenido editable-->
                                     </div>
+                                      <button class="azul-oscuro  btn btn-submit creaContenido">Guardar</button>
                                  </form>
                                 </div><!-- /.box-body -->
 </div>

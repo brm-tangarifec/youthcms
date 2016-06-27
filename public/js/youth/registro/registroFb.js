@@ -63,7 +63,7 @@ window.fbAsyncInit = function() {
         });
       };
 
-      var facebookLogin = function () {
+      function facebookLogin() {
         checkLoginState(function (data) {
             FB.login(function (response) {
              token = response.authResponse.accessToken;
@@ -172,7 +172,7 @@ jQuery(document).ready(function(){
     /*validacion de formulario de fiesta*/
   $("#login").validate({
 
-         debug: true,
+         debug: false,
 
         /*Contenedor y clase donde se pinta el error*/
         errorElement: "div",
@@ -210,12 +210,12 @@ jQuery(document).ready(function(){
 
   });
 });
-jQuery(document).on('click','.logout',function(){
+/*jQuery(document).on('click','.logout',function(){
   logout();
   signOut();
   setTimeout(function(){ window.location='/logout/'; }, 3000);
   
-});
+});*/
 /*Funcion de login*/
 function loginProf(idP) {
 
@@ -273,8 +273,9 @@ jQuery(document).on('change','#departamento',function(){
             jQuery('#ciudad').html(ciudades);
             jQuery("#ciudad").removeAttr("disabled");
         
+      },error: function(result) {
+          window.location.href='/404/';
       }
-
     });
 });
 
@@ -284,8 +285,9 @@ jQuery(document).on('click','#login-submit',function(){
 
   if(jQuery('#login').valid()){
     //console.log('valido');
-    var user=jQuery('#loginUsuario').val();
-    var pass=jQuery('#loginPassword').val();
+    jQuery('#login').submit();
+   /* var user=jQuery('#loginUsuario').val();
+    var pass=jQuery('#loginElingreso').val();
     var urlL='/loginUser/';
     jQuery.ajax({
       url: urlL,
@@ -311,12 +313,13 @@ jQuery(document).on('click','#login-submit',function(){
   }else{
      //console.log('no valido');
     return false
-  }
+  }*/
+}
 });
-jQuery(document).on('change','#password',function(){
+jQuery(document).on('change','#elingreso',function(){
 
 
-    jQuery("#password").each(function () {
+    jQuery("#elingreso").each(function () {
         var validated =  true;
         if(this.value.length < 8){
           console.log('menor');
@@ -487,16 +490,16 @@ var Base64 = {
     
     
     
-var input = document.getElementById('confirmPass');
 
-jQuery(document).on('blur','#confirmPass',function(){
+
+/*jQuery(document).on('blur','#confirmPass',function(){
   var codi=Base64.encode(input.value);
   //console.log(codi);
-  jQuery('#password').val(codi);
+  jQuery('#elingreso').val(codi);
   jQuery('#confirmPass').val(codi);
-});
+});*/
 
-jQuery(document).on('focus','#password',function(){
+jQuery(document).on('focus','#elingreso',function(){
 
   jQuery('.mensajes-pass p').remove('p')
 });

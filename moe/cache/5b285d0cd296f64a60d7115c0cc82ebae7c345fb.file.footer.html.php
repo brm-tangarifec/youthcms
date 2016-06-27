@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-06-09 11:47:17
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-06-27 10:26:43
          compiled from "..\views\base\footer.html" */ ?>
 <?php /*%%SmartyHeaderCode:1697256e32011ef0f19-45428600%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5b285d0cd296f64a60d7115c0cc82ebae7c345fb' => 
     array (
       0 => '..\\views\\base\\footer.html',
-      1 => 1465488537,
+      1 => 1466552546,
       2 => 'file',
     ),
   ),
@@ -40,31 +40,31 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   <!--/-Footer-->
   <!--Scripts-->
   <?php echo '<script'; ?>
- src="/js/libs/jquery.js?1232123"><?php echo '</script'; ?>
+ src="/js/libs/jquery.js?231231"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
- src="/js/libs/bootstrap.min.js?1232123"><?php echo '</script'; ?>
+ src="/js/libs/bootstrap.min.js?231231"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
- src="/js/jquery.cookie.js?1232123"><?php echo '</script'; ?>
+ src="/js/jquery.cookie.js?231231"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
  src="/js/youth.ini.js?1232125"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
- src="/js/libs/jquery.validate.js?1232123"><?php echo '</script'; ?>
+ src="/js/libs/jquery.validate.js?231231"><?php echo '</script'; ?>
 >
    <?php echo '<script'; ?>
- src="/js/libs/additional-methods.js?1232123"><?php echo '</script'; ?>
+ src="/js/libs/additional-methods.js?231231"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
- src="/js/libs/jquery.bxslider.min.js?1232123"><?php echo '</script'; ?>
+ src="/js/libs/jquery.bxslider.min.js?231231"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
- src="/js/youth/youthfunciones.js?123456"><?php echo '</script'; ?>
+ src="/js/youth/youthfunciones.js?132123"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
- src="/js/youth/registro/registroFb.js?231564"><?php echo '</script'; ?>
+ src="/js/youth/registro/registroFb.js?2123"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
  src='https://www.google.com/recaptcha/api.js'><?php echo '</script'; ?>

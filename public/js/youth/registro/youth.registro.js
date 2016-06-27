@@ -25,10 +25,10 @@ $(document).ready(function () {
 	           nacimiento:          {required: true, date: true},  
 	           departamento:       {required: true},
 	           ciudad:       {required: true},
-	           password:       {required: true},
-	           confirmPass:{
+	           elingreso:       {required: true},
+	           confirmelingreso:{
 	           	required: true,
-	           	equalTo : '#password',
+	           	equalTo : '#elingreso',
 	           },
 	           terminos:        {required: true} 
 	           },
@@ -47,8 +47,8 @@ $(document).ready(function () {
 	      nacimiento:  {required: "Indíca una fecha de nacimiento", date: "no es un formato de fecha válido" },
 	      departamento:      {required: "debes seleccionar el departamento"},
 	      ciudad:      {required: "debes seleccionar la ciudad"},
-	      password:      {required: "Campo contraseña requerido"},
-	      confirmPass:      {required: "Por favor confirme su contraseña",equalTo:'Las contraseñas no coinciden'},
+	      elingreso:      {required: "Campo contraseña requerido"},
+	      confirmelingreso:      {required: "Por favor confirme su contraseña",equalTo:'Las contraseñas no coinciden'},
 	      terminos:         {required: "Debes aceptar los términos y condiciones"}
 	     
 
@@ -84,6 +84,13 @@ $(document).ready(function () {
 		//console.log('hola, me dieron click');
 
 	    /*Valida captcha*/
+	    /*Codifica contraeña*/
+	    var input = document.getElementById('confirmelingreso');
+	     var codi=Base64.encode(input.value);
+ 			console.log(codi);
+ 			jQuery('#elingreso').val(codi);
+ 			jQuery('#confirmelingreso').val(codi);
+	    /*Codifica cotnraseña*/
 	    var recaptchaResponse = grecaptcha.getResponse();
 
 		jQuery.ajax({
@@ -124,8 +131,8 @@ $(document).ready(function () {
 	    				generoJ=jQuery('#genero').val(),
 	    				documentoJ=jQuery('#documento').val(),
 	    				nacimientoJ=jQuery('#nacimiento').val(),
-	    				passwordJ=jQuery('#password').val(),
-	    				confirmPassJ=jQuery('#confirmPass').val(),
+	    				passwordJ=jQuery('#elingreso').val(),
+	    				confirmPassJ=jQuery('#confirmelingreso').val(),
 	    				terminosJ=jQuery('#terminos').val();
 	    				
 	    			jQuery.ajax({
@@ -152,10 +159,12 @@ $(document).ready(function () {
     						terminos: terminosJ
 						},
 						success: function (data){
-							console.log(data);
+							//console.log(data);
 							 //window.location= "/perfil/#exitoso";
 							 //jQuery('.mensaje-reg-exitoso').html(data);
-							
+							 
+							 jQuery('.mensaje-reg-exitoso').html(data);
+							 window.location= "/perfil/#exitoso";
 						}, 
 						error: function(result) {
            	        	 jQuery('.mensaje-reg-exitoso').html(result);

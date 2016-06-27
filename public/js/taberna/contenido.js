@@ -4,16 +4,16 @@ jQuery.fn.hasAttr = function(name) {
 };
 jQuery(document).ready(function(){
 
-jQuery(document).on('click','.ui-icon-save',function(){
+jQuery(document).on('click','.creaContenido',function(){
 		$.base64.utf8encode = true;
 		//console.log('hola, soy un click');
-		var tituloContT= jQuery('.titulo-contenido').html();
-		var contenidohtml= jQuery('.contenido-texto').html();
+		var tituloContT= jQuery('#titulo').val();
+		var contenidohtml= jQuery('#contenido-editado').html();
 		var tituloCont=$.base64.btoa(tituloContT);
 		var contenidoTexto=$.base64.btoa(contenidohtml);
 		var fechaInicio= jQuery('#fechaIni').val();
 		var fechaFin= jQuery('#fechaFin').val();
-		var visible= jQuery('#visible').val();
+		var visible= jQuery('#visible:checked').val();
 		var posicion= jQuery('#posicion').val();
 		var idSeccion = jQuery('#idSeccion').val();
 		var url="/youth/grdContenido/";
