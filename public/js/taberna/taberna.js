@@ -81,3 +81,59 @@ jQuery(document).on('click','.glyphicon-list-alt',function(){
 
 		formCont.submit();
 });
+
+/*Editar sección*/
+
+jQuery(document).on('click','#editaS',function(){
+	//console.log(jQuery('#descSeo').text());
+	var idSeccion=jQuery(this).attr('data-seccion'),
+	nobmreS=jQuery('#nombSec').val(),
+	idPadre=jQuery('#padre').val(),
+	visible=jQuery('input[type="radio"]:checked').val(),
+	msacraUrl=jQuery('#mascUrl').val(),
+	titleSeo=jQuery('#titleSeo').val(),
+	descSeo=jQuery('#descSeo').val(),
+	fechaInicio=jQuery('#fechaIni').val(),
+	fechaFin=jQuery('#fechaFin').val();
+	//console.log(idSeccion);
+	var urlSE="/youth/editaSeccion/";
+
+	console.log(idPadre);
+	if(idPadre==undefined){
+		idPadre==0;
+	}
+
+	jQuery.ajax({
+		url : urlSE,
+		type : 'POST',
+		data : {
+			'idSeccion':idSeccion,
+			'nobmreS':nobmreS,
+			'idPadre':idPadre,
+			'visible':visible,
+			'msacraUrl':msacraUrl,
+			'titleSeo':titleSeo,
+			'descSeo':descSeo,
+			'fechaInicio':fechaInicio,
+			'fechaFin':fechaFin
+		},
+		//datatype : "json",
+		async : true,
+		success : function(data) {
+			//console.log(data);
+			if(data==1){
+				window.location.reload();
+			}
+		}
+	});
+	return false;
+});
+
+	/*Editar Multimedia*/
+jQuery(document).on('click','.glyphicon-edit',function(){
+	var seccionAc=jQuery(this).data('seccion');
+	//console.log(seccionAc);
+	var urlC="/youth/editMultimedia/";
+	var formCont=jQuery('#listaSeccion-'+seccionAc).attr('action',urlC);
+	formCont.submit();
+});

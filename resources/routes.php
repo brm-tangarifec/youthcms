@@ -79,13 +79,16 @@ $rutaArray['youth/admSecciones/'] = "CmsSeccion@listaSecciones";
 $rutaArray['youth/admEditSecciones/'] = "CmsSeccion@editaSecciones";
 $rutaArray['youth/agrSecciones/'] = "CmsSeccion@agregarSeccion";
 $rutaArray['youth/grdSecciones/'] = "CmsSeccion@grdSeccion";
+$rutaArray['youth/editaSeccion/'] = "CmsSeccion@editSeccion";
 $rutaArray['youth/agrContenido/'] = "CmsContenido@creaContenido";
 $rutaArray['youth/adtContenido/'] = "CmsContenido@editContenido";
 $rutaArray['youth/updContenido/'] = "CmsContenido@eupdContenido";
 $rutaArray['youth/grdContenido/'] = "CmsContenido@grdContenido";
 $rutaArray['youth/agrMultimedia/'] = "CmsContenido@creaMultimedia";
 $rutaArray['youth/grdMultmedia/'] = "CmsContenido@grdMultmedia";
+$rutaArray['youth/editMultimedia/'] = "CmsContenido@editMultimedia";
 $rutaArray['youth/listaImg/']="CmsContenido@imgInterna";
+$rutaArray['youth/editaMultimedia/']="CmsContenido@edtMultimedia";
 
 /* Urls del administrador Haspe */
 $rutaArray['youth/logUser/'] = "CmsContenido@logUser";

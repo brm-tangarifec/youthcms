@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-06-15 10:46:51
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-06-29 17:57:12
          compiled from "..\views\taberna\list.html" */ ?>
 <?php /*%%SmartyHeaderCode:24019575b43c27b23a8-39589574%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'aee6b0d4b3bd09ff787ae32ed52fee1ddd9f5ba9' => 
     array (
       0 => '..\\views\\taberna\\list.html',
-      1 => 1456374732,
+      1 => 1467241030,
       2 => 'file',
     ),
   ),
@@ -61,8 +61,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                                             <th>FECHA ACTUALIZACION</th>
                                             <th>EDITAR</th>
                                             <th>CREAR CONTENIDO</th>
-                                            <th>CREAR Multimedia</th>
+                                            <th>CREAR MULTIMEDIA</th>
                                             <th>EDITAR CONTENIDO</th>
+                                            <th>EDITAR MULTIMEDIA</th>
                                         </tr>
                                         <?php  $_smarty_tpl->tpl_vars['seccion'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['seccion']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['seccions']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -90,6 +91,8 @@ $_smarty_tpl->tpl_vars['seccion']->_loop = true;
                                                 <td><span class="glyphicon glyphicon-film" data-seccion="<?php echo $_smarty_tpl->tpl_vars['seccion']->value['id'];?>
 "></span></td>
                                                 <td><span class="glyphicon glyphicon-list-alt" data-seccion="<?php echo $_smarty_tpl->tpl_vars['seccion']->value['id'];?>
+"></span></td>
+                                                <td><span class="glyphicon glyphicon-edit" data-seccion="<?php echo $_smarty_tpl->tpl_vars['seccion']->value['id'];?>
 "></span></td>
                                                 <form name="listaSeccion-<?php echo $_smarty_tpl->tpl_vars['seccion']->value['id'];?>
 " id="listaSeccion-<?php echo $_smarty_tpl->tpl_vars['seccion']->value['id'];?>

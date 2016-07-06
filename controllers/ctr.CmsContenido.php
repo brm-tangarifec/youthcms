@@ -140,13 +140,13 @@ class CmsContenido {
 		
 			
 			//$tipoMulti=$varUrl['tipo'];
-			printVar($descripcionesGeneradas);
+			//printVar($descripcionesGeneradas);
 			$mayor=count($descripcionesGeneradas);
 			if($mayor>1){
 				for ($i=0; $i <count($generados) ; $i++) {
 			   		
-					printVar($generados);
-					printVar($descripcionesGeneradas);
+					//printVar($generados);
+					//printVar($descripcionesGeneradas);
 
 			   			$newUrl->url=$generados[$i];
 			   			$newUrl->orden=$posicionesGeneradas[$i];
@@ -194,8 +194,8 @@ class CmsContenido {
 
 			   }
 			}else{
-				printVar($generados);
-					printVar($descripcionesGeneradas);
+				//printVar($generados);
+					//printVar($descripcionesGeneradas);
 
 			   			$newUrl->url=$generados;
 			   			$newUrl->orden=$posicionesGeneradas;
@@ -536,6 +536,45 @@ class CmsContenido {
 			//$newSeccion->fecha=date('Y-m-d H:m:s');
 			$newSeccion->fechaActualizacion=date('Y-m-d H:m:s');
 			$secxcont=$newSeccion->updateInstancia($cont['idCruce']);
+	}
+
+	/*Edición de multimedia*/
+	function editMultimedia(){
+		$newTipoM= model('LallamaradaMultimedia');
+		$newUrl= model('LallamaradaUrl');
+		$newTXU= model('LallamaradaMultXUrl');
+		$newSeccion= model('LallamaradaSeccionXContenido');
+		$filtraSeccion = filter_input_array(INPUT_POST);
+		$contenido= model('LallamaradaContenido');
+			$traeImagenes=MyQuerys::listaDir();
+		
+
+		/*Trae las url por sección*/
+		$idS=$filtraSeccion['idSeccion'];
+		printVar($idS);
+		$urlXSec=array(
+			'conditions'=> 'idSeccion='.$idS,
+			'fields'=> array('idSeccion,idMultXUrl,posicion')
+			);
+		$urlXS=$newSeccion->getData($urlXSec);
+		printVar($urlXS);
+		$urlMulti=array();
+		foreach ($urlXS as $key => $value) {
+			# code...
+			array_push($urlMulti,$value['idMultXUrl']);
+		}
+			printVar($urlMulti,'el array');
+
+		$multimedias = implode(",", $urlMulti);
+
+		$traeUrl=array(
+			'conditions'=>'idMultimedia IN ('.$multimedias.')',
+			'fields'=>array('idMultimedia,idUrl')
+			);
+		$idurls=$newTXU->getData($traeUrl);
+		printVar($idurls,'idsUr');
+
+		
 	}
 
 }

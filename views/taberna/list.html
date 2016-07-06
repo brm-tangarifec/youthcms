@@ -34,8 +34,9 @@
                                             <th>FECHA ACTUALIZACION</th>
                                             <th>EDITAR</th>
                                             <th>CREAR CONTENIDO</th>
-                                            <th>CREAR Multimedia</th>
+                                            <th>CREAR MULTIMEDIA</th>
                                             <th>EDITAR CONTENIDO</th>
+                                            <th>EDITAR MULTIMEDIA</th>
                                         </tr>
                                         {#foreach from=$seccions item=seccion#}
                                         <tr>
@@ -50,6 +51,7 @@
                                                 <td><span class="glyphicon glyphicon-blackboard" data-seccion="{#$seccion.id#}"></span></td>
                                                 <td><span class="glyphicon glyphicon-film" data-seccion="{#$seccion.id#}"></span></td>
                                                 <td><span class="glyphicon glyphicon-list-alt" data-seccion="{#$seccion.id#}"></span></td>
+                                                <td><span class="glyphicon glyphicon-edit" data-seccion="{#$seccion.id#}"></span></td>
                                                 <form name="listaSeccion-{#$seccion.id#}" id="listaSeccion-{#$seccion.id#}" method="POST"><input type="hidden" name="idSeccion" id="idSeccion" value="{#$seccion.id#}"/></form>
                                         </tr>
                                         {#/foreach#}
