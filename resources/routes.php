@@ -95,11 +95,19 @@ $rutaArray['youth/logUser/'] = "CmsContenido@logUser";
 $rutaArray['youth/logUser/perfil/'] = "CmsContenido@perfil";
 $rutaArray['youth/logUser/perfil/add/'] = "CmsContenido@addPerfil";
 $rutaArray['youth/logUser/perfil/edit/'] = "CmsContenido@editPerfil";
+<<<<<<< HEAD
+=======
+$rutaArray['youth/logUser/perfil/edit2/'] = "CmsContenido@editPerfil2";
+>>>>>>> 341c74036615e8119323a9b14a6a42fa095d932e
 $rutaArray['youth/logUser/user/'] = "CmsContenido@user";
 $rutaArray['youth/logUser/user/add/'] = "CmsContenido@addUser";
 $rutaArray['youth/logUser/user/edit/'] = "CmsContenido@editUser";
 $rutaArray['youth/logUser/user/edit2/'] = "CmsContenido@editUser2";
+<<<<<<< HEAD
 
+=======
+$rutaArray['generate/models'] = "generate@models";
+>>>>>>> 341c74036615e8119323a9b14a6a42fa095d932e
 
  Moe::routes($rutaArray);
 /*Moe::routes(array(

@@ -79,7 +79,11 @@ class Moe
 
 		// Si en el paso anterior no hubo una ruta igual a la de la url y la url es de dos parametros, le damos valor a class y function
 		
+<<<<<<< HEAD
 			/*if($class=="" || $function==""){
+=======
+			if($class=="" || $function==""){
+>>>>>>> 341c74036615e8119323a9b14a6a42fa095d932e
 				if ($estadoClassFunction==false) {
 					$class=$urlArray[0];
 					$function=(isset($urlArray[1])) ? $urlArray[1] : "";
@@ -95,7 +99,11 @@ class Moe
 						}
 					}
 				}
+<<<<<<< HEAD
 			}*/
+=======
+			}
+>>>>>>> 341c74036615e8119323a9b14a6a42fa095d932e
 		
 		// si la class es igual a generate y la function es igual a models
 		if ($class=="generate" && $function=="models") {

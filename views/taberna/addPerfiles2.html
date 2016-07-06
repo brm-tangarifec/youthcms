@@ -1,0 +1,31 @@
+{#include  file="taberna/headerCont.html"#}
+  {#if $edita == '1'#}
+    <form action="/youth/logUser/perfil/edit2/" method="post">
+      <input type="hidden" name="idP" value="{#$id[0]['id']#}" /> <br />
+      <input type="text" name="perfil" value="{#$info['perfil']#}"/> <br />
+      <select multiple value="" id="permisos[]" name="permisos[]">
+        <option value="">-Ninguna-</option>
+          {#foreach key=key from=$permisos item=value#}
+        <option value={#$value["id"]#}>
+          {#$value["permiso"]#}
+        </option>
+          {#/foreach#}
+      </select>
+      <input type="submit" value='Entrar'>
+    </form>
+  {#else#}
+    <form action="/youth/logUser/perfil/" method="post">
+      <input type="text" name="perfil" /> <br />
+      <select multiple value="" id="permisos[]" name="permisos[]">
+        <option value="">-Ninguna-</option>
+          {#foreach key=key from=$permisos item=value#}
+        <option value={#$value["id"]#}>
+          {#$value["permiso"]#}
+        </option>
+          {#/foreach#}
+      </select>
+      <input type="submit" value='Entrar'>
+    </form>
+  {#/if#}
+      
+{#include  file="taberna/footer.html"#}

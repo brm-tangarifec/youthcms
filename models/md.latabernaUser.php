@@ -13,16 +13,22 @@ class DataObjects_LatabernaUser extends DB_DataObject
     public $__tempName = 'LatabernaUser';      // tempName
     public $id;                             // int(4) primary_key not_null
     public $username;                       // varchar(45)
+    public $email;                          // varchar(30)
     public $idPerfil;                       // varchar(45)
     public $fecha;                          // varchar(45)
+    public $nombre;                         // varchar(20)
+    public $apellido;                       // varchar(30)
 
     function table()
     {
          return array(
              'id' =>  DB_DATAOBJECT_INT + DB_DATAOBJECT_NOTNULL,
              'username' =>  DB_DATAOBJECT_STR,
+             'email' =>  DB_DATAOBJECT_STR,
              'idPerfil' =>  DB_DATAOBJECT_STR,
              'fecha' =>  DB_DATAOBJECT_STR,
+             'nombre' =>  DB_DATAOBJECT_STR,
+             'apellido' =>  DB_DATAOBJECT_STR,
          );
     }
 

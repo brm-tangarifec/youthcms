@@ -82,3 +82,26 @@ footer
 {
 	cursor:pointer;
 }
+
+li.itemAdminMenu{
+	float: left;
+	width: 5%;
+	list-style:none;
+}
+ul.contItemAdmin{
+
+	width: 85%;
+}
+
+.cont_gen{
+
+	width: 100%;
+	border-bottom: 2px solid #132530;
+}
+
+.userNameUser{
+	color: #132530;
+
+	width: 14%;
+	font-size: 16px;
+}

@@ -15,7 +15,7 @@ Moe::config(array(
 		'SERVER' => '127.0.0.1',
 		'DBNAME' => 'youth',
 		'USER' => 'root',
-		'PASSWORD' => '1nt3r4ct1v3'
+		'PASSWORD' => ''
 		)
 ));
 

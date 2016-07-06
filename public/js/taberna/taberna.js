@@ -82,6 +82,7 @@ jQuery(document).on('click','.glyphicon-list-alt',function(){
 		formCont.submit();
 });
 
+<<<<<<< HEAD
 /*Editar sección*/
 
 jQuery(document).on('click','#editaS',function(){
@@ -136,4 +137,22 @@ jQuery(document).on('click','.glyphicon-edit',function(){
 	var urlC="/youth/editMultimedia/";
 	var formCont=jQuery('#listaSeccion-'+seccionAc).attr('action',urlC);
 	formCont.submit();
+=======
+/*Editar Usuarios*/
+	jQuery(document).on('click','.editarUserHaspe',function(){
+		var seccionAc=jQuery(this).data('seccion');
+		console.log(seccionAc);
+		var urlC="/youth/logUser/user/edit/";
+		var formCont=jQuery('#user-'+seccionAc).attr('action',urlC);
+		formCont.submit();
+});
+
+/*Editar Perfiles*/
+	jQuery(document).on('click','.editarPerfilHaspe',function(){
+		var seccionAc=jQuery(this).data('seccion');
+		console.log(seccionAc);
+		var urlC="/youth/logUser/perfil/edit/";
+		var formCont=jQuery('#perfil-'+seccionAc).attr('action',urlC);
+		formCont.submit();
+>>>>>>> 341c74036615e8119323a9b14a6a42fa095d932e
 });

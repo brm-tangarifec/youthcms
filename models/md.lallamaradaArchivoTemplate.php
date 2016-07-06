@@ -15,7 +15,7 @@ class DataObjects_LallamaradaArchivoTemplate extends DB_DataObject
     public $idSeccion;                      // int(4)
     public $urlCss;                         // varchar(100)
     public $urlJs;                          // varchar(100)
-    public $template;                       // varchar(100)
+    public $template;                       // varchar(255)
     public $fecha;                          // datetime
     public $fechaActualizacion;             // datetime
 
